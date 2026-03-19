@@ -130,3 +130,50 @@
 ::ng-deep .mat-mdc-select-panel {
   border-radius: 12px !important;
 }
+
+/* --- NEW ICON LAYOUT STYLES --- */
+.nav-logo {
+  height: 24px;
+  width: auto;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.action-icon {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+}
+
+.action-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Ensure the popup panel has clean styles */
+::ng-deep .custom-lang-menu {
+  border-radius: 8px !important;
+  min-width: 140px !important;
+  margin-top: 5px !important;
+
+  .mat-mdc-menu-item {
+    font-family: 'Clash Display', sans-serif !important;
+    font-size: 15px !important;
+
+    &:hover {
+      background-color: rgba(0, 154, 68, 0.05) !important;
+    }
+  }
+
+  .active-lang {
+    color: #009A44 !important;
+    font-weight: 500 !important;
+  }
+}
