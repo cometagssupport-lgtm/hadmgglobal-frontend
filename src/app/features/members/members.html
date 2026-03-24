@@ -45,7 +45,7 @@
       <div *ngFor="let member of filteredMembers; let i = index" class="member-card">
         
         <div class="card-content">
-            <img [src]="'/avatar' + ((i % 9) + 1) + '.svg'" alt="avatar" class="member-avatar" onerror="this.src='/avatar1.svg'" />
+            <img [src]="'/avatar' + ((i % 9) + 1) + '.svg'" alt="avatar" class="member-avatar" />
             <div class="member-info">
                 <div class="member-name">{{ member.name || 'Arjun Sharma' }}</div>
                 <div class="member-uid">UID: {{ member.inviteCode || '53794' }} <img src="/copy.svg" alt="copy" class="copy-icon" /></div>

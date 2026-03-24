@@ -2,7 +2,6 @@ import { Component, OnInit, ChangeDetectorRef, PLATFORM_ID, Inject } from '@angu
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { title } from 'process';
 import { TranslatePipe } from '../../pipes/translate-pipe';
 @Component({
   selector: 'app-team',
@@ -12,12 +11,22 @@ import { TranslatePipe } from '../../pipes/translate-pipe';
 })
 export class Team implements OnInit {
   userName = '';
-  data: any = {};
+  data: any = {
+    totalTeams: 0,
+    totalValidMembers: 0,
+    totalPromationComission: 0,
+    firstLevelBonus: 0,
+    teamRecharge: 0,
+    teamWitdrawls: 0
+  };
   levels: any[] = [];
   isLoading = false;
   errorMessage = '';
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private router: Router, private route: ActivatedRoute,
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object, 
+    private router: Router, 
+    private route: ActivatedRoute,
     private authService: AuthService,
     private cdr: ChangeDetectorRef
   ) { }

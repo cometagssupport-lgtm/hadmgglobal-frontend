@@ -4,7 +4,7 @@
   <div class="banner">
     <div class="banner-content">
       <div class="profile-circle" (click)="openAvatar()">
-        <img [src]="user.avatar" class="user-avatar" onerror="this.onerror=null; this.src='/avatar1.svg'" />
+        <img [src]="user.avatar" class="user-avatar" (error)="user.avatar = '/avatar1.svg'" />
       </div>
       <div class="user-info">
         <h2>User Name: <span>{{ user.name }}</span></h2>
@@ -51,7 +51,7 @@
         <div class="setting-item" *ngFor="let setting of settings" (click)="onSetting(setting.label)">
           <div class="setting-left">
             <div class="ico-box">
-              <img [src]="setting.icon" alt="icon" onerror="this.src='/profile-summary.svg'" />
+              <img [src]="setting.icon" alt="icon" (error)="setting.icon = '/profile-summary.svg'" />
             </div>
             <p>{{ setting.label | translate }}</p>
           </div>
