@@ -2,10 +2,31 @@
   height: 62px;
   display: flex;
   justify-content: space-between;
-    text-align: center;
-    padding: 0px 10px;
-    background: #fff;
-    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  padding: 0px 10px;
+  background: linear-gradient(160deg, #9C0E4B 0%, #E81A66 45%, #4C0847 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  .nav-logo {
+    filter: brightness(0) invert(1);
+  }
+
+  .action-icon svg {
+    stroke: #ffffff !important;
+  }
+}
+
+.white-header {
+  background: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+
+  .nav-logo {
+    filter: none !important;
+  }
+
+  .action-icon svg {
+    stroke: #009A44 !important;
+  }
 }
 
 .logo-section {
@@ -14,6 +35,24 @@
   justify-content: space-between; // Spread items to both corners
   width: 100%; // Take full width
   gap: 0; // Remove gap since items are at opposite ends
+}
+
+.transparent-header {
+  background: transparent !important;
+  box-shadow: none !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+
+  .nav-logo {
+    filter: brightness(0) invert(1) !important;
+  }
+
+  .action-icon svg {
+    stroke: #ffffff !important;
+  }
 }
 
 .logo {

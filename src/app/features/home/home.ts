@@ -7,12 +7,12 @@ import { AuthService } from '../../services/auth.service';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { ChangeDetectorRef } from '@angular/core';
 
-import { TranslatePipe } from '../../pipes/translate-pipe';
+// import { TranslatePipe } from '../../pipes/translate-pipe';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, MatIconModule, Deposit, TranslatePipe],
+  imports: [CommonModule, MatIconModule, Deposit],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })

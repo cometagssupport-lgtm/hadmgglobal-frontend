@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -17,6 +17,8 @@ import { Language } from '../../services/language';
   styleUrl: './top-nav.scss'
 })
 export class TopNav {
+  @Input() isTransparent = false;
+  @Input() isWhite = false;
 
   langService = inject(Language);
 
