@@ -49,10 +49,10 @@
 /* 💻 Laptop Responsiveness */
 @media (min-width: 768px) {
   .layout-container {
-    max-width: 420px;
-    margin: auto;
-    border: 1px solid #eaeaea;
-    border-radius: 12px;
+    width: 100%;
+    margin: 0;
+    border: none;
+    border-radius: 0;
     overflow: hidden;
   }
 }

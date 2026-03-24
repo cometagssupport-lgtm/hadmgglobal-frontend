@@ -105,15 +105,30 @@ export class DepositOxapay implements OnInit {
   // 🔥 POLLING LOGIC (every 10 sec after 2 minutes)
   // --------------------------------------------------------------
 
+  pollingCount = 0;
+  maxPollingAttempts = 15; // Max 15 attempts (roughly 2.5 minutes of polling)
+
   startPaymentPolling() {
     const trackId = this.data.track_id;
     if (!trackId) return;
+
+    this.pollingCount = 0;
 
     // Call immediately once
     this.callPaymentStatus(trackId);
 
     // Then every 10 seconds
     this.pollingRef = setInterval(() => {
+      this.pollingCount++;
+
+      if (this.pollingCount > this.maxPollingAttempts) {
+        this.stopPaymentPolling();
+        console.warn('Payment check timed out. Stopping API polling.');
+        this.countdownText = 'Verification timed out.';
+        this.cdr.detectChanges();
+        return;
+      }
+
       this.callPaymentStatus(trackId);
     }, 10000);
   }
