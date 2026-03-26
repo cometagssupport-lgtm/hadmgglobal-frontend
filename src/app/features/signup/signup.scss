@@ -37,7 +37,7 @@
   height: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center !important; 
+  align-items: center !important;
   padding: 20px 24px;
   box-sizing: border-box;
 }
@@ -53,9 +53,10 @@
 
 .welcome-section .welcome-text {
   font-size: 34px !important;
-  font-weight: 700 !important;
+  font-weight: 600 !important;
   font-family: 'Clash Display', sans-serif !important;
   margin: 0;
+  margin-bottom: 25px;
 }
 
 .welcome-section .bnb-text {
@@ -179,12 +180,12 @@
     margin-right: 12px !important;
     flex-shrink: 0 !important;
 
-    .mdc-checkbox__native-control:enabled:not(:checked) ~ .mdc-checkbox__background {
+    .mdc-checkbox__native-control:enabled:not(:checked)~.mdc-checkbox__background {
       border-color: #009A44 !important;
       background-color: transparent !important;
     }
 
-    .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background {
+    .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background {
       border-color: #009A44 !important;
       background-color: #009A44 !important;
     }
@@ -194,7 +195,8 @@
     }
   }
 
-  .mat-mdc-checkbox-ripple, .mdc-checkbox__ripple {
+  .mat-mdc-checkbox-ripple,
+  .mdc-checkbox__ripple {
     display: none !important;
   }
 }
