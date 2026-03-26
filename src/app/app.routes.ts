@@ -46,6 +46,7 @@ export const routes: Routes = [
    { path: 'commission', component: Commision },
    { path: 'members', component: Members },
    { path: 'change-password', component: ChangePassword },
+   { path: 'smart-filters', loadComponent: () => import('./features/smart-filters/smart-filters').then(m => m.SmartFilters) },
    { path: 't&c', component: TermsAndConditions },
    { path: 'payment', component: DepositOxapay },
    { path: 'deposit', component: Deposit },

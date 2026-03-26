@@ -190,6 +190,8 @@ export class Profile implements OnInit {
       this.router.navigate(['/change-password']);
     } else if (label == 'Set Transaction Password') {
       this.router.navigate(['/set-transaction-password']);
+    } else if (label == 'Transaction History') {
+      this.router.navigate(['/history']);
     }
   }
 
