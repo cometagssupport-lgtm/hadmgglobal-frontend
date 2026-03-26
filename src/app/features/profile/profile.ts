@@ -32,7 +32,7 @@ export class Profile implements OnInit {
 
   @ViewChild('transferModal') transferModal!: Transfer;
 
-  showSupport = false;
+
   amount = 0;
 
   constructor(
@@ -164,27 +164,14 @@ export class Profile implements OnInit {
       window.open(this.telegramLinkTwo, '_blank');
     }
   }
-  openSupportPopup() {
-    this.showSupport = true;
-  }
 
-  closeSupportPopup() {
-    this.showSupport = false;
-  }
-
-  onSupport() {
-    console.log("SUPPORT");
-    if (this.telegramLinkThree) {
-      window.open(this.telegramLinkThree, '_blank');
-    }
-  }
 
   onSetting(label: string) {
     console.log('Clicked setting:', label);
     if (label == 'Terms and conditions') {
       this.router.navigate(['/t&c']);
     } else if (label == 'Help & support') {
-      this.openSupportPopup();
+      // do nothing as of now
     } else if (label == 'Change password') {
       localStorage.setItem("email", this.user.email)
       this.router.navigate(['/change-password']);

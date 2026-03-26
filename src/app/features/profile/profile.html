@@ -75,24 +75,7 @@
 </div>
 
 <!-- 🔹 Support Popup Overlay -->
-<div class="support-overlay" *ngIf="showSupport" (click)="closeSupportPopup()"></div>
 
-<div class="support-popup" *ngIf="showSupport">
-  <div class="support-header">
-    <h3>{{ 'We’re here to help' | translate }}</h3>
-    <button class="close-btn" (click)="closeSupportPopup()">×</button>
-  </div>
-  <div class="support-content">
-    <p>TowerBNB</p>
-    <p>{{ '• Sign-up and explore the Free Trial and earn 8 USDT fund.' | translate }}</p>
-    <p>{{ '• Join the group and contact your Manager or Customer Support to receive a 2 USDT joining bonus.' | translate
-      }}</p>
-    <p>{{ '• Claim a total of 10 USDT and use the funds to circulate Tower Upgrade or withdraw upon upgrading to Core 1G
-      Tower Computing.' | translate }}</p>
-    <p>{{ '• $2 bonus when activating your account with $50.' | translate }}</p>
-  </div>
-  <button class="support-btn" (click)="onSupport()">{{ 'Support' | translate }}</button>
-</div>
 
 
 
