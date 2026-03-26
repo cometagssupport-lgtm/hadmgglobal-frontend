@@ -189,6 +189,8 @@ export class Profile implements OnInit {
     } else if (label == 'Change password') {
       localStorage.setItem("email", this.user.email)
       this.router.navigate(['/change-password']);
+    } else if (label == 'Set Transaction Password') {
+      this.router.navigate(['/set-transaction-password']);
     }
   }
 

@@ -51,6 +51,7 @@ export const routes: Routes = [
    { path: 'deposit', component: Deposit },
    { path: 'success', component: Success },
    { path: 'under-maintainance', component: Maintainance },
+   { path: 'set-transaction-password', loadComponent: () => import('./features/transaction-password/transaction-password').then(m => m.TransactionPassword) },
 {
     path: '',
     component: Layout,
