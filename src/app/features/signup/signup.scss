@@ -564,18 +564,52 @@ form {
 }
 
 .remember-checkbox {
+  margin: 0 !important;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+
   ::ng-deep {
-    .mdc-checkbox__surface {
-      border-color: #009A44 !important;
-      border-width: 2px !important;
+    /* 1. Reset standard Material wrapper padding */
+    .mdc-form-field {
+      padding: 0 !important;
+      margin: 0 !important;
     }
 
+    /* 2. Base checkbox container size */
+    .mdc-checkbox {
+      width: 18px !important;
+      height: 18px !important;
+      padding: 0 !important;
+      margin-right: 10px !important;
+    }
+
+    /* 3. Correct position of background box */
     .mdc-checkbox__background {
-      border-color: #009A44 !important;
+      top: 0 !important;
+      left: 0 !important;
     }
 
-    &.mdc-checkbox--checked .mdc-checkbox__checkmark {
-      color: #009A44 !important;
+    /* 2. Unchecked state */
+    .mdc-checkbox__native-control:enabled:not(:checked) ~ .mdc-checkbox__background {
+      border-color: #009A44 !important;
+      background-color: transparent !important;
+    }
+
+    /* 3. Checked state */
+    .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background {
+      border-color: #009A44 !important;
+      background-color: #009A44 !important;
+    }
+
+    /* 4. Ensure checkmark is WHITE */
+    .mdc-checkbox__checkmark {
+      color: white !important;
+    }
+
+    /* 5. Cleanup ripple */
+    .mat-mdc-checkbox-ripple, .mdc-checkbox__ripple {
+      display: none !important;
     }
   }
 }
