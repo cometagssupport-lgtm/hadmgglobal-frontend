@@ -30,6 +30,8 @@ import { WithdrawRejects } from './admin/withdraw-rejects/withdraw-rejects'
 import { UserDeposits } from './admin/user-deposits/user-deposits'
 import { TeamDetails } from './admin/team-details/team-details'
 import { MasterData } from './admin/master-data/master-data'
+import { Rewards } from './features/rewards/rewards';
+import { Quantify } from './features/quantify/quantify';
 import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
@@ -51,9 +53,9 @@ export const routes: Routes = [
         component: Layout,
         children: [
           { path: 'home', component: Home },
-          { path: 'rank', component: Position },
-          { path: 'tower', component: Game },
           { path: 'team', component: Team },
+          { path: 'quantify', component: Quantify },
+          { path: 'rewards', component: Rewards },
           { path: 'profile', component: Profile },
         ]
       },

@@ -1,0 +1,65 @@
+<div class="quantify-container">
+  <!-- 🎩 Top Banner -->
+  <header class="quantify-header">
+    <div class="header-overlay"></div>
+    <div class="header-content" fxLayout="row" fxLayoutAlign="space-between start">
+      <div class="header-text">
+        <h1 class="title">Daily Quantitative Task</h1>
+        <p class="subtitle">AI-Strategy grid trading automates strategies, executes trades in real time, and delivers consistent daily returns.</p>
+      </div>
+      <div class="header-image">
+        <img src="quantifytop.svg" alt="Quantify Banner" />
+      </div>
+    </div>
+  </header>
+
+  <!-- 📑 Tabs Section -->
+  <div class="tabs-wrapper">
+    <div class="tabs-list" fxLayout="row" fxLayoutAlign="space-between center">
+      <div 
+        *ngFor="let tab of tabs; let i = index" 
+        class="tab-item" 
+        [class.active]="selectedTabIndex === i"
+        (click)="selectTab(i)"
+      >
+        {{ tab.label }}
+      </div>
+    </div>
+  </div>
+
+  <!-- 🃏 Strategy Card -->
+  <div class="strategy-card-container">
+    <div class="strategy-image-box">
+      <img [src]="currentTab.image" alt="Strategy Card" class="tab-hero-image" />
+    </div>
+  </div>
+
+  <!-- 📘 Task Guide -->
+  <div class="task-guide-container">
+    <div class="task-guide-box">
+      <h3 class="guide-title">Task Guide:</h3>
+      <ul class="guide-list">
+        <li *ngFor="let step of taskGuide">- {{ step }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 🔔 Status Message (After Quantified) -->
+  <div *ngIf="isQuantified" class="status-msg-container">
+    <div class="status-msg-box">
+      <p>Next contribution time is <b>24 hours</b>. Start your next AGS Quantitization trade after this period.</p>
+    </div>
+  </div>
+
+  <!-- 🚀 Action Button -->
+  <div class="action-footer">
+    <button 
+      class="quantify-btn" 
+      [ngClass]="{ 'active': isButtonEnabled && !isQuantified, 'disabled': !isButtonEnabled || isQuantified }"
+      [disabled]="!isButtonEnabled || isQuantified"
+      (click)="startQuantization()"
+    >
+      {{ isQuantified ? 'Quantified' : 'Start Quantization' }}
+    </button>
+  </div>
+</div>

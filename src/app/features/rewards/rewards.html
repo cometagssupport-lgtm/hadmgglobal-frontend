@@ -1,0 +1,54 @@
+<div class="rewards-container">
+  <!-- 🎩 Header Section -->
+  <header class="rewards-header">
+    <div class="header-content">
+      <div class="header-text">
+        <h1 class="title">Ticket To Ride Bonus</h1>
+        <p class="subtitle">See your contributions.</p>
+
+        <div class="stats-box">
+          <div class="stat-item">
+            <span class="stat-label">Total Ticket</span>
+            <span class="stat-value">{{ totalTickets }}</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Total Reward Claimed</span>
+            <span class="stat-value">{{ totalRewardsClaimedAmount }} USDT</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gift-box-wrapper">
+      <img src="rewardstop.svg" alt="rewards" class="gift-box-hero" />
+    </div>
+  </header>
+
+  <!-- 🃏 Cards Section -->
+  <div class="rewards-list">
+    <div *ngFor="let reward of rewardsList" class="reward-card">
+      <div class="reward-row" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="16px">
+        <div class="reward-icon">
+          <img src="crown1.svg" alt="Reward Medal" />
+        </div>
+        <div class="reward-info" fxFlex>
+          <h2 class="reward-header">{{ reward.header }}</h2>
+          <p class="reward-paragraph" [innerHTML]="getFormattedParagraph(reward.paragraph)"></p>
+
+          <div class="progress-container">
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" [style.width]="getProgressWidth(reward)"></div>
+            </div>
+            <span class="progress-text">{{ (reward.currentInvites < 10 ? '0' + reward.currentInvites :
+                reward.currentInvites) }}/{{ (reward.requiredInvites < 10 ? '0' + reward.requiredInvites :
+                reward.requiredInvites) }}</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="claim-button" [ngClass]="{ 'valid': reward.isValid, 'claimed': reward.isClaimed }"
+        [disabled]="!reward.isValid || reward.isClaimed" (click)="claimReward(reward)">
+        {{ reward.buttonName }}
+      </button>
+    </div>
+  </div>
+</div>

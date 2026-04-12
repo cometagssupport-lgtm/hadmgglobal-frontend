@@ -1,0 +1,201 @@
+.rewards-container {
+  background-color: #F5F5F5;
+  min-height: 100vh;
+  padding-bottom: 80px; // Space for bottom nav
+  font-family: 'Clash Display', sans-serif;
+
+  .rewards-header {
+    background: url('/mainbg.svg') no-repeat center top;
+    background-size: cover;
+    padding: 60px 24px 80px;
+    color: white;
+    position: relative;
+    overflow: visible;
+
+    .header-content {
+      position: relative;
+      z-index: 10;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      opacity: 0.9;
+      margin: 0;
+      margin-bottom: 24px;
+    }
+
+    .stats-box {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 16px;
+      padding: 16px 20px;
+      backdrop-filter: blur(12px);
+      width: 140px;
+      margin-top: 15px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+      .stat-item {
+        margin-bottom: 20px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .stat-label {
+          display: block;
+          font-size: 10px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          opacity: 0.9;
+          font-weight: 500;
+        }
+
+        .stat-value {
+          display: block;
+          font-size: 20px;
+          font-weight: 700;
+          margin-top: 2px;
+        }
+      }
+    }
+
+    .gift-box-wrapper {
+      position: absolute;
+      right: -20px;
+      bottom: -10px;
+      width: 260px;
+      z-index: 5;
+      pointer-events: none;
+
+      .gift-box-hero {
+        width: 100%;
+        height: auto;
+        filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25));
+      }
+    }
+  }
+
+  .rewards-list {
+    margin-top: -20px;
+    padding: 0 16px;
+    position: relative;
+    z-index: 2;
+
+    .reward-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border: 1px solid #E0E0E0;
+
+      .reward-row {
+        margin-bottom: 16px;
+      }
+
+      .reward-icon {
+        width: 60px;
+        height: 60px;
+        background: #FFF8E1;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+
+        img {
+          width: 40px;
+          height: auto;
+        }
+      }
+
+      .reward-info {
+        .reward-header {
+          font-size: 18px;
+          font-weight: 600;
+          color: #333;
+          margin: 0;
+          margin-bottom: 8px;
+        }
+
+        .reward-paragraph {
+          font-size: 13px;
+          color: #666;
+          line-height: 1.5;
+          margin: 0;
+          margin-bottom: 12px;
+
+          ::ng-deep b {
+            color: #333;
+            font-weight: 600;
+          }
+        }
+
+        .progress-container {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          .progress-bar-bg {
+            flex: 1;
+            height: 6px;
+            background: #EEEEEE;
+            border-radius: 3px;
+            overflow: hidden;
+
+            .progress-bar-fill {
+              height: 100%;
+              background: #2E7D32; // Green
+              border-radius: 3px;
+              transition: width 0.3s ease;
+            }
+          }
+
+          .progress-text {
+            font-size: 12px;
+            color: #666;
+            font-weight: 500;
+            min-width: 40px;
+            text-align: right;
+          }
+        }
+      }
+
+      .claim-button {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: none;
+        background-color: #9E9E9E; // Grey default
+        color: white;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:disabled {
+          cursor: not-allowed;
+          opacity: 0.8;
+        }
+
+        &.valid {
+          background-color: #2E7D32; // Green
+          box-shadow: 0 4px 8px rgba(46, 125, 50, 0.2);
+        }
+
+        &.claimed {
+          background-color: #9E9E9E;
+          cursor: default;
+        }
+      }
+    }
+  }
+}
