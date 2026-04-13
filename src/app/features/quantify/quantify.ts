@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, PLATFORM_ID, Inject, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject, PLATFORM_ID, Inject, ChangeDetectorRef } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
@@ -12,7 +12,7 @@ import { FlexLayoutModule } from '@ngbracket/ngx-layout';
   templateUrl: './quantify.html',
   styleUrl: './quantify.scss'
 })
-export class Quantify implements OnInit {
+export class Quantify implements OnInit, OnDestroy {
   private authService = inject(AuthService);
   private snackBar = inject(MatSnackBar);
   private cdr = inject(ChangeDetectorRef);
@@ -22,6 +22,8 @@ export class Quantify implements OnInit {
   userBalance = 0;
   isQuantified = false;
   selectedTabIndex = 0;
+  remainingTime: string = '24:00:00';
+  private timerInterval: any;
 
   tabs = [
     {
@@ -31,7 +33,8 @@ export class Quantify implements OnInit {
       maxAmount: 0,
       image: '/AGS0.svg',
       title: 'Intern AGS 0',
-      details: ['2 Days Internship Bonus', 'Daily Income - 2%', 'Active Until - 2 Days'],
+      details: ['2 Days Internship Bonus', 'Daily Income - 2%'],
+      expiryTime: 'Active Until - 2 Days',
       isDefault: true
     },
     {
@@ -42,6 +45,7 @@ export class Quantify implements OnInit {
       image: '/AGS1.svg',
       title: 'Junior AGS 1',
       details: ['90 Days Period', 'Daily Income - 2.5%', 'Min Deposit - 30 USDT'],
+      expiryTime: 'Active Until - 2 Days',
       isDefault: false
     },
     {
@@ -52,6 +56,7 @@ export class Quantify implements OnInit {
       image: '/AGS2.svg',
       title: 'Senior AGS 2',
       details: ['90 Days Period', 'Daily Income - 3%', 'Min Deposit - 1501 USDT'],
+      expiryTime: '',
       isDefault: false
     },
     {
@@ -62,6 +67,7 @@ export class Quantify implements OnInit {
       image: '/AGS3.svg',
       title: 'Expert AGS 3',
       details: ['90 Days Period', 'Daily Income - 3.5%', 'Min Deposit - 3501 USDT'],
+      expiryTime: '',
       isDefault: false
     },
     {
@@ -72,6 +78,7 @@ export class Quantify implements OnInit {
       image: '/AGS4.svg',
       title: 'Master AGS 4',
       details: ['90 Days Period', 'Daily Income - 4%', 'Min Deposit - 6001 USDT'],
+      expiryTime: '',
       isDefault: false
     }
   ];
@@ -88,13 +95,49 @@ export class Quantify implements OnInit {
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.getUserBalance();
-      // Check if already quantified today (could be from API, but for now using local state or simulating)
+      this.startCountdown();
+
       const lastQuantified = localStorage.getItem('lastQuantifiedDate');
       const today = new Date().toDateString();
       if (lastQuantified === today) {
         this.isQuantified = true;
       }
     }
+  }
+
+  ngOnDestroy() {
+    if (this.timerInterval) {
+      clearInterval(this.timerInterval);
+    }
+  }
+
+  startCountdown() {
+    // Simulated: Reset countdown for 24 hours from "now" for demo purposes
+    // In real app, this would use a timestamp from the API
+    const endTime = new Date();
+    endTime.setHours(endTime.getHours() + 24);
+
+    this.timerInterval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = endTime.getTime() - now;
+
+      if (distance < 0) {
+        clearInterval(this.timerInterval);
+        this.remainingTime = "00:00:00";
+        return;
+      }
+
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      this.remainingTime =
+        (hours < 10 ? "0" + hours : hours) + ":" +
+        (minutes < 10 ? "0" + minutes : minutes) + ":" +
+        (seconds < 10 ? "0" + seconds : seconds);
+
+      this.cdr.detectChanges();
+    }, 1000);
   }
 
   getUserBalance() {

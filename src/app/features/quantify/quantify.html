@@ -31,6 +31,16 @@
   <div class="strategy-card-container">
     <div class="strategy-image-box">
       <img [src]="currentTab.image" alt="Strategy Card" class="tab-hero-image" />
+      
+      <!-- 📝 Text Overlay -->
+      <div class="card-text-overlay">
+        <h2 class="overlay-title">{{ currentTab.label }}</h2>
+        
+        <div class="overlay-details">
+          <p *ngFor="let detail of currentTab.details">{{ detail }}</p>
+          <p class="expiry-text">{{ currentTab.expiryTime || ('Active Until - ' + remainingTime) }}</p>
+        </div>
+      </div>
     </div>
   </div>
 
