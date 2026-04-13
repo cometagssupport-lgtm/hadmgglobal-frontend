@@ -21,6 +21,8 @@ export class Quantify implements OnInit, OnDestroy {
 
   userBalance = 0;
   isQuantified = false;
+  isQuantifying = false;
+  quantizationProgress = 0;
   selectedTabIndex = 0;
   remainingTime: string = '24:00:00';
   private timerInterval: any;
@@ -35,7 +37,8 @@ export class Quantify implements OnInit, OnDestroy {
       title: 'Intern AGS 0',
       details: ['2 Days Internship Bonus', 'Daily Income - 2%'],
       expiryTime: 'Active Until - 2 Days',
-      isDefault: true
+      isDefault: true,
+      isButtonEnable: true
     },
     {
       label: 'AGS 1',
@@ -46,7 +49,8 @@ export class Quantify implements OnInit, OnDestroy {
       title: 'Junior AGS 1',
       details: ['90 Days Period', 'Daily Income - 2.5%', 'Min Deposit - 30 USDT'],
       expiryTime: 'Active Until - 2 Days',
-      isDefault: false
+      isDefault: false,
+      isButtonEnable: false
     },
     {
       label: 'AGS 2',
@@ -57,7 +61,8 @@ export class Quantify implements OnInit, OnDestroy {
       title: 'Senior AGS 2',
       details: ['90 Days Period', 'Daily Income - 3%', 'Min Deposit - 1501 USDT'],
       expiryTime: '',
-      isDefault: false
+      isDefault: false,
+      isButtonEnable: false
     },
     {
       label: 'AGS 3',
@@ -68,7 +73,8 @@ export class Quantify implements OnInit, OnDestroy {
       title: 'Expert AGS 3',
       details: ['90 Days Period', 'Daily Income - 3.5%', 'Min Deposit - 3501 USDT'],
       expiryTime: '',
-      isDefault: false
+      isDefault: false,
+      isButtonEnable: false
     },
     {
       label: 'AGS 4',
@@ -79,7 +85,8 @@ export class Quantify implements OnInit, OnDestroy {
       title: 'Master AGS 4',
       details: ['90 Days Period', 'Daily Income - 4%', 'Min Deposit - 6001 USDT'],
       expiryTime: '',
-      isDefault: false
+      isDefault: false,
+      isButtonEnable: false
     }
   ];
 
@@ -164,14 +171,31 @@ export class Quantify implements OnInit, OnDestroy {
   }
 
   get isButtonEnabled() {
-    if (this.currentTab.isDefault) return true;
-    return this.userBalance >= this.currentTab.minAmount;
+    return this.currentTab.isButtonEnable && !this.isQuantified;
   }
 
   startQuantization() {
-    if (!this.isButtonEnabled || this.isQuantified) return;
+    if (!this.isButtonEnabled || this.isQuantified || this.isQuantifying) return;
 
-    // Simulate API call to start quantization
+    this.isQuantifying = true;
+    this.quantizationProgress = 0;
+
+    const duration = 15000; // 15 seconds
+    const intervalTime = 100; // Update every 100ms
+    const step = (intervalTime / duration) * 100;
+
+    const progressTimer = setInterval(() => {
+      this.quantizationProgress += step;
+      if (this.quantizationProgress >= 100) {
+        this.quantizationProgress = 100;
+        clearInterval(progressTimer);
+        this.completeQuantization();
+      }
+      this.cdr.detectChanges();
+    }, intervalTime);
+  }
+
+  completeQuantization() {
     const userId = localStorage.getItem('userId');
     const payload = {
       screen: 'startQuantification',
@@ -181,7 +205,9 @@ export class Quantify implements OnInit, OnDestroy {
 
     this.authService.avengers(payload).subscribe({
       next: (res) => {
+        this.isQuantifying = false;
         this.isQuantified = true;
+        this.currentTab.isButtonEnable = false; // Disable button for this tab
         localStorage.setItem('lastQuantifiedDate', new Date().toDateString());
 
         this.snackBar.open('Quantification Started Successfully!', 'Close', {
@@ -193,6 +219,7 @@ export class Quantify implements OnInit, OnDestroy {
         this.cdr.detectChanges();
       },
       error: (err) => {
+        this.isQuantifying = false;
         this.snackBar.open('Failed to start quantification. Please try again.', 'Close', {
           duration: 3000
         });

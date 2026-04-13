@@ -61,9 +61,19 @@
     </div>
   </div>
 
-  <!-- 🚀 Action Button -->
+  <!-- 🚀 Action Button / Progress Bar -->
   <div class="action-footer">
+    <!-- Progress Bar (Visible while quantifying) -->
+    <div *ngIf="isQuantifying" class="quantify-progress-container">
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" [style.width.%]="quantizationProgress"></div>
+      </div>
+      <p class="progress-label">Quantifying... {{ quantizationProgress | number:'1.0-0' }}%</p>
+    </div>
+
+    <!-- Main Button (Visible when NOT quantifying) -->
     <button 
+      *ngIf="!isQuantifying"
       class="quantify-btn" 
       [ngClass]="{ 'active': isButtonEnabled && !isQuantified, 'disabled': !isButtonEnabled || isQuantified }"
       [disabled]="!isButtonEnabled || isQuantified"
