@@ -90,38 +90,45 @@
 
     .strategy-image-box {
       width: 100%;
-      max-width: 440px;
-      position: relative; // For overlay positioning
+      max-width: 353px; // Matching the design width of the overlay
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
 
       .tab-hero-image {
-        width: 100%;
+        width: 116%;
+        margin-left: -8%;
+        margin-top: -12%;
         height: auto;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         display: block;
+        mix-blend-mode: multiply;
       }
 
       .card-text-overlay {
         position: absolute;
-        top: 65px; // Below the white tab area
-        left: 24px;
+        top: 69px; 
+        left: 0;
+        width: 100%;
+        max-width: 353px;
         color: white;
         z-index: 2;
         text-align: left;
-        padding: 10px;
+        padding: 12px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
 
         .overlay-title {
-          font-size: 32px;
+          font-size: 28px;
           font-weight: 700;
           margin: 0;
-          margin-bottom: 24px;
           letter-spacing: 0.5px;
         }
 
         .overlay-details {
           display: flex;
           flex-direction: column;
-          gap: 12px;
+          gap: 10px;
 
           p {
             font-size: 15px;
@@ -131,11 +138,6 @@
             letter-spacing: 0.2px;
           }
 
-          .expiry-text {
-            margin-top: 10px;
-            // opacity: 1;
-            // font-weight: 600;
-          }
         }
       }
     }
