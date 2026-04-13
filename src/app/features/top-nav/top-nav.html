@@ -1,6 +1,6 @@
 <div class="header" [ngClass]="{'transparent-header': isTransparent, 'white-header': isWhite}">
     <div class="logo-section">
-        <img src="/logo.svg" alt="DEEP TECHNOLOGIES" class="nav-logo" />
+        <img [src]="isWhite ? '/comlogowhite.svg' : '/comslogo.svg'" alt="Comet AGS" class="nav-logo" />
         <div class="nav-actions">
             <!-- Support Icon -->
             <a class="action-icon" routerLink="/support">
