@@ -31,14 +31,12 @@ export class Home implements OnInit, OnDestroy {
   transformStyle = 'translateX(0%)';
 
 
-  // --- Carousel images: included sample of your uploaded file for testing ---
+  // --- Carousel images: updated to slider SVGs ---
   carouselImages = [
-    '/corosule1.svg',
-    '/corosule2.svg',
-    '/corosule3.svg',
-    '/corosule4.svg',
-    '/corosule5.svg',
-    '/corosule6.svg',
+    '/slider1.svg',
+    '/slider2.svg',
+    '/slider3.svg',
+    '/slider4.svg',
   ];
 
   walletActions = [
@@ -171,7 +169,7 @@ export class Home implements OnInit, OnDestroy {
       this.ngZone.run(() => {
         this.nextSlide();
       });
-    }, 8000); // set to 3000 ms for smoother testing; change to 5000 if needed
+    }, 5000); // 5 seconds interval
   }
 
   clearCarousel() {
