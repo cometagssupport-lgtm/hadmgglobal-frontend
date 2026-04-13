@@ -45,37 +45,46 @@
   }
 
   .tabs-wrapper {
-    padding: 20px 16px;
-    overflow-x: auto;
+    background: white;
+    height: 56px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #F0F0F0;
 
     .tabs-list {
-      background: white;
-      border-radius: 8px;
-      padding: 4px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      background: transparent;
+      padding: 0;
+      box-shadow: none;
+      border-radius: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
 
       .tab-item {
         flex: 1;
         text-align: center;
-        padding: 10px 0;
-        font-size: 13px;
+        padding: 8px 0;
+        font-size: 14px;
         font-weight: 500;
-        color: #7E57C2;
+        color: #726CD9;
         cursor: pointer;
-        transition: all 0.3s ease;
-        border-radius: 6px;
+        transition: all 0.2s ease;
+        border-radius: 8px;
 
         &.active {
-          background-color: #7E57C2;
+          background-color: #726CD9;
           color: white;
+          box-shadow: 0 4px 10px rgba(114, 108, 217, 0.3);
         }
       }
     }
   }
 
   .strategy-card-container {
-    padding: 0 16px;
-    margin-bottom: 24px;
+    padding: 24px 16px;
     display: flex;
     justify-content: center;
 
