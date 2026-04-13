@@ -38,7 +38,13 @@ export class Quantify implements OnInit, OnDestroy {
       details: ['2 Days Internship Bonus', 'Daily Income - 2%'],
       expiryTime: 'Active Until - 2 Days',
       isDefault: true,
-      isButtonEnable: true
+      isButtonEnable: true,
+      taskGuide: [
+        'The advanced Comet AGS Trial Robot provides a beginner-friendly experience by simulating real-time strategy execution.',
+        'When the user starts, quantitative trading pairs are executed automatically.',
+        'Get a welcome trial bonus with an internal experience for 2 days (free access).',
+        'Daily yield income up to 2% from trial quantification.'
+      ]
     },
     {
       label: 'AGS 1',
@@ -50,7 +56,13 @@ export class Quantify implements OnInit, OnDestroy {
       details: ['90 Days Period', 'Daily Income - 2.5%', 'Min Deposit - 30 USDT'],
       expiryTime: 'Active Until - 2 Days',
       isDefault: false,
-      isButtonEnable: false
+      isButtonEnable: false,
+      taskGuide: [
+        'Junior AGS 1 robot monitors selected transaction pairs for steady growth.',
+        'Automatic execution of high-liquidity trading pairs.',
+        'Stable daily income for fixed 90-day periods.',
+        'Requires a minimum deposit of 30 USDT to activate.'
+      ]
     },
     {
       label: 'AGS 2',
@@ -59,12 +71,16 @@ export class Quantify implements OnInit, OnDestroy {
       maxAmount: 3500,
       image: '/AGS2.svg',
       title: 'Senior AGS 2',
-      details: ['90 Days Period', 'Daily Income - 3%', 'Min Deposit - 1501 USDT'],
-      expiryTime: '',
       isDefault: false,
       isButtonEnable: false,
       targetMembers: 3,
-      currentMembers: 0
+      currentMembers: 0,
+      taskGuide: [
+        'Senior AGS 2 offers advanced algorithmic monitoring for higher efficiency.',
+        'Enhanced quantitative trading patterns for consistent returns.',
+        '90 Days active period with daily income up to 3%.',
+        'Need 3 effective members to unlock this upgrade.'
+      ]
     },
     {
       label: 'AGS 3',
@@ -78,7 +94,13 @@ export class Quantify implements OnInit, OnDestroy {
       isDefault: false,
       isButtonEnable: false,
       targetMembers: 10,
-      currentMembers: 0
+      currentMembers: 0,
+      taskGuide: [
+        'Expert AGS 3 utilizes deeper learning to optimize monitoring of 100+ pairs.',
+        'Automated real-time strategy adjustments for peak performance.',
+        'Professional grade daily yields up to 3.5%.',
+        'Requires 10 effective team members for access.'
+      ]
     },
     {
       label: 'AGS 4',
@@ -92,18 +114,16 @@ export class Quantify implements OnInit, OnDestroy {
       isDefault: false,
       isButtonEnable: false,
       targetMembers: 20,
-      currentMembers: 0
+      currentMembers: 0,
+      taskGuide: [
+        'Master AGS 4 is the ultimate quantitative solution with 24/7 priority execution.',
+        'Highest possible yield tier of 4% daily.',
+        'Premium monitoring of cross-chain transaction pairs.',
+        'Exclusive access for leaders with 20+ effective members.'
+      ]
     }
   ];
 
-  taskGuide = [
-    'The advanced Comet AGS Trial Robot provides a beginner-friendly experience by simulating real-time strategy execution with limited monitoring of selected transaction pairs.',
-    'When the user starts, quantitative trading pairs are executed automatically.',
-    'Get a welcome trial bonus with an internal experience for 2 days (free access).',
-    'Daily yield income up to 2% from trial quantification.',
-    'Total income: 4 USDT during the trial period.',
-    'No minimum investment required (trial access only).'
-  ];
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
