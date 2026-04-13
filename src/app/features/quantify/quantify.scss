@@ -132,6 +132,33 @@
     }
   }
 
+  .upgrade-strip-container {
+    padding: 0 16px;
+    margin-bottom: 24px;
+
+    .upgrade-strip {
+      background: url('/mainbg.svg') no-repeat center center / cover;
+      color: white;
+      text-align: center;
+      width: 100%;
+      max-width: 353px;
+      height: 34px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 500;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      
+      b {
+        font-weight: 700;
+        margin: 0 4px;
+      }
+    }
+  }
+
   .task-guide-container {
     padding: 0 16px;
     margin-bottom: 24px;

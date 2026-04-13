@@ -44,6 +44,13 @@
     </div>
   </div>
 
+  <!-- 🎫 Upgrade Requirement Strip (AGS 2, 3, 4 only) -->
+  <div *ngIf="currentTab.targetMembers" class="upgrade-strip-container">
+    <div class="upgrade-strip">
+      Need <b>{{ currentTab.currentMembers || 0 }}/{{ currentTab.targetMembers }} effective members</b> can upgrade Access to {{ currentTab.label }}
+    </div>
+  </div>
+
   <!-- 📘 Task Guide -->
   <div class="task-guide-container">
     <div class="task-guide-box">

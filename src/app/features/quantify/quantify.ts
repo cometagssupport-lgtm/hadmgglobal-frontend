@@ -62,7 +62,9 @@ export class Quantify implements OnInit, OnDestroy {
       details: ['90 Days Period', 'Daily Income - 3%', 'Min Deposit - 1501 USDT'],
       expiryTime: '',
       isDefault: false,
-      isButtonEnable: false
+      isButtonEnable: false,
+      targetMembers: 3,
+      currentMembers: 0
     },
     {
       label: 'AGS 3',
@@ -74,7 +76,9 @@ export class Quantify implements OnInit, OnDestroy {
       details: ['90 Days Period', 'Daily Income - 3.5%', 'Min Deposit - 3501 USDT'],
       expiryTime: '',
       isDefault: false,
-      isButtonEnable: false
+      isButtonEnable: false,
+      targetMembers: 10,
+      currentMembers: 0
     },
     {
       label: 'AGS 4',
@@ -86,7 +90,9 @@ export class Quantify implements OnInit, OnDestroy {
       details: ['90 Days Period', 'Daily Income - 4%', 'Min Deposit - 6001 USDT'],
       expiryTime: '',
       isDefault: false,
-      isButtonEnable: false
+      isButtonEnable: false,
+      targetMembers: 20,
+      currentMembers: 0
     }
   ];
 
