@@ -29,7 +29,7 @@ export class Quantify implements OnInit, OnDestroy {
 
   tabs = [
     {
-      label: 'Comet AGS 0',
+      label: 'AGS 0',
       id: 'AGS0',
       minAmount: 0,
       maxAmount: 0,
@@ -47,7 +47,7 @@ export class Quantify implements OnInit, OnDestroy {
       ]
     },
     {
-      label: 'Comet AGS 1',
+      label: 'AGS 1',
       id: 'AGS1',
       minAmount: 30,
       maxAmount: 1500,
@@ -66,7 +66,7 @@ export class Quantify implements OnInit, OnDestroy {
       ]
     },
     {
-      label: 'Comet AGS 2',
+      label: 'AGS 2',
       id: 'AGS2',
       minAmount: 1501,
       maxAmount: 3500,
@@ -88,7 +88,7 @@ export class Quantify implements OnInit, OnDestroy {
       ]
     },
     {
-      label: 'Comet AGS 3',
+      label: 'AGS 3',
       id: 'AGS3',
       minAmount: 3501,
       maxAmount: 6000,
@@ -110,7 +110,7 @@ export class Quantify implements OnInit, OnDestroy {
       ]
     },
     {
-      label: 'Comet AGS 4',
+      label: 'AGS 4',
       id: 'AGS4',
       minAmount: 6001,
       maxAmount: 9000,
