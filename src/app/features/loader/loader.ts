@@ -7,7 +7,7 @@ import { Loader } from '../../services/loader';
   imports: [CommonModule],
   template: `
     <div class="loader-overlay" *ngIf="loading$ | async">
-      <div class="spinner"></div>
+      <img src="loadercoms.svg" alt="Loading..." class="brand-loader">
     </div>
   `,
   styleUrl: './loader.scss'
