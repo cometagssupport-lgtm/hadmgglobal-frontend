@@ -104,7 +104,10 @@ export class Signin implements OnInit {
       if (ADMIN_EMAILS.includes(email) && password == 'Support@#&10981234') {
         // ... (rest of the logic remains for normal admins if any)
         this.safeSetLocalStorage('email', email);
-        this.snackBar.open('Admin Login Successful!', 'Close', { duration: 3000 });
+        this.snackBar.open('Admin Login Successful!', 'Close', { 
+          duration: 3000,
+          panelClass: ['success-snackbar']
+        });
         this.router.navigate(['/admin/dashboard']);
         return;
       }

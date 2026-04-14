@@ -93,7 +93,7 @@ export class Rewards implements OnInit {
 
   getRewardsData(userId: string) {
     const payload = {
-      screen: 'rewards',
+      screen: 'taskmanager',
       userId: userId,
     };
 
