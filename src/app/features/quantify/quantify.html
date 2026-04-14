@@ -31,6 +31,23 @@
   <div class="strategy-card-container">
     <div class="strategy-image-box">
       <img [src]="currentTab.image" alt="Strategy Card" class="tab-hero-image" />
+      
+      <!-- 📝 Text Overlay -->
+      <div class="card-text-overlay">
+        <h2 class="overlay-title">{{ currentTab.label }}</h2>
+        
+        <div class="overlay-details">
+          <p *ngFor="let detail of currentTab.details">{{ detail }}</p>
+          <p class="expiry-text">{{ currentTab.expiryTime || ('Active Until - ' + remainingTime) }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🎫 Upgrade Requirement Strip (AGS 2, 3, 4 only) -->
+  <div *ngIf="currentTab.targetMembers" class="upgrade-strip-container">
+    <div class="upgrade-strip">
+      Need <b>{{ currentTab.currentMembers || 0 }}/{{ currentTab.targetMembers }} effective members</b> can upgrade Access to {{ currentTab.label }}
     </div>
   </div>
 
@@ -39,7 +56,7 @@
     <div class="task-guide-box">
       <h3 class="guide-title">Task Guide:</h3>
       <ul class="guide-list">
-        <li *ngFor="let step of taskGuide">- {{ step }}</li>
+        <li *ngFor="let step of currentTab.taskGuide">- {{ step }}</li>
       </ul>
     </div>
   </div>
@@ -51,9 +68,19 @@
     </div>
   </div>
 
-  <!-- 🚀 Action Button -->
+  <!-- 🚀 Action Button / Progress Bar -->
   <div class="action-footer">
+    <!-- Progress Bar (Visible while quantifying) -->
+    <div *ngIf="isQuantifying" class="quantify-progress-container">
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" [style.width.%]="quantizationProgress"></div>
+      </div>
+      <p class="progress-label">Quantifying... {{ quantizationProgress | number:'1.0-0' }}%</p>
+    </div>
+
+    <!-- Main Button (Visible when NOT quantifying) -->
     <button 
+      *ngIf="!isQuantifying"
       class="quantify-btn" 
       [ngClass]="{ 'active': isButtonEnabled && !isQuantified, 'disabled': !isButtonEnabled || isQuantified }"
       [disabled]="!isButtonEnabled || isQuantified"

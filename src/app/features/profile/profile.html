@@ -3,14 +3,24 @@
   <!-- 🔹 Top Banner -->
   <div class="banner">
     <div class="banner-content">
-      <div class="profile-circle" (click)="openAvatar()">
-        <img [src]="user.avatar" class="user-avatar" (error)="user.avatar = '/avatar1.svg'" />
+      <div class="banner-top-actions">
+        <a class="edit-action" (click)="openAvatar()">
+          <mat-icon class="edit-icon">edit</mat-icon> Edit
+        </a>
       </div>
-      <div class="user-info">
-        <h2>User Name: <span>{{ user.name }}</span></h2>
-        <p>Email: <span>{{ user.email }}</span></p>
-        <p>UID: 53794 <img src="/copy.svg" class="copy-icon" /></p>
-        <a class="edit-link" (click)="openAvatar()">Edit Avatar<small>></small></a>
+      <div class="user-profile-header">
+        <div class="profile-circle" (click)="openAvatar()">
+          <img [src]="user.avatar" class="user-avatar" (error)="user.avatar = '/avatar1.svg'" />
+        </div>
+        <div class="user-info">
+          <h2>User Name: <span>{{ user.name }}</span></h2>
+          <p>Email: <span>{{ user.email }}</span></p>
+          <p class="uid-row">UID: <span>{{ user.uid || '53794' }}</span> <img src="/copy.svg" class="copy-icon" /></p>
+          
+          <div class="level-badge">
+            Your Level: <span>{{ user.level || 'AGS 0' }}</span>
+          </div>
+        </div>
       </div>
     </div>
 

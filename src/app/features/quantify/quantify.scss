@@ -36,6 +36,7 @@
       right: 0;
       top: 10px;
       width: 140px;
+
       img {
         width: 100%;
         height: auto;
@@ -44,49 +45,127 @@
   }
 
   .tabs-wrapper {
-    padding: 20px 16px;
-    overflow-x: auto;
+    background: white;
+    height: 56px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #F0F0F0;
 
     .tabs-list {
-      background: white;
-      border-radius: 8px;
-      padding: 4px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      background: transparent;
+      padding: 0;
+      box-shadow: none;
+      border-radius: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
 
       .tab-item {
         flex: 1;
         text-align: center;
-        padding: 10px 0;
-        font-size: 13px;
+        padding: 8px 0;
+        font-size: 14px;
         font-weight: 500;
-        color: #7E57C2;
+        color: #726CD9;
         cursor: pointer;
-        transition: all 0.3s ease;
-        border-radius: 6px;
+        transition: all 0.2s ease;
+        border-radius: 8px;
 
         &.active {
-          background-color: #7E57C2;
+          background-color: #726CD9;
           color: white;
+          box-shadow: 0 4px 10px rgba(114, 108, 217, 0.3);
         }
       }
     }
   }
 
   .strategy-card-container {
-    padding: 0 16px;
-    margin-bottom: 24px;
+    padding: 24px 16px;
     display: flex;
     justify-content: center;
 
     .strategy-image-box {
       width: 100%;
-      max-width: 440px;
-      
+      max-width: 353px; // Matching the design width of the overlay
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+
       .tab-hero-image {
-        width: 100%;
+        width: 116%;
+        margin-left: -8%;
+        margin-top: -12%;
         height: auto;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        display: block;
+        mix-blend-mode: multiply;
+      }
+
+      .card-text-overlay {
+        position: absolute;
+        top: 69px; 
+        left: 0;
+        width: 100%;
+        max-width: 353px;
+        color: white;
+        z-index: 2;
+        text-align: left;
+        padding: 12px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .overlay-title {
+          font-size: 28px;
+          font-weight: 700;
+          margin: 0;
+          letter-spacing: 0.5px;
+        }
+
+        .overlay-details {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          p {
+            font-size: 15px;
+            font-weight: 500;
+            margin: 0;
+            opacity: 0.95;
+            letter-spacing: 0.2px;
+          }
+
+        }
+      }
+    }
+  }
+
+  .upgrade-strip-container {
+    padding: 0 16px;
+    margin-bottom: 24px;
+
+    .upgrade-strip {
+      background: url('/mainbg.svg') no-repeat center center / cover;
+      color: white;
+      text-align: center;
+      width: 100%;
+      max-width: 353px;
+      height: 34px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 500;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      
+      b {
+        font-weight: 700;
+        margin: 0 4px;
       }
     }
   }
@@ -113,11 +192,13 @@
         list-style: none;
         padding: 0;
         margin: 0;
+
         li {
           font-size: 12px;
           color: #555;
           margin-bottom: 12px;
           line-height: 1.6;
+
           &:last-child {
             margin-bottom: 0;
           }
@@ -135,7 +216,7 @@
       border: 1px solid #FFB74D;
       border-radius: 12px;
       padding: 16px;
-      
+
       p {
         font-size: 13px;
         color: #E65100;
@@ -148,21 +229,57 @@
 
   .action-footer {
     padding: 0 16px;
-    
+    display: flex;
+    justify-content: center;
+
+    .quantify-progress-container {
+      width: 100%;
+      max-width: 351px;
+      text-align: center;
+      
+      .progress-bar-bg {
+        width: 100%;
+        height: 12px;
+        background: #EEEEEE;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 10px;
+
+        .progress-bar-fill {
+          height: 100%;
+          background: #00A63E; // Matching new green
+          transition: width 0.1s linear;
+          border-radius: 10px;
+        }
+      }
+
+      .progress-label {
+        font-size: 14px;
+        font-weight: 500;
+        color: #00A63E;
+        margin: 0;
+      }
+    }
+
     .quantify-btn {
       width: 100%;
-      padding: 16px;
-      border-radius: 10px;
-      font-size: 16px;
+      max-width: 351px;
+      height: 44px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 14px;
       font-weight: 600;
       border: none;
       cursor: pointer;
       transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       &.active {
-        background-color: #00C853;
+        background-color: #00A63E;
         color: white;
-        box-shadow: 0 4px 12px rgba(0, 200, 83, 0.3);
+        box-shadow: 0 4px 12px rgba(0, 166, 62, 0.2);
       }
 
       &.disabled {

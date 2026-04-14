@@ -43,6 +43,8 @@ export class Profile implements OnInit {
   user = {
     name: 'Admin',
     email: 'admin@gmail.com',
+    uid: '53794',
+    level: 'AGS 0',
     workingWallet: 0,
     withdrawalWallet: 0,
     avatar: '/avatar1.svg' // default placeholder
