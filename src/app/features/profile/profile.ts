@@ -180,7 +180,7 @@ export class Profile implements OnInit {
     } else if (label == 'Set Transaction Password') {
       this.router.navigate(['/set-transaction-password']);
     } else if (label == 'Transaction History') {
-      // this.router.navigate(['/history']);
+      this.router.navigate(['/transactions']);
     }
   }
 

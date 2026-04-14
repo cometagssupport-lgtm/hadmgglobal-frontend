@@ -1,0 +1,55 @@
+<div class="transaction-history-container">
+  <!-- Header Section -->
+  <header class="header">
+    <div class="top-nav">
+      <img src="comlogowhite.svg" alt="Comet AGS" class="brand-logo">
+      <div class="nav-icons">
+        <i class="fa fa-headphones"></i>
+        <i class="fa fa-globe"></i>
+      </div>
+    </div>
+
+    <div class="header-content">
+      <button class="back-btn" (click)="goBack()">
+        <i class="fa fa-chevron-left"></i>
+      </button>
+      
+      <div class="text-and-image">
+        <div class="text-group">
+          <h1>Transaction History</h1>
+          <p>Monitor your withdrawals, deposits, bonuses, and income with real-time status and history.</p>
+        </div>
+        <div class="header-image">
+          <img src="transicon.svg" alt="Transaction Icon">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tabs Navigation -->
+  <nav class="tabs-nav">
+    <div class="tab-item" [class.active]="activeTab === 'withdraw'" (click)="setActiveTab('withdraw')">Withdrawals</div>
+    <div class="tab-item" [class.active]="activeTab === 'deposit'" (click)="setActiveTab('deposit')">Deposits</div>
+    <div class="tab-item" [class.active]="activeTab === 'bonus'" (click)="setActiveTab('bonus')">Bonuses</div>
+    <div class="tab-item" [class.active]="activeTab === 'income'" (click)="setActiveTab('income')">Income</div>
+  </nav>
+
+  <!-- Transactions List -->
+  <div class="transactions-list">
+    <div class="transaction-card" *ngFor="let item of filteredTransactions">
+      <div class="card-row top">
+        <span class="title">{{ item.title }}</span>
+        <span class="amount">{{ item.amount }} {{ item.currency }}</span>
+      </div>
+      <div class="card-row bottom">
+        <span class="timestamp">{{ item.timestamp }}</span>
+        <span class="status">{{ item.status }}</span>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state" *ngIf="filteredTransactions.length === 0">
+      No transactions found for {{ activeTab }}.
+    </div>
+  </div>
+</div>
