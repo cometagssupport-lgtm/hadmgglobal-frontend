@@ -31,6 +31,7 @@ import { TranslatePipe } from '../../pipes/translate-pipe';
 export class Withdrawal implements OnInit {
   totalRemainingBalance: number = 0;
   withdrawAddress: string = '';
+  showPasskeyPopup: boolean = false;
 
   withdrawalForm: FormGroup;
 
@@ -51,7 +52,7 @@ export class Withdrawal implements OnInit {
     this.withdrawalForm = this.fb.group({
       amount: ['', [Validators.required, Validators.min(10)]],
       walletAddress: ['', Validators.required],
-      pin: ['', [Validators.required]],
+      pin: ['', [Validators.required, Validators.pattern('^[0-9]{6}$')]],
     });
   }
 
@@ -77,6 +78,11 @@ export class Withdrawal implements OnInit {
           this.totalRemainingBalance = res.data.totalRemainingBalance;
           const address = res.data.withdrawAddress || '';
           this.withdrawalForm.patchValue({ walletAddress: address });
+
+          if (res.data.passkey === false) {
+            this.showPasskeyPopup = true;
+          }
+
           this.cdr.detectChanges();
         }
       },
@@ -111,7 +117,7 @@ export class Withdrawal implements OnInit {
       return;
     }
     console.log('🔹 Withdrawal payload');
-    
+
     const payload = {
       userId,
       amount: Number(this.withdrawalForm.value.amount),
@@ -153,4 +159,8 @@ export class Withdrawal implements OnInit {
     this.location.back();
   }
 
+  configureTransactionPassword() {
+    this.showPasskeyPopup = false;
+    this.router.navigate(['/set-transaction-password']);
+  }
 }

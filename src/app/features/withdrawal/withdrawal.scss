@@ -265,3 +265,99 @@
   cursor: pointer;
   font-family: inherit;
 }
+
+/* --- Passkey Required Popup Styling (Aligned to Mockup) --- */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end; /* Align to bottom like in image */
+  justify-content: center;
+  z-index: 10000;
+  animation: bgFadeIn 0.3s ease-out;
+}
+
+@keyframes bgFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.popup-card {
+  background: white;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 24px 24px 0 0; /* Top rounded corners */
+  padding: 12px 24px 40px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.popup-drag-bar {
+  width: 40px;
+  height: 4px;
+  background: #EAEAEA;
+  border-radius: 2px;
+  margin: 0 auto 20px;
+}
+
+.popup-content-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-main-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 30px;
+  text-align: left; /* Image shows it slightly left */
+}
+
+.popup-image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  
+  .passkey-img {
+    width: 200px; /* Adjust according to image visual */
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+.popup-sub-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  margin: 0 0 24px;
+}
+
+.popup-action-btn {
+  background: #009A44;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  font-family: 'Clash Display', sans-serif;
+  transition: opacity 0.2s;
+  
+  &:active {
+    opacity: 0.8;
+  }
+}
