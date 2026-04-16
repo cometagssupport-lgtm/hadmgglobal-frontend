@@ -33,6 +33,7 @@ import { MasterData } from './admin/master-data/master-data'
 import { Rewards } from './features/rewards/rewards';
 import { Quantify } from './features/quantify/quantify';
 import { authGuard } from './guards/auth-guard';
+import { TransactionHistory } from './features/transaction-history/transaction-history';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'signin', pathMatch: 'full' },
@@ -61,6 +62,7 @@ export const routes: Routes = [
       },
       { path: 'withdraw', component: Withdrawal },
       { path: 'history', component: History },
+      { path: 'transactions', component: TransactionHistory },
       { path: 'commission', component: Commision },
       { path: 'members', component: Members },
       { path: 'change-password', component: ChangePassword },

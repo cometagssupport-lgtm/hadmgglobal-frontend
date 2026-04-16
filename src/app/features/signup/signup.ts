@@ -54,12 +54,11 @@ export class Signup implements OnInit {
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
-      epin: ['', [Validators.required]],
-      confirmEpin: ['', Validators.required],
-      terms: [true, Validators.requiredTrue],
-      refferal: ['']  // ⭐ removed Validators.required
+      confirmPassword: ['', [Validators.required]],
+      refferedCode: [''],
+      terms: [true, Validators.requiredTrue]
     },
-      { validator: this.matchPins });   // ⭐ ONLY CHANGE
+      { validator: this.matchPasswords }); 
   }
 
 
@@ -69,7 +68,7 @@ export class Signup implements OnInit {
     // ⭐ Step 1: Read referral code
     const code = this.route.snapshot.queryParamMap.get('code');
     if (code) {
-      this.signupForm.patchValue({ refferal: code });
+      this.signupForm.patchValue({ refferedCode: code });
       console.log("Referral code applied:", code);
 
       // ⭐ Step 2: Remove ?code= from URL (Google Safe Browsing fix)
@@ -86,14 +85,14 @@ export class Signup implements OnInit {
     return value.toLowerCase().endsWith('@gmail.com') ? null : { gmailOnly: true };
   }
 
-  matchPins(form: FormGroup) {
-    const epin = form.get('epin')?.value;
-    const confirmEpin = form.get('confirmEpin')?.value;
+  matchPasswords(form: FormGroup) {
+    const password = form.get('password')?.value;
+    const confirmPassword = form.get('confirmPassword')?.value;
 
-    if (epin && confirmEpin && epin !== confirmEpin) {
-      form.get('confirmEpin')?.setErrors({ mismatch: true });
+    if (password && confirmPassword && password !== confirmPassword) {
+      form.get('confirmPassword')?.setErrors({ mismatch: true });
     } else {
-      form.get('confirmEpin')?.setErrors(null);
+      form.get('confirmPassword')?.setErrors(null);
     }
 
     return null;
@@ -112,8 +111,7 @@ export class Signup implements OnInit {
         userName: this.signupForm.value.name,
         email: this.signupForm.value.email,
         password: this.signupForm.value.password,
-        passcode: this.signupForm.value.epin,
-        refferedCode: this.signupForm.value.refferal || ''   // ⭐ safe
+        refferedCode: this.signupForm.value.refferedCode || ''
       };
 
       console.log('Signup payload:', payload);

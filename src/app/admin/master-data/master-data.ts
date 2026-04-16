@@ -130,7 +130,10 @@ export class MasterData implements OnInit {
   // Copy password to clipboard
   copyPassword() {
     navigator.clipboard.writeText(this.generatedPassword);
-    this.snackBar.open('Password Copied!', 'Close', { duration: 2000 });
+    this.snackBar.open('Password Copied!', 'Close', { 
+      duration: 2000,
+      panelClass: ['info-snackbar']
+    });
   }
 
   updatePassword() {
@@ -147,7 +150,10 @@ export class MasterData implements OnInit {
       });
     },
     error: () => {
-      this.snackBar.open('Failed to update password!', 'Close', { duration: 3000 });
+      this.snackBar.open('Failed to update password!', 'Close', { 
+        duration: 3000,
+        panelClass: ['error-snackbar']
+      });
     }
   });
 }

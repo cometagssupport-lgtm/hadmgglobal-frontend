@@ -142,3 +142,54 @@ input::-ms-input-placeholder {
 .mat-mdc-form-field-error-wrapper {
   padding: 0 0px !important;
 }
+
+/* 🟢 Global Snackbar Styles */
+.mat-mdc-snack-bar-container {
+  &.success-snackbar {
+    --mdc-snackbar-container-color: #00A63E;
+    --mdc-snackbar-supporting-text-color: #ffffff;
+    
+    .mdc-button__label {
+      color: #ffffff !important;
+    }
+  }
+
+  &.error-snackbar {
+    --mdc-snackbar-container-color: #f44336;
+    --mdc-snackbar-supporting-text-color: #ffffff;
+
+    .mdc-button__label {
+      color: #ffffff !important;
+    }
+  }
+
+  &.info-snackbar {
+    --mdc-snackbar-container-color: #0077ff;
+    --mdc-snackbar-supporting-text-color: #ffffff;
+
+    .mdc-button__label {
+      color: #ffffff !important;
+    }
+  }
+
+  &.warn-snackbar {
+    --mdc-snackbar-container-color: #ff9800;
+    --mdc-snackbar-supporting-text-color: #ffffff;
+
+    .mdc-button__label {
+      color: #ffffff !important;
+    }
+  }
+
+  .mdc-snackbar__surface {
+    border-radius: 12px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .mdc-snackbar__label {
+    font-family: 'Clash Display', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+  }
+}
+

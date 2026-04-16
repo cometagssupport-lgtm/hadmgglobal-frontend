@@ -74,35 +74,35 @@
             </div>
           </div>
 
-          <!-- E-PIN -->
+          <!-- Confirm Password -->
           <div class="password-section">
             <div class="section-labels">
-              <span [class.error-label]="signupForm.get('epin')?.invalid && (signupForm.get('epin')?.touched || signupForm.get('epin')?.dirty)">
+              <span [class.error-label]="signupForm.get('confirmPassword')?.invalid && (signupForm.get('confirmPassword')?.touched || signupForm.get('confirmPassword')?.dirty)">
                 {{ 'Confirm Login Password' | translate }}
               </span>
             </div>
             <div class="custom-input-wrapper">
-              <input [type]="hidePassword ? 'password' : 'text'" class="custom-input-box" formControlName="epin" maxlength="6" placeholder="Re-enter your Password" />
+              <input [type]="hidePassword ? 'password' : 'text'" class="custom-input-box" formControlName="confirmPassword" placeholder="Re-enter your Password" />
               <button class="eye-btn" type="button" (click)="togglePasswordVisibility()">
                 <img src="/password-eye.svg" alt="Toggle Password" />
               </button>
             </div>
-            <div class="error-msg" *ngIf="signupForm.get('epin')?.hasError('required') && signupForm.get('epin')?.touched">
+            <div class="error-msg" *ngIf="signupForm.get('confirmPassword')?.hasError('required') && signupForm.get('confirmPassword')?.touched">
               {{ 'Confirm Password is required' | translate }}
             </div>
           </div>
 
-          <!-- Confirm E-PIN -->
+          <!-- Affiliate Key (Referral) -->
           <div class="password-section">
             <div class="section-labels">
-              <span [class.error-label]="signupForm.get('confirmEpin')?.invalid && (signupForm.get('confirmEpin')?.touched || signupForm.get('confirmEpin')?.dirty)">
+              <span [class.error-label]="signupForm.get('refferedCode')?.invalid && (signupForm.get('refferedCode')?.touched || signupForm.get('refferedCode')?.dirty)">
                 {{ 'Affiliate Key' | translate }}
               </span>
             </div>
             <div class="custom-input-wrapper">
-              <input type="text" class="custom-input-box" formControlName="confirmEpin" maxlength="6" placeholder="Enter Affiliate Key" />
+              <input type="text" class="custom-input-box" formControlName="refferedCode" placeholder="Enter Affiliate Key" />
             </div>
-            <div class="error-msg" *ngIf="signupForm.get('confirmEpin')?.hasError('mismatch') && signupForm.get('confirmEpin')?.touched">
+            <div class="error-msg" *ngIf="signupForm.get('confirmPassword')?.hasError('mismatch') && signupForm.get('confirmPassword')?.touched">
               Passwords do not match
             </div>
           </div>

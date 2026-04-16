@@ -16,7 +16,6 @@ export class AuthService {
     email: string;
     password: string;
     refferedCode?: string;
-    passcode: string;
   }): Observable<any> {
     return this.http.post(`${this.baseUrl}/register`, payload);
   }

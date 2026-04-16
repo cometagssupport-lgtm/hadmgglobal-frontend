@@ -95,4 +95,24 @@
       </button>
     </div>
   </div>
+
+  <!-- Passkey Required Popup (Styled per Image) -->
+  <div class="overlay" *ngIf="showPasskeyPopup">
+    <div class="popup-card">
+      <div class="popup-drag-bar"></div>
+      <div class="popup-content-inner">
+        <h2 class="popup-main-title">{{ 'Set Transaction Password' | translate }}</h2>
+        
+        <div class="popup-image-container">
+          <img src="/passkeycheck.svg" alt="Security" class="passkey-img" />
+        </div>
+
+        <h3 class="popup-sub-title">{{ 'Add Transaction Password' | translate }}</h3>
+
+        <button class="popup-action-btn" (click)="configureTransactionPassword()">
+          {{ 'Set Transaction Password' | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
