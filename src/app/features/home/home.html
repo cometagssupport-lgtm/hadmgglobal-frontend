@@ -10,17 +10,17 @@
     <div class="wallet-card">
       <div class="wallet-top">
         <div class="wallet-label">PENDING RELEASE BALANCE</div>
-        <div class="wallet-balance"><span class="rupee">800</span> U</div>
+        <div class="wallet-balance"><span class="rupee">{{ workingWallet }}</span> U</div>
       </div>
 
       <div class="wallet-bottom">
         <div class="wallet-col">
           <div class="wallet-label">EARNINGS BALANCE</div>
-          <div class="wallet-amount">5000 <span> U</span></div>
+          <div class="wallet-amount">{{ withdrawalWallet }} <span> U</span></div>
         </div>
         <div class="wallet-col">
           <div class="wallet-label">RECHARGE WALLET</div>
-          <div class="wallet-amount">50000 <span> U</span></div>
+          <div class="wallet-amount">{{ rechargeWallet }} <span> U</span></div>
         </div>
       </div>
     </div>
@@ -68,8 +68,8 @@
     <!-- Earned points section -->
     <div class="points-section">
       <div class="points-text-block">
-        <div class="points-title">You've earned 69 points!</div>
-        <div class="points-desc">Redeem them on your faves to save extra on your next deposit.</div>
+        <div class="points-title">{{ homeText1 }}</div>
+        <div class="points-desc">{{ homeText2 }}</div>
       </div>
       <img src="/home-icon.svg" class="points-image" alt="Coins" />
     </div>
