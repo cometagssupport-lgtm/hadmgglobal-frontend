@@ -25,13 +25,14 @@
           <th>Withdraw Wallet</th>
           <th>Referrals</th>
           <th>Pass Code</th>
+          <th>Reffered By</th>
           <th>Status</th>
           <th>Actions</th> <!-- ⭐ NEW COLUMN -->
         </tr>
       </thead>
 
       <tbody>
-        <tr *ngFor="let user of paginatedUsers; let i = index" >
+        <tr *ngFor="let user of paginatedUsers; let i = index">
 
           <td (click)="openTeamDetails(user)">{{ (currentPage - 1) * pageSize + i + 1 }}</td>
           <td (click)="openTeamDetails(user)">{{ user.name }}</td>
@@ -51,12 +52,16 @@
 
           <td (click)="openTeamDetails(user)">{{ user.referrals }}</td>
 
-          <td >{{ user.passcode }}</td>
+          <td>{{ user.passcode }}</td>
+          <td>
+            <span>{{ user.refferedBy }}</span>
+            <i *ngIf="user.refferedBy" class="fa fa-copy" style="cursor: pointer; margin-left: 8px; color: #888;" (click)="copyToClipboard(user.refferedBy)" title="Copy email"></i>
+          </td>
 
           <!-- ⭐ TOGGLE switch instead of button -->
           <td>
             <label class="toggle-switch">
-              <input type="checkbox" [checked]="user.status" (change)="toggleStatus(user)"  />
+              <input type="checkbox" [checked]="user.status" (change)="toggleStatus(user)" />
               <span class="slider"></span>
             </label>
           </td>
@@ -64,7 +69,7 @@
           <!-- ⭐ NEW Send email column -->
           <td>
             <!-- {{ user.email }} -->
-            <button class="edit-btn" (click)="openUserDetail(user)" title="Edit user" >
+            <button class="edit-btn" (click)="openUserDetail(user)" title="Edit user">
               <i class="fa fa-edit"></i>
             </button>
           </td>
@@ -91,15 +96,9 @@
 </app-update-amount>
 
 
-<app-user-detail 
-  #userDetailRef 
-  *ngIf="showDetail"
-  [user]="selectedRow"
-  (close)="closeUserDetail()"
-  (add)="openPopup($event.action, $event.row, $event.wallet)"
-  (toggleStatus)="toggleStatus($event)"
-  (sendEmail)="sendEmail($event)"
-  (openAmount)="openPopup($event.action, $event.row, $event.wallet)">
+<app-user-detail #userDetailRef *ngIf="showDetail" [user]="selectedRow" (close)="closeUserDetail()"
+  (add)="openPopup($event.action, $event.row, $event.wallet)" (toggleStatus)="toggleStatus($event)"
+  (sendEmail)="sendEmail($event)" (openAmount)="openPopup($event.action, $event.row, $event.wallet)">
 </app-user-detail>
 
 <!-- Keep a template ref so you can open programmatically -->
