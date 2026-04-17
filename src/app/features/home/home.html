@@ -9,18 +9,18 @@
     <!-- Wallet Card -->
     <div class="wallet-card">
       <div class="wallet-top">
-        <div class="wallet-label">AVAILABLE WALLET BALANCE</div>
-        <div class="wallet-balance"><span class="rupee">₹</span> 800.00</div>
+        <div class="wallet-label">PENDING RELEASE BALANCE</div>
+        <div class="wallet-balance"><span class="rupee">{{ workingWallet }}</span> U</div>
       </div>
 
       <div class="wallet-bottom">
         <div class="wallet-col">
           <div class="wallet-label">EARNINGS BALANCE</div>
-          <div class="wallet-amount">5000 <span class="currency">USDT</span></div>
+          <div class="wallet-amount">{{ withdrawalWallet }} <span> U</span></div>
         </div>
         <div class="wallet-col">
           <div class="wallet-label">RECHARGE WALLET</div>
-          <div class="wallet-amount">50,000 <span class="currency">USDT</span></div>
+          <div class="wallet-amount">{{ rechargeWallet }} <span> U</span></div>
         </div>
       </div>
     </div>
@@ -29,41 +29,25 @@
     <div class="action-row">
       <div class="action-item" (click)="onWalletAction('Deposit')">
         <div class="action-icon-circle">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
-          </svg>
+          <img src="/rechargeicon.svg" alt="Recharge" />
         </div>
         <span>Recharge</span>
       </div>
       <div class="action-item" (click)="onWalletAction('Withdrawal')">
         <div class="action-icon-circle">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="rotate-icon" stroke="currentColor"
-            stroke-width="1.5">
-            <path d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"></path>
-          </svg>
+          <img src="/withdrawicon.svg" alt="Withdraw" />
         </div>
         <span>Withdraw</span>
       </div>
       <div class="action-item" (click)="copyReferralLink()">
         <div class="action-icon-circle">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-            stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="18" cy="5" r="3"></circle>
-            <circle cx="6" cy="12" r="3"></circle>
-            <circle cx="18" cy="19" r="3"></circle>
-            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-          </svg>
+          <img src="/shareicon.svg" alt="Share Link" />
         </div>
         <span>Share Link</span>
       </div>
       <div class="action-item" (click)="opentelegramLinkOne()">
         <div class="action-icon-circle">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-            stroke-linecap="round" stroke-linejoin="round">
-            <line x1="22" y1="2" x2="11" y2="13"></line>
-            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-          </svg>
+          <img src="/tggroupicon.svg" alt="TG Group" />
         </div>
         <span>TG Group</span>
       </div>
@@ -72,10 +56,8 @@
 
   <div class="content-body">
     <!-- 🎡 Dynamic Slider Section (Replaced static blue rectangle) -->
-    <div class="carousel-wrapper" 
-         (touchstart)="onTouchStart($event)" 
-         (touchmove)="onTouchMove($event)" 
-         (touchend)="onTouchEnd()">
+    <div class="carousel-wrapper" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)"
+      (touchend)="onTouchEnd()">
       <div class="carousel-track" [style.transform]="transformStyle">
         <div class="carousel-slide" *ngFor="let img of carouselImages">
           <img [src]="img" alt="Slide" (load)="onImageLoad()" />
@@ -86,8 +68,8 @@
     <!-- Earned points section -->
     <div class="points-section">
       <div class="points-text-block">
-        <div class="points-title">You've earned 69 points!</div>
-        <div class="points-desc">Redeem them on your faves to save extra on your next deposit.</div>
+        <div class="points-title">{{ homeText1 }}</div>
+        <div class="points-desc">{{ homeText2 }}</div>
       </div>
       <img src="/home-icon.svg" class="points-image" alt="Coins" />
     </div>
@@ -95,19 +77,20 @@
     <!-- Company Profile Section -->
     <div class="company-profile">
       <h3>Company profile</h3>
-      <p>HADM GLOBAL is an innovative financial technology company dedicated to advancing intelligent quantitative
-        trading in digital asset markets.</p>
+      <p>Comet AGS is an innovative financial technology company dedicated to advancing intelligent quantitative trading
+        in digital asset markets.</p>
       <p>The company focuses on developing advanced algorithmic trading systems that analyze market data, identify
         opportunities, and execute strategies with precision and speed.</p>
       <p>By combining expertise in artificial intelligence, blockchain technology, financial engineering, and
-        quantitative analysis, HADM GLOBAL delivers efficient and data-driven trading solutions.</p>
+        quantitative analysis, Comet AGS delivers efficient and data-driven trading solutions.</p>
       <p>Our platform is designed to help investors access automated strategies that respond quickly to market changes
         and optimize trading performance.</p>
       <p>Through intelligent models and continuous market analysis, the system identifies patterns and executes trades
-        based on structured strategies.<br>HADM GLOBAL emphasizes accuracy, transparency, and efficiency, allowing users
-        to participate in modern financial markets with confidence.</p>
+        based on structured strategies.
+        Comet AGS emphasizes accuracy, transparency, and efficiency, allowing users to participate in modern financial
+        markets with confidence.</p>
       <p>The company is committed to building a secure and reliable ecosystem that supports responsible and informed
-        trading.</p>
+        trading</p>
     </div>
   </div>
 

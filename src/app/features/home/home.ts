@@ -66,6 +66,9 @@ export class Home implements OnInit, OnDestroy {
   telegramLinkOne: string = '';
   telegramLinkTwo: string = ''
   refferalCode: string = '';
+  rechargeWallet: string | number = 0;
+  homeText1: string = '';
+  homeText2: string = '';
 
   get currentImage() {
     return this.carouselImages[this.currentIndex];
@@ -106,6 +109,9 @@ export class Home implements OnInit, OnDestroy {
         this.ngZone.run(() => {
           this.workingWallet = res.data.totalDeposits;
           this.withdrawalWallet = res.data.totalEarnings;
+          this.rechargeWallet = res.data.rechargeWallet;
+          this.homeText1 = res.data.homeText1;
+          this.homeText2 = res.data.homeText2;
           this.referralLink = res.data.refferalLink;
           this.telegramLinkOne = res.data.telegramLinkOne;
           this.telegramLinkTwo = res.data.telegramLinkTwo;
