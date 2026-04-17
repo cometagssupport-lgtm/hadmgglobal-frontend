@@ -214,16 +214,19 @@
 }
 
 .points-title {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
-  color: #1a1a1a;
+  color: #000000B2;
   margin-bottom: 8px;
+  line-height: 128%;
+  letter-spacing: 0px;
 }
 
 .points-desc {
   font-size: 12px;
   color: #666;
-  line-height: 1.5;
+  line-height: 140%;
+  letter-spacing: 1%;
   font-weight: 400;
 }
 
@@ -236,7 +239,7 @@
 /* Company Profile Section */
 .company-profile {
   background-color: #FFFFFF;
-  padding: 30px 24px 100px;
+  padding: 30px 24px 30px;
   margin: 0 -24px;
   border-radius: 0;
   box-shadow: none;
@@ -248,14 +251,17 @@
   color: #1a1a1a;
   margin-bottom: 16px;
   margin-top: 0;
+  line-height: 140%;
+  letter-spacing: 0%;
 }
 
 .company-profile p {
-  font-size: 12px;
-  color: #555;
-  line-height: 1.6;
+  font-size: 11px;
+  color: #282828;
+  line-height: 140%;
   margin-bottom: 16px;
   font-weight: 400;
+  letter-spacing: 1%;
 }
 
 .company-profile p:last-child {
