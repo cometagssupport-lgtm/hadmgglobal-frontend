@@ -3,15 +3,15 @@
 
   <div class="top-gradient-banner">
     <div class="header-nav">
-      <button class="back-btn" (click)="goBack()">
-        <img src="/leftarraow.svg" alt="back" />
-      </button>
-      <div class="title">{{ 'Create Recharge' | translate }}</div>
+      <img src="/backicon.svg" alt="back" class="back-icon-img" (click)="goBack()" style="cursor: pointer;" />
     </div>
 
     <div class="banner-content">
-      <p class="banner-desc">{{ 'Enter your amount, Choose token and network. Get your deposit wallet address or QR to
-        deposit' | translate }}</p>
+      <div class="text-content">
+        <div class="title">{{ 'Create Recharge' | translate }}</div>
+        <p class="banner-desc">{{ 'Enter your amount, Choose token and network. Get your deposit wallet address or QR to
+          deposit' | translate }}</p>
+      </div>
       <img src="/chest.png" class="chest-img" onerror="this.onerror=null; this.src='/recharge-icon.svg'" />
     </div>
   </div>
@@ -31,10 +31,22 @@
         </button>
       </div>
 
+      <div class="network-selection" *ngIf="transactionAccounts?.length">
+        <label class="network-label">Select wallet network</label>
+        <div class="network-buttons">
+          <button *ngFor="let net of transactionAccounts" 
+                  class="network-btn" 
+                  [class.active]="selectedToken?.id === net.id"
+                  (click)="selectNetwork(net)">
+            {{ net.name }}
+          </button>
+        </div>
+      </div>
+
       <div class="guide-box">
         <h4>{{ 'Recharge Guide:' | translate }}</h4>
         <ul>
-          <li>-{{ 'Minimum Deposit is' | translate }} {{ minDeposit }} USDT</li>
+          <li>-{{ '-Minimum Deposit is 30 USDT' | translate }}</li>
           <li>{{ '-Please confirm platform deposit address before depositing.' | translate }}</li>
           <li>{{ '-Copy the address above or scan the QR code and select the corresponding network to deposit USDT.' |
             translate }}</li>
@@ -49,8 +61,8 @@
     </div>
 
     <div class="bottom-actions">
-      <button class="submit-btn" [class.disabled]="!amount || amount < minDeposit"
-        [disabled]="!amount || amount < minDeposit" (click)="confirmDeposit()">
+      <button class="submit-btn" [class.disabled]="!amount || amount < minDeposit || !selectedToken"
+        [disabled]="!amount || amount < minDeposit || !selectedToken" (click)="confirmDeposit()">
         {{ 'Get Recharge Address' | translate }}
       </button>
       <button class="cancel-btn" (click)="cancel()">

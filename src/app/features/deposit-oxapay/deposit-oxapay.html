@@ -1,16 +1,40 @@
 <div class="layout-container">
   <app-top-nav [isWhite]="true"></app-top-nav>
 
-  <div class="content-body">
+  <!-- SUCCESS UI -->
+  <div class="content-body success-body" *ngIf="isPaymentSuccess">
     <div class="header-nav">
-      <button class="back-btn-dark" (click)="goBack()">
-        <img src="/leftarraow.svg" style="filter: brightness(0) invert(0);" alt="back" />
-      </button>
+      <img src="/backwhite.svg" (click)="goBack()" alt="back" />
+    </div>
+
+    <div class="page-title-box">
+      <h2 class="main-title">{{ 'Congratulations' | translate }}</h2>
+    </div>
+
+
+    <div class="success-center-content">
+      <img src="/depositsuccess.svg" class="success-img" />
+      <div class="page-title-box">
+        <h2 class="main-title">{{ 'Congratulations' | translate }}</h2>
+      </div>
+      <p class="success-desc">Thank you! Your payment has been submitted and should appear in your wallet within the
+        next 5 minutes</p>
+    </div>
+
+    <div class="cancel-box">
+      <button class="submit-btn" (click)="confirmSuccess()">Confirm</button>
+    </div>
+  </div>
+
+  <!-- EXISTING DEPOSIT UI -->
+  <div class="content-body" *ngIf="!isPaymentSuccess">
+    <div class="header-nav">
+      <img src="/backwhite.svg" (click)="goBack()" alt="back" />
     </div>
 
     <div class="page-title-box">
       <h2 class="main-title">{{ 'Recharge' | translate }}</h2>
-      <p class="sub-title">{{ 'Minimum Deposit 30 USDT/USDC' | translate }}</p>
+      <p class="sub-title">{{ ' 30 USDT / USDC BEP20 BNB Chain' | translate }}</p>
     </div>
 
     <div class="timer-container">
@@ -24,6 +48,7 @@
     <div class="amount-container">
       <p class="amount-label">{{ 'Amount Payable' | translate }}</p>
       <h3 class="amount-value">{{ data?.amount }} USDT</h3>
+      <p class="timer-text">{{ 'USDT / USDC -BEP20 BNB' | translate }}</p>
     </div>
 
     <div class="address-container">

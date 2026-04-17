@@ -27,6 +27,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
   img {
     width: 14px;
   }
@@ -37,17 +38,21 @@
 }
 
 .main-title {
-  font-size: 22px;
-  font-weight: 700;
-  color: #111;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
   margin: 0 0 6px;
+  line-height: 145%;
+  letter-spacing: 0px;
 }
 
 .sub-title {
-  font-size: 13px;
-  color: #666;
+  font-size: 12px;
+  color: #484848;
   margin: 0;
   font-weight: 500;
+  line-height: 140%;
+  letter-spacing: 3%;
 }
 
 .timer-container {
@@ -56,9 +61,11 @@
 }
 
 .timer-text {
-  color: #009A44;
-  font-size: 14px;
+  color: #009738;
+  font-size: 12px;
   font-weight: 700;
+  line-height: 140%;
+  letter-spacing: 0%;
 }
 
 .qr-container {
@@ -79,16 +86,21 @@
 }
 
 .amount-label {
-  font-size: 13px;
-  color: #888;
+  font-size: 12px;
+  color: #8B8B8B;
   margin: 0 0 6px;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: -1%;
 }
 
 .amount-value {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
-  color: #009A44;
+  color: #009738;
   margin: 0;
+  line-height: 140%;
+  letter-spacing: 0%;
 }
 
 .address-container {
@@ -98,18 +110,26 @@
 
 .address-label {
   font-size: 12px;
-  color: #888;
+  color: #8B8B8B;
   margin: 0 0 12px;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: 0%;
 }
 
 .address-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #eaeaea;
   border-radius: 12px;
   padding: 14px 16px;
-  background: #fdfdfd;
+  background: #F6F6F6;
+  border: 1px solid #D1E0F6;
+  color: #131313;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0%;
+  height: 24px;
 }
 
 .address-text {
@@ -129,6 +149,7 @@
   padding: 0;
   display: flex;
   align-items: center;
+
   img {
     width: 20px;
     height: 20px;
@@ -142,15 +163,85 @@
 .cancel-btn {
   width: 100%;
   background: transparent;
-  color: #111;
-  border: 1px solid #ccc;
+  color: #000000;
+  border: 1px solid #00000066;
   border-radius: 12px;
-  padding: 16px;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
   transition: 0.3s;
+  height: 44px;
+
   &:active {
     background: #f0f0f0;
   }
+}
+
+.success-body {
+  background: #F6F6F6;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.back-circle-btn {
+  background: #E8E8E8;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.success-main-title {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+}
+
+.success-center-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.success-img {
+  width: 100%;
+  height: 100%;
+}
+
+.success-sub-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+.success-desc {
+  font-size: 12px;
+  color: #484848;
+  line-height: 140%;
+  width: 95%;
+}
+
+.submit-btn {
+  background: #009738;
+  color: white;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  height: 48px;
 }

@@ -31,6 +31,8 @@ export class DepositOxapay implements OnInit {
   pollingRef: any;
   pollingStarted = false; // 🔵 NEW
 
+  isPaymentSuccess = false;
+
 
   constructor(
     private router: Router,
@@ -42,6 +44,11 @@ export class DepositOxapay implements OnInit {
 
   ngOnInit(): void {
     if (!isPlatformBrowser(this.platformId)) return;
+
+    if (localStorage.getItem('paymentSuccess') === 'true') {
+      this.isPaymentSuccess = true;
+      return;
+    }
 
     const payData = JSON.parse(localStorage.getItem('pay') || '{}');
     this.data = payData;
@@ -151,10 +158,9 @@ export class DepositOxapay implements OnInit {
           this.stopPaymentPolling();
           clearInterval(this.intervalRef);
 
-          this.countdownText = 'Payment received successfully!';
+          localStorage.setItem('paymentSuccess', 'true');
+          this.isPaymentSuccess = true;
           this.cdr.detectChanges();
-
-          this.router.navigate(['/success']);
         }
       },
       error: (err) => {
@@ -172,6 +178,11 @@ export class DepositOxapay implements OnInit {
   }
 
   cancel() {
+    this.router.navigate(['/home']);
+  }
+
+  confirmSuccess() {
+    localStorage.removeItem('paymentSuccess');
     this.router.navigate(['/home']);
   }
 
