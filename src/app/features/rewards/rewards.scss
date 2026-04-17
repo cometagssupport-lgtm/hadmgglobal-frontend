@@ -1,13 +1,12 @@
 .rewards-container {
   background-color: #F5F5F5;
   min-height: 100vh;
-  padding-bottom: 80px; // Space for bottom nav
   font-family: 'Clash Display', sans-serif;
 
   .rewards-header {
     background: url('/mainbg.svg') no-repeat center top;
     background-size: cover;
-    padding: 60px 24px 80px;
+    padding: 20px 24px 20px;
     color: white;
     position: relative;
     overflow: visible;
@@ -20,10 +19,13 @@
     }
 
     .title {
-      font-size: 24px;
-      font-weight: 600;
+      font-size: 18px;
+      font-weight: 500;
       margin: 0;
       margin-bottom: 4px;
+      color: #FFFFFF;
+      line-height: 140%;
+      letter-spacing: 0%;
     }
 
     .subtitle {
@@ -31,15 +33,19 @@
       opacity: 0.9;
       margin: 0;
       margin-bottom: 24px;
+      color: #FFFFFF;
+      line-height: 140%;
+      letter-spacing: 0%;
+      font-weight: 400;
     }
 
     .stats-box {
-      background: rgba(255, 255, 255, 0.12);
       border: 1px solid rgba(255, 255, 255, 0.3);
       border-radius: 16px;
-      padding: 16px 20px;
+      padding: 16px 10px;
       backdrop-filter: blur(12px);
-      width: 140px;
+      height: 120px;
+      width: 125px;
       margin-top: 15px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 
@@ -53,25 +59,29 @@
         .stat-label {
           display: block;
           font-size: 10px;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
+          line-height: 140%;
+          letter-spacing: -1%;
           opacity: 0.9;
           font-weight: 500;
+          color: #FFFFFF;
         }
 
         .stat-value {
           display: block;
-          font-size: 20px;
-          font-weight: 700;
+          font-size: 18px;
+          font-weight: 600;
           margin-top: 2px;
+          color: #FFFFFF;
+          line-height: 140%;
+          letter-spacing: -1%;
         }
       }
     }
 
     .gift-box-wrapper {
       position: absolute;
-      right: -20px;
-      bottom: -10px;
+      right: 0px;
+      bottom: 0px;
       width: 230px;
       z-index: 5;
       pointer-events: none;
@@ -102,35 +112,36 @@
         margin-bottom: 16px;
       }
 
-      .reward-icon {
-        width: 60px;
-        height: 60px;
-        background: #FFF8E1;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
+      // .reward-icon {
+      //   width: 60px;
+      //   height: 60px;
+      //   background: #FFF8E1;
+      //   border-radius: 50%;
+      //   display: flex;
+      //   align-items: center;
+      //   justify-content: center;
+      //   flex-shrink: 0;
 
-        img {
-          width: 40px;
-          height: auto;
-        }
-      }
+      //   img {
+      //     width: 40px;
+      //     height: auto;
+      //   }
+      // }
 
       .reward-info {
         .reward-header {
-          font-size: 18px;
+          font-size: 14px;
           font-weight: 600;
-          color: #333;
+          color: #000000;
           margin: 0;
           margin-bottom: 8px;
         }
 
         .reward-paragraph {
-          font-size: 13px;
-          color: #666;
-          line-height: 1.5;
+          font-size: 12px;
+          color: #000000;
+          line-height: 140%;
+          letter-spacing: 0%;
           margin: 0;
           margin-bottom: 12px;
 
@@ -162,25 +173,29 @@
 
           .progress-text {
             font-size: 12px;
-            color: #666;
+            color: #000000;
             font-weight: 500;
             min-width: 40px;
             text-align: right;
+            line-height: 140%;
+            letter-spacing: 0%;
           }
         }
       }
 
       .claim-button {
         width: 100%;
-        padding: 12px;
         border-radius: 8px;
         border: none;
         background-color: #9E9E9E; // Grey default
         color: white;
-        font-size: 15px;
-        font-weight: 600;
+        font-size: 14px;
+        font-weight: 500;
         cursor: pointer;
         transition: all 0.3s ease;
+        height: 36px;
+        line-height: 140%;
+        letter-spacing: 0%;
 
         &:disabled {
           cursor: not-allowed;
@@ -188,7 +203,7 @@
         }
 
         &.valid {
-          background-color: #2E7D32; // Green
+          background-color: #009738; // Green
           box-shadow: 0 4px 8px rgba(46, 125, 50, 0.2);
         }
 
