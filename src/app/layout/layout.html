@@ -12,17 +12,17 @@
   <footer class="bottom-nav" fxLayout="row" fxLayoutAlign="space-around center">
     <a routerLink="/home" routerLinkActive="active" #rlaHome="routerLinkActive" fxLayout="column"
       fxLayoutAlign="center center">
-      <img [src]="rlaHome.isActive ? 'home.svg' : 'home copy.svg'" alt="Home" class="nav-icon" />
+      <img [src]="rlaHome.isActive ? 'homeactive.svg' : 'homenonactive.svg'" alt="Home" class="nav-icon" />
       <span>Home</span>
     </a>
     <a routerLink="/team" routerLinkActive="active" #rlaTeam="routerLinkActive" fxLayout="column"
       fxLayoutAlign="center center">
-      <img [src]="rlaTeam.isActive ? 'team.svg' : 'team copy.svg'" alt="Team" class="nav-icon" />
+      <img [src]="rlaTeam.isActive ? 'teamactive.svg' : 'teamnonactive.svg'" alt="Team" class="nav-icon" />
       <span>Team</span>
     </a>
     <a routerLink="/quantify" routerLinkActive="active" #rlaQuantify="routerLinkActive" fxLayout="column"
       fxLayoutAlign="center center">
-      <img [src]="rlaQuantify.isActive ? 'comslogo.svg' : 'comslogo.svg'" alt="Quantify" class="nav-icon" />
+      <img [src]="rlaQuantify.isActive ? 'botactive.svg' : 'botnonactive.svg'" alt="Quantify" class="nav-icon" />
       <span>Quantify</span>
     </a>
     <a routerLink="/rewards" routerLinkActive="active" #rlaRewards="routerLinkActive" fxLayout="column"
@@ -32,7 +32,7 @@
     </a>
     <a routerLink="/profile" routerLinkActive="active" #rlaProfile="routerLinkActive" fxLayout="column"
       fxLayoutAlign="center center">
-      <img [src]="rlaProfile.isActive ? 'profile.svg' : 'profile copy.svg'" alt="Mine" class="nav-icon" />
+      <img [src]="rlaProfile.isActive ? 'profileactive.svg' : 'profile copy.svg'" alt="Mine" class="nav-icon" />
       <span>Mine</span>
     </a>
   </footer>
