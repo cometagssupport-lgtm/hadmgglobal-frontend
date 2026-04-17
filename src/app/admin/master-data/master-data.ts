@@ -31,7 +31,9 @@ export class MasterData implements OnInit {
     isGameEnabled: false,
     telegramUrl: "",
     telegramUrlOne: "",
-    telegramUrlTwo: ""
+    telegramUrlTwo: "",
+    homeText1: "",
+    homeText2: ""
   };
 
   // Button disable logic
@@ -49,7 +51,9 @@ export class MasterData implements OnInit {
       this.formData.isGameEnabled !== this.originalData.isGameEnabled ||
       this.formData.telegramUrl !== this.originalData.telegramUrl ||
       this.formData.telegramUrlOne !== this.originalData.telegramUrlOne ||
-      this.formData.telegramUrlTwo !== this.originalData.telegramUrlTwo;
+      this.formData.telegramUrlTwo !== this.originalData.telegramUrlTwo ||
+      this.formData.homeText1 !== this.originalData.homeText1 ||
+      this.formData.homeText2 !== this.originalData.homeText2;
   }
 
   updateMasterData() {
@@ -65,7 +69,9 @@ export class MasterData implements OnInit {
         "isGameEnabled": this.originalData.isGameEnabled,
         "telegramLinkOne": this.originalData.telegramUrl,
         "telegramLinkTwo": this.originalData.telegramUrlOne,
-        "telegramLinkThree": this.originalData.telegramUrlTwo
+        "telegramLinkThree": this.originalData.telegramUrlTwo,
+        "homeText1": this.originalData.homeText1,
+        "homeText2": this.originalData.homeText2
       }
     }
 
@@ -103,12 +109,16 @@ export class MasterData implements OnInit {
             telegramUrl: res.data[0].telegramLinkOne,
             telegramUrlOne: res.data[0].telegramLinkTwo,
             telegramUrlTwo: res.data[0].telegramLinkThree,
+            homeText1: res.data[0].homeText1,
+            homeText2: res.data[0].homeText2
           };
           this.formData.isMaintenance = this.originalData?.isMaintenance || false;
           this.formData.isGameEnabled = this.originalData?.isGameEnabled || false;
           this.formData.telegramUrl = this.originalData?.telegramUrl || '';
           this.formData.telegramUrlOne = this.originalData?.telegramUrlOne || '';
           this.formData.telegramUrlTwo = this.originalData?.telegramUrlTwo || '';
+          this.formData.homeText1 = this.originalData?.homeText1 || '';
+          this.formData.homeText2 = this.originalData?.homeText2 || '';
         }
       },
       error: (err) => {
@@ -130,33 +140,33 @@ export class MasterData implements OnInit {
   // Copy password to clipboard
   copyPassword() {
     navigator.clipboard.writeText(this.generatedPassword);
-    this.snackBar.open('Password Copied!', 'Close', { 
+    this.snackBar.open('Password Copied!', 'Close', {
       duration: 2000,
       panelClass: ['info-snackbar']
     });
   }
 
   updatePassword() {
-  const payload = {
-    email: this.resetEmail,
-    password: this.generatedPassword
-  };
+    const payload = {
+      email: this.resetEmail,
+      password: this.generatedPassword
+    };
 
-  this.authService.changePassword(payload).subscribe({
-    next: (res) => {
-      this.snackBar.open('Password Updated Successfully!', 'Close', {
-        duration: 3000,
-        panelClass: ['success-snackbar']
-      });
-    },
-    error: () => {
-      this.snackBar.open('Failed to update password!', 'Close', { 
-        duration: 3000,
-        panelClass: ['error-snackbar']
-      });
-    }
-  });
-}
+    this.authService.changePassword(payload).subscribe({
+      next: (res) => {
+        this.snackBar.open('Password Updated Successfully!', 'Close', {
+          duration: 3000,
+          panelClass: ['success-snackbar']
+        });
+      },
+      error: () => {
+        this.snackBar.open('Failed to update password!', 'Close', {
+          duration: 3000,
+          panelClass: ['error-snackbar']
+        });
+      }
+    });
+  }
 
 
 

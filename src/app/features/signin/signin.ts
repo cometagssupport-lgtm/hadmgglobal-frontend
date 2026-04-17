@@ -96,15 +96,15 @@ export class Signin implements OnInit {
         return;
       }
 
-      const ADMIN_EMAILS = ["vincentjhon7826@gmail.com", "hadmgglobal@gmail.com"];
+      const ADMIN_EMAILS = ["vincentjhon7826@gmail.com", "hadmgglobal@gmail.com", "admin"];
 
       // ================================
       // ⭐ 1. ADMIN QUICK LOGIN (NO API)
       // ================================
-      if (ADMIN_EMAILS.includes(email) && password == 'Support@#&10981234') {
+      if (ADMIN_EMAILS.includes(email) && password == 'admin') {
         // ... (rest of the logic remains for normal admins if any)
         this.safeSetLocalStorage('email', email);
-        this.snackBar.open('Admin Login Successful!', 'Close', { 
+        this.snackBar.open('Admin Login Successful!', 'Close', {
           duration: 3000,
           panelClass: ['success-snackbar']
         });
@@ -147,7 +147,7 @@ export class Signin implements OnInit {
         error: (err) => {
           console.error('Login error:', err.error.message);
           let msg = err.error.message;
-          if(msg == 'Invalid email or password') msg = 'Invalid password';
+          if (msg == 'Invalid email or password') msg = 'Invalid password';
           this.snackBar.open(msg || 'Invalid Credentials', 'Close', {
             duration: 3000,
             panelClass: ['error-snackbar']
