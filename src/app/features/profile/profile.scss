@@ -3,11 +3,8 @@
   flex-direction: column;
   min-height: 100vh;
   background: #f7f9fc;
-  font-family: 'Clash Display', sans-serif;
-  padding-bottom: 80px;
-  /* Space for bottom nav */
+  font-family: 'Clash Display';
   overflow-x: hidden;
-  /* Global clamp for horizontal scrollbar */
 }
 
 
@@ -39,7 +36,7 @@
   align-items: center;
   gap: 4px;
   cursor: pointer;
-  
+
   .edit-icon {
     font-size: 14px;
     width: 14px;
@@ -76,11 +73,14 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
+  line-height: 140%;
+  letter-spacing: 0%;
 
   h2 {
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     margin: 0;
+    color: #FFFFFF;
 
     span {
       font-weight: 400;
@@ -88,21 +88,24 @@
   }
 
   p {
-    font-size: 11px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 500;
     margin: 0;
-    color: rgba(255, 255, 255, 0.9);
+    color: #FFFFFF;
     display: flex;
     align-items: center;
 
     span {
-      font-weight: 400;
+      font-weight: 500;
       margin-left: 2px;
     }
   }
 
   .uid-row {
-    font-size: 11px;
+    font-size: 12px;
+    line-height: 140%;
+    letter-spacing: 0%;
+    color: #FFFFFF;
   }
 
   .copy-icon {
@@ -114,13 +117,15 @@
 
   .level-badge {
     margin-top: 6px;
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 2px 12px;
-    border-radius: 20px;
-    font-size: 10px;
+    padding: 8px 12px;
+    font-size: 12px;
     width: fit-content;
-    
+    line-height: 140%;
+    letter-spacing: 0%;
+    color: #FFFFFF;
+    font-weight: 500;
+    box-shadow: 0 0px 4px #FFFFFF;
+
     span {
       font-weight: 700;
     }
@@ -141,33 +146,32 @@
 }
 
 .stat-card {
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 8px; /* Design spec: 8px */
-  height: 95px; /* Design spec: 95px */
-  padding: 16px; /* Design spec: 16px */
+  border-radius: 20px;
+  height: 95px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 12px; /* Design spec: 12px */
+  gap: 12px;
   backdrop-filter: blur(4px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0px 5px #FFFFFF;
 
   .stat-value {
-    color: white;
-    font-size: 15px;
-    font-weight: 700;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 600;
     margin: 0;
-    line-height: 1.2;
+    line-height: 140%;
+    letter-spacing: 0px;
   }
 
   .stat-label {
-    color: rgba(255, 255, 255, 0.9);
+    color: #FFFFFF;
     font-size: 10px;
     font-weight: 500;
     margin: 0;
-    line-height: 1.3;
-    opacity: 0.9;
+    line-height: 140%;
+    letter-spacing: 0px;
   }
 }
 
@@ -184,11 +188,12 @@
 }
 
 .section-title {
-  font-size: 11px;
-  font-weight: 600;
-  color: #666;
+  font-size: 12px;
+  font-weight: 500;
+  color: #606060;
   text-transform: uppercase;
-  letter-spacing: 0.2px;
+  line-height: 140%;
+  letter-spacing: 0%;
   margin-bottom: 12px;
   display: block;
   margin-left: 2px;
@@ -201,10 +206,12 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
 
   h4 {
-    font-size: 12px;
-    font-weight: 600;
-    color: #111;
+    font-size: 14px;
+    font-weight: 500;
+    color: #000000;
     margin: 0 0 12px;
+    line-height: 100%;
+    letter-spacing: 0%;
   }
 }
 
@@ -265,7 +272,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 16px;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1.5px solid #EAEAEA;
   cursor: pointer;
   background: white;
   transition: background 0.2s;
@@ -301,10 +308,12 @@
   }
 
   p {
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 500;
-    color: #111;
+    color: #101432;
     margin: 0;
+    line-height: 140%;
+    letter-spacing: 0%;
   }
 }
 
@@ -317,5 +326,3 @@
 .logout-text {
   color: #E81A66 !important;
 }
-
-
