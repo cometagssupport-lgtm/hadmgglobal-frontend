@@ -15,7 +15,7 @@
   .banner-header {
     display: flex;
     margin-bottom: 20px;
-    
+
     .back-btn {
       width: 36px;
       height: 36px;
@@ -26,52 +26,30 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
   }
 
   .banner-text {
     margin-bottom: 24px;
+
     h2 {
       font-size: 18px;
-      font-weight: 600;
+      font-weight: 500;
       margin: 0 0 6px 0;
+      line-height: 140%;
+      letter-spacing: 0%;
+      color: #FFFFFF;
     }
+
     p {
-      font-size: 13px;
+      font-size: 16px;
       opacity: 0.9;
       margin: 0;
-    }
-  }
-
-  /* 🔹 Search Box */
-  .search-box {
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    padding: 12px 16px;
-
-    .search-icon {
-      stroke: white;
-      opacity: 0.8;
-      margin-right: 12px;
-    }
-
-    input {
-      flex: 1;
-      border: none;
-      background: transparent;
-      color: white;
-      font-size: 14px;
-      outline: none;
-
-      &::placeholder {
-        color: rgba(255, 255, 255, 0.7);
-      }
+      line-height: 140%;
+      letter-spacing: 0%;
+      color: #FFFFFF;
+      font-weight: 400;
     }
   }
 }
@@ -82,29 +60,69 @@
   overflow-x: auto;
   background: white;
   padding: 0 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 
   &::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Chrome/Safari */
+    display: none;
+    /* Hide scrollbar for Chrome/Safari */
   }
-  -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
-  scrollbar-width: none; /* Hide scrollbar for Firefox */
+
+  -ms-overflow-style: none;
+  /* Hide scrollbar for IE/Edge */
+  scrollbar-width: none;
+  /* Hide scrollbar for Firefox */
 
   .tab {
     padding: 16px 16px;
-    font-size: 13px;
-    font-weight: 500;
-    color: #666;
+    font-size: 14px;
+    font-weight: 400;
+    color: #0C0C0D;
     white-space: nowrap;
     cursor: pointer;
     border-bottom: 2px solid transparent;
     transition: color 0.2s, border-bottom-color 0.2s;
+    line-height: 22px;
+    letter-spacing: 0%;
 
     &.active {
-      color: #00AA5B; /* Exact active green */
-      border-bottom: 2px solid #00AA5B;
-      font-weight: 600;
+      color: #009738;
+      border-bottom: 2px solid #009738;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 22px;
+
+
     }
+  }
+}
+
+/* 🔹 Total Bar */
+.total-bar {
+  background: #009738;
+  border-radius: 12px;
+  padding: 0px 12px;
+  margin: 16px 16px 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  height: 62px;
+
+  .total-label {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0%;
+    color: #FFFFFF;
+  }
+
+  .total-value {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 140%;
+    letter-spacing: 0%;
+    color: #FFFFFF;
   }
 }
 
@@ -120,7 +138,7 @@
     border-radius: 12px;
     padding: 16px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-    
+
     .card-content {
       display: flex;
       align-items: center;
@@ -142,21 +160,24 @@
 
       .member-name {
         font-size: 14px;
-        font-weight: 600;
-        color: #111;
+        font-weight: 500;
+        color: #000000;
         margin-bottom: 6px;
+        line-height: 140%;
+        letter-spacing: 0%;
+
       }
 
       .member-uid {
-        font-size: 11px;
-        font-weight: 600;
-        color: #222;
+        font-size: 12px;
+        font-weight: 500;
+        color: #000000;
         display: flex;
         align-items: center;
 
         .copy-icon {
-          width: 12px;
-          height: 12px;
+          width: 22px;
+          height: 22px;
           margin-left: 6px;
           cursor: pointer;
           opacity: 0.6;
@@ -165,9 +186,12 @@
     }
 
     .member-amount {
-      font-size: 16px;
-      font-weight: 600;
-      color: #111;
+      font-size: 18px;
+      font-weight: 500;
+      color: #000000;
+      line-height: 140%;
+      letter-spacing: 0%;
+
     }
 
     .card-footer {
@@ -176,14 +200,19 @@
       align-items: center;
 
       .footer-label {
-        font-size: 12px;
-        color: #444;
+        font-size: 14px;
+        color: #2D2D2DFC;
+        line-height: 100%;
+        letter-spacing: 2%;
+
       }
 
       .footer-value {
-        font-size: 13px;
-        font-weight: 600;
-        color: #111;
+        font-size: 14px;
+        font-weight: 500;
+        color: #000000;
+        line-height: 100%;
+        letter-spacing: 2%;
       }
     }
   }
@@ -191,7 +220,10 @@
 
 /* ✅ Responsive */
 @media (min-width: 768px) {
-  .members-list, .members-banner, .tabs-container {
+
+  .members-list,
+  .members-banner,
+  .tabs-container {
     max-width: 600px;
     margin: 0 auto;
   }
