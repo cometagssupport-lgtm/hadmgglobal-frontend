@@ -46,9 +46,7 @@ export class Deposit implements OnInit {
       next: (res) => {
         if (res.statusCode === 200 && res.data?.transactionAccounts) {
           this.transactionAccounts = res.data.transactionAccounts;
-          if (this.transactionAccounts.length > 0) {
-            this.selectedToken = this.transactionAccounts[0]; // Default token
-          }
+          this.selectedToken = null;
           this.cdr.detectChanges();
         }
       }
@@ -57,6 +55,10 @@ export class Deposit implements OnInit {
 
   setAmount(value: number) {
     this.amount = value;
+  }
+
+  selectNetwork(network: any) {
+    this.selectedToken = network;
   }
 
   goBack() {

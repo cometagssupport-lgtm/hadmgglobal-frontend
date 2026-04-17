@@ -146,6 +146,44 @@
   }
 }
 
+.network-selection {
+  margin-bottom: 24px;
+}
+
+.network-label {
+  display: block;
+  font-size: 12px;
+  color: #282828;
+  font-weight: 400;
+  margin-bottom: 12px;
+  line-height: 140%;
+}
+
+.network-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.network-btn {
+  flex: 1;
+  background: #FFFFFF;
+  border: 1px solid #D1E0F6;
+  padding: 12px 0;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #777777;
+  cursor: pointer;
+  transition: 0.2s;
+  
+  &.active {
+    background: #009738;
+    color: #FFFFFF;
+    border-color: #009738;
+  }
+}
+
 .guide-box {
   background: #FFFFFF;
   border-radius: 12px;

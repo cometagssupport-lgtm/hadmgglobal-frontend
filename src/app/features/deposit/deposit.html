@@ -31,6 +31,18 @@
         </button>
       </div>
 
+      <div class="network-selection" *ngIf="transactionAccounts?.length">
+        <label class="network-label">Select wallet network</label>
+        <div class="network-buttons">
+          <button *ngFor="let net of transactionAccounts" 
+                  class="network-btn" 
+                  [class.active]="selectedToken?.id === net.id"
+                  (click)="selectNetwork(net)">
+            {{ net.name }}
+          </button>
+        </div>
+      </div>
+
       <div class="guide-box">
         <h4>{{ 'Recharge Guide:' | translate }}</h4>
         <ul>
@@ -49,8 +61,8 @@
     </div>
 
     <div class="bottom-actions">
-      <button class="submit-btn" [class.disabled]="!amount || amount < minDeposit"
-        [disabled]="!amount || amount < minDeposit" (click)="confirmDeposit()">
+      <button class="submit-btn" [class.disabled]="!amount || amount < minDeposit || !selectedToken"
+        [disabled]="!amount || amount < minDeposit || !selectedToken" (click)="confirmDeposit()">
         {{ 'Get Recharge Address' | translate }}
       </button>
       <button class="cancel-btn" (click)="cancel()">
