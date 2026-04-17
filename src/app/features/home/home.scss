@@ -18,7 +18,7 @@
   padding: 20px 24px 75px;
   background: url('/mainbg.svg') no-repeat center top;
   background-size: cover;
-  color: white;
+  color: #FFFFFF;
 }
 
 .greeting-sec {
@@ -27,45 +27,52 @@
 
 .greeting-title {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 4px;
-  letter-spacing: 0.5px;
+  letter-spacing: 0%;
+  line-height: 140%;
+  color: #FFFFFF;
 }
 
 .greeting-subtitle {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
-  opacity: 0.9;
+  line-height: 140%;
+  color: #FFFFFF;
 }
 
 /* Wallet Card */
 .wallet-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.03) 100%);
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 10px;
-  padding: 22px 24px;
+  padding: 16px 16px;
   margin-bottom: 28px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  height: 173px;
 }
 
 .wallet-label {
-  font-size: 10px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.6px;
-  margin-bottom: 8px;
+  letter-spacing: 2%;
+  margin-bottom: 18px;
   opacity: 0.85;
+  line-height: 100%;
 }
 
 .wallet-balance {
-  font-size: 34px;
+  font-size: 28px;
   font-weight: 600;
   margin-bottom: 18px;
   display: flex;
   align-items: center;
+  letter-spacing: 2%;
+  line-height: 100%;
   gap: 6px;
+  color: #FFFFFF;
 
   .rupee {
     font-size: 26px;
@@ -87,11 +94,13 @@
 }
 
 .wallet-amount {
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 600;
   display: flex;
   align-items: baseline;
   gap: 6px;
+  letter-spacing: 2%;
+  line-height: 100%;
 
   .currency {
     font-size: 11px;
@@ -123,8 +132,8 @@
 }
 
 .action-icon-circle {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.35);
   display: flex;
@@ -139,7 +148,7 @@
     opacity: 0.95;
     stroke-width: 1.2;
   }
-  
+
   .rotate-icon {
     transform: rotate(180deg);
   }
@@ -152,9 +161,10 @@
 
 /* Content Body below banner */
 .content-body {
-  padding: 0 24px 100px; /* Padding bottom for bottom navbar */
+  padding: 0 24px 100px;
+  /* Padding bottom for bottom navbar */
   background-color: #f7f9fc;
-  position: relative; 
+  position: relative;
 }
 
 /* Carousel Slider Section (Replaced feature-banner) */
@@ -163,7 +173,7 @@
   width: 100%;
   border-radius: 14px;
   overflow: hidden;
-  margin-top: -40px; 
+  margin-top: -40px;
   margin-bottom: 28px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   z-index: 2;
@@ -178,7 +188,7 @@
   .carousel-slide {
     min-width: 100%;
     width: 100%;
-    
+
     img {
       width: 100%;
       height: auto;

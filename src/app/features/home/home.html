@@ -9,18 +9,18 @@
     <!-- Wallet Card -->
     <div class="wallet-card">
       <div class="wallet-top">
-        <div class="wallet-label">AVAILABLE WALLET BALANCE</div>
-        <div class="wallet-balance"><span class="rupee">₹</span> 800.00</div>
+        <div class="wallet-label">PENDING RELEASE BALANCE</div>
+        <div class="wallet-balance"><span class="rupee">800</span> U</div>
       </div>
 
       <div class="wallet-bottom">
         <div class="wallet-col">
           <div class="wallet-label">EARNINGS BALANCE</div>
-          <div class="wallet-amount">5000 <span class="currency">USDT</span></div>
+          <div class="wallet-amount">5000 <span> U</span></div>
         </div>
         <div class="wallet-col">
           <div class="wallet-label">RECHARGE WALLET</div>
-          <div class="wallet-amount">50,000 <span class="currency">USDT</span></div>
+          <div class="wallet-amount">50000 <span> U</span></div>
         </div>
       </div>
     </div>
@@ -72,10 +72,8 @@
 
   <div class="content-body">
     <!-- 🎡 Dynamic Slider Section (Replaced static blue rectangle) -->
-    <div class="carousel-wrapper" 
-         (touchstart)="onTouchStart($event)" 
-         (touchmove)="onTouchMove($event)" 
-         (touchend)="onTouchEnd()">
+    <div class="carousel-wrapper" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)"
+      (touchend)="onTouchEnd()">
       <div class="carousel-track" [style.transform]="transformStyle">
         <div class="carousel-slide" *ngFor="let img of carouselImages">
           <img [src]="img" alt="Slide" (load)="onImageLoad()" />
