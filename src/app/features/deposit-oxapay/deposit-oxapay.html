@@ -1,7 +1,33 @@
 <div class="layout-container">
   <app-top-nav [isWhite]="true"></app-top-nav>
 
-  <div class="content-body">
+  <!-- SUCCESS UI -->
+  <div class="content-body success-body" *ngIf="isPaymentSuccess">
+    <div class="header-nav">
+      <img src="/backwhite.svg" (click)="goBack()" alt="back" />
+    </div>
+
+    <div class="page-title-box">
+      <h2 class="main-title">{{ 'Congratulations' | translate }}</h2>
+    </div>
+
+
+    <div class="success-center-content">
+      <img src="/depositsuccess.svg" class="success-img" />
+      <div class="page-title-box">
+        <h2 class="main-title">{{ 'Congratulations' | translate }}</h2>
+      </div>
+      <p class="success-desc">Thank you! Your payment has been submitted and should appear in your wallet within the
+        next 5 minutes</p>
+    </div>
+
+    <div class="cancel-box">
+      <button class="submit-btn" (click)="confirmSuccess()">Confirm</button>
+    </div>
+  </div>
+
+  <!-- EXISTING DEPOSIT UI -->
+  <div class="content-body" *ngIf="!isPaymentSuccess">
     <div class="header-nav">
       <img src="/backwhite.svg" (click)="goBack()" alt="back" />
     </div>
