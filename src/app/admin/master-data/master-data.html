@@ -7,9 +7,7 @@
     <label class="label">Application Under Maintenance?</label>
 
     <label class="toggle-switch">
-      <input type="checkbox"
-             [(ngModel)]="formData.isMaintenance"
-             (change)="checkIfChanged()" />
+      <input type="checkbox" [(ngModel)]="formData.isMaintenance" (change)="checkIfChanged()" />
       <span class="slider"></span>
     </label>
   </div>
@@ -18,9 +16,7 @@
     <label class="label">Enable new game card</label>
 
     <label class="toggle-switch">
-      <input type="checkbox"
-             [(ngModel)]="formData.isGameEnabled"
-             (change)="checkIfChanged()" />
+      <input type="checkbox" [(ngModel)]="formData.isGameEnabled" (change)="checkIfChanged()" />
       <span class="slider"></span>
     </label>
   </div>
@@ -28,34 +24,35 @@
   <!-- Telegram URL -->
   <div class="section">
     <label class="label">Home Group Link</label>
-    <input type="text"
-           [(ngModel)]="formData.telegramUrl"
-           class="input-box"
-           (input)="checkIfChanged()" />
+    <input type="text" [(ngModel)]="formData.telegramUrl" class="input-box" (input)="checkIfChanged()" />
   </div>
 
-    <!-- Secondary Telegram URL -->
+  <!-- Secondary Telegram URL -->
   <div class="section">
     <label class="label">Home Telegram URL</label>
-    <input type="text"
-           [(ngModel)]="formData.telegramUrlOne"
-           class="input-box"
-           (input)="checkIfChanged()" />
+    <input type="text" [(ngModel)]="formData.telegramUrlOne" class="input-box" (input)="checkIfChanged()" />
   </div>
 
-      <!-- Secondary Telegram URL -->
+  <!-- Hoem Text 1 -->
+  <div class="section">
+    <label class="label">Home Text 1</label>
+    <input type="text" [(ngModel)]="formData.homeText1" class="input-box" (input)="checkIfChanged()" />
+  </div>
+
+  <!-- Home Text 2 -->
+  <div class="section">
+    <label class="label">Home Text 2</label>
+    <input type="text" [(ngModel)]="formData.homeText2" class="input-box" (input)="checkIfChanged()" />
+  </div>
+
+  <!-- Secondary Telegram URL -->
   <div class="section">
     <label class="label">Support Telegram URL</label>
-    <input type="text"
-           [(ngModel)]="formData.telegramUrlTwo"
-           class="input-box"
-           (input)="checkIfChanged()" />
+    <input type="text" [(ngModel)]="formData.telegramUrlTwo" class="input-box" (input)="checkIfChanged()" />
   </div>
 
   <!-- UPDATE BUTTON -->
-  <button class="update-btn"
-          [disabled]="!isChanged"
-          (click)="updateMasterData()">
+  <button class="update-btn" [disabled]="!isChanged" (click)="updateMasterData()">
     Update
   </button>
 
@@ -69,18 +66,11 @@
   <label class="label">Retrieve / Reset Password</label>
 
   <!-- Email Input -->
-  <input type="email"
-         [(ngModel)]="resetEmail"
-         placeholder="Enter email"
-         class="input-box"
-         (input)="generatedPassword=''"
-  />
+  <input type="email" [(ngModel)]="resetEmail" placeholder="Enter email" class="input-box"
+    (input)="generatedPassword=''" />
 
   <!-- Generate New Password Button -->
-  <button class="update-btn"
-          style="margin-top: 10px;"
-          [disabled]="!resetEmail"
-          (click)="generateNewPassword()">
+  <button class="update-btn" style="margin-top: 10px;" [disabled]="!resetEmail" (click)="generateNewPassword()">
     Generate New Password
   </button>
 
@@ -89,11 +79,7 @@
     <label class="label">Generated Password</label>
 
     <div style="display: flex; align-items: center; gap: 10px;">
-      <input type="text"
-             [value]="generatedPassword"
-             readonly
-             class="input-box"
-             style="flex: 1; background: #eef1ff;" />
+      <input type="text" [value]="generatedPassword" readonly class="input-box" style="flex: 1; background: #eef1ff;" />
 
       <!-- Copy Icon -->
       <button class="update-btn" style="padding: 10px;" (click)="copyPassword()">
@@ -102,9 +88,7 @@
     </div>
 
     <!-- Update Password Button -->
-    <button class="update-btn"
-            style="margin-top: 10px;"
-            (click)="updatePassword()">
+    <button class="update-btn" style="margin-top: 10px;" (click)="updatePassword()">
       Update Password
     </button>
 
