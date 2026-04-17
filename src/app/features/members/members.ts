@@ -31,8 +31,11 @@ interface Member {
 export class Members implements OnInit {
   members: Member[] = [];
   filteredMembers: Member[] = [];
-  searchText = '';
   level = 1;
+
+  get totalCommission(): number {
+    return this.filteredMembers.reduce((sum, member) => sum + (Number(member.balance) || 0), 0);
+  }
 
   private router = inject(Router);
   private route = inject(ActivatedRoute);
@@ -118,12 +121,8 @@ export class Members implements OnInit {
   }
 
   filterMembers() {
-    const text = this.searchText.toLowerCase();
-    this.filteredMembers = this.members.filter(
-      (m) =>
-        (m.name || '').toLowerCase().includes(text) ||
-        (m.inviteCode || '').toLowerCase().includes(text)
-    );
+    // Search removed as per requirements; passing through all members
+    this.filteredMembers = [...this.members];
   }
 
   maskEmail(email: string): string {
