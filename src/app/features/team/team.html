@@ -10,45 +10,45 @@
             <!-- 🔹 6-item Grid for Summary -->
             <div class="summary-grid">
                 <div class="summary-card">
-                    <img src="/profilecircle.svg" alt="icon" class="icon" />
+                    <img src="/registeramember.svg" alt="icon" class="icon" />
                     <div class="info">
                         <span class="label">{{ 'Register A Member' | translate }}</span>
-                        <span class="value">${{ data.totalTeams | number: '1.2-2' }}</span>
+                        <span class="value">{{ data.totalTeams | number: '1.2-2' }}</span>
                     </div>
                 </div>
                 <div class="summary-card">
-                    <img src="/profilecircle.svg" alt="icon" class="icon" />
+                    <img src="/totalvalidmembers.svg" alt="icon" class="icon" />
                     <div class="info">
                         <span class="label">{{ 'Total Valid Members' | translate }}</span>
-                        <span class="value">${{ data.totalValidMembers | number: '1.2-2' }}</span>
+                        <span class="value">{{ data.totalValidMembers | number: '1.2-2' }}</span>
                     </div>
                 </div>
                 <div class="summary-card">
-                    <img src="/profilecircle.svg" alt="icon" class="icon" />
+                    <img src="/totalteamcommission.svg" alt="icon" class="icon" />
                     <div class="info">
                         <span class="label">{{ 'Total Team Commission' | translate }}</span>
-                        <span class="value">${{ data.totalPromationComission | number: '1.2-2' }}</span>
+                        <span class="value">{{ data.totalPromationComission | number: '1.2-2' }}</span>
                     </div>
                 </div>
                 <div class="summary-card">
-                    <img src="/profilecircle.svg" alt="icon" class="icon" />
+                    <img src="/firstlevelbonus.svg" alt="icon" class="icon" />
                     <div class="info">
                         <span class="label">{{ 'First Level Bonus' | translate }}</span>
-                        <span class="value">${{ data.firstLevelBonus | number: '1.2-2' }}</span>
+                        <span class="value">{{ data.firstLevelBonus | number: '1.2-2' }}</span>
                     </div>
                 </div>
                 <div class="summary-card">
-                    <img src="/profilecircle.svg" alt="icon" class="icon" />
+                    <img src="/totalteamdeposit.svg" alt="icon" class="icon" />
                     <div class="info">
                         <span class="label">{{ 'Total Team Deposit' | translate }}</span>
-                        <span class="value">${{ data.teamRecharge | number: '1.2-2' }}</span>
+                        <span class="value">{{ data.teamRecharge | number: '1.2-2' }}</span>
                     </div>
                 </div>
                 <div class="summary-card">
-                    <img src="/profilecircle.svg" alt="icon" class="icon" />
+                    <img src="/totalteamwithdrawal.svg" alt="icon" class="icon" />
                     <div class="info">
                         <span class="label">{{ 'Total Team Withdrawal' | translate }}</span>
-                        <span class="value">${{ data.teamWitdrawls | number: '1.2-2' }}</span>
+                        <span class="value">{{ data.teamWitdrawls | number: '1.2-2' }}</span>
                     </div>
                 </div>
             </div>
@@ -59,7 +59,7 @@
         <div class="layer-section">
             <div class="section-header">
                 <h3>{{ "Valid Summary Details" | translate }}</h3>
-                <a href="javascript:void(0)" class="details-link">{{ "View team count" | translate }} ></a>
+                <a href="javascript:void(0)" class="details-link">{{ "View team count" | translate }}</a>
             </div>
 
             <div class="layer-list">
@@ -67,7 +67,7 @@
                     <div class="layer-title">
                         <span>{{ level.title | translate }}</span>
                     </div>
-                    
+
                     <div class="layer-stats">
                         <div class="stat-item">
                             <span class="stat-label">{{ 'Team Commission' | translate }}</span>
