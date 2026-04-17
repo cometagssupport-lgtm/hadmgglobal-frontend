@@ -3,13 +3,15 @@
 
   <div class="top-gradient-banner">
     <div class="header-nav">
-      <img src="/backicon.svg" alt="back" />
-      <div class="title">{{ 'Create Recharge' | translate }}</div>
+      <img src="/backicon.svg" alt="back" class="back-icon-img" (click)="goBack()" style="cursor: pointer;" />
     </div>
 
     <div class="banner-content">
-      <p class="banner-desc">{{ 'Enter your amount, Choose token and network. Get your deposit wallet address or QR to
-        deposit' | translate }}</p>
+      <div class="text-content">
+        <div class="title">{{ 'Create Recharge' | translate }}</div>
+        <p class="banner-desc">{{ 'Enter your amount, Choose token and network. Get your deposit wallet address or QR to
+          deposit' | translate }}</p>
+      </div>
       <img src="/chest.png" class="chest-img" onerror="this.onerror=null; this.src='/recharge-icon.svg'" />
     </div>
   </div>
@@ -32,7 +34,7 @@
       <div class="guide-box">
         <h4>{{ 'Recharge Guide:' | translate }}</h4>
         <ul>
-          <li>-{{ 'Minimum Deposit is' | translate }} {{ minDeposit }} USDT</li>
+          <li>-{{ '-Minimum Deposit is 30 USDT' | translate }}</li>
           <li>{{ '-Please confirm platform deposit address before depositing.' | translate }}</li>
           <li>{{ '-Copy the address above or scan the QR code and select the corresponding network to deposit USDT.' |
             translate }}</li>
