@@ -1,0 +1,88 @@
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #F6F6F6;
+  font-family: 'Clash Display', sans-serif;
+}
+
+.success-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.header-nav {
+  margin-bottom: 20px;
+}
+
+.back-circle-btn {
+  background: #E8E8E8;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.success-main-title {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  text-align: left;
+}
+
+.success-center-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.success-img {
+  width: 100%;
+  height: auto;
+  max-width: 250px;
+  margin-bottom: 30px;
+}
+
+.success-sub-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+.success-desc {
+  font-size: 12px;
+  color: #484848;
+  line-height: 140%;
+  width: 95%;
+  max-width: 320px;
+}
+
+.bottom-box {
+  margin-top: auto;
+  padding-bottom: 16px;
+}
+
+.submit-btn {
+  background: #009738;
+  color: white;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  height: 48px;
+}

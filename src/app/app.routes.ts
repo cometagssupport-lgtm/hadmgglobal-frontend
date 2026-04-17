@@ -31,6 +31,7 @@ import { UserDeposits } from './admin/user-deposits/user-deposits'
 import { TeamDetails } from './admin/team-details/team-details'
 import { MasterData } from './admin/master-data/master-data'
 import { Rewards } from './features/rewards/rewards';
+import { RewardsSuccess } from './features/rewards-success/rewards-success';
 import { Quantify } from './features/quantify/quantify';
 import { authGuard } from './guards/auth-guard';
 import { TransactionHistory } from './features/transaction-history/transaction-history';
@@ -60,6 +61,7 @@ export const routes: Routes = [
           { path: 'profile', component: Profile },
         ]
       },
+      { path: 'rewards-success', component: RewardsSuccess },
       { path: 'withdraw', component: Withdrawal },
       { path: 'history', component: History },
       { path: 'transactions', component: TransactionHistory },

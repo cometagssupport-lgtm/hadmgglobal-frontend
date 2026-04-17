@@ -1,0 +1,23 @@
+<div class="layout-container">
+  <app-top-nav [isWhite]="true"></app-top-nav>
+
+  <div class="success-body">
+    <div class="header-nav">
+      <button class="back-circle-btn" (click)="goBack()">
+        <img src="/backwhite.svg" style="filter: brightness(0); width: 8px;" alt="back" />
+      </button>
+    </div>
+
+    <h2 class="success-main-title">Congratulations!</h2>
+
+    <div class="success-center-content">
+      <img src="/acheivementunlocked.svg" class="success-img" />
+      <h3 class="success-sub-title">Achievement unlocked!</h3>
+      <p class="success-desc">You've completed your journey and claimed your bonus - ready for the next challenge?</p>
+    </div>
+
+    <div class="bottom-box">
+      <button class="submit-btn" (click)="goBack()">Done</button>
+    </div>
+  </div>
+</div>
