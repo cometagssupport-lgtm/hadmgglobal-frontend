@@ -11,7 +11,7 @@
         <div class="banner-inner">
           <div class="welcome-section">
             <div class="welcome-text">{{'Registration' | translate}}</div>
-            <div class="bnb-text">{{'Welcome to Sign-in' | translate}}<br>{{'HADM GLOBAL' | translate}}</div>
+            <div class="bnb-text">{{'Authenticate to continue' | translate}}<br>{{'Comet AGS' | translate}}</div>
           </div>
           <img src="/sign-in-icon.svg" class="hero-image-banner" alt="Hand Holding Phone" />
         </div>
@@ -24,14 +24,17 @@
           <!-- Name -->
           <div class="password-section">
             <div class="section-labels">
-              <span [class.error-label]="signupForm.get('name')?.invalid && (signupForm.get('name')?.touched || signupForm.get('name')?.dirty)">
+              <span
+                [class.error-label]="signupForm.get('name')?.invalid && (signupForm.get('name')?.touched || signupForm.get('name')?.dirty)">
                 {{ 'Username' | translate }}
               </span>
             </div>
             <div class="custom-input-wrapper">
-              <input type="text" class="custom-input-box" formControlName="name" placeholder="{{'Enter your Username' | translate}}" />
+              <input type="text" class="custom-input-box" formControlName="name"
+                placeholder="{{'Enter your Username' | translate}}" />
             </div>
-            <div class="error-msg" *ngIf="signupForm.get('name')?.hasError('required') && signupForm.get('name')?.touched">
+            <div class="error-msg"
+              *ngIf="signupForm.get('name')?.hasError('required') && signupForm.get('name')?.touched">
               {{ 'Username is required' | translate }}
             </div>
           </div>
@@ -39,17 +42,21 @@
           <!-- Email -->
           <div class="password-section">
             <div class="section-labels">
-              <span [class.error-label]="signupForm.get('email')?.invalid && (signupForm.get('email')?.touched || signupForm.get('email')?.dirty)">
+              <span
+                [class.error-label]="signupForm.get('email')?.invalid && (signupForm.get('email')?.touched || signupForm.get('email')?.dirty)">
                 {{ 'Email' | translate }}
               </span>
             </div>
             <div class="custom-input-wrapper">
-              <input type="email" class="custom-input-box" formControlName="email" placeholder="{{'Enter your Email ID' | translate}}" />
+              <input type="email" class="custom-input-box" formControlName="email"
+                placeholder="{{'Enter your Email ID' | translate}}" />
             </div>
-            <div class="error-msg" *ngIf="signupForm.get('email')?.hasError('required') && signupForm.get('email')?.touched">
+            <div class="error-msg"
+              *ngIf="signupForm.get('email')?.hasError('required') && signupForm.get('email')?.touched">
               {{ 'Email is required' | translate }}
             </div>
-            <div class="error-msg" *ngIf="signupForm.get('email')?.hasError('email') && signupForm.get('email')?.touched">
+            <div class="error-msg"
+              *ngIf="signupForm.get('email')?.hasError('email') && signupForm.get('email')?.touched">
               {{ 'Please enter a valid email' | translate }}
             </div>
           </div>
@@ -59,17 +66,20 @@
           <!-- Password -->
           <div class="password-section">
             <div class="section-labels">
-              <span [class.error-label]="signupForm.get('password')?.invalid && (signupForm.get('password')?.touched || signupForm.get('password')?.dirty)">
+              <span
+                [class.error-label]="signupForm.get('password')?.invalid && (signupForm.get('password')?.touched || signupForm.get('password')?.dirty)">
                 {{ 'Login Password' | translate }}
               </span>
             </div>
             <div class="custom-input-wrapper">
-              <input [type]="hidePassword ? 'password' : 'text'" class="custom-input-box" formControlName="password" placeholder="{{'Enter your Password' | translate}}" />
+              <input [type]="hidePassword ? 'password' : 'text'" class="custom-input-box" formControlName="password"
+                placeholder="{{'Enter your Password' | translate}}" />
               <button class="eye-btn" type="button" (click)="togglePasswordVisibility()">
                 <img src="/password-eye.svg" alt="Toggle Password" />
               </button>
             </div>
-            <div class="error-msg" *ngIf="signupForm.get('password')?.hasError('required') && signupForm.get('password')?.touched">
+            <div class="error-msg"
+              *ngIf="signupForm.get('password')?.hasError('required') && signupForm.get('password')?.touched">
               {{ 'Password is required' | translate }}
             </div>
           </div>
@@ -77,17 +87,20 @@
           <!-- Confirm Password -->
           <div class="password-section">
             <div class="section-labels">
-              <span [class.error-label]="signupForm.get('confirmPassword')?.invalid && (signupForm.get('confirmPassword')?.touched || signupForm.get('confirmPassword')?.dirty)">
+              <span
+                [class.error-label]="signupForm.get('confirmPassword')?.invalid && (signupForm.get('confirmPassword')?.touched || signupForm.get('confirmPassword')?.dirty)">
                 {{ 'Confirm Login Password' | translate }}
               </span>
             </div>
             <div class="custom-input-wrapper">
-              <input [type]="hidePassword ? 'password' : 'text'" class="custom-input-box" formControlName="confirmPassword" placeholder="Re-enter your Password" />
+              <input [type]="hidePassword ? 'password' : 'text'" class="custom-input-box"
+                formControlName="confirmPassword" placeholder="Re-enter your Password" />
               <button class="eye-btn" type="button" (click)="togglePasswordVisibility()">
                 <img src="/password-eye.svg" alt="Toggle Password" />
               </button>
             </div>
-            <div class="error-msg" *ngIf="signupForm.get('confirmPassword')?.hasError('required') && signupForm.get('confirmPassword')?.touched">
+            <div class="error-msg"
+              *ngIf="signupForm.get('confirmPassword')?.hasError('required') && signupForm.get('confirmPassword')?.touched">
               {{ 'Confirm Password is required' | translate }}
             </div>
           </div>
@@ -95,14 +108,17 @@
           <!-- Affiliate Key (Referral) -->
           <div class="password-section">
             <div class="section-labels">
-              <span [class.error-label]="signupForm.get('refferedCode')?.invalid && (signupForm.get('refferedCode')?.touched || signupForm.get('refferedCode')?.dirty)">
+              <span
+                [class.error-label]="signupForm.get('refferedCode')?.invalid && (signupForm.get('refferedCode')?.touched || signupForm.get('refferedCode')?.dirty)">
                 {{ 'Affiliate Key' | translate }}
               </span>
             </div>
             <div class="custom-input-wrapper">
-              <input type="text" class="custom-input-box" formControlName="refferedCode" placeholder="Enter Affiliate Key" />
+              <input type="text" class="custom-input-box" formControlName="refferedCode"
+                placeholder="Enter Affiliate Key" />
             </div>
-            <div class="error-msg" *ngIf="signupForm.get('confirmPassword')?.hasError('mismatch') && signupForm.get('confirmPassword')?.touched">
+            <div class="error-msg"
+              *ngIf="signupForm.get('confirmPassword')?.hasError('mismatch') && signupForm.get('confirmPassword')?.touched">
               Passwords do not match
             </div>
           </div>
@@ -111,8 +127,9 @@
           <div class="form-options">
             <mat-checkbox class="remember-checkbox" formControlName="terms"></mat-checkbox>
             <span class="terms-text">
-              {{ 'By continuing, you acknowledge and agree to the' |translate }} 
-              <span [routerLink]="['/t&c']" class="green-link">{{'Terms of Service and Privacy Policy.' | translate}}</span>
+              {{ 'By continuing, you acknowledge and agree to the' |translate }}
+              <span [routerLink]="['/t&c']" class="green-link">{{'Terms of Service and Privacy Policy.' |
+                translate}}</span>
             </span>
           </div>
         </form>
