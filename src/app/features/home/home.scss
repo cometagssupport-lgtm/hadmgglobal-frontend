@@ -174,7 +174,6 @@
   border-radius: 14px;
   overflow: hidden;
   margin-top: -65px;
-  margin-bottom: 28px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   z-index: 2;
   background: white;
@@ -207,6 +206,7 @@
   margin-right: -24px;
   /* Pulls image to touch right edge */
   margin-bottom: -30px;
+  margin-top: -30px;
 }
 
 .points-text-block {
