@@ -224,4 +224,17 @@ export class Users implements OnInit {
     });
   }
 
+  copyToClipboard(text: string) {
+    if (text) {
+      navigator.clipboard.writeText(text).then(() => {
+        this.snackBar.open('Email copied to clipboard!', 'Close', {
+          duration: 3000,
+          panelClass: ['success-snackbar']
+        });
+      }).catch(err => {
+        console.error('Failed to copy text: ', err);
+      });
+    }
+  }
+
 }
