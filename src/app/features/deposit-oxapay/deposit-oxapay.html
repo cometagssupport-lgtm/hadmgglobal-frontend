@@ -3,14 +3,12 @@
 
   <div class="content-body">
     <div class="header-nav">
-      <button class="back-btn-dark" (click)="goBack()">
-        <img src="/leftarraow.svg" style="filter: brightness(0) invert(0);" alt="back" />
-      </button>
+      <img src="/backwhite.svg" (click)="goBack()" alt="back" />
     </div>
 
     <div class="page-title-box">
       <h2 class="main-title">{{ 'Recharge' | translate }}</h2>
-      <p class="sub-title">{{ 'Minimum Deposit 30 USDT/USDC' | translate }}</p>
+      <p class="sub-title">{{ ' 30 USDT / USDC BEP20 BNB Chain' | translate }}</p>
     </div>
 
     <div class="timer-container">
@@ -24,6 +22,7 @@
     <div class="amount-container">
       <p class="amount-label">{{ 'Amount Payable' | translate }}</p>
       <h3 class="amount-value">{{ data?.amount }} USDT</h3>
+      <p class="timer-text">{{ 'USDT / USDC -BEP20 BNB' | translate }}</p>
     </div>
 
     <div class="address-container">
