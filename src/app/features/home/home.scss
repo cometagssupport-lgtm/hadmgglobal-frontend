@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #f7f9fc;
+  background-color: #F6F6F6;
   font-family: 'Clash Display', sans-serif;
   overflow-x: hidden;
   width: 100%;
@@ -161,9 +161,9 @@
 
 /* Content Body below banner */
 .content-body {
-  padding: 0 24px 100px;
-  /* Padding bottom for bottom navbar */
-  background-color: #f7f9fc;
+  padding: 0 24px 0;
+  /* padding-bottom shifted to company-profile */
+  background-color: #F6F6F6;
   position: relative;
 }
 
@@ -235,8 +235,9 @@
 
 /* Company Profile Section */
 .company-profile {
-  background: transparent;
-  padding: 0;
+  background-color: #FFFFFF;
+  padding: 30px 24px 100px;
+  margin: 0 -24px;
   border-radius: 0;
   box-shadow: none;
 }
