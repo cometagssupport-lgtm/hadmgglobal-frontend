@@ -204,8 +204,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 35px;
   padding: 0 4px;
+  margin-bottom: -30px;
 }
 
 .points-text-block {
@@ -231,8 +231,8 @@
 }
 
 .points-image {
-  width: 100px;
-  height: 100px;
+  width: 50%;
+  height: 50%;
   object-fit: contain;
 }
 
