@@ -5,7 +5,7 @@
     <div class="banner-content">
       <div class="banner-top-actions">
         <a class="edit-action" (click)="openAvatar()">
-          <mat-icon class="edit-icon">edit</mat-icon> Edit
+          <img src="/pencil.svg" alt="pencil" /> Edit
         </a>
       </div>
       <div class="user-profile-header">
@@ -15,7 +15,8 @@
         <div class="user-info">
           <h2>User Name: {{ user.name }}</h2>
           <p>Email: {{ user.email }}</p>
-          <p class="uid-row">UID: <span>{{ user.uid || '53794' }}</span> <img src="/copy.svg" class="copy-icon" /></p>
+          <p class="uid-row">UID: <span>{{ user.uid || '53794' }}</span> <img src="/copyimg.svg" class="copy-icon" />
+          </p>
 
           <div class="level-badge">
             Your Level: <span>{{ user.level || 'AGS 0' }}</span>
