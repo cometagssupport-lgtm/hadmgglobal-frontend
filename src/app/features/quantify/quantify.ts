@@ -38,7 +38,8 @@ export class Quantify implements OnInit, OnDestroy {
       details: ['2 Days Internship Bonus', 'Daily Income - 2%'],
       expiryTime: 'Active Until - 2 Days',
       isDefault: true,
-      isButtonEnable: true,
+      isButtonEnable: false,
+      hasActiveTimer: false,
       taskGuide: [
         'The advanced Comet AGS Trial Robot provides a beginner-friendly experience by simulating real-time strategy execution.',
         'When the user starts, quantitative trading pairs are executed automatically.',
@@ -52,11 +53,12 @@ export class Quantify implements OnInit, OnDestroy {
       minAmount: 30,
       maxAmount: 1500,
       image: '/AGS1.svg',
-      title: 'Junior AGS 1',
-      details: ['90 Days Period', 'Daily Income - 1.2%', 'Min Deposit - 30 USDT'],
+      title: 'AGS 1',
+      details: ['Invest 30 - 1500 USDT', 'Daily Income - 1.2% '],
       expiryTime: 'Active Until - 2 Days',
       isDefault: false,
       isButtonEnable: false,
+      hasActiveTimer: false,
       taskGuide: [
         'The advanced Comet AGS.0 robot will formulate and improve the Comet AGS strategy in real time and form instructions based on the deep learning and monitoring of hundreds of CEX/DEX transaction pairs every day.',
         'When the user starts, quantitative trading pairs are executed automatically.',
@@ -71,11 +73,12 @@ export class Quantify implements OnInit, OnDestroy {
       minAmount: 1501,
       maxAmount: 3500,
       image: '/AGS2.svg',
-      title: 'Senior AGS 2',
-      details: ['90 Days Period', 'Daily Income - 1.5%', 'Min Deposit - 1501 USDT'],
+      title: 'AGS 2',
+      details: ['Invest 1501 - 3500 USDT', 'Daily Income - 1.5%'],
       expiryTime: 'Active Until - 2 Days',
       isDefault: false,
       isButtonEnable: false,
+      hasActiveTimer: false,
       targetMembers: 3,
       currentMembers: 0,
       taskGuide: [
@@ -93,11 +96,12 @@ export class Quantify implements OnInit, OnDestroy {
       minAmount: 3501,
       maxAmount: 6000,
       image: '/AGS3.svg',
-      title: 'Expert AGS 3',
-      details: ['90 Days Period', 'Daily Income - 1.8%', 'Min Deposit - 3501 USDT'],
+      title: 'AGS 3',
+      details: ['Invest 3501 - 6000 USDT', 'Daily Income - 1.8%'],
       expiryTime: 'Active Until - 2 Days',
       isDefault: false,
       isButtonEnable: false,
+      hasActiveTimer: false,
       targetMembers: 10,
       currentMembers: 0,
       taskGuide: [
@@ -115,11 +119,12 @@ export class Quantify implements OnInit, OnDestroy {
       minAmount: 6001,
       maxAmount: 9000,
       image: '/AGS4.svg',
-      title: 'Master AGS 4',
-      details: ['90 Days Period', 'Daily Income - 2.4%', 'Min Deposit - 6001 USDT'],
+      title: 'AGS 4',
+      details: ['Invest 6001 - 9000 USDT', 'Daily Income - 2.4%'],
       expiryTime: 'Active Until - 2 Days',
       isDefault: false,
       isButtonEnable: false,
+      hasActiveTimer: false,
       targetMembers: 20,
       currentMembers: 0,
       taskGuide: [
@@ -138,6 +143,7 @@ export class Quantify implements OnInit, OnDestroy {
     if (isPlatformBrowser(this.platformId)) {
       this.getUserBalance();
       this.startCountdown();
+      this.getGameData();
 
       const lastQuantified = localStorage.getItem('lastQuantifiedDate');
       const today = new Date().toDateString();
@@ -206,11 +212,102 @@ export class Quantify implements OnInit, OnDestroy {
   }
 
   get isButtonEnabled() {
+    if (this.currentTab.id === 'AGS0') {
+      return this.currentTab.isButtonEnable;
+    }
     return this.currentTab.isButtonEnable && !this.isQuantified;
   }
 
+  getGameData() {
+    const userId = localStorage.getItem('userId');
+    if (!userId) return;
+
+    this.authService.avengers({ screen: 'game', userId }).subscribe({
+      next: (res) => {
+        if (res.statusCode === 200 && res.data) {
+          const data = res.data;
+          
+          this.tabs.forEach(tab => {
+            tab.hasActiveTimer = false;
+            
+            if (tab.id === 'AGS0') {
+              let shouldEnable = false;
+              if (res.data.isFreeTrailSubcraibed) {
+                if (!res.data.freeTrailActivationTime) {
+                  shouldEnable = true;
+                } else {
+                  const now = Date.now();
+                  const activationTime = Number(res.data.freeTrailActivationTime);
+                  const dayInMs = 24 * 60 * 60 * 1000;
+                  if (now - activationTime >= dayInMs) {
+                    shouldEnable = true;
+                  } else {
+                    tab.hasActiveTimer = true;
+                  }
+                }
+              }
+              tab.isButtonEnable = shouldEnable;
+            } else {
+              const tabLevel = 'Level' + tab.id.replace('AGS', '');
+              if (res.data.elegibleLevel === tabLevel) {
+                if (res.data.currectLevel === res.data.elegibleLevel) {
+                  if (!res.data.activationTime) {
+                    tab.isButtonEnable = true;
+                  } else {
+                    const now = Date.now();
+                    const activationTime = Number(res.data.activationTime);
+                    const dayInMs = 24 * 60 * 60 * 1000;
+                    if (now - activationTime >= dayInMs) {
+                      tab.isButtonEnable = true;
+                    } else {
+                      tab.isButtonEnable = false;
+                      tab.hasActiveTimer = true;
+                    }
+                  }
+                } else {
+                  tab.isButtonEnable = true;
+                }
+              } else {
+                tab.isButtonEnable = false;
+              }
+            }
+          });
+          
+          this.cdr.detectChanges();
+        }
+      },
+      error: (err) => console.error('Failed to fetch game details:', err)
+    });
+  }
+
+  claimFreeTrial() {
+    const userId = localStorage.getItem('userId');
+    if (!userId) return;
+
+    this.isQuantifying = true;
+    this.authService.purchaseNow({ Level: 'free', userId }).subscribe({
+      next: (res) => {
+        this.isQuantifying = false;
+        if (res.statusCode === 200) {
+          this.snackBar.open(res.message || 'Free level claimed successfully!', 'Close', { duration: 3000, panelClass: ['success-snackbar'] });
+        } else {
+          this.snackBar.open(res.message || 'Failed to claim.', 'Close', { duration: 3000, panelClass: ['error-snackbar'] });
+        }
+        this.getGameData();
+      },
+      error: (err) => {
+        this.isQuantifying = false;
+        this.snackBar.open(err.error?.message || 'Failed to claim', 'Close', { duration: 3000, panelClass: ['error-snackbar'] });
+      }
+    });
+  }
+
   startQuantization() {
-    if (!this.isButtonEnabled || this.isQuantified || this.isQuantifying) return;
+    if (this.currentTab.id === 'AGS0') {
+      if (!this.isButtonEnabled || this.isQuantifying) return;
+    } else {
+      if (!this.isButtonEnabled || this.isQuantified || this.isQuantifying) return;
+    }
 
     this.isQuantifying = true;
     this.quantizationProgress = 0;
@@ -224,7 +321,12 @@ export class Quantify implements OnInit, OnDestroy {
       if (this.quantizationProgress >= 100) {
         this.quantizationProgress = 100;
         clearInterval(progressTimer);
-        this.completeQuantization();
+        
+        if (this.currentTab.id === 'AGS0') {
+          this.claimFreeTrial();
+        } else {
+          this.completeQuantization();
+        }
       }
       this.cdr.detectChanges();
     }, intervalTime);
@@ -232,32 +334,37 @@ export class Quantify implements OnInit, OnDestroy {
 
   completeQuantization() {
     const userId = localStorage.getItem('userId');
-    const payload = {
-      screen: 'startQuantification',
-      userId: userId,
-      tabId: this.currentTab.id
-    };
+    if (!userId) return;
 
-    this.authService.avengers(payload).subscribe({
+    this.authService.activateGame({ userId: userId }).subscribe({
       next: (res) => {
         this.isQuantifying = false;
-        this.isQuantified = true;
-        this.currentTab.isButtonEnable = false; // Disable button for this tab
-        localStorage.setItem('lastQuantifiedDate', new Date().toDateString());
+        
+        if (res.statusCode === 200) {
+          this.isQuantified = true;
+          this.currentTab.isButtonEnable = false;
+          localStorage.setItem('lastQuantifiedDate', new Date().toDateString());
 
-        this.snackBar.open('Quantification Started Successfully!', 'Close', {
-          duration: 3000,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-          panelClass: ['success-snackbar']
-        });
+          this.snackBar.open(res.message || 'Quantification Started Successfully!', 'Close', {
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'bottom',
+            panelClass: ['success-snackbar']
+          });
+        } else {
+          this.snackBar.open(res.message || 'Failed to start quantification. Please try again.', 'Close', {
+            duration: 3000
+          });
+        }
+        this.getGameData();
         this.cdr.detectChanges();
       },
       error: (err) => {
         this.isQuantifying = false;
-        this.snackBar.open('Failed to start quantification. Please try again.', 'Close', {
+        this.snackBar.open(err.error?.message || 'Failed to start quantification. Please try again.', 'Close', {
           duration: 3000
         });
+        this.cdr.detectChanges();
       }
     });
   }

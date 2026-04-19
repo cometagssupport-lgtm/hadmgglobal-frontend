@@ -5,7 +5,8 @@
     <div class="header-content" fxLayout="row" fxLayoutAlign="space-between start">
       <div class="header-text">
         <h1 class="title">Daily Quantitative Task</h1>
-        <p class="subtitle">AI-Strategy grid trading automates strategies, executes trades in real time, and delivers consistent daily returns.</p>
+        <p class="subtitle">AI-Strategy grid trading automates strategies, executes trades in real time, and delivers
+          consistent daily returns.</p>
       </div>
       <div class="header-image">
         <img src="quantifytop.svg" alt="Quantify Banner" />
@@ -16,12 +17,8 @@
   <!-- 📑 Tabs Section -->
   <div class="tabs-wrapper">
     <div class="tabs-list" fxLayout="row" fxLayoutAlign="space-between center">
-      <div 
-        *ngFor="let tab of tabs; let i = index" 
-        class="tab-item" 
-        [class.active]="selectedTabIndex === i"
-        (click)="selectTab(i)"
-      >
+      <div *ngFor="let tab of tabs; let i = index" class="tab-item" [class.active]="selectedTabIndex === i"
+        (click)="selectTab(i)">
         {{ tab.label }}
       </div>
     </div>
@@ -31,11 +28,11 @@
   <div class="strategy-card-container">
     <div class="strategy-image-box">
       <img [src]="currentTab.image" alt="Strategy Card" class="tab-hero-image" />
-      
+
       <!-- 📝 Text Overlay -->
       <div class="card-text-overlay">
-        <h2 class="overlay-title">{{ currentTab.label }}</h2>
-        
+        <h2 class="overlay-title">{{ currentTab.title }}</h2>
+
         <div class="overlay-details">
           <p *ngFor="let detail of currentTab.details">{{ detail }}</p>
           <p class="expiry-text">{{ currentTab.expiryTime || ('Active Until - ' + remainingTime) }}</p>
@@ -47,7 +44,8 @@
   <!-- 🎫 Upgrade Requirement Strip (AGS 2, 3, 4 only) -->
   <div *ngIf="currentTab.targetMembers" class="upgrade-strip-container">
     <div class="upgrade-strip">
-      Need <b>{{ currentTab.currentMembers || 0 }}/{{ currentTab.targetMembers }} effective members</b> can upgrade Access to {{ currentTab.label }}
+      Need <b>{{ currentTab.currentMembers || 0 }}/{{ currentTab.targetMembers }} effective members</b> can upgrade
+      Access to {{ currentTab.label }}
     </div>
   </div>
 
@@ -62,7 +60,7 @@
   </div>
 
   <!-- 🔔 Status Message (After Quantified) -->
-  <div *ngIf="isQuantified" class="status-msg-container">
+  <div *ngIf="currentTab.hasActiveTimer" class="status-msg-container">
     <div class="status-msg-box">
       <p>Next contribution time is <b>24 hours</b>. Start your next AGS Quantitization trade after this period.</p>
     </div>
@@ -78,15 +76,15 @@
       <p class="progress-label">Quantifying... {{ quantizationProgress | number:'1.0-0' }}%</p>
     </div>
 
-    <!-- Main Button (Visible when NOT quantifying) -->
-    <button 
-      *ngIf="!isQuantifying"
-      class="quantify-btn" 
-      [ngClass]="{ 'active': isButtonEnabled && !isQuantified, 'disabled': !isButtonEnabled || isQuantified }"
-      [disabled]="!isButtonEnabled || isQuantified"
-      (click)="startQuantization()"
-    >
-      {{ isQuantified ? 'Quantified' : 'Start Quantization' }}
+    <button *ngIf="!isQuantifying" class="quantify-btn"
+      [ngClass]="{ 'active': isButtonEnabled, 'disabled': !isButtonEnabled }"
+      [disabled]="!isButtonEnabled" (click)="startQuantization()">
+      <ng-container *ngIf="currentTab.id === 'AGS0'">
+        {{ 'Start Quantization' }}
+      </ng-container>
+      <ng-container *ngIf="currentTab.id !== 'AGS0'">
+        {{ currentTab.hasActiveTimer ? 'Quantified' : 'Start Quantization' }}
+      </ng-container>
     </button>
   </div>
 </div>

@@ -65,11 +65,11 @@ export class Profile implements OnInit {
   ];
 
   settings = [
+    { label: 'Transaction History', icon: '/transh.svg' },
+    { label: 'Set Transaction Password', icon: '/transpass.svg' },
+    { label: 'Help & support', icon: '/h&su.svg' },
     { label: 'Change password', icon: '/change-password.svg' },
     { label: 'Terms and conditions', icon: '/termsandc.svg' },
-    { label: 'Set Transaction Password', icon: '/transpass.svg' },
-    { label: 'Transaction History', icon: '/transh.svg' },
-    { label: 'Help & support', icon: '/h&su.svg' }
   ];
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {

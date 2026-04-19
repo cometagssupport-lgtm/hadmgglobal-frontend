@@ -15,11 +15,13 @@ import { AuthService } from '../../services/auth.service';
 import { TranslatePipe } from '../../pipes/translate-pipe';
 
 interface Member {
+  userName?: string;
   name?: string;
   email: string;
   timestamp: string;
   balance: number;
-  inviteCode: string; // Used as UID
+  UID: string; // Used as UID
+  profilePic?: number;
 }
 
 @Component({
@@ -75,11 +77,12 @@ export class Members implements OnInit {
     const names = ['Arjun Sharma', 'Priya Patel', 'Rahul Singh', 'Neha Gupta', 'Karan Verma', 'Anita Desai'];
     // Generate dummy members based on current level to show variations
     this.members = Array.from({ length: 6 }).map((_, i) => ({
-      name: names[i % names.length] + ' ' + this.level,
+      userName: names[i % names.length] + ' ' + this.level,
       email: `user${i}@example.com`,
       timestamp: new Date(2024, 0, 10 - i).toISOString(),
       balance: 899 + (i * 50) + (this.level * 100),
-      inviteCode: `${53700 + i + (this.level * 10)}`
+      UID: `${53700 + i + (this.level * 10)}`,
+      profilePic: (i % 9) + 1
     }));
     this.filteredMembers = [...this.members];
     this.cdr.detectChanges();
@@ -108,8 +111,8 @@ export class Members implements OnInit {
             this.cdr.detectChanges();
           });
         } else {
-            // Load dummy data for preview explicitly requested
-            this.loadMockMembers();
+          // Load dummy data for preview explicitly requested
+          this.loadMockMembers();
         }
       },
       error: (err) => {
