@@ -220,24 +220,36 @@ export class Quantify implements OnInit, OnDestroy {
     this.authService.avengers({ screen: 'game', userId }).subscribe({
       next: (res) => {
         if (res.statusCode === 200 && res.data) {
-          const ags0Tab = this.tabs.find(t => t.id === 'AGS0');
-          if (ags0Tab) {
-            let shouldEnable = false;
-            if (res.data.isFreeTrailSubcraibed) {
-              if (!res.data.freeTrailActivationTime) {
-                shouldEnable = true;
-              } else {
-                const now = Date.now();
-                const activationTime = Number(res.data.freeTrailActivationTime);
-                const dayInMs = 24 * 60 * 60 * 1000;
-                if (now - activationTime >= dayInMs) {
+          const data = res.data;
+          
+          this.tabs.forEach(tab => {
+            if (tab.id === 'AGS0') {
+              let shouldEnable = false;
+              if (data.isFreeTrailSubcraibed) {
+                if (!data.freeTrailActivationTime) {
                   shouldEnable = true;
+                } else {
+                  const now = Date.now();
+                  const activationTime = Number(data.freeTrailActivationTime);
+                  const dayInMs = 24 * 60 * 60 * 1000;
+                  if (now - activationTime >= dayInMs) {
+                    shouldEnable = true;
+                  }
                 }
               }
+              tab.isButtonEnable = shouldEnable;
+            } else if (tab.id === 'AGS1') {
+              tab.isButtonEnable = (data.elegibleLevel === 'Level1');
+            } else if (tab.id === 'AGS2') {
+              tab.isButtonEnable = (data.elegibleLevel === 'Level2');
+            } else if (tab.id === 'AGS3') {
+              tab.isButtonEnable = (data.elegibleLevel === 'Level3');
+            } else if (tab.id === 'AGS4') {
+              tab.isButtonEnable = (data.elegibleLevel === 'Level4');
             }
-            ags0Tab.isButtonEnable = shouldEnable;
-            this.cdr.detectChanges();
-          }
+          });
+          
+          this.cdr.detectChanges();
         }
       },
       error: (err) => console.error('Failed to fetch game details:', err)
