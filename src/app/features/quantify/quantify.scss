@@ -1,8 +1,8 @@
 .quantify-container {
-  background-color: #F8F9FA;
+  background-color: #ECECEC;
   min-height: 100vh;
-  padding-bottom: 90px;
-  font-family: 'Clash Display', sans-serif;
+  font-family: 'Clash Display';
+  padding-bottom: 40px;
 
   .quantify-header {
     background: url('/mainbg.svg') no-repeat center top;
@@ -95,30 +95,29 @@
   }
 
   .strategy-card-container {
-    padding: 24px 16px;
+    // padding: 24px 16px;
     display: flex;
     justify-content: center;
 
     .strategy-image-box {
       width: 100%;
-      max-width: 353px; // Matching the design width of the overlay
+      // max-width: 353px; 
       position: relative;
       overflow: hidden;
       border-radius: 20px;
 
       .tab-hero-image {
-        width: 116%;
-        margin-left: -8%;
-        margin-top: -12%;
+        width: 105%;
+        margin-left: -3%;
         height: auto;
         display: block;
-        mix-blend-mode: multiply;
+        margin-top: 20px;
       }
 
       .card-text-overlay {
         position: absolute;
-        top: 69px;
-        left: 0;
+        top: 100px;
+        left: 5px;
         width: 100%;
         max-width: 353px;
         color: white;
@@ -130,10 +129,14 @@
         gap: 10px;
 
         .overlay-title {
-          font-size: 28px;
-          font-weight: 700;
+          font-size: 24px;
+          font-weight: 600;
           margin: 0;
-          letter-spacing: 0.5px;
+          letter-spacing: 0%;
+          line-height: 140%;
+          font-family: 'Clash Display';
+          color: #FFFFFF;
+
         }
 
         .overlay-details {
@@ -145,8 +148,10 @@
             font-size: 15px;
             font-weight: 500;
             margin: 0;
-            opacity: 0.95;
-            letter-spacing: 0.2px;
+            opacity: 0.8;
+            letter-spacing: 0%;
+            line-height: 140%;
+            color: #FFFFFF;
           }
 
         }
@@ -193,22 +198,28 @@
 
       .guide-title {
         font-size: 16px;
-        font-weight: 700;
-        color: #333;
+        font-weight: 600;
+        color: #000000;
         margin-top: 0;
         margin-bottom: 16px;
+        font-family: 'Clash Display';
+        line-height: 140%;
+        letter-spacing: 0%;
       }
 
       .guide-list {
         list-style: none;
         padding: 0;
         margin: 0;
+        font-weight: 500;
 
         li {
-          font-size: 12px;
-          color: #555;
+          font-size: 11px;
+          color: #282828;
           margin-bottom: 12px;
-          line-height: 1.6;
+          line-height: 140%;
+          font-family: 'Clash Display';
+          letter-spacing: 0%;
 
           &:last-child {
             margin-bottom: 0;
