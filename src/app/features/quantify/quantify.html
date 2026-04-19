@@ -76,11 +76,15 @@
       <p class="progress-label">Quantifying... {{ quantizationProgress | number:'1.0-0' }}%</p>
     </div>
 
-    <!-- Main Button (Visible when NOT quantifying) -->
     <button *ngIf="!isQuantifying" class="quantify-btn"
-      [ngClass]="{ 'active': isButtonEnabled && !isQuantified, 'disabled': !isButtonEnabled || isQuantified }"
-      [disabled]="!isButtonEnabled || isQuantified" (click)="startQuantization()">
-      {{ isQuantified ? 'Quantified' : 'Start Quantization' }}
+      [ngClass]="{ 'active': isButtonEnabled, 'disabled': !isButtonEnabled }"
+      [disabled]="!isButtonEnabled" (click)="startQuantization()">
+      <ng-container *ngIf="currentTab.id === 'AGS0'">
+        {{ 'Start Quantization' }}
+      </ng-container>
+      <ng-container *ngIf="currentTab.id !== 'AGS0'">
+        {{ isQuantified ? 'Quantified' : 'Start Quantization' }}
+      </ng-container>
     </button>
   </div>
 </div>
