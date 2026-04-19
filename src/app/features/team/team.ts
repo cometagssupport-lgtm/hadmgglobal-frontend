@@ -1,11 +1,11 @@
 import { Component, OnInit, ChangeDetectorRef, PLATFORM_ID, Inject } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { TranslatePipe } from '../../pipes/translate-pipe';
 @Component({
   selector: 'app-team',
-  imports: [CommonModule, TranslatePipe],
+  imports: [CommonModule, TranslatePipe, RouterModule],
   templateUrl: './team.html',
   styleUrl: './team.scss'
 })
