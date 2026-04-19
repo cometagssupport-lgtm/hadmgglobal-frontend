@@ -238,14 +238,28 @@ export class Quantify implements OnInit, OnDestroy {
                 }
               }
               tab.isButtonEnable = shouldEnable;
-            } else if (tab.id === 'AGS1') {
-              tab.isButtonEnable = (data.elegibleLevel === 'Level1');
-            } else if (tab.id === 'AGS2') {
-              tab.isButtonEnable = (data.elegibleLevel === 'Level2');
-            } else if (tab.id === 'AGS3') {
-              tab.isButtonEnable = (data.elegibleLevel === 'Level3');
-            } else if (tab.id === 'AGS4') {
-              tab.isButtonEnable = (data.elegibleLevel === 'Level4');
+            } else {
+              const tabLevel = 'Level' + tab.id.replace('AGS', '');
+              if (data.elegibleLevel === tabLevel) {
+                if (data.currectLevel === data.elegibleLevel) {
+                  if (!data.activationTime) {
+                    tab.isButtonEnable = true;
+                  } else {
+                    const now = Date.now();
+                    const activationTime = Number(data.activationTime);
+                    const dayInMs = 24 * 60 * 60 * 1000;
+                    if (now - activationTime >= dayInMs) {
+                      tab.isButtonEnable = true;
+                    } else {
+                      tab.isButtonEnable = false;
+                    }
+                  }
+                } else {
+                  tab.isButtonEnable = true;
+                }
+              } else {
+                tab.isButtonEnable = false;
+              }
             }
           });
           
@@ -310,32 +324,37 @@ export class Quantify implements OnInit, OnDestroy {
 
   completeQuantization() {
     const userId = localStorage.getItem('userId');
-    const payload = {
-      screen: 'startQuantification',
-      userId: userId,
-      tabId: this.currentTab.id
-    };
+    if (!userId) return;
 
-    this.authService.avengers(payload).subscribe({
+    this.authService.activateGame({ userId: userId }).subscribe({
       next: (res) => {
         this.isQuantifying = false;
-        this.isQuantified = true;
-        this.currentTab.isButtonEnable = false; // Disable button for this tab
-        localStorage.setItem('lastQuantifiedDate', new Date().toDateString());
+        
+        if (res.statusCode === 200) {
+          this.isQuantified = true;
+          this.currentTab.isButtonEnable = false;
+          localStorage.setItem('lastQuantifiedDate', new Date().toDateString());
 
-        this.snackBar.open('Quantification Started Successfully!', 'Close', {
-          duration: 3000,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-          panelClass: ['success-snackbar']
-        });
+          this.snackBar.open(res.message || 'Quantification Started Successfully!', 'Close', {
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'bottom',
+            panelClass: ['success-snackbar']
+          });
+        } else {
+          this.snackBar.open(res.message || 'Failed to start quantification. Please try again.', 'Close', {
+            duration: 3000
+          });
+        }
+        this.getGameData();
         this.cdr.detectChanges();
       },
       error: (err) => {
         this.isQuantifying = false;
-        this.snackBar.open('Failed to start quantification. Please try again.', 'Close', {
+        this.snackBar.open(err.error?.message || 'Failed to start quantification. Please try again.', 'Close', {
           duration: 3000
         });
+        this.cdr.detectChanges();
       }
     });
   }
