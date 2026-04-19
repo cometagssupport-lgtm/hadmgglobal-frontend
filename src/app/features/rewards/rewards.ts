@@ -151,10 +151,10 @@ export class Rewards implements OnInit {
 
       return {
         ...reward,
-        currentInvites: currentInvites > reward.requiredInvites ? reward.requiredInvites : currentInvites,
+        currentInvites: currentInvites,
         isClaimed: isClaimed,
         isValid: isValidToClaim,
-        buttonName: isClaimed ? 'Claimed' : (isValidToClaim ? 'Claim Now' : 'Claim Now')
+        buttonName: isClaimed ? 'Claimed' : 'Claim Now'
       };
     });
   }
@@ -166,7 +166,7 @@ export class Rewards implements OnInit {
     const payload = {
       screen: 'claimReward',
       userId: userId,
-      task: reward.id?.toString()
+      task: Number(reward.id)
     };
 
     this.authService.avengers(payload).subscribe({
