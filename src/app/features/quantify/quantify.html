@@ -60,7 +60,7 @@
   </div>
 
   <!-- 🔔 Status Message (After Quantified) -->
-  <div *ngIf="isQuantified" class="status-msg-container">
+  <div *ngIf="currentTab.hasActiveTimer" class="status-msg-container">
     <div class="status-msg-box">
       <p>Next contribution time is <b>24 hours</b>. Start your next AGS Quantitization trade after this period.</p>
     </div>
@@ -83,7 +83,7 @@
         {{ 'Start Quantization' }}
       </ng-container>
       <ng-container *ngIf="currentTab.id !== 'AGS0'">
-        {{ isQuantified ? 'Quantified' : 'Start Quantization' }}
+        {{ currentTab.hasActiveTimer ? 'Quantified' : 'Start Quantization' }}
       </ng-container>
     </button>
   </div>

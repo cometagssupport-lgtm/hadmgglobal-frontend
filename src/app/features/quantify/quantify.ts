@@ -39,6 +39,7 @@ export class Quantify implements OnInit, OnDestroy {
       expiryTime: 'Active Until - 2 Days',
       isDefault: true,
       isButtonEnable: false,
+      hasActiveTimer: false,
       taskGuide: [
         'The advanced Comet AGS Trial Robot provides a beginner-friendly experience by simulating real-time strategy execution.',
         'When the user starts, quantitative trading pairs are executed automatically.',
@@ -57,6 +58,7 @@ export class Quantify implements OnInit, OnDestroy {
       expiryTime: 'Active Until - 2 Days',
       isDefault: false,
       isButtonEnable: false,
+      hasActiveTimer: false,
       taskGuide: [
         'The advanced Comet AGS.0 robot will formulate and improve the Comet AGS strategy in real time and form instructions based on the deep learning and monitoring of hundreds of CEX/DEX transaction pairs every day.',
         'When the user starts, quantitative trading pairs are executed automatically.',
@@ -76,6 +78,7 @@ export class Quantify implements OnInit, OnDestroy {
       expiryTime: 'Active Until - 2 Days',
       isDefault: false,
       isButtonEnable: false,
+      hasActiveTimer: false,
       targetMembers: 3,
       currentMembers: 0,
       taskGuide: [
@@ -98,6 +101,7 @@ export class Quantify implements OnInit, OnDestroy {
       expiryTime: 'Active Until - 2 Days',
       isDefault: false,
       isButtonEnable: false,
+      hasActiveTimer: false,
       targetMembers: 10,
       currentMembers: 0,
       taskGuide: [
@@ -120,6 +124,7 @@ export class Quantify implements OnInit, OnDestroy {
       expiryTime: 'Active Until - 2 Days',
       isDefault: false,
       isButtonEnable: false,
+      hasActiveTimer: false,
       targetMembers: 20,
       currentMembers: 0,
       taskGuide: [
@@ -223,35 +228,40 @@ export class Quantify implements OnInit, OnDestroy {
           const data = res.data;
           
           this.tabs.forEach(tab => {
+            tab.hasActiveTimer = false;
+            
             if (tab.id === 'AGS0') {
               let shouldEnable = false;
-              if (data.isFreeTrailSubcraibed) {
-                if (!data.freeTrailActivationTime) {
+              if (res.data.isFreeTrailSubcraibed) {
+                if (!res.data.freeTrailActivationTime) {
                   shouldEnable = true;
                 } else {
                   const now = Date.now();
-                  const activationTime = Number(data.freeTrailActivationTime);
+                  const activationTime = Number(res.data.freeTrailActivationTime);
                   const dayInMs = 24 * 60 * 60 * 1000;
                   if (now - activationTime >= dayInMs) {
                     shouldEnable = true;
+                  } else {
+                    tab.hasActiveTimer = true;
                   }
                 }
               }
               tab.isButtonEnable = shouldEnable;
             } else {
               const tabLevel = 'Level' + tab.id.replace('AGS', '');
-              if (data.elegibleLevel === tabLevel) {
-                if (data.currectLevel === data.elegibleLevel) {
-                  if (!data.activationTime) {
+              if (res.data.elegibleLevel === tabLevel) {
+                if (res.data.currectLevel === res.data.elegibleLevel) {
+                  if (!res.data.activationTime) {
                     tab.isButtonEnable = true;
                   } else {
                     const now = Date.now();
-                    const activationTime = Number(data.activationTime);
+                    const activationTime = Number(res.data.activationTime);
                     const dayInMs = 24 * 60 * 60 * 1000;
                     if (now - activationTime >= dayInMs) {
                       tab.isButtonEnable = true;
                     } else {
                       tab.isButtonEnable = false;
+                      tab.hasActiveTimer = true;
                     }
                   }
                 } else {
