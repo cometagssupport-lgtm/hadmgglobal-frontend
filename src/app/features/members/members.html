@@ -6,15 +6,16 @@
   <div class="members-container">
     <!-- 🔹 Gradient Banner -->
     <div class="members-banner">
-      
+
       <div class="banner-header">
         <button class="back-btn" (click)="goBack()">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
         </button>
       </div>
-      
+
       <div class="banner-text">
         <h2>{{ 'View Team Count' | translate }}</h2>
         <p>{{ 'See your Team Analytics' | translate }}</p>
@@ -23,11 +24,11 @@
 
     <!-- 🔹 Tabs -->
     <div class="tabs-container">
-        <div class="tab" [class.active]="level === 1" (click)="switchLevel(1)">{{ 'Layer 1' | translate }}</div>
-        <div class="tab" [class.active]="level === 2" (click)="switchLevel(2)">{{ 'Layer 2' | translate }}</div>
-        <div class="tab" [class.active]="level === 3" (click)="switchLevel(3)">{{ 'Layer 3' | translate }}</div>
-        <div class="tab" [class.active]="level === 4" (click)="switchLevel(4)">{{ 'Layer 4' | translate }}</div>
-        <div class="tab" [class.active]="level === 5" (click)="switchLevel(5)">{{ 'Layer 5' | translate }}</div>
+      <div class="tab" [class.active]="level === 1" (click)="switchLevel(1)">{{ 'Layer 1' | translate }}</div>
+      <div class="tab" [class.active]="level === 2" (click)="switchLevel(2)">{{ 'Layer 2' | translate }}</div>
+      <div class="tab" [class.active]="level === 3" (click)="switchLevel(3)">{{ 'Layer 3' | translate }}</div>
+      <div class="tab" [class.active]="level === 4" (click)="switchLevel(4)">{{ 'Layer 4' | translate }}</div>
+      <div class="tab" [class.active]="level === 5" (click)="switchLevel(5)">{{ 'Layer 5' | translate }}</div>
     </div>
 
     <!-- 🔹 Green Bar -->
@@ -39,21 +40,22 @@
     <!-- 🔹 Members List -->
     <div class="members-list">
       <div *ngFor="let member of filteredMembers; let i = index" class="member-card">
-        
+
         <div class="card-content">
-            <img [src]="'/avatar' + ((i % 9) + 1) + '.svg'" alt="avatar" class="member-avatar" />
-            <div class="member-info">
-                <div class="member-name">{{ member.name || 'Arjun Sharma' }}</div>
-                <div class="member-uid">UID: {{ member.inviteCode || '53794' }} <img src="/copy.svg" alt="copy" class="copy-icon" /></div>
-            </div>
-            <div class="member-amount">
-                USD {{ member.balance | number: '1.0-2' }}
-            </div>
+          <img [src]="'/avatar' + (member.profilePic || ((i % 9) + 1)) + '.svg'" alt="avatar" class="member-avatar" />
+          <div class="member-info">
+            <div class="member-name">{{ member.userName || member.name || 'Arjun Sharma' }}</div>
+            <div class="member-uid">UID: {{ member.UID || '53794' }} <img src="/copy.svg" alt="copy"
+                class="copy-icon" /></div>
+          </div>
+          <div class="member-amount">
+            USD {{ member.balance | number: '1.0-2' }}
+          </div>
         </div>
 
         <div class="card-footer">
-            <span class="footer-label">{{ "Registration Date:" | translate }}</span>
-            <span class="footer-value">{{ formatDate(member.timestamp) }}</span>
+          <span class="footer-label">{{ "Registration Date:" | translate }}</span>
+          <span class="footer-value">{{ formatDate(member.timestamp) }}</span>
         </div>
 
       </div>
