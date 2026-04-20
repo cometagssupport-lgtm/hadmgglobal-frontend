@@ -115,15 +115,15 @@ export class Profile implements OnInit {
 
           // Using dummy values of 3.66 for now as placeholders for the 9-item grid mapping as requested
           this.walletSummary = [
-            { label: "Recharge Amount", value: 3.66 },
-            { label: "Earnings Balance", value: 3.66 },
-            { label: "Total Earnings", value: 3.66 },
-            { label: "Today's Task Earnings", value: 3.66 },
-            { label: "Today's Team Income", value: 3.66 },
-            { label: "Total Valid Team Count", value: 3.66 },
-            { label: "Total Withdrawal", value: 3.66 },
-            { label: "Total Balance", value: 3.66 },
-            { label: "Total Revenue", value: 3.66 },
+            { label: "Recharge Amount", value: data.totalDeposits ?? 0 },
+            { label: "Earnings Balance", value: data.totalEarnings ?? 0 },
+            { label: "Total Earnings", value: data.grandTotalCommission ?? 0 },
+            { label: "Today's Task Earnings", value: data.usersTodaysCommission ?? 0 },
+            { label: "Today's Team Income", value: data.teamDailyCommission ?? 0 },
+            { label: "Total Valid Team Count", value: data.totalValidTeamCount ?? 0 },
+            { label: "Total Withdrawal", value: data.totalWithdrawals ?? 0 },
+            { label: "Total Balance", value: data.flexibleDeposite ?? 0 },
+            { label: "Total Revenue", value: data.grandTotalCommission ?? 0 },
           ];
 
           this.cdr.detectChanges();
