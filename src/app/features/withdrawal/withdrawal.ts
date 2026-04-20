@@ -31,12 +31,16 @@ export class Withdrawal implements OnInit {
   totalRemainingBalance: number = 0;
   withdrawAddress: string = '';
   showPasskeyPopup: boolean = false;
+  isLoading: boolean = false;
 
   withdrawalForm: FormGroup;
+  transactionAccounts: any[] = [
+    { id: 'bep20', name: 'USDT - BEP20' },
+    { id: 'trc20', name: 'USDT - TRC20' }
+  ];
+  selectedNetwork: any = null;
 
   quickAmounts = [10, 50, 200, 500];
-  selectedNetwork = 'USDT/USDC ( BEP20 )';
-  networks = ['USDT/USDC ( BEP20 )', 'USDT-TRC20'];
 
 
   constructor(
@@ -51,11 +55,15 @@ export class Withdrawal implements OnInit {
     this.withdrawalForm = this.fb.group({
       amount: ['', [Validators.required, Validators.min(10)]],
       walletAddress: ['', Validators.required],
-      pin: ['', [Validators.required, Validators.pattern('^[0-9]{6}$')]],
+      pin: ['', [Validators.required, Validators.pattern('^[0-9]{4,6}$')]],
     });
   }
 
   ngOnInit() {
+    // Set default selection
+    if (this.transactionAccounts.length > 0) {
+      this.selectedNetwork = this.transactionAccounts[0];
+    }
     if (isPlatformBrowser(this.platformId)) {
       console.log('🔹 Loading withdrawal data for user');
       const userId = localStorage.getItem('userId');
@@ -82,6 +90,10 @@ export class Withdrawal implements OnInit {
             this.showPasskeyPopup = true;
           }
 
+          if (res.data.transactionAccounts) {
+            this.transactionAccounts = res.data.transactionAccounts;
+          }
+
           this.cdr.detectChanges();
         }
       },
@@ -96,7 +108,7 @@ export class Withdrawal implements OnInit {
     this.withdrawalForm.get('amount')?.markAsTouched();
   }
 
-  setNetwork(net: string) {
+  setNetwork(net: any) {
     this.selectedNetwork = net;
   }
 
@@ -121,13 +133,16 @@ export class Withdrawal implements OnInit {
       userId,
       amount: Number(this.withdrawalForm.value.amount),
       passcode: this.withdrawalForm.value.pin,
-      withdrawAddress: this.withdrawalForm.value.walletAddress
+      withdrawAddress: this.withdrawalForm.value.walletAddress,
+      network: this.selectedNetwork?.name
     };
 
     console.log('🔹 Sending withdrawal request:', payload);
 
+    this.isLoading = true;
     this.authService.withdraw(payload).subscribe({
       next: (res) => {
+        this.isLoading = false;
         console.log('✅ Withdrawal API response:', res);
 
         if (res.statusCode === 200) {
@@ -145,6 +160,7 @@ export class Withdrawal implements OnInit {
         }
       },
       error: (err) => {
+        this.isLoading = false;
         console.error('Withdrawal request failed:', err);
         this.snackBar.open(err?.error?.message || 'Something went wrong. Please try again later.', 'Close', {
           duration: 3000,

@@ -173,9 +173,9 @@
       cursor: pointer;
 
       &.active {
-        background: #009738;
+        background: #009A44;
         color: #fff;
-        border-color: #009738;
+        border-color: #009A44;
       }
     }
   }
@@ -191,14 +191,14 @@
       border-radius: 8px;
       padding: 12px;
       font-size: 13px;
-      font-weight: 500;
-      color: #64748B;
+      font-weight: 400;
+      color: #000000;
       cursor: pointer;
 
       &.active {
-        background: #F1F1F1;
-        color: #000;
-        border-color: #EAEAEA;
+        background: #009738;
+        color: #FFFFFF;
+        border-color: #009738;
       }
     }
   }
@@ -207,7 +207,7 @@
     margin-bottom: 32px;
 
     .guide-box {
-      background: #009738;
+      background: #009A44;
       border-radius: 12px;
       padding: 20px;
       color: #fff;
@@ -251,7 +251,7 @@
       cursor: pointer;
 
       &:not(:disabled) {
-        background: #009738;
+        background: #009A44;
       }
 
       &:disabled {
@@ -326,7 +326,7 @@
     }
 
     .popup-action-btn {
-      background: #009738;
+      background: #009A44;
       color: #fff;
       border: none;
       width: 100%;

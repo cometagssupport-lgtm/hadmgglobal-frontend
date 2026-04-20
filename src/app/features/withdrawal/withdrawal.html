@@ -45,13 +45,9 @@
       <div class="form-group">
         <label>Select wallet network</label>
         <div class="network-options">
-          <button type="button" class="network-btn" [class.active]="selectedNetwork === 'USDT-BEP20'"
-            (click)="setNetwork('USDT-BEP20')">
-            USDT - BEP20
-          </button>
-          <button type="button" class="network-btn" [class.active]="selectedNetwork === 'USDT-TRC20'"
-            (click)="setNetwork('USDT-TRC20')">
-            USDT - TRC20
+          <button type="button" *ngFor="let net of transactionAccounts" class="network-btn"
+            [class.active]="selectedNetwork?.id === net.id" (click)="setNetwork(net)">
+            {{ net.name }}
           </button>
         </div>
       </div>
@@ -90,8 +86,11 @@
     </div>
 
     <div class="action-footer">
-      <button type="button" class="main-withdraw-btn" [disabled]="withdrawalForm.invalid" (click)="onSubmit()">
-        Withdraw Amount
+      <button type="button" class="main-withdraw-btn" 
+        [disabled]="withdrawalForm.invalid || !selectedNetwork || isLoading" 
+        (click)="onSubmit()">
+        <span *ngIf="!isLoading">Withdraw Amount</span>
+        <span *ngIf="isLoading">Processing...</span>
       </button>
       <button type="button" class="main-cancel-btn" (click)="goBack()">
         Cancel
