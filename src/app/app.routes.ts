@@ -36,6 +36,7 @@ import { Quantify } from './features/quantify/quantify';
 import { authGuard } from './guards/auth-guard';
 import { TransactionHistory } from './features/transaction-history/transaction-history';
 import { Referral } from './features/referral/referral';
+import { Telegram } from './features/telegram/telegram';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'signin', pathMatch: 'full' },
@@ -77,6 +78,7 @@ export const routes: Routes = [
       { path: 'set-transaction-password', loadComponent: () => import('./features/transaction-password/transaction-password').then(m => m.TransactionPassword) },
       { path: 'avatar', loadComponent: () => import('./features/avatar/avatar').then(m => m.Avatar) },
       { path: 'referral', component: Referral },
+      { path: 'telegram', component: Telegram },
     ]
   },
 

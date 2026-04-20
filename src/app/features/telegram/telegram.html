@@ -1,0 +1,52 @@
+<div class="layout-container">
+  <app-top-nav [isWhite]="true"></app-top-nav>
+
+  <div class="content-body" *ngIf="!isLoading">
+    <div class="header-nav">
+      <button class="back-circle-btn" (click)="goBack()">
+        <img src="/backwhite.svg" alt="back" />
+      </button>
+    </div>
+
+    <!-- LOCKED STATE -->
+    <ng-container *ngIf="isLocked">
+      <div class="page-title-box">
+        <h2 class="main-title">Sorry, Its Locked</h2>
+      </div>
+
+      <div class="hero-image">
+        <img src="/lockimg.svg" alt="Locked" />
+      </div>
+
+      <div class="status-content">
+        <h3 class="status-title">Unlock with Investor Access</h3>
+        <p class="status-desc">
+          This feature is available only to invested members. Complete your investment to unlock access and join the telegram working group.
+        </p>
+      </div>
+    </ng-container>
+
+    <!-- UNLOCKED STATE -->
+    <ng-container *ngIf="!isLocked">
+      <div class="page-title-box">
+        <h2 class="main-title">Access Granted</h2>
+      </div>
+
+      <div class="hero-image">
+        <img src="/unlockimg.svg" alt="Unlocked" />
+      </div>
+
+      <div class="status-content">
+        <h3 class="status-title">Unlocked Investor Access</h3>
+        <button class="join-btn" (click)="joinTelegram()">
+          Join Telegram Group
+        </button>
+      </div>
+    </ng-container>
+  </div>
+
+  <!-- LOADER -->
+  <div class="loader-container" *ngIf="isLoading">
+    <div class="spinner"></div>
+  </div>
+</div>
