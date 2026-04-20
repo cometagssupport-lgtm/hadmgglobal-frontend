@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, inject, PLATFORM_ID, Inject } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 interface Transaction {
-  type: 'withdraw' | 'deposit' | 'bonus' | 'income';
-  title: string;
-  amount: number;
-  currency: string;
+  type: string;
+  amount: string;
   timestamp: string;
-  status: string;
+  senderEmail?: string;
+  discription?: string;
+  adminReward?: boolean;
 }
 
 @Component({
@@ -20,23 +21,33 @@ interface Transaction {
 })
 export class TransactionHistory implements OnInit {
   activeTab: 'withdraw' | 'deposit' | 'bonus' | 'income' = 'withdraw';
+  private authService = inject(AuthService);
+  private platformId = inject(PLATFORM_ID);
   
-  allTransactions: Transaction[] = [
-    { type: 'withdraw', title: 'Withdraw', amount: 899, currency: 'USDT', timestamp: '10-01-2024 - 07:01:12', status: 'Completed' },
-    { type: 'withdraw', title: 'Withdraw', amount: 899, currency: 'USDT', timestamp: '10-01-2024 - 07:01:12', status: 'Completed' },
-    { type: 'withdraw', title: 'Withdraw', amount: 899, currency: 'USDT', timestamp: '10-01-2024 - 07:01:12', status: 'Completed' },
-    { type: 'withdraw', title: 'Withdraw', amount: 899, currency: 'USDT', timestamp: '10-01-2024 - 07:01:12', status: 'Completed' },
-    { type: 'deposit', title: 'Deposit', amount: 1500, currency: 'USDT', timestamp: '11-01-2024 - 10:15:45', status: 'Completed' },
-    { type: 'bonus', title: 'Reward Bonus', amount: 50, currency: 'USDT', timestamp: '12-01-2024 - 14:20:10', status: 'Completed' },
-    { type: 'income', title: 'Daily Income', amount: 120, currency: 'USDT', timestamp: '13-01-2024 - 09:05:30', status: 'Completed' },
-  ];
-
+  allTransactions: Transaction[] = [];
   filteredTransactions: Transaction[] = [];
 
   constructor(private router: Router) {}
 
   ngOnInit() {
-    this.filterTransactions();
+    if (isPlatformBrowser(this.platformId)) {
+      this.fetchHistory();
+    }
+  }
+
+  fetchHistory() {
+    const userId = localStorage.getItem('userId');
+    if (!userId) return;
+
+    this.authService.avengers({ screen: 'history', userId }).subscribe({
+      next: (res) => {
+        if (res.statusCode === 200 && res.data?.transactions) {
+          this.allTransactions = res.data.transactions;
+          this.filterTransactions();
+        }
+      },
+      error: (err) => console.error('Error fetching history:', err)
+    });
   }
 
   setActiveTab(tab: 'withdraw' | 'deposit' | 'bonus' | 'income') {
@@ -45,7 +56,33 @@ export class TransactionHistory implements OnInit {
   }
 
   filterTransactions() {
-    this.filteredTransactions = this.allTransactions.filter(t => t.type === this.activeTab);
+    this.filteredTransactions = this.allTransactions.filter(t => {
+      if (this.activeTab === 'withdraw') return t.type === 'withdraw';
+      if (this.activeTab === 'deposit') return t.type === 'deposit';
+      if (this.activeTab === 'bonus') return t.type === 'reward' && t.adminReward === true;
+      if (this.activeTab === 'income') return t.type === 'reward' && !t.adminReward;
+      return false;
+    });
+  }
+
+  formatDate(dateStr: string) {
+    if (!dateStr) return '';
+    const date = new Date(dateStr);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    const hours = String(date.getHours()).padStart(2, '0');
+    const mins = String(date.getMinutes()).padStart(2, '0');
+    const secs = String(date.getSeconds()).padStart(2, '0');
+    return `${day}-${month}-${year} - ${hours}:${mins}:${secs}`;
+  }
+
+  getTitle(item: Transaction) {
+    if (this.activeTab === 'bonus') return item.discription || 'Bonus Reward';
+    if (this.activeTab === 'income') return item.discription || 'Daily Income';
+    if (this.activeTab === 'withdraw') return 'Withdraw';
+    if (this.activeTab === 'deposit') return 'Deposit';
+    return item.type;
   }
 
   goBack() {
