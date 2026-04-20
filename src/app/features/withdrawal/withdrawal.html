@@ -1,24 +1,26 @@
 <div class="page-container">
   <app-top-nav [isTransparent]="true"></app-top-nav>
 
-  <div class="top-gradient-banner">
-    <div class="header-nav">
-      <button class="back-btn" type="button" (click)="goBack()">
-        <img src="/leftarraow.svg" alt="back" />
-      </button>
-    </div>
-
-    <div class="banner-content">
-      <div class="balance-info">
-        <p class="balance-label">{{ 'Withdraw' | translate }}</p>
-        <h2 class="balance-amount">$ {{ totalRemainingBalance }}</h2>
+  <!-- Banner Section -->
+  <div class="banner-wrapper">
+    <div class="top-banner">
+      <div class="header-nav">
+        <!-- <button class="back-link-btn" > -->
+        <img src="/backicon.svg" (click)="goBack()" alt="back" />
+        <!-- </button> -->
       </div>
-      <img src="/wallet_hand.png" class="wallet-img" onerror="this.onerror=null; this.src='/withdraw-icon.svg'" />
-    </div>
 
-    <div class="fee-strip">
-      {{ 'For each withdraw' | translate }} <strong>{{ '10% Fee' | translate }}</strong> {{ 'will be deducted' |
-      translate }}
+      <div class="banner-content">
+        <div class="glass-card">
+          <div class="card-title">Withdraw</div>
+          <div class="card-amount">$ {{ totalRemainingBalance }}</div>
+        </div>
+        <img src="/wallethand.svg" class="hero-wallet-img" alt="Withdraw" />
+      </div>
+
+      <div class="fee-strip">
+        For each withdraw <strong>10% Fee</strong> will be deducted
+      </div>
     </div>
   </div>
 
@@ -26,10 +28,9 @@
     <form [formGroup]="withdrawalForm" class="form-section">
       <!-- Amount -->
       <div class="form-group">
-        <label>{{ 'Enter amount' | translate }}</label>
-        <div class="input-wrapper-custom">
-          <span class="currency-symbol">$</span>
-          <input type="number" formControlName="amount" placeholder="00.00" class="custom-input" />
+        <label>Enter amount:</label>
+        <div class="input-box">
+          <input type="number" formControlName="amount" placeholder="$ 00.00" />
         </div>
       </div>
 
@@ -42,75 +43,74 @@
 
       <!-- Network -->
       <div class="form-group">
-        <label>{{ 'Select wallet network' | translate }}</label>
+        <label>Select wallet network</label>
         <div class="network-options">
-          <button type="button" *ngFor="let net of networks" class="network-btn"
-            [class.active]="selectedNetwork === net" (click)="setNetwork(net)">
-            {{ net | translate }}
+          <button type="button" class="network-btn" [class.active]="selectedNetwork === 'USDT-BEP20'"
+            (click)="setNetwork('USDT-BEP20')">
+            USDT - BEP20
+          </button>
+          <button type="button" class="network-btn" [class.active]="selectedNetwork === 'USDT-TRC20'"
+            (click)="setNetwork('USDT-TRC20')">
+            USDT - TRC20
           </button>
         </div>
       </div>
 
       <!-- Address -->
       <div class="form-group">
-        <label>{{ 'Wallet address' | translate }}</label>
-        <div class="input-wrapper-custom">
-          <input type="text" formControlName="walletAddress"
-            placeholder="{{ 'Enter your USDT/USDC ( BEP20 ) Wallet address' | translate }}" class="custom-input full" />
+        <label>Wallet address</label>
+        <div class="address-input-box">
+          <input type="text" formControlName="walletAddress" placeholder="Enter your USDT - BEP20 Wallet address" />
         </div>
       </div>
 
       <!-- Password -->
-      <div class="form-group" style="margin-bottom: 0px;">
-        <label>{{ 'Enter Transaction Password' | translate }}</label>
-        <div class="input-wrapper-custom">
-          <input type="password" formControlName="pin" placeholder="{{ 'Enter Your Transaction Password' | translate }}"
-            class="custom-input full" />
-          <img src="/eye_icon.svg" class="eye-icon" onerror="this.onerror=null; this.src='/eye-off.svg'" />
+      <div class="form-group">
+        <label>Enter Transaction Password</label>
+        <div class="password-input-box">
+          <input type="password" formControlName="pin" placeholder="Enter Your Transaction Password" />
+          <img src="/eye_icon.svg" class="toggle-eye" />
         </div>
       </div>
     </form>
 
-    <div class="guide-box">
-      <h4>{{ 'Withdrawal Guide:' | translate }}</h4>
-      <ul>
-        <li>{{ '-Minimum withdrawal is 10 USDT.' | translate }}</li>
-        <li>{{ '-Withdrawal requests are processed and sent to the specified wallet address within a maximum of 72
-          hours.' | translate }}</li>
-        <li>{{ '-Members can only submit one withdrawal application per day.' | translate }}</li>
-        <li>{{ '-All withdrawal requests submitted by members will be subject to an automatic 10% handling fee
-          deduction.' | translate }}</li>
-        <li>{{ '-Withdrawals can only be made in multiples of 10 (for example: 10, 20, 30, 40, 50, 100 and so on).*' |
-          translate }}</li>
-      </ul>
+    <div class="withdrawal-guide-container">
+      <div class="guide-box">
+        <h4>Withdrawal Guide:</h4>
+        <ul>
+          <li>-Minimum withdrawal is 10 USDT.</li>
+          <li>-Withdrawal requests are processed and sent to the specified wallet address within a maximum of 72 hours.
+          </li>
+          <li>-Members can only submit one withdrawal application per day.</li>
+          <li>-All withdrawal requests submitted by members will be subject to an automatic 10% handling fee deduction.
+          </li>
+          <li>-Withdrawals can only be made in multiples of 10 (for example: 10, 20, 30, 40, 50, 100 and so on).*</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="bottom-actions">
-      <button type="button" class="submit-btn" [class.disabled]="withdrawalForm.invalid"
-        [disabled]="withdrawalForm.invalid" (click)="onSubmit()">
-        {{ 'Withdraw Amount' | translate }}
+    <div class="action-footer">
+      <button type="button" class="main-withdraw-btn" [disabled]="withdrawalForm.invalid" (click)="onSubmit()">
+        Withdraw Amount
       </button>
-      <button type="button" class="cancel-btn" (click)="goBack()">
-        {{ 'Cancel' | translate }}
+      <button type="button" class="main-cancel-btn" (click)="goBack()">
+        Cancel
       </button>
     </div>
   </div>
 
-  <!-- Passkey Required Popup (Styled per Image) -->
+  <!-- Passkey Required Popup -->
   <div class="overlay" *ngIf="showPasskeyPopup">
     <div class="popup-card">
       <div class="popup-drag-bar"></div>
       <div class="popup-content-inner">
-        <h2 class="popup-main-title">{{ 'Set Transaction Password' | translate }}</h2>
-        
+        <h2 class="popup-main-title">Set Transaction Password</h2>
         <div class="popup-image-container">
           <img src="/passkeycheck.svg" alt="Security" class="passkey-img" />
         </div>
-
-        <h3 class="popup-sub-title">{{ 'Add Transaction Password' | translate }}</h3>
-
+        <h3 class="popup-sub-title">Add Transaction Password</h3>
         <button class="popup-action-btn" (click)="configureTransactionPassword()">
-          {{ 'Set Transaction Password' | translate }}
+          Set Transaction Password
         </button>
       </div>
     </div>
