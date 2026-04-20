@@ -173,7 +173,7 @@ export class Profile implements OnInit {
     if (label == 'Terms and conditions') {
       this.router.navigate(['/t&c']);
     } else if (label == 'Help & support') {
-      // do nothing as of now
+      this.opentelegramLinkTwo();
     } else if (label == 'Change password') {
       localStorage.setItem("email", this.user.email)
       this.router.navigate(['/change-password']);
