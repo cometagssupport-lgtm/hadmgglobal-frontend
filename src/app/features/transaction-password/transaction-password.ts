@@ -27,7 +27,7 @@ export class TransactionPassword implements OnInit {
   ngOnInit() {
     this.form = this.fb.group(
       {
-        password: ['', [Validators.required, Validators.minLength(6)]],
+        password: ['', [Validators.required, Validators.pattern('^[0-9]{4,6}$')]],
         confirmPassword: ['', Validators.required]
       },
       {
@@ -58,26 +58,27 @@ export class TransactionPassword implements OnInit {
     }
 
     this.isLoading = true;
+    const email = localStorage.getItem('email');
     const payload = {
-      userId: userId,
-      password: this.form.value.password
+      email: email,
+      passcode: Number(this.form.value.password)
     };
 
-    console.log('📌 Calling Set Transaction Password API:', payload);
+    console.log('📌 Calling Update Passcode API:', payload);
 
-    this.authService.setTransactionPassword(payload).subscribe({
+    this.authService.updatePasscode(payload).subscribe({
       next: (res: any) => {
         this.isLoading = false;
         if (res.statusCode === 200) {
-          this.snackBar.open('Transaction password updated successfully!', 'Close', { duration: 3000 });
+          this.snackBar.open('Transaction passcode updated successfully!', 'Close', { duration: 3000 });
           this.router.navigate(['/profile']);
         } else {
-          this.snackBar.open(res.message || 'Failed to update password', 'Close', { duration: 3000 });
+          this.snackBar.open(res.message || 'Failed to update passcode', 'Close', { duration: 3000 });
         }
       },
       error: (err) => {
         this.isLoading = false;
-        console.error('❌ Password Update Error:', err);
+        console.error('❌ Passcode Update Error:', err);
         this.snackBar.open('An error occurred. Please try again.', 'Close', { duration: 3000 });
       }
     });

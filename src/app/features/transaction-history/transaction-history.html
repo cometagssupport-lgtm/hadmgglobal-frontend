@@ -38,12 +38,12 @@
   <div class="transactions-list">
     <div class="transaction-card" *ngFor="let item of filteredTransactions">
       <div class="card-row top">
-        <span class="title">{{ item.title }}</span>
-        <span class="amount">{{ item.amount }} {{ item.currency }}</span>
+        <span class="title">{{ getTitle(item) }}</span>
+        <span class="amount">{{ item.amount }} USDT</span>
       </div>
       <div class="card-row bottom">
-        <span class="timestamp">{{ item.timestamp }}</span>
-        <span class="status">{{ item.status }}</span>
+        <span class="timestamp">{{ formatDate(item.timestamp) }}</span>
+        <span class="status">Completed</span>
       </div>
     </div>
 

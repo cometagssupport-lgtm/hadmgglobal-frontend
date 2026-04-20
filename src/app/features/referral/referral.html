@@ -1,0 +1,41 @@
+<div class="layout-container">
+  <app-top-nav [isWhite]="true"></app-top-nav>
+
+  <div class="content-body">
+    <div class="header-nav">
+      <button class="back-circle-btn" (click)="goBack()">
+        <img src="/backwhite.svg" alt="back" />
+      </button>
+    </div>
+
+    <div class="page-title-box">
+      <h2 class="main-title">Refer & Earn</h2>
+    </div>
+
+    <div class="hero-image">
+      <img src="/referimg.svg" alt="Refer and Earn" />
+    </div>
+
+    <div class="how-it-works">
+      <h3 class="section-title">How it works:</h3>
+      <ul class="benefit-list">
+        <li>- Earn bonus for every referral</li>
+        <li>- Daily Team Commission up-to 5th Level - 7%/5%/4%/3%/2%</li>
+        <li>- Build your own earning team</li>
+        <li>- Unlimited invite rewards</li>
+        <li>- Instant credit system</li>
+        <li>- Special rewards for top leaders</li>
+      </ul>
+    </div>
+
+    <div class="copy-section">
+      <h3 class="section-title">Copy Invitation Link</h3>
+      <div class="address-box">
+        <span class="address-text">{{ referralLink }}</span>
+        <button class="copy-btn" (click)="copyLink()">
+          <img src="/copy.svg" alt="copy" />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -54,8 +54,9 @@
 
           <td>{{ user.passcode }}</td>
           <td>
-            <span>{{ user.refferedBy }}</span>
-            <i *ngIf="user.refferedBy" class="fa fa-copy" style="cursor: pointer; margin-left: 8px; color: #888;" (click)="copyToClipboard(user.refferedBy)" title="Copy email"></i>
+            <span>{{ user.referredBy }}</span>
+            <i *ngIf="user.referredBy" class="fa fa-copy" style="cursor: pointer; margin-left: 8px; color: #888;"
+              (click)="copyToClipboard(user.referredBy)" title="Copy email"></i>
           </td>
 
           <!-- ⭐ TOGGLE switch instead of button -->

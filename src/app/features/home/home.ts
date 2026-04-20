@@ -127,16 +127,11 @@ export class Home implements OnInit, OnDestroy {
   }
 
   copyReferralLink() {
-    if (this.referralLink) {
-      this.clipboard.copy(this.referralLink);
-      alert('Referral link copied!');
-    }
+    this.router.navigate(['/referral']);
   }
 
   opentelegramLinkOne() {
-    if (this.telegramLinkOne) {
-      window.open(this.telegramLinkOne, '_blank');
-    }
+    this.router.navigate(['/telegram']);
   }
   opentelegramLinkTwo() {
     if (this.telegramLinkTwo) {
