@@ -69,6 +69,7 @@ export class Home implements OnInit, OnDestroy {
   rechargeWallet: string | number = 0;
   homeText1: string = '';
   homeText2: string = '';
+  userName: string = 'User';
 
   get currentImage() {
     return this.carouselImages[this.currentIndex];
@@ -116,6 +117,7 @@ export class Home implements OnInit, OnDestroy {
           this.telegramLinkOne = res.data.telegramLinkOne;
           this.telegramLinkTwo = res.data.telegramLinkTwo;
           this.refferalCode = res.data.refferalCode;
+          this.userName = res.data.UserName || 'Buddy';
           this.cdr.detectChanges();
         });
         localStorage.setItem('earnings', this.withdrawalWallet);
