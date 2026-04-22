@@ -75,7 +75,9 @@ export class Profile implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       const userId = localStorage.getItem('userId');
       if (userId) {
+        this.user.uid = userId;
         this.getProfileData(userId);
+        this.getGameData(userId);
       } else {
         console.error('❌ No userId found in localStorage');
       }
@@ -132,6 +134,32 @@ export class Profile implements OnInit {
 
       error: (err) => {
         console.error('❌ Failed to fetch profile data:', err);
+      }
+    });
+  }
+
+  getGameData(userId: string) {
+    const payload = { screen: 'game', userId: userId };
+    this.authService.avengers(payload).subscribe({
+      next: (res) => {
+        if (res.statusCode === 200 && res.data) {
+          this.ngZone.run(() => {
+            this.user.level = res.data.currectLevel || 'AGS 0';
+            if (this.user.level == 'Level1') {
+              this.user.level = 'AGS 1';
+            } else if (this.user.level == 'Level2') {
+              this.user.level = 'AGS 2';
+            } else if (this.user.level == 'Level3') {
+              this.user.level = 'AGS 3';
+            } else if (this.user.level == 'Level4') {
+              this.user.level = 'AGS 4';
+            }
+            this.cdr.detectChanges();
+          });
+        }
+      },
+      error: (err) => {
+        console.error('❌ Failed to fetch game level:', err);
       }
     });
   }
