@@ -68,25 +68,13 @@ export class Members implements OnInit {
         this.fetchMembers(userId, this.level);
       } else {
         console.error('❌ No userId found in localStorage');
-        this.loadMockMembers();
+        this.members = [];
+        this.filteredMembers = [];
       }
     }
   }
 
-  loadMockMembers() {
-    const names = ['Arjun Sharma', 'Priya Patel', 'Rahul Singh', 'Neha Gupta', 'Karan Verma', 'Anita Desai'];
-    // Generate dummy members based on current level to show variations
-    this.members = Array.from({ length: 6 }).map((_, i) => ({
-      userName: names[i % names.length] + ' ' + this.level,
-      email: `user${i}@example.com`,
-      timestamp: new Date(2024, 0, 10 - i).toISOString(),
-      balance: 899 + (i * 50) + (this.level * 100),
-      UID: `${53700 + i + (this.level * 10)}`,
-      profilePic: (i % 9) + 1
-    }));
-    this.filteredMembers = [...this.members];
-    this.cdr.detectChanges();
-  }
+
 
   // 🔹 Fetch Members via Avengers API
   fetchMembers(userId: string, level: number) {
@@ -104,21 +92,21 @@ export class Members implements OnInit {
 
     this.authService.avengers(payload).subscribe({
       next: (res) => {
-        if (res.statusCode === 200 && res.data?.memberDetails && res.data.memberDetails.length > 0) {
+        if (res.statusCode === 200 && res.data?.memberDetails) {
           this.ngZone.run(() => {
             this.members = res.data.memberDetails;
             this.filteredMembers = [...this.members];
             this.cdr.detectChanges();
           });
         } else {
-          // Load dummy data for preview explicitly requested
-          this.loadMockMembers();
+          this.members = [];
+          this.filteredMembers = [];
         }
       },
       error: (err) => {
         console.error('❌ Failed to fetch members:', err);
-        // Load dummy data for preview explicitly requested
-        this.loadMockMembers();
+        this.members = [];
+        this.filteredMembers = [];
       }
     });
   }
