@@ -161,13 +161,13 @@
 }
 
 .network-buttons {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
 
 .network-btn {
-  flex: 1;
+  width: 100%;
   background: #FFFFFF;
   border: 1px solid #D1E0F6;
   padding: 12px 0;

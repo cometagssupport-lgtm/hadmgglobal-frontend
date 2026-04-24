@@ -34,10 +34,8 @@
       <div class="network-selection" *ngIf="transactionAccounts?.length">
         <label class="network-label">Select wallet network</label>
         <div class="network-buttons">
-          <button *ngFor="let net of transactionAccounts" 
-                  class="network-btn" 
-                  [class.active]="selectedToken?.id === net.id"
-                  (click)="selectNetwork(net)">
+          <button *ngFor="let net of transactionAccounts" class="network-btn"
+            [class.active]="selectedToken?.id === net.id" (click)="selectNetwork(net)">
             {{ net.name }}
           </button>
         </div>
@@ -46,7 +44,7 @@
       <div class="guide-box">
         <h4>{{ 'Recharge Guide:' | translate }}</h4>
         <ul>
-          <li>-{{ '-Minimum Deposit is 30 USDT' | translate }}</li>
+          <li>-{{ '-Minimum Deposit is 50 USDT' | translate }}</li>
           <li>{{ '-Please confirm platform deposit address before depositing.' | translate }}</li>
           <li>{{ '-Copy the address above or scan the QR code and select the corresponding network to deposit USDT.' |
             translate }}</li>
