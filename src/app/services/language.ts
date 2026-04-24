@@ -9,26 +9,29 @@ export class Language {
   private platformId = inject(PLATFORM_ID);
 
   private allLanguages = [
-    "English",
-    "Russian - Русский",
-    "Spanish - Español",
-    "Italian - Italiano",
-    "German - Deutsch",
-    "Arabic - عربي",
-    "French - Français",
-    "Persian - فارسی",
-    "Turkish - Türkçe",
-    "Hungarian - magyar",
-    "Polish - Polski",
-    "Portuguese - Português",
-    "Czech - čeština",
-    "Slovak - Slovák",
-    "Indonesian",
-    "Vietnamese - Tiếng Việt",
-    "Uzbek - o'zbek"
+    { label: "Arabic - عربي", code: "sa" },
+    { label: "Czech - čeština", code: "cz" },
+    { label: "English", code: "gb" },
+    { label: "French - Français", code: "fr" },
+    { label: "German - Deutsch", code: "de" },
+    { label: "Hungarian - magyar", code: "hu" },
+    { label: "Indonesian", code: "id" },
+    { label: "Italian - Italiano", code: "it" },
+    { label: "Persian - فارسی", code: "ir" },
+    { label: "Polish - Polski", code: "pl" },
+    { label: "Portuguese - Português", code: "pt" },
+    { label: "Russian - Русский", code: "ru" },
+    { label: "Slovak - Slovák", code: "sk" },
+    { label: "Spanish - Español", code: "es" },
+    { label: "Turkish - Türkçe", code: "tr" },
+    { label: "Uzbek - o'zbek", code: "uz" },
+    { label: "Vietnamese - Tiếng Việt", code: "vn" }
   ];
 
-  private rtlLanguages = ['Arabic - عربي', 'Persian - فارسی'];
+  // private rtlLanguages = ['Arabic - عربي', 'Persian - فارسی'];
+  private rtlLanguages = ['sa', 'ir'];
+
+  currentLanguage = signal('English');
 
   private translations: Record<string, Record<string, string>> = {
     "English": {
@@ -4170,7 +4173,7 @@ export class Language {
     const savedLang = this.safeGetLocalStorage('app_lang');
     const savedDir = this.safeGetLocalStorage('app_dir');
 
-    if (savedLang && this.allLanguages.includes(savedLang)) {
+    if (savedLang && this.allLanguages.some(l => l.label === savedLang)) {
       this.currentLang.set(savedLang);
     }
 
@@ -4188,24 +4191,29 @@ export class Language {
     return this.allLanguages;
   }
 
-  get currentLanguage() {
-    return this.currentLang();
-  }
+  // get currentLanguage() {
+  //   return this.currentLang();
+  // }
 
   get direction() {
     return this.currentDirection();
   }
 
-  setLanguage(lang: string) {
-    if (this.allLanguages.includes(lang)) {
-      this.currentLang.set(lang);
-      this.safeSetLocalStorage('app_lang', lang);
-      this.setDirectionByLanguage(lang);
+  setLanguage(lang: any) {
+    this.currentLanguage.set(lang.label);
+
+    if (isPlatformBrowser(this.platformId)) {
+      document.documentElement.dir = this.isRTL(lang) ? 'rtl' : 'ltr';
     }
   }
 
-  private setDirectionByLanguage(lang: string) {
-    const isRTL = this.rtlLanguages.includes(lang);
+  isRTL(lang: any) {
+    const code = typeof lang === 'string' ? this.allLanguages.find(l => l.label === lang)?.code : lang?.code;
+    return code ? this.rtlLanguages.includes(code) : false;
+  }
+
+  private setDirectionByLanguage(lang: any) {
+    const isRTL = this.isRTL(lang);
     const dir = isRTL ? 'rtl' : 'ltr';
     this.currentDirection.set(dir);
     this.safeSetLocalStorage('app_dir', dir);
