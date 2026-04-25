@@ -16,6 +16,16 @@
       <img src="/referimg.svg" alt="Refer and Earn" />
     </div>
 
+    <div class="copy-section">
+      <h3 class="section-title">Copy Invitation Link</h3>
+      <div class="address-box">
+        <span class="address-text">{{ referralLink }}</span>
+        <button class="copy-btn" (click)="copyLink()">
+          <img src="/copy.svg" alt="copy" />
+        </button>
+      </div>
+    </div>
+
     <div class="how-it-works">
       <h3 class="section-title">How it works:</h3>
       <ul class="benefit-list">
@@ -26,16 +36,6 @@
         <li>- Instant credit system</li>
         <li>- Special rewards for top leaders</li>
       </ul>
-    </div>
-
-    <div class="copy-section">
-      <h3 class="section-title">Copy Invitation Link</h3>
-      <div class="address-box">
-        <span class="address-text">{{ referralLink }}</span>
-        <button class="copy-btn" (click)="copyLink()">
-          <img src="/copy.svg" alt="copy" />
-        </button>
-      </div>
     </div>
   </div>
 </div>
