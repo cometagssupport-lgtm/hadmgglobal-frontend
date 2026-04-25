@@ -143,11 +143,16 @@ export class Users implements OnInit {
 
   handleSubmit(data: any) {
     console.log('Popup submitted:', data);
-    const payload = {
+    const payload: any = {
       screen: data.screen,
       email: data.row.email,
       amount: data.amount,
       action: data.action,
+      description: data.description,
+    };
+
+    if (data.description) {
+      payload.description = data.description;
     }
     console.log("📌 Transaction Payload:", payload);
     this.authService.adminTransactionAvengers(payload).subscribe({
