@@ -50,11 +50,11 @@ export class Quantify implements OnInit, OnDestroy {
     {
       label: 'AGS 1',
       id: 'AGS1',
-      minAmount: 30,
+      minAmount: 50,
       maxAmount: 1500,
       image: '/AGS1.svg',
       title: 'AGS 1',
-      details: ['Invest 30 - 1500 USDT', 'Daily Income - 1.2% '],
+      details: ['Invest 50 - 1500 USDT', 'Daily Income - 1.2% '],
       expiryTime: 'Active Until - 2 Days',
       isDefault: false,
       isButtonEnable: false,
@@ -63,7 +63,7 @@ export class Quantify implements OnInit, OnDestroy {
         'The advanced Comet AGS.0 robot will formulate and improve the Comet AGS strategy in real time and form instructions based on the deep learning and monitoring of hundreds of CEX/DEX transaction pairs every day.',
         'When the user starts, quantitative trading pairs are executed automatically.',
         'Daily Yield income upto 1.2% From Single start Quantification.',
-        'Minimum Quantifiable Amount starts from 30 USDT to maximum of 1500 USDT in Algorithmic Grid Strategy-1.',
+        'Minimum Quantifiable Amount starts from 50 USDT to maximum of 1500 USDT in Algorithmic Grid Strategy-1.',
         'Team Daily Commission - 7%|5%|4%|3%|2%'
       ]
     },
@@ -226,10 +226,10 @@ export class Quantify implements OnInit, OnDestroy {
       next: (res) => {
         if (res.statusCode === 200 && res.data) {
           const data = res.data;
-          
+
           this.tabs.forEach(tab => {
             tab.hasActiveTimer = false;
-            
+
             if (tab.id === 'AGS0') {
               let shouldEnable = false;
               if (res.data.isFreeTrailSubcraibed) {
@@ -272,7 +272,7 @@ export class Quantify implements OnInit, OnDestroy {
               }
             }
           });
-          
+
           this.cdr.detectChanges();
         }
       },
@@ -321,7 +321,7 @@ export class Quantify implements OnInit, OnDestroy {
       if (this.quantizationProgress >= 100) {
         this.quantizationProgress = 100;
         clearInterval(progressTimer);
-        
+
         if (this.currentTab.id === 'AGS0') {
           this.claimFreeTrial();
         } else {
@@ -339,7 +339,7 @@ export class Quantify implements OnInit, OnDestroy {
     this.authService.activateGame({ userId: userId }).subscribe({
       next: (res) => {
         this.isQuantifying = false;
-        
+
         if (res.statusCode === 200) {
           this.isQuantified = true;
           this.currentTab.isButtonEnable = false;
