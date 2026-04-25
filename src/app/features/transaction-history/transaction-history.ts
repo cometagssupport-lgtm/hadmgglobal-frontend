@@ -2,6 +2,7 @@ import { Component, OnInit, inject, PLATFORM_ID, Inject } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { TopNav } from '../top-nav/top-nav';
 
 interface Transaction {
   type: string;
@@ -10,12 +11,13 @@ interface Transaction {
   senderEmail?: string;
   discription?: string;
   adminReward?: boolean;
+  status?: string;
 }
 
 @Component({
   selector: 'app-transaction-history',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TopNav],
   templateUrl: './transaction-history.html',
   styleUrl: './transaction-history.scss'
 })
@@ -80,6 +82,15 @@ export class TransactionHistory implements OnInit {
     if (this.activeTab === 'withdraw') return 'Withdraw';
     if (this.activeTab === 'deposit') return 'Deposit';
     return item.type;
+  }
+
+  getStatus(item: Transaction) {
+    if (item.type === 'withdraw') {
+      const status = item.status?.toLowerCase();
+      if (status === 'pending') return 'Auditing';
+      return item.status || 'Completed';
+    }
+    return 'Completed';
   }
 
   goBack() {

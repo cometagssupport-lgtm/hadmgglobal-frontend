@@ -24,27 +24,6 @@
       pointer-events: none;
     }
 
-    .top-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 30px;
-      position: relative;
-      z-index: 1;
-
-      .brand-logo {
-        height: 24px;
-        width: auto;
-      }
-
-      .nav-icons {
-        display: flex;
-        gap: 20px;
-        font-size: 20px;
-        opacity: 0.9;
-      }
-    }
-
     .header-content {
       position: relative;
       z-index: 1;

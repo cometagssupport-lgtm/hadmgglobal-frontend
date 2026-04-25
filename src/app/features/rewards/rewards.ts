@@ -39,7 +39,7 @@ export class Rewards implements OnInit {
     {
       id: 1,
       header: 'Ticket To Ride 1',
-      paragraph: 'Successfully inviting 5 direct subordinates to recharge 30 USDT to get a 20 USDT reward.',
+      paragraph: 'Successfully inviting 5 direct subordinates to recharge 50 USDT to get a 20 USDT reward.',
       requiredInvites: 5,
       currentInvites: 0,
       rewardAmount: 20,
@@ -50,7 +50,7 @@ export class Rewards implements OnInit {
     {
       id: 2,
       header: 'Ticket To Ride 2',
-      paragraph: 'Successfully inviting 15 direct subordinates to recharge 30 USDT to get a 30 USDT reward.',
+      paragraph: 'Successfully inviting 15 direct subordinates to recharge 50 USDT to get a 30 USDT reward.',
       requiredInvites: 15,
       currentInvites: 0,
       rewardAmount: 30,
@@ -61,7 +61,7 @@ export class Rewards implements OnInit {
     {
       id: 3,
       header: 'Ticket To Ride 3',
-      paragraph: 'Successfully inviting 30 direct subordinates to recharge 30 USDT to get a 50 USDT reward.',
+      paragraph: 'Successfully inviting 30 direct subordinates to recharge 50 USDT to get a 50 USDT reward.',
       requiredInvites: 30,
       currentInvites: 0,
       rewardAmount: 50,
@@ -72,7 +72,7 @@ export class Rewards implements OnInit {
     {
       id: 4,
       header: 'Ticket To Ride 4',
-      paragraph: 'Successfully inviting 50 direct subordinates to recharge 30 USDT to get a 100 USDT reward.',
+      paragraph: 'Successfully inviting 50 direct subordinates to recharge 50 USDT to get a 100 USDT reward.',
       requiredInvites: 40,
       currentInvites: 0,
       rewardAmount: 100,
@@ -83,7 +83,7 @@ export class Rewards implements OnInit {
     {
       id: 5,
       header: 'Ticket To Ride 5',
-      paragraph: 'Successfully inviting 100 direct subordinates to recharge 30 USDT or more to get a 250 USDT reward.',
+      paragraph: 'Successfully inviting 100 direct subordinates to recharge 50 USDT or more to get a 250 USDT reward.',
       requiredInvites: 60,
       currentInvites: 0,
       rewardAmount: 250,
@@ -94,7 +94,7 @@ export class Rewards implements OnInit {
     {
       id: 6,
       header: 'Ticket To Ride 6',
-      paragraph: 'Successfully inviting 100 direct subordinates to recharge 30 USDT or more to get a 250 USDT reward.',
+      paragraph: 'Successfully inviting 100 direct subordinates to recharge 50 USDT or more to get a 250 USDT reward.',
       requiredInvites: 80,
       currentInvites: 0,
       rewardAmount: 250,

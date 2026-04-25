@@ -32,6 +32,7 @@ export class Withdrawal implements OnInit {
   withdrawAddress: string = '';
   showPasskeyPopup: boolean = false;
   isLoading: boolean = false;
+  showPassword = false;
 
   withdrawalForm: FormGroup;
   transactionAccounts: any[] = [
@@ -55,7 +56,7 @@ export class Withdrawal implements OnInit {
     this.withdrawalForm = this.fb.group({
       amount: ['', [Validators.required, Validators.min(10)]],
       walletAddress: ['', Validators.required],
-      pin: ['', [Validators.required, Validators.pattern('^[0-9]{4,6}$')]],
+      pin: ['', Validators.required],
     });
   }
 
@@ -177,5 +178,9 @@ export class Withdrawal implements OnInit {
   configureTransactionPassword() {
     this.showPasskeyPopup = false;
     this.router.navigate(['/set-transaction-password']);
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 }
