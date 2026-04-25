@@ -58,7 +58,7 @@ export class Signup implements OnInit {
       refferedCode: [''],
       terms: [true, Validators.requiredTrue]
     },
-      { validator: this.matchPasswords }); 
+      { validator: this.matchPasswords });
   }
 
 
@@ -66,7 +66,7 @@ export class Signup implements OnInit {
     console.log("we are in Signup page");
 
     // ⭐ Step 1: Read referral code
-    const code = this.route.snapshot.queryParamMap.get('code');
+    const code = this.route.snapshot.queryParamMap.get('referral_code');
     if (code) {
       this.signupForm.patchValue({ refferedCode: code });
       console.log("Referral code applied:", code);
