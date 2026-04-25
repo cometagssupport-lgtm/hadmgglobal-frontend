@@ -49,8 +49,9 @@
 
 /* 🔹 Summary Grid */
 .summary-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   gap: 12px;
   position: relative;
   z-index: 5;
@@ -59,9 +60,11 @@
 }
 
 .summary-card {
+  width: calc(50% - 6px);
+  box-sizing: border-box;
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 8px;
-  padding: 0px 5px;
+  padding: 0 8px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -91,7 +94,7 @@
       line-height: 140%;
       letter-spacing: -1%;
       /* Avoid wrapping arbitrarily */
-      white-space: nowrap;
+      // white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
       text-transform: uppercase;
