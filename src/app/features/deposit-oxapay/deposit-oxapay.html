@@ -34,7 +34,7 @@
 
     <div class="page-title-box">
       <h2 class="main-title">{{ 'Recharge' | translate }}</h2>
-      <p class="sub-title">{{ data?.amount }}</p>
+      <p class="sub-title">{{ data?.amount }} {{ data?.network?.name }}</p>
     </div>
 
     <div class="timer-container">
@@ -48,7 +48,7 @@
     <div class="amount-container">
       <p class="amount-label">{{ 'Amount Payable' | translate }}</p>
       <h3 class="amount-value">{{ data?.amount }} USDT</h3>
-      <p class="timer-text">{{ 'USDT / USDC -BEP20 BNB' | translate }}</p>
+      <p class="timer-text">{{ data?.network?.name }}</p>
     </div>
 
     <div class="address-container">

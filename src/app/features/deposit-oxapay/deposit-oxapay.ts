@@ -56,6 +56,9 @@ export class DepositOxapay implements OnInit {
       this.data.qr_code = this.data.qr_code.replace(/@56/g, "");
     }
 
+    const tokenStr = localStorage.getItem('selectedToken');
+    if (tokenStr) this.data.network = JSON.parse(tokenStr);
+
     this.startTimerFromBackend();
   }
 

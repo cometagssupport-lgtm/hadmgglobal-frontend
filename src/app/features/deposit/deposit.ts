@@ -46,7 +46,21 @@ export class Deposit implements OnInit {
       next: (res) => {
         if (res.statusCode === 200 && res.data?.transactionAccounts) {
           this.transactionAccounts = res.data.transactionAccounts;
-          this.selectedToken = null;
+          
+          let savedToken = null;
+          if (isPlatformBrowser(this.platformId)) {
+            try {
+              const tokenStr = localStorage.getItem('selectedToken');
+              if (tokenStr) savedToken = JSON.parse(tokenStr);
+            } catch (e) {}
+          }
+          
+          if (savedToken) {
+            this.selectedToken = this.transactionAccounts.find(t => t.id === savedToken.id) || null;
+          } else {
+            this.selectedToken = null;
+          }
+          
           this.cdr.detectChanges();
         }
       }
@@ -59,6 +73,9 @@ export class Deposit implements OnInit {
 
   selectNetwork(network: any) {
     this.selectedToken = network;
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem('selectedToken', JSON.stringify(network));
+    }
   }
 
   goBack() {
