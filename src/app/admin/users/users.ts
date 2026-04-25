@@ -148,11 +148,11 @@ export class Users implements OnInit {
       email: data.row.email,
       amount: data.amount,
       action: data.action,
-      description: data.description,
+      discription: data.description,
     };
 
     if (data.description) {
-      payload.description = data.description;
+      payload.discription = data.description;
     }
     console.log("📌 Transaction Payload:", payload);
     this.authService.adminTransactionAvengers(payload).subscribe({
