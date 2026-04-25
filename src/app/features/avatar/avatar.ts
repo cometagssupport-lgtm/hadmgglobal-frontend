@@ -52,8 +52,17 @@ export class Avatar {
       return;
     }
 
+    const match = this.selectedAvatar.match(/\d+/);
+    const profileId = match ? parseInt(match[0], 10) : 1;
+
+    const payload = {
+      screen: "updateProfile",
+      userId: userId,
+      profile: profileId
+    };
+
     // Call API integration to save avatar
-    this.authService.updateAvatar({ userId, imageId: this.selectedAvatar }).subscribe({
+    this.authService.avengers(payload).subscribe({
       next: () => {
         localStorage.setItem('avatarUrl', this.selectedAvatar);
         this.goBack();

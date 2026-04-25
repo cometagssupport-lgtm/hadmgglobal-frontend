@@ -114,6 +114,9 @@ export class Profile implements OnInit {
           this.user.workingWallet = Number(data.totalDeposits ?? 0);
           this.user.withdrawalWallet = Number(data.totalEarnings ?? 0);
           this.user.avatar = data.avatar || localStorage.getItem('avatarUrl') || '/avatar1.svg';
+          if (Number(this.user.avatar)) {
+            this.user.avatar = '/avatar' + this.user.avatar + '.svg';
+          }
           this.telegramLinkTwo = data.telegramLinkTwo;
           this.telegramLinkThree = data.telegramLinkThree;
 
