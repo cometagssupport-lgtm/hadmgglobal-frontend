@@ -36,7 +36,7 @@ export class ChangePassword implements OnInit {
     console.log(this.urlEmail, this.otp)
     this.form = this.fb.group(
       {
-        newPassword: ['', [Validators.required, Validators.minLength(6)]],
+        newPassword: ['', Validators.required],
         confirmPassword: ['', Validators.required]
       },
       {
