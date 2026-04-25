@@ -64,8 +64,8 @@
       <div class="form-group">
         <label>Enter Transaction Password</label>
         <div class="password-input-box">
-          <input type="password" formControlName="pin" placeholder="Enter Your Transaction Password" />
-          <img src="/password-eye.svg" class="toggle-eye" />
+          <input [type]="showPassword ? 'text' : 'password'" formControlName="pin" placeholder="Enter Your Transaction Password" />
+          <img src="/password-eye.svg" class="toggle-eye" (click)="togglePasswordVisibility()" style="cursor: pointer;" />
         </div>
       </div>
     </form>

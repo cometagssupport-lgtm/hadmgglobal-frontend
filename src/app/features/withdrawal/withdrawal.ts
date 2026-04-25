@@ -32,6 +32,7 @@ export class Withdrawal implements OnInit {
   withdrawAddress: string = '';
   showPasskeyPopup: boolean = false;
   isLoading: boolean = false;
+  showPassword = false;
 
   withdrawalForm: FormGroup;
   transactionAccounts: any[] = [
@@ -177,5 +178,9 @@ export class Withdrawal implements OnInit {
   configureTransactionPassword() {
     this.showPasskeyPopup = false;
     this.router.navigate(['/set-transaction-password']);
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 }
