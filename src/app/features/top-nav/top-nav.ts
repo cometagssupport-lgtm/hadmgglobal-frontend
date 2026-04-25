@@ -27,10 +27,10 @@ export class TopNav {
   }
 
   get selectedLang() {
-    return this.langService.currentLanguage;
+    return this.langService.currentLanguage();
   }
 
-  onLanguageChange(lang: string) {
+  onLanguageChange(lang: {label: string, code: string}) {
     this.langService.setLanguage(lang);
   }
 
