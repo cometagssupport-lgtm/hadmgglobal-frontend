@@ -1,19 +1,15 @@
 <div class="transaction-history-container">
+  <app-top-nav [isTransparent]="true"></app-top-nav>
+
   <!-- Header Section -->
   <header class="header">
-    <div class="top-nav">
-      <img src="comlogowhite.svg" alt="Comet AGS" class="brand-logo">
-      <div class="nav-icons">
-        <i class="fa fa-headphones"></i>
-        <i class="fa fa-globe"></i>
-      </div>
-    </div>
-
     <div class="header-content">
-      <button class="back-btn" (click)="goBack()">
+      <!-- <button class="back-btn" (click)="goBack()">
         <i class="fa fa-chevron-left"></i>
-      </button>
-      
+      </button> -->
+      <img src="backicon.svg" (click)="goBack()" alt="back">
+
+
       <div class="text-and-image">
         <div class="text-group">
           <h1>Transaction History</h1>

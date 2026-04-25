@@ -2,6 +2,7 @@ import { Component, OnInit, inject, PLATFORM_ID, Inject } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { TopNav } from '../top-nav/top-nav';
 
 interface Transaction {
   type: string;
@@ -15,7 +16,7 @@ interface Transaction {
 @Component({
   selector: 'app-transaction-history',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TopNav],
   templateUrl: './transaction-history.html',
   styleUrl: './transaction-history.scss'
 })
