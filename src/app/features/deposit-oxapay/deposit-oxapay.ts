@@ -22,7 +22,7 @@ export class DepositOxapay implements OnInit {
 
   data: any = null;
 
-  countdownSeconds = 180;
+  countdownSeconds = 300;
   countdownText = '';
   intervalRef: any;
 
@@ -67,7 +67,7 @@ export class DepositOxapay implements OnInit {
     const now = Date.now();
     const elapsed = Math.floor((now - backendTime) / 1000);
 
-    this.countdownSeconds = 180 - elapsed;
+    this.countdownSeconds = 300 - elapsed;
     if (this.countdownSeconds < 0) this.countdownSeconds = 0;
 
     this.updateCountdownText();
@@ -80,8 +80,8 @@ export class DepositOxapay implements OnInit {
             this.countdownSeconds--;
             this.updateCountdownText();
 
-            // 🔵 Start polling EXACTLY after 2 minutes (when 60 sec left)
-            if (this.countdownSeconds === 60 && !this.pollingStarted) {
+            // 🔵 Start polling EXACTLY after 4 minutes (when 60 sec or less left)
+            if (this.countdownSeconds <= 60 && !this.pollingStarted) {
               this.pollingStarted = true;
               this.startPaymentPolling();
             }
