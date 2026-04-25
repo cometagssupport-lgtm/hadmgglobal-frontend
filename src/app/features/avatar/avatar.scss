@@ -79,7 +79,8 @@
   cursor: pointer;
   border: 2px solid transparent;
   transition: all 0.2s ease;
-  padding: 4px; /* Space inside the green ring */
+  padding: 4px;
+  /* Space inside the green ring */
 }
 
 .avatar-item img {
@@ -87,15 +88,17 @@
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  background-color: #D4E0F0; /* Soft blue-ish matching screenshot */
+  background-color: #D4E0F0;
+  /* Soft blue-ish matching screenshot */
 }
 
 .avatar-item.selected {
-  border-color: #00AA5B; /* EXACT color */
+  border-color: #00AA5B;
+  /* EXACT color */
 }
 
 .bottom-actions {
-  padding: 24px;
+  padding: 24px 24px 150px;
   background-color: transparent;
   margin-top: auto;
 }
