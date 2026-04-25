@@ -118,6 +118,9 @@ export class Home implements OnInit, OnDestroy {
           this.telegramLinkTwo = res.data.telegramLinkTwo;
           this.refferalCode = res.data.refferalCode;
           this.userName = res.data.UserName || 'Buddy';
+          if (res.data.email) {
+            localStorage.setItem('email', res.data.email);
+          }
           this.cdr.detectChanges();
         });
         localStorage.setItem('earnings', this.withdrawalWallet);
