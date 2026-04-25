@@ -55,7 +55,7 @@ export class Withdrawal implements OnInit {
     this.withdrawalForm = this.fb.group({
       amount: ['', [Validators.required, Validators.min(10)]],
       walletAddress: ['', Validators.required],
-      pin: ['', [Validators.required, Validators.pattern('^[0-9]{4,6}$')]],
+      pin: ['', Validators.required],
     });
   }
 
