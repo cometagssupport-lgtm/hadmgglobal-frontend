@@ -11,6 +11,7 @@ interface Transaction {
   senderEmail?: string;
   discription?: string;
   adminReward?: boolean;
+  status?: string;
 }
 
 @Component({
@@ -81,6 +82,15 @@ export class TransactionHistory implements OnInit {
     if (this.activeTab === 'withdraw') return 'Withdraw';
     if (this.activeTab === 'deposit') return 'Deposit';
     return item.type;
+  }
+
+  getStatus(item: Transaction) {
+    if (item.type === 'withdraw') {
+      const status = item.status?.toLowerCase();
+      if (status === 'pending') return 'Auditing';
+      return item.status || 'Completed';
+    }
+    return 'Completed';
   }
 
   goBack() {
