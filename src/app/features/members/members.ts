@@ -13,6 +13,7 @@ import { TopNav } from '../top-nav/top-nav';
 import { inject } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { TranslatePipe } from '../../pipes/translate-pipe';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 interface Member {
   userName?: string;
@@ -26,7 +27,7 @@ interface Member {
 
 @Component({
   selector: 'app-members',
-  imports: [CommonModule, RouterModule, FormsModule, TopNav, TranslatePipe],
+  imports: [CommonModule, RouterModule, FormsModule, TopNav, TranslatePipe, MatSnackBarModule],
   templateUrl: './members.html',
   styleUrl: './members.scss'
 })
@@ -44,6 +45,7 @@ export class Members implements OnInit {
   private authService = inject(AuthService);
   private ngZone = inject(NgZone);
   private cdr = inject(ChangeDetectorRef);
+  private snackBar = inject(MatSnackBar);
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
@@ -135,5 +137,15 @@ export class Members implements OnInit {
 
   goBack() {
     this.router.navigate(['/team']);
+  }
+
+  copyUID(uid: string) {
+    if (!uid) return;
+    navigator.clipboard.writeText(uid).then(() => {
+      this.snackBar.open('UID copied to clipboard!', 'Close', { duration: 3000 });
+    }).catch(err => {
+      console.error('Failed to copy text: ', err);
+      this.snackBar.open('Failed to copy UID.', 'Close', { duration: 3000 });
+    });
   }
 }

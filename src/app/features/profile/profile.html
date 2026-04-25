@@ -15,7 +15,7 @@
         <div class="user-info">
           <h2>User Name: {{ user.name }}</h2>
           <p>Email: {{ user.email }}</p>
-          <p class="uid-row">UID: <span>{{ user.uid || '53794' }}</span> <img src="/copyimg.svg" class="copy-icon" />
+          <p class="uid-row">UID: <span>{{ user.uid || '53794' }}</span> <img src="/copyimg.svg" class="copy-icon" (click)="copyUID(user.uid || '53794')" style="cursor: pointer;" />
           </p>
 
           <div class="level-badge">

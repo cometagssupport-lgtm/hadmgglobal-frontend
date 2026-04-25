@@ -46,7 +46,7 @@
           <div class="member-info">
             <div class="member-name">{{ member.userName || member.name || 'Arjun Sharma' }}</div>
             <div class="member-uid">UID: {{ member.UID || '53794' }} <img src="/copy.svg" alt="copy"
-                class="copy-icon" /></div>
+                class="copy-icon" (click)="copyUID(member.UID || '53794')" style="cursor: pointer;" /></div>
           </div>
           <div class="member-amount">
             USD {{ member.balance | number: '1.0-2' }}

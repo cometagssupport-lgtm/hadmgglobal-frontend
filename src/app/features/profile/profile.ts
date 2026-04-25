@@ -11,6 +11,7 @@ import {
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { Transfer } from '../transfer/transfer';
 import { AuthService } from '../../services/auth.service';
@@ -20,7 +21,7 @@ import { TranslatePipe } from '../../pipes/translate-pipe';
 
 @Component({
   selector: 'app-profile',
-  imports: [CommonModule, RouterModule, MatIconModule, TranslatePipe],
+  imports: [CommonModule, RouterModule, MatIconModule, TranslatePipe, MatSnackBarModule],
   templateUrl: './profile.html',
   styleUrl: './profile.scss'
 })
@@ -29,6 +30,7 @@ export class Profile implements OnInit {
   private authService = inject(AuthService);
   private ngZone = inject(NgZone);
   private cdr = inject(ChangeDetectorRef);
+  private snackBar = inject(MatSnackBar);
 
   @ViewChild('transferModal') transferModal!: Transfer;
 
@@ -112,6 +114,9 @@ export class Profile implements OnInit {
           this.user.workingWallet = Number(data.totalDeposits ?? 0);
           this.user.withdrawalWallet = Number(data.totalEarnings ?? 0);
           this.user.avatar = data.avatar || localStorage.getItem('avatarUrl') || '/avatar1.svg';
+          if (Number(this.user.avatar)) {
+            this.user.avatar = '/avatar' + this.user.avatar + '.svg';
+          }
           this.telegramLinkTwo = data.telegramLinkTwo;
           this.telegramLinkThree = data.telegramLinkThree;
 
@@ -232,5 +237,13 @@ export class Profile implements OnInit {
     }
   }
 
-
+  copyUID(uid: string) {
+    if (!uid) return;
+    navigator.clipboard.writeText(uid).then(() => {
+      this.snackBar.open('UID copied to clipboard!', 'Close', { duration: 3000 });
+    }).catch(err => {
+      console.error('Failed to copy text: ', err);
+      this.snackBar.open('Failed to copy UID.', 'Close', { duration: 3000 });
+    });
+  }
 }

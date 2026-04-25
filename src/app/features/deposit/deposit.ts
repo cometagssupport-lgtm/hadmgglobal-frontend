@@ -46,7 +46,21 @@ export class Deposit implements OnInit {
       next: (res) => {
         if (res.statusCode === 200 && res.data?.transactionAccounts) {
           this.transactionAccounts = res.data.transactionAccounts;
-          this.selectedToken = null;
+          
+          let savedToken = null;
+          if (isPlatformBrowser(this.platformId)) {
+            try {
+              const tokenStr = localStorage.getItem('selectedToken');
+              if (tokenStr) savedToken = JSON.parse(tokenStr);
+            } catch (e) {}
+          }
+          
+          if (savedToken) {
+            this.selectedToken = this.transactionAccounts.find(t => t.id === savedToken.id) || null;
+          } else {
+            this.selectedToken = null;
+          }
+          
           this.cdr.detectChanges();
         }
       }
@@ -59,6 +73,9 @@ export class Deposit implements OnInit {
 
   selectNetwork(network: any) {
     this.selectedToken = network;
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem('selectedToken', JSON.stringify(network));
+    }
   }
 
   goBack() {
@@ -70,44 +87,26 @@ export class Deposit implements OnInit {
   }
 
   confirmDeposit() {
-    if (!this.amount || this.amount < this.minDeposit) return;
-
-    let payloadAmount = this.amount; // Store locally for dummy fallback
-    let dummyData = {
-      amount: payloadAmount,
-      address: 'YAACNGXR76IGUUSFAINLZDWX',
-      qr_code: 'https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=YAACNGXR76IGUUSFAINLZDWX',
-      date: Math.floor(Date.now() / 1000), 
-      track_id: 'dummy_track_12345'
-    };
+    if (!this.amount || this.amount < this.minDeposit || !this.selectedToken) return;
 
     const userId = isPlatformBrowser(this.platformId) ? localStorage.getItem('userId') : null;
-    
-    // Provide dummy response if API setup fails locally (e.g. no token loaded)
-    if (!userId || !this.selectedToken) {
-      localStorage.setItem("pay", JSON.stringify(dummyData));
-      this.router.navigate(['/payment']);
-      return;
-    }
+    if (!userId) return;
 
     const payload = { userId, amount: this.amount, transactionAccount: this.selectedToken };
 
     this.authService.doPayment(payload).subscribe({
       next: (res) => {
-        if (res.statusCode === 200) {
-          let data = res?.data || {};
-          data.amount = payloadAmount;
+        if (res.statusCode === 200 && res.data) {
+          let data = res.data;
+          data.amount = this.amount;
           localStorage.setItem("pay", JSON.stringify(data));
           this.router.navigate(['/payment']);
         } else {
-          localStorage.setItem("pay", JSON.stringify(dummyData));
-          this.router.navigate(['/payment']);
+          console.error('Deposit API returns error:', res.message);
         }
       },
       error: (err) => {
-        console.error('Deposit API failed. Overriding with dummy response:', err);
-        localStorage.setItem("pay", JSON.stringify(dummyData));
-        this.router.navigate(['/payment']);
+        console.error('Deposit API failed:', err);
       }
     });
   }

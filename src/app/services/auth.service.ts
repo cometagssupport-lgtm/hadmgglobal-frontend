@@ -20,7 +20,7 @@ export class AuthService {
     return this.http.post(`${this.baseUrl}/register`, payload);
   }
 
-  login(payload: { email: string; password: string }): Observable<any> {
+  login(payload: { user: string; password: string }): Observable<any> {
     return this.http.post(`${this.baseUrl}/login`, payload);
   }
 

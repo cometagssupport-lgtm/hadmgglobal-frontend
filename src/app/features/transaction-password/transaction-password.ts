@@ -27,7 +27,7 @@ export class TransactionPassword implements OnInit {
   ngOnInit() {
     this.form = this.fb.group(
       {
-        password: ['', [Validators.required, Validators.pattern('^[0-9]{4,6}$')]],
+        password: ['', Validators.required],
         confirmPassword: ['', Validators.required]
       },
       {

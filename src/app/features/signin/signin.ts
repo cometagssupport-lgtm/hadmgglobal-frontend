@@ -116,7 +116,7 @@ export class Signin implements OnInit {
       // ⭐ 2. NORMAL USER LOGIN (API)
       // ================================
       const payload = {
-        email: email,
+        user: email,
         password: password
       };
 
