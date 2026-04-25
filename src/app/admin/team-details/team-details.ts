@@ -21,16 +21,16 @@ export class TeamDetails implements OnInit {
   data: any = null;
 
   // SEARCH
-  searchQuery: any = { 1: "", 2: "", 3: "" };
+  searchQuery: any = { 1: "", 2: "", 3: "", 4: "", 5: "" };
 
   // PAGINATION
-  currentPage: any = { 1: 1, 2: 1, 3: 1 };
+  currentPage: any = { 1: 1, 2: 1, 3: 1, 4: 1, 5: 1 };
   pageSize = 5;
-  totalPages: any = { 1: 1, 2: 1, 3: 1 };
+  totalPages: any = { 1: 1, 2: 1, 3: 1, 4: 1, 5: 1 };
 
   // FILTERED + PAGINATED DATA
-  filtered: any = { 1: [], 2: [], 3: [] };
-  paginated: any = { 1: [], 2: [], 3: [] };
+  filtered: any = { 1: [], 2: [], 3: [], 4: [], 5: [] };
+  paginated: any = { 1: [], 2: [], 3: [], 4: [], 5: [] };
 
   constructor(
     private router: Router,
@@ -90,6 +90,8 @@ export class TeamDetails implements OnInit {
     this.applyFilterForLevel(1, this.data?.genOne?.users || []);
     this.applyFilterForLevel(2, this.data?.genTwo?.users || []);
     this.applyFilterForLevel(3, this.data?.genThree?.users || []);
+    this.applyFilterForLevel(4, this.data?.genFour?.users || []);
+    this.applyFilterForLevel(5, this.data?.genFive?.users || []);
   }
 
   applyFilterForLevel(level: number, users: any[]) {
