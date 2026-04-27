@@ -176,7 +176,8 @@
   margin-top: -65px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   z-index: 2;
-  background: white;
+  background: url('/sliderbg.svg') no-repeat center center;
+  background-size: cover;
 
   .carousel-track {
     display: flex;
