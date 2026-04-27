@@ -9,23 +9,23 @@ export class Language {
   private platformId = inject(PLATFORM_ID);
 
   private allLanguages = [
-    // { label: "Arabic - عربي", code: "sa" },
-    // { label: "Czech - čeština", code: "cz" },
+    { label: "عربي", code: "sa" },
+    { label: "čeština", code: "cz" },
     { label: "English", code: "gb" },
-    // { label: "French - Français", code: "fr" },
-    // { label: "German - Deutsch", code: "de" },
-    // { label: "Hungarian - magyar", code: "hu" },
+    { label: "Français", code: "fr" },
+    { label: "Deutsch", code: "de" },
+    { label: "magyar", code: "hu" },
     { label: "Indonesian", code: "id" },
-    // { label: "Italian - Italiano", code: "it" },
-    // { label: "Persian - فارسی", code: "ir" },
-    // { label: "Polish - Polski", code: "pl" },
-    // { label: "Portuguese - Português", code: "br" },
-    // { label: "Russian - Русский", code: "ru" },
-    // { label: "Slovak - Slovák", code: "sk" },
-    // { label: "Spanish - Español", code: "es" },
-    // { label: "Turkish - Türkçe", code: "tr" },
-    // { label: "Uzbek - o'zbek", code: "uz" },
-    // { label: "Vietnamese - Tiếng Việt", code: "vn" }
+    { label: "Italiano", code: "it" },
+    { label: "فارسی", code: "ir" },
+    { label: "Polski", code: "pl" },
+    { label: "Português", code: "br" },
+    { label: "Русский", code: "ru" },
+    { label: "Slovák", code: "sk" },
+    { label: "Español", code: "es" },
+    { label: "Türkçe", code: "tr" },
+    { label: "o'zbek", code: "uz" },
+    { label: "Tiếng Việt", code: "vn" }
   ];
 
   // private rtlLanguages = ['Arabic - عربي', 'Persian - فارسی'];
