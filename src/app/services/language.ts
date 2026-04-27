@@ -9,23 +9,23 @@ export class Language {
   private platformId = inject(PLATFORM_ID);
 
   private allLanguages = [
-    { label: "Arabic - عربي", code: "sa" },
-    { label: "Czech - čeština", code: "cz" },
+    // { label: "Arabic - عربي", code: "sa" },
+    // { label: "Czech - čeština", code: "cz" },
     { label: "English", code: "gb" },
-    { label: "French - Français", code: "fr" },
-    { label: "German - Deutsch", code: "de" },
-    { label: "Hungarian - magyar", code: "hu" },
+    // { label: "French - Français", code: "fr" },
+    // { label: "German - Deutsch", code: "de" },
+    // { label: "Hungarian - magyar", code: "hu" },
     { label: "Indonesian", code: "id" },
-    { label: "Italian - Italiano", code: "it" },
-    { label: "Persian - فارسی", code: "ir" },
-    { label: "Polish - Polski", code: "pl" },
-    { label: "Portuguese - Português", code: "pt" },
-    { label: "Russian - Русский", code: "ru" },
-    { label: "Slovak - Slovák", code: "sk" },
-    { label: "Spanish - Español", code: "es" },
-    { label: "Turkish - Türkçe", code: "tr" },
-    { label: "Uzbek - o'zbek", code: "uz" },
-    { label: "Vietnamese - Tiếng Việt", code: "vn" }
+    // { label: "Italian - Italiano", code: "it" },
+    // { label: "Persian - فارسی", code: "ir" },
+    // { label: "Polish - Polski", code: "pl" },
+    // { label: "Portuguese - Português", code: "br" },
+    // { label: "Russian - Русский", code: "ru" },
+    // { label: "Slovak - Slovák", code: "sk" },
+    // { label: "Spanish - Español", code: "es" },
+    // { label: "Turkish - Türkçe", code: "tr" },
+    // { label: "Uzbek - o'zbek", code: "uz" },
+    // { label: "Vietnamese - Tiếng Việt", code: "vn" }
   ];
 
   // private rtlLanguages = ['Arabic - عربي', 'Persian - فارسی'];
@@ -506,17 +506,17 @@ export class Language {
 
 
       //transfer
-    "Transfer your": "Переведите ваш",
-    "Withdrawal Amount": "Сумму вывода",
-    "to": "в",
-    // "Main Wallet": "Основной кошелёк",
-    "here": "здесь",
-    "Transfer Funds": "Перевести средства",
-    // "Withdrawal Account": "Счёт для вывода",
-    "Funds transferred from your Withdrawal Account to your Main Wallet": "Средства, переведённые с вашего счёта вывода в основной кошелёк",
-    "the transferred amount will be compounded for up to 120 days": "переведённая сумма будет капитализироваться до 120 дней",
-    "Transfer amount": "Сумма перевода",
-    "Max": "Макс"
+      "Transfer your": "Переведите ваш",
+      "Withdrawal Amount": "Сумму вывода",
+      "to": "в",
+      // "Main Wallet": "Основной кошелёк",
+      "here": "здесь",
+      "Transfer Funds": "Перевести средства",
+      // "Withdrawal Account": "Счёт для вывода",
+      "Funds transferred from your Withdrawal Account to your Main Wallet": "Средства, переведённые с вашего счёта вывода в основной кошелёк",
+      "the transferred amount will be compounded for up to 120 days": "переведённая сумма будет капитализироваться до 120 дней",
+      "Transfer amount": "Сумма перевода",
+      "Max": "Макс"
     },
 
     "Spanish - Español": {
@@ -748,18 +748,18 @@ export class Language {
       "TowerBNB aims to be user-centric, ensuring asset security and promoting access to intelligent computing power. By choosing TowerBNB, you agree to these terms as you embark on a journey of smart mining and asset growth.": "TowerBNB tiene como objetivo centrarse en el usuario, garantizando la seguridad de los activos y promoviendo el acceso a potencia informática inteligente. Al elegir TowerBNB, usted acepta estos términos al iniciar un camino de minería inteligente y crecimiento de activos.",
 
       "Transfer your": "Transfiere tu",
-    "Withdrawal Amount": "Monto de Retiro",
-    "to": "a",
-    // "Main Wallet": "Billetera Principal",
-    "here": "aquí",
-    "Transfer Funds": "Transferir Fondos",
-    // "Withdrawal Account": "Cuenta de Retiro",
-    "Funds transferred from your Withdrawal Account to your Main Wallet": "Los fondos transferidos desde tu Cuenta de Retiro a tu Billetera Principal",
-    "the transferred amount will be compounded for up to 120 days": "el monto transferido se capitalizará hasta por 120 días",
-    "Transfer amount": "Monto a transferir",
-    "Max": "Máx",
+      "Withdrawal Amount": "Monto de Retiro",
+      "to": "a",
+      // "Main Wallet": "Billetera Principal",
+      "here": "aquí",
+      "Transfer Funds": "Transferir Fondos",
+      // "Withdrawal Account": "Cuenta de Retiro",
+      "Funds transferred from your Withdrawal Account to your Main Wallet": "Los fondos transferidos desde tu Cuenta de Retiro a tu Billetera Principal",
+      "the transferred amount will be compounded for up to 120 days": "el monto transferido se capitalizará hasta por 120 días",
+      "Transfer amount": "Monto a transferir",
+      "Max": "Máx",
 
-    
+
     },
     "Italian - Italiano": {
       "Cancel": "Annulla",
@@ -990,17 +990,17 @@ export class Language {
       "TowerBNB aims to be user-centric, ensuring asset security and promoting access to intelligent computing power. By choosing TowerBNB, you agree to these terms as you embark on a journey of smart mining and asset growth.": "TowerBNB mira a essere orientata all’utente, garantendo la sicurezza degli asset e promuovendo l’accesso alla potenza di calcolo intelligente. Scegliendo TowerBNB, accetti questi termini mentre intraprendi un percorso di mining intelligente e crescita degli asset.",
 
       "Transfer your": "Trasferisci il tuo",
-    "Withdrawal Amount": "Importo di Prelievo",
-    "to": "nel",
-    // "Main Wallet": "Portafoglio Principale",
-    "here": "qui",
-    "Transfer Funds": "Trasferisci Fondi",
-    // "Withdrawal Account": "Conto di Prelievo",
-    "Funds transferred from your Withdrawal Account to your Main Wallet": "I fondi trasferiti dal tuo Conto di Prelievo al Portafoglio Principale",
-    "the transferred amount will be compounded for up to 120 days": "l’importo trasferito sarà capitalizzato fino a 120 giorni",
-    "Transfer amount": "Importo del trasferimento",
-    "Max": "Max"
-    
+      "Withdrawal Amount": "Importo di Prelievo",
+      "to": "nel",
+      // "Main Wallet": "Portafoglio Principale",
+      "here": "qui",
+      "Transfer Funds": "Trasferisci Fondi",
+      // "Withdrawal Account": "Conto di Prelievo",
+      "Funds transferred from your Withdrawal Account to your Main Wallet": "I fondi trasferiti dal tuo Conto di Prelievo al Portafoglio Principale",
+      "the transferred amount will be compounded for up to 120 days": "l’importo trasferito sarà capitalizzato fino a 120 giorni",
+      "Transfer amount": "Importo del trasferimento",
+      "Max": "Max"
+
     },
     "German - Deutsch": {
       "Cancel": "Abbrechen",
@@ -1231,18 +1231,18 @@ export class Language {
       "TowerBNB aims to be user-centric, ensuring asset security and promoting access to intelligent computing power. By choosing TowerBNB, you agree to these terms as you embark on a journey of smart mining and asset growth.": "TowerBNB verfolgt einen nutzerzentrierten Ansatz, gewährleistet die Sicherheit von Vermögenswerten und fördert den Zugang zu intelligenter Rechenleistung. Mit der Wahl von TowerBNB stimmen Sie diesen Bedingungen zu, während Sie eine Reise des intelligenten Minings und Vermögenswachstums beginnen.",
 
       "Transfer your": "Übertrage deinen",
-    "Withdrawal Amount": "Auszahlungsbetrag",
-    "to": "in",
-    // "Main Wallet": "Hauptbörse",
-    "here": "hier",
-    "Transfer Funds": "Geld übertragen",
-    // "Withdrawal Account": "Auszahlungskonto",
-    "Funds transferred from your Withdrawal Account to your Main Wallet": "Von deinem Auszahlungskonto in deine Hauptbörse übertragene Gelder",
-    "the transferred amount will be compounded for up to 120 days": "der übertragene Betrag wird bis zu 120 Tage verzinst",
-    "Transfer amount": "Übertragungsbetrag",
-    "Max": "Max"
+      "Withdrawal Amount": "Auszahlungsbetrag",
+      "to": "in",
+      // "Main Wallet": "Hauptbörse",
+      "here": "hier",
+      "Transfer Funds": "Geld übertragen",
+      // "Withdrawal Account": "Auszahlungskonto",
+      "Funds transferred from your Withdrawal Account to your Main Wallet": "Von deinem Auszahlungskonto in deine Hauptbörse übertragene Gelder",
+      "the transferred amount will be compounded for up to 120 days": "der übertragene Betrag wird bis zu 120 Tage verzinst",
+      "Transfer amount": "Übertragungsbetrag",
+      "Max": "Max"
 
-    
+
     },
 
     "Arabic - عربي": {
@@ -1474,18 +1474,18 @@ export class Language {
       "TowerBNB aims to be user-centric, ensuring asset security and promoting access to intelligent computing power. By choosing TowerBNB, you agree to these terms as you embark on a journey of smart mining and asset growth.": "تهدف TowerBNB إلى أن تكون متمحورة حول المستخدم، مع ضمان أمان الأصول وتعزيز الوصول إلى قوة الحوسبة الذكية. وباختيارك TowerBNB، فإنك توافق على هذه الشروط أثناء شروعك في رحلة التعدين الذكي ونمو الأصول.",
 
       "Transfer your": "حوّل",
-    "Withdrawal Amount": "مبلغ السحب",
-    "to": "إلى",
-    // "Main Wallet": "المحفظة الرئيسية",
-    "here": "هنا",
-    "Transfer Funds": "تحويل الأموال",
-    // "Withdrawal Account": "حساب السحب",
-    "Funds transferred from your Withdrawal Account to your Main Wallet": "الأموال المحولة من حساب السحب إلى محفظتك الرئيسية",
-    "the transferred amount will be compounded for up to 120 days": "سيتم تجميع المبلغ المحول لمدة تصل إلى 120 يومًا",
-    "Transfer amount": "مبلغ التحويل",
-    "Max": "الحد الأقصى"
+      "Withdrawal Amount": "مبلغ السحب",
+      "to": "إلى",
+      // "Main Wallet": "المحفظة الرئيسية",
+      "here": "هنا",
+      "Transfer Funds": "تحويل الأموال",
+      // "Withdrawal Account": "حساب السحب",
+      "Funds transferred from your Withdrawal Account to your Main Wallet": "الأموال المحولة من حساب السحب إلى محفظتك الرئيسية",
+      "the transferred amount will be compounded for up to 120 days": "سيتم تجميع المبلغ المحول لمدة تصل إلى 120 يومًا",
+      "Transfer amount": "مبلغ التحويل",
+      "Max": "الحد الأقصى"
 
-    
+
     },
 
     "French - Français": {
@@ -1717,18 +1717,18 @@ export class Language {
       "TowerBNB aims to be user-centric, ensuring asset security and promoting access to intelligent computing power. By choosing TowerBNB, you agree to these terms as you embark on a journey of smart mining and asset growth.": "TowerBNB vise à placer l’utilisateur au centre de ses priorités, en garantissant la sécurité des actifs et en favorisant l’accès à une puissance de calcul intelligente. En choisissant TowerBNB, vous acceptez ces conditions en entamant un parcours de minage intelligent et de croissance des actifs.",
 
       "Transfer your": "Transférez votre",
-    "Withdrawal Amount": "Montant de Retrait",
-    "to": "vers",
-    // "Main Wallet": "Portefeuille Principal",
-    "here": "ici",
-    "Transfer Funds": "Transférer des fonds",
-    // "Withdrawal Account": "Compte de Retrait",
-    "Funds transferred from your Withdrawal Account to your Main Wallet": "Les fonds transférés de votre Compte de Retrait vers votre Portefeuille Principal",
-    "the transferred amount will be compounded for up to 120 days": "le montant transféré sera capitalisé jusqu’à 120 jours",
-    "Transfer amount": "Montant du transfert",
-    "Max": "Max"
+      "Withdrawal Amount": "Montant de Retrait",
+      "to": "vers",
+      // "Main Wallet": "Portefeuille Principal",
+      "here": "ici",
+      "Transfer Funds": "Transférer des fonds",
+      // "Withdrawal Account": "Compte de Retrait",
+      "Funds transferred from your Withdrawal Account to your Main Wallet": "Les fonds transférés de votre Compte de Retrait vers votre Portefeuille Principal",
+      "the transferred amount will be compounded for up to 120 days": "le montant transféré sera capitalisé jusqu’à 120 jours",
+      "Transfer amount": "Montant du transfert",
+      "Max": "Max"
 
-    
+
     },
 
     "Persian - فارسی": {
@@ -1960,18 +1960,18 @@ export class Language {
       "TowerBNB aims to be user-centric, ensuring asset security and promoting access to intelligent computing power. By choosing TowerBNB, you agree to these terms as you embark on a journey of smart mining and asset growth.": "TowerBNB رویکردی کاربرمحور داشته و بر امنیت دارایی‌ها و دسترسی به توان محاسباتی هوشمند تمرکز دارد. با انتخاب TowerBNB، شما با این شرایط موافقت کرده و مسیر استخراج هوشمند و رشد دارایی را آغاز می‌کنید.",
 
       "Transfer your": "انتقال",
-    "Withdrawal Amount": "مبلغ برداشت",
-    "to": "به",
-    // "Main Wallet": "کیف پول اصلی",
-    "here": "اینجا",
-    "Transfer Funds": "انتقال وجه",
-    // "Withdrawal Account": "حساب برداشت",
-    "Funds transferred from your Withdrawal Account to your Main Wallet": "وجوه منتقل‌شده از حساب برداشت به کیف پول اصلی شما",
-    "the transferred amount will be compounded for up to 120 days": "مبلغ منتقل‌شده تا ۱۲۰ روز تجمیع خواهد شد",
-    "Transfer amount": "مبلغ انتقال",
-    "Max": "حداکثر"
+      "Withdrawal Amount": "مبلغ برداشت",
+      "to": "به",
+      // "Main Wallet": "کیف پول اصلی",
+      "here": "اینجا",
+      "Transfer Funds": "انتقال وجه",
+      // "Withdrawal Account": "حساب برداشت",
+      "Funds transferred from your Withdrawal Account to your Main Wallet": "وجوه منتقل‌شده از حساب برداشت به کیف پول اصلی شما",
+      "the transferred amount will be compounded for up to 120 days": "مبلغ منتقل‌شده تا ۱۲۰ روز تجمیع خواهد شد",
+      "Transfer amount": "مبلغ انتقال",
+      "Max": "حداکثر"
 
-    
+
     },
 
     "Turkish - Türkçe": {
@@ -2203,18 +2203,18 @@ export class Language {
       "TowerBNB aims to be user-centric, ensuring asset security and promoting access to intelligent computing power. By choosing TowerBNB, you agree to these terms as you embark on a journey of smart mining and asset growth.": "TowerBNB, varlık güvenliğini sağlamayı ve akıllı hesaplama gücüne erişimi teşvik etmeyi amaçlayan kullanıcı odaklı bir yaklaşıma sahiptir. TowerBNB’yi seçerek, akıllı madencilik ve varlık büyümesi yolculuğuna bu şartları kabul ederek başlarsınız.",
 
       "Transfer your": "Aktar",
-    "Withdrawal Amount": "Çekim Tutarını",
-    "to": "Ana",
-    // "Main Wallet": "Cüzdan",
-    "here": "buraya",
-    "Transfer Funds": "Fonları Aktar",
-    // "Withdrawal Account": "Çekim Hesabı",
-    "Funds transferred from your Withdrawal Account to your Main Wallet": "Çekim Hesabınızdan Ana Cüzdanınıza aktarılan fonlar",
-    "the transferred amount will be compounded for up to 120 days": "aktarılan tutar 120 güne kadar bileşik kazanç sağlar",
-    "Transfer amount": "Aktarım tutarı",
-    "Max": "Maks"
+      "Withdrawal Amount": "Çekim Tutarını",
+      "to": "Ana",
+      // "Main Wallet": "Cüzdan",
+      "here": "buraya",
+      "Transfer Funds": "Fonları Aktar",
+      // "Withdrawal Account": "Çekim Hesabı",
+      "Funds transferred from your Withdrawal Account to your Main Wallet": "Çekim Hesabınızdan Ana Cüzdanınıza aktarılan fonlar",
+      "the transferred amount will be compounded for up to 120 days": "aktarılan tutar 120 güne kadar bileşik kazanç sağlar",
+      "Transfer amount": "Aktarım tutarı",
+      "Max": "Maks"
 
-    
+
     },
 
     "Hungarian - magyar": {
@@ -2445,19 +2445,19 @@ export class Language {
       "TowerBNB aims to be user-centric, ensuring asset security and promoting access to intelligent computing power. By choosing TowerBNB, you agree to these terms as you embark on a journey of smart mining and asset growth.": "A TowerBNB célja a felhasználóközpontú működés, az eszközbiztonság biztosítása és az intelligens számítási kapacitáshoz való hozzáférés elősegítése. A TowerBNB választásával Ön elfogadja ezeket a feltételeket, miközben elindul az intelligens bányászat és az eszközgyarapodás útján.",
 
       "Transfer your": "Utalja át",
-    "Withdrawal Amount": "Kifizetési összeget",
-    "to": "a",
-    // "Main Wallet": "Fő Tárcába",
-    "here": "itt",
-    "Transfer Funds": "Összeg átutalása",
-    // "Withdrawal Account": "Kifizetési számla",
-    "Funds transferred from your Withdrawal Account to your Main Wallet": "A Kifizetési számláról a Fő Tárcába áthelyezett összegek",
-    "the transferred amount will be compounded for up to 120 days": "az áthelyezett összeg legfeljebb 120 napig kamatozik",
-    "Transfer amount": "Átutalási összeg",
-    "Max": "Max",
-    "Cancel": "Mégse"
+      "Withdrawal Amount": "Kifizetési összeget",
+      "to": "a",
+      // "Main Wallet": "Fő Tárcába",
+      "here": "itt",
+      "Transfer Funds": "Összeg átutalása",
+      // "Withdrawal Account": "Kifizetési számla",
+      "Funds transferred from your Withdrawal Account to your Main Wallet": "A Kifizetési számláról a Fő Tárcába áthelyezett összegek",
+      "the transferred amount will be compounded for up to 120 days": "az áthelyezett összeg legfeljebb 120 napig kamatozik",
+      "Transfer amount": "Átutalási összeg",
+      "Max": "Max",
+      "Cancel": "Mégse"
 
-    
+
     },
 
     "Polish - Polski": {
@@ -2688,19 +2688,19 @@ export class Language {
       "TowerBNB aims to be user-centric, ensuring asset security and promoting access to intelligent computing power. By choosing TowerBNB, you agree to these terms as you embark on a journey of smart mining and asset growth.": "TowerBNB dąży do podejścia zorientowanego na użytkownika, zapewniając bezpieczeństwo aktywów i promując dostęp do inteligentnej mocy obliczeniowej. Wybierając TowerBNB, akceptujesz niniejsze warunki, rozpoczynając drogę inteligentnego wydobycia i wzrostu aktywów.",
 
       "Transfer your": "Przenieś",
-    "Withdrawal Amount": "Kwotę Wypłaty",
-    "to": "do",
-    // "Main Wallet": "Portfela Głównego",
-    "here": "tutaj",
-    "Transfer Funds": "Przenieś środki",
-    // "Withdrawal Account": "Konto Wypłat",
-    "Funds transferred from your Withdrawal Account to your Main Wallet": "Środki przeniesione z Konta Wypłat do Portfela Głównego",
-    "the transferred amount will be compounded for up to 120 days": "przeniesiona kwota będzie kapitalizowana przez maksymalnie 120 dni",
-    "Transfer amount": "Kwota transferu",
-    "Max": "Max",
-    "Cancel": "Anuluj"
+      "Withdrawal Amount": "Kwotę Wypłaty",
+      "to": "do",
+      // "Main Wallet": "Portfela Głównego",
+      "here": "tutaj",
+      "Transfer Funds": "Przenieś środki",
+      // "Withdrawal Account": "Konto Wypłat",
+      "Funds transferred from your Withdrawal Account to your Main Wallet": "Środki przeniesione z Konta Wypłat do Portfela Głównego",
+      "the transferred amount will be compounded for up to 120 days": "przeniesiona kwota będzie kapitalizowana przez maksymalnie 120 dni",
+      "Transfer amount": "Kwota transferu",
+      "Max": "Max",
+      "Cancel": "Anuluj"
 
-    
+
     },
 
     "Portuguese - Português": {
@@ -2931,19 +2931,19 @@ export class Language {
       "TowerBNB aims to be user-centric, ensuring asset security and promoting access to intelligent computing power. By choosing TowerBNB, you agree to these terms as you embark on a journey of smart mining and asset growth.": "A TowerBNB busca ser centrada no usuário, garantindo a segurança dos ativos e promovendo o acesso à computação inteligente. Ao escolher a TowerBNB, você concorda com estes termos ao iniciar sua jornada de mineração inteligente e crescimento de ativos.",
 
       "Transfer your": "Transfira seu",
-    "Withdrawal Amount": "Valor de Saque",
-    "to": "para a",
-    // "Main Wallet": "Carteira Principal",
-    "here": "aqui",
-    "Transfer Funds": "Transferir fundos",
-    // "Withdrawal Account": "Conta de Saque",
-    "Funds transferred from your Withdrawal Account to your Main Wallet": "Fundos transferidos da sua Conta de Saque para a Carteira Principal",
-    "the transferred amount will be compounded for up to 120 days": "o valor transferido será capitalizado por até 120 dias",
-    "Transfer amount": "Valor da transferência",
-    "Max": "Máx",
-    "Cancel": "Cancelar"
+      "Withdrawal Amount": "Valor de Saque",
+      "to": "para a",
+      // "Main Wallet": "Carteira Principal",
+      "here": "aqui",
+      "Transfer Funds": "Transferir fundos",
+      // "Withdrawal Account": "Conta de Saque",
+      "Funds transferred from your Withdrawal Account to your Main Wallet": "Fundos transferidos da sua Conta de Saque para a Carteira Principal",
+      "the transferred amount will be compounded for up to 120 days": "o valor transferido será capitalizado por até 120 dias",
+      "Transfer amount": "Valor da transferência",
+      "Max": "Máx",
+      "Cancel": "Cancelar"
 
-    
+
     },
 
     "Czech - čeština": {
@@ -3173,20 +3173,20 @@ export class Language {
       "TowerBNB Technologies Inc. holds the final right of interpretation of this Agreement.": "TowerBNB Technologies Inc. má konečné právo výkladu této Smlouvy.",
       "TowerBNB aims to be user-centric, ensuring asset security and promoting access to intelligent computing power. By choosing TowerBNB, you agree to these terms as you embark on a journey of smart mining and asset growth.": "TowerBNB usiluje o přístup zaměřený na uživatele, zajištění bezpečnosti aktiv a podporu přístupu k inteligentní výpočetní síle. Volbou TowerBNB souhlasíte s těmito podmínkami a zahajujete cestu chytré těžby a růstu aktiv.",
 
-       "Transfer your": "Převeďte",
-    "Withdrawal Amount": "Částku k výběru",
-    "to": "do",
-    // "Main Wallet": "Hlavní Peněženky",
-    "here": "zde",
-    "Transfer Funds": "Převést prostředky",
-    // "Withdrawal Account": "Výběrový účet",
-    "Funds transferred from your Withdrawal Account to your Main Wallet": "Prostředky převedené z Výběrového účtu do Hlavní Peněženky",
-    "the transferred amount will be compounded for up to 120 days": "převedená částka bude úročena až 120 dní",
-    "Transfer amount": "Částka převodu",
-    "Max": "Max",
-    "Cancel": "Zrušit"
+      "Transfer your": "Převeďte",
+      "Withdrawal Amount": "Částku k výběru",
+      "to": "do",
+      // "Main Wallet": "Hlavní Peněženky",
+      "here": "zde",
+      "Transfer Funds": "Převést prostředky",
+      // "Withdrawal Account": "Výběrový účet",
+      "Funds transferred from your Withdrawal Account to your Main Wallet": "Prostředky převedené z Výběrového účtu do Hlavní Peněženky",
+      "the transferred amount will be compounded for up to 120 days": "převedená částka bude úročena až 120 dní",
+      "Transfer amount": "Částka převodu",
+      "Max": "Max",
+      "Cancel": "Zrušit"
 
-    
+
     },
 
     "Slovak - Slovák": {
@@ -3417,20 +3417,20 @@ export class Language {
       "TowerBNB aims to be user-centric, ensuring asset security and promoting access to intelligent computing power. By choosing TowerBNB, you agree to these terms as you embark on a journey of smart mining and asset growth.": "TowerBNB sa zameriava na používateľa, zabezpečuje ochranu aktív a podporuje prístup k inteligentnému výpočtovému výkonu. Výberom TowerBNB súhlasíte s týmito podmienkami a vydávate sa na cestu inteligentnej ťažby a rastu aktív.",
 
       "Transfer your": "Preveďte",
-    "Withdrawal Amount": "Sumu výberu",
-    "to": "do",
-    // "Main Wallet": "Hlavnej Peňaženky",
-    "here": "tu",
-    "Transfer Funds": "Previesť prostriedky",
-    // "Withdrawal Account": "Výberový účet",
-    "Funds transferred from your Withdrawal Account to your Main Wallet": "Prostriedky prevedené z Výberového účtu do Hlavnej Peňaženky",
-    "the transferred amount will be compounded for up to 120 days": "prevedená suma sa bude zhodnocovať až 120 dní",
-    "Transfer amount": "Suma prevodu",
-    "Max": "Max",
-    "Cancel": "Zrušiť"
+      "Withdrawal Amount": "Sumu výberu",
+      "to": "do",
+      // "Main Wallet": "Hlavnej Peňaženky",
+      "here": "tu",
+      "Transfer Funds": "Previesť prostriedky",
+      // "Withdrawal Account": "Výberový účet",
+      "Funds transferred from your Withdrawal Account to your Main Wallet": "Prostriedky prevedené z Výberového účtu do Hlavnej Peňaženky",
+      "the transferred amount will be compounded for up to 120 days": "prevedená suma sa bude zhodnocovať až 120 dní",
+      "Transfer amount": "Suma prevodu",
+      "Max": "Max",
+      "Cancel": "Zrušiť"
 
 
-    
+
     },
 
     "Indonesian": {
@@ -3661,20 +3661,20 @@ export class Language {
       "TowerBNB aims to be user-centric, ensuring asset security and promoting access to intelligent computing power. By choosing TowerBNB, you agree to these terms as you embark on a journey of smart mining and asset growth.": "TowerBNB berfokus pada pengguna dengan memastikan keamanan aset dan mendorong akses terhadap daya komputasi cerdas. Dengan memilih TowerBNB, Anda menyetujui ketentuan ini saat memulai perjalanan penambangan cerdas dan pertumbuhan aset.",
 
       "Transfer your": "Transfer",
-    "Withdrawal Amount": "Jumlah Penarikan",
-    "to": "ke",
-    // "Main Wallet": "Dompet Utama",
-    "here": "di sini",
-    "Transfer Funds": "Transfer Dana",
-    // "Withdrawal Account": "Akun Penarikan",
-    "Funds transferred from your Withdrawal Account to your Main Wallet": "Dana yang ditransfer dari Akun Penarikan ke Dompet Utama",
-    "the transferred amount will be compounded for up to 120 days": "jumlah yang ditransfer akan dikompaun hingga 120 hari",
-    "Transfer amount": "Jumlah transfer",
-    "Max": "Maks",
-    "Cancel": "Batal"
+      "Withdrawal Amount": "Jumlah Penarikan",
+      "to": "ke",
+      // "Main Wallet": "Dompet Utama",
+      "here": "di sini",
+      "Transfer Funds": "Transfer Dana",
+      // "Withdrawal Account": "Akun Penarikan",
+      "Funds transferred from your Withdrawal Account to your Main Wallet": "Dana yang ditransfer dari Akun Penarikan ke Dompet Utama",
+      "the transferred amount will be compounded for up to 120 days": "jumlah yang ditransfer akan dikompaun hingga 120 hari",
+      "Transfer amount": "Jumlah transfer",
+      "Max": "Maks",
+      "Cancel": "Batal"
 
 
-    
+
     },
 
     "Vietnamese - Tiếng Việt": {
@@ -3906,18 +3906,18 @@ export class Language {
       "TowerBNB Technologies Inc. holds the final right of interpretation of this Agreement.": "TowerBNB Technologies Inc. giữ quyền giải thích cuối cùng đối với Thỏa thuận này.",
       "TowerBNB aims to be user-centric, ensuring asset security and promoting access to intelligent computing power. By choosing TowerBNB, you agree to these terms as you embark on a journey of smart mining and asset growth.": "TowerBNB hướng tới lấy người dùng làm trung tâm, đảm bảo an toàn tài sản và thúc đẩy khả năng tiếp cận sức mạnh tính toán thông minh. Khi lựa chọn TowerBNB, bạn đồng ý với các điều khoản này khi bắt đầu hành trình khai thác thông minh và gia tăng tài sản.",
       "Transfer your": "Chuyển",
-    "Withdrawal Amount": "Số tiền rút",
-    "to": "vào",
-    // "Main Wallet": "Ví Chính",
-    "here": "tại đây",
-    "Transfer Funds": "Chuyển tiền",
-    // "Withdrawal Account": "Tài khoản Rút tiền",
-    "Funds transferred from your Withdrawal Account to your Main Wallet": "Số tiền được chuyển từ Tài khoản Rút tiền sang Ví Chính",
-    "the transferred amount will be compounded for up to 120 days": "số tiền chuyển sẽ được cộng dồn trong tối đa 120 ngày",
-    "Transfer amount": "Số tiền chuyển",
-    "Max": "Tối đa"
+      "Withdrawal Amount": "Số tiền rút",
+      "to": "vào",
+      // "Main Wallet": "Ví Chính",
+      "here": "tại đây",
+      "Transfer Funds": "Chuyển tiền",
+      // "Withdrawal Account": "Tài khoản Rút tiền",
+      "Funds transferred from your Withdrawal Account to your Main Wallet": "Số tiền được chuyển từ Tài khoản Rút tiền sang Ví Chính",
+      "the transferred amount will be compounded for up to 120 days": "số tiền chuyển sẽ được cộng dồn trong tối đa 120 ngày",
+      "Transfer amount": "Số tiền chuyển",
+      "Max": "Tối đa"
 
-    
+
     },
 
     "Uzbek - o'zbek": {
@@ -4148,19 +4148,19 @@ export class Language {
       "TowerBNB Technologies Inc. holds the final right of interpretation of this Agreement.": "TowerBNB Technologies Inc. ushbu Shartnomaning yakuniy talqin huquqiga ega.",
       "TowerBNB aims to be user-centric, ensuring asset security and promoting access to intelligent computing power. By choosing TowerBNB, you agree to these terms as you embark on a journey of smart mining and asset growth.": "TowerBNB foydalanuvchiga yo‘naltirilgan bo‘lishni, aktivlar xavfsizligini ta’minlashni va aqlli hisoblash quvvatiga kirishni rag‘batlantirishni maqsad qilgan. TowerBNB’ni tanlash orqali siz aqlli mayning va aktivlarni o‘sish yo‘liga kirar ekansiz, ushbu shartlarga rozilik bildirasiz.",
       "Transfer your": "O‘tkazing",
-    "Withdrawal Amount": "Yechib olish summasini",
-    "to": "asosiy",
-    // "Main Wallet": "Hamyoniga",
-    "here": "bu yerda",
-    "Transfer Funds": "Mablag‘larni o‘tkazish",
-    // "Withdrawal Account": "Yechib olish hisobi",
-    "Funds transferred from your Withdrawal Account to your Main Wallet": "Yechib olish hisobidan Asosiy Hamyonga o‘tkazilgan mablag‘lar",
-    "the transferred amount will be compounded for up to 120 days": "o‘tkazilgan summa 120 kungacha jamlanadi",
-    "Transfer amount": "O‘tkazma summasi",
-    "Max": "Maks",
-    "Cancel": "Bekor qilish"
+      "Withdrawal Amount": "Yechib olish summasini",
+      "to": "asosiy",
+      // "Main Wallet": "Hamyoniga",
+      "here": "bu yerda",
+      "Transfer Funds": "Mablag‘larni o‘tkazish",
+      // "Withdrawal Account": "Yechib olish hisobi",
+      "Funds transferred from your Withdrawal Account to your Main Wallet": "Yechib olish hisobidan Asosiy Hamyonga o‘tkazilgan mablag‘lar",
+      "the transferred amount will be compounded for up to 120 days": "o‘tkazilgan summa 120 kungacha jamlanadi",
+      "Transfer amount": "O‘tkazma summasi",
+      "Max": "Maks",
+      "Cancel": "Bekor qilish"
 
-    
+
     }
 
   };
