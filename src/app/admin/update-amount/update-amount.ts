@@ -35,7 +35,7 @@ export class UpdateAmount implements OnChanges {
 
       // Set action dropdown (Credit / Debit)
       this.formData.action = this.actionType;
-      this.formData.screen = this.actionType == "Debit"? 'Withdraw':'Deposit';
+      this.formData.screen = this.actionType == "Debit" ? 'Withdraw' : 'Deposit';
 
       // Determine wallet type
       const isDeposit = this.actionType === 'Debit';
@@ -50,6 +50,8 @@ export class UpdateAmount implements OnChanges {
     }
 
     console.log("Wallet coming from UserDetail:", this.actionType);
+    this.formData['amount'] = '';
+    this.formData['description'] = '';
 
   }
 
