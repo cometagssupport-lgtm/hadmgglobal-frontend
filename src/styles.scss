@@ -153,7 +153,7 @@ input::-ms-input-placeholder {
 /* 🌈 Premium Colorful Global Snackbar Styles */
 @keyframes snackbar-in {
   from {
-    transform: translateY(20px) scale(0.9);
+    transform: translateY(-20px) scale(0.9);
     opacity: 0;
   }
   to {
