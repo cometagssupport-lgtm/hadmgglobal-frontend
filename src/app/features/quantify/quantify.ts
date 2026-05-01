@@ -359,7 +359,8 @@ export class Quantify implements OnInit, OnDestroy {
           });
         } else {
           this.snackBar.open(res.message || 'Failed to start quantification. Please try again.', 'Close', {
-            duration: 3000
+            duration: 3000,
+            panelClass: ['error-snackbar']
           });
         }
         this.getGameData();
@@ -369,7 +370,8 @@ export class Quantify implements OnInit, OnDestroy {
         this.isQuantifying = false;
         this.quantifyingTabIndex = null;
         this.snackBar.open(err.error?.message || 'Failed to start quantification. Please try again.', 'Close', {
-          duration: 3000
+          duration: 3000,
+          panelClass: ['error-snackbar']
         });
         this.cdr.detectChanges();
       }

@@ -142,10 +142,10 @@ export class Members implements OnInit {
   copyUID(uid: string) {
     if (!uid) return;
     navigator.clipboard.writeText(uid).then(() => {
-      this.snackBar.open('UID copied to clipboard!', 'Close', { duration: 3000 });
+      this.snackBar.open('UID copied to clipboard!', 'Close', { duration: 3000, panelClass: ['success-snackbar'] });
     }).catch(err => {
       console.error('Failed to copy text: ', err);
-      this.snackBar.open('Failed to copy UID.', 'Close', { duration: 3000 });
+      this.snackBar.open('Failed to copy UID.', 'Close', { duration: 3000, panelClass: ['error-snackbar'] });
     });
   }
 }
