@@ -12,7 +12,7 @@
     </label>
   </div>
 
-  <div class="section">
+  <div class="section" *ngIf="false">
     <label class="label">Enable new game card</label>
 
     <label class="toggle-switch">
@@ -29,8 +29,14 @@
 
   <!-- Secondary Telegram URL -->
   <div class="section">
-    <label class="label">Home Telegram URL</label>
+    <label class="label">Customer Support Link</label>
     <input type="text" [(ngModel)]="formData.telegramUrlOne" class="input-box" (input)="checkIfChanged()" />
+  </div>
+
+  <!-- Secondary Telegram URL -->
+  <div class="section">
+    <label class="label">Profile Telegram URL</label>
+    <input type="text" [(ngModel)]="formData.telegramUrlTwo" class="input-box" (input)="checkIfChanged()" />
   </div>
 
   <!-- Hoem Text 1 -->
@@ -43,12 +49,6 @@
   <div class="section">
     <label class="label">Home Text 2</label>
     <input type="text" [(ngModel)]="formData.homeText2" class="input-box" (input)="checkIfChanged()" />
-  </div>
-
-  <!-- Secondary Telegram URL -->
-  <div class="section">
-    <label class="label">Support Telegram URL</label>
-    <input type="text" [(ngModel)]="formData.telegramUrlTwo" class="input-box" (input)="checkIfChanged()" />
   </div>
 
   <!-- UPDATE BUTTON -->
