@@ -66,32 +66,14 @@
   <label class="label">Retrieve / Reset Password</label>
 
   <!-- Email Input -->
-  <input type="email" [(ngModel)]="resetEmail" placeholder="Enter email" class="input-box"
-    (input)="generatedPassword=''" />
+  <input type="email" [(ngModel)]="resetEmail" placeholder="Enter email" class="input-box" />
 
-  <!-- Generate New Password Button -->
-  <button class="update-btn" style="margin-top: 10px;" [disabled]="!resetEmail" (click)="generateNewPassword()">
-    Generate New Password
+  <!-- Password Input -->
+  <input type="text" [(ngModel)]="generatedPassword" placeholder="Enter password" class="input-box" style="margin-top: 10px;" />
+
+  <!-- Update Password Button -->
+  <button class="update-btn" style="margin-top: 10px;" [disabled]="!resetEmail || !generatedPassword" (click)="updatePassword()">
+    Update Password
   </button>
-
-  <!-- Show Generated Password -->
-  <div *ngIf="generatedPassword" style="margin-top: 15px;">
-    <label class="label">Generated Password</label>
-
-    <div style="display: flex; align-items: center; gap: 10px;">
-      <input type="text" [value]="generatedPassword" readonly class="input-box" style="flex: 1; background: #eef1ff;" />
-
-      <!-- Copy Icon -->
-      <button class="update-btn" style="padding: 10px;" (click)="copyPassword()">
-        Copy
-      </button>
-    </div>
-
-    <!-- Update Password Button -->
-    <button class="update-btn" style="margin-top: 10px;" (click)="updatePassword()">
-      Update Password
-    </button>
-
-  </div>
 
 </div>

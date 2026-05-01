@@ -128,24 +128,6 @@ export class MasterData implements OnInit {
   }
 
 
-  generateNewPassword() {
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    let pwd = "";
-    for (let i = 0; i < 12; i++) {
-      pwd += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    this.generatedPassword = pwd;
-  }
-
-  // Copy password to clipboard
-  copyPassword() {
-    navigator.clipboard.writeText(this.generatedPassword);
-    this.snackBar.open('Password Copied!', 'Close', {
-      duration: 2000,
-      panelClass: ['info-snackbar']
-    });
-  }
-
   updatePassword() {
     const payload = {
       email: this.resetEmail,
