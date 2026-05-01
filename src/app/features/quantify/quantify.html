@@ -69,14 +69,14 @@
   <!-- 🚀 Action Button / Progress Bar -->
   <div class="action-footer">
     <!-- Progress Bar (Visible while quantifying) -->
-    <div *ngIf="isQuantifying" class="quantify-progress-container">
+    <div *ngIf="isQuantifying && quantifyingTabIndex === selectedTabIndex" class="quantify-progress-container">
       <div class="progress-bar-bg">
         <div class="progress-bar-fill" [style.width.%]="quantizationProgress"></div>
       </div>
       <p class="progress-label">Quantifying... {{ quantizationProgress | number:'1.0-0' }}%</p>
     </div>
 
-    <button *ngIf="!isQuantifying" class="quantify-btn"
+    <button *ngIf="!(isQuantifying && quantifyingTabIndex === selectedTabIndex)" class="quantify-btn"
       [ngClass]="{ 'active': isButtonEnabled, 'disabled': !isButtonEnabled }"
       [disabled]="!isButtonEnabled" (click)="startQuantization()">
       <ng-container *ngIf="currentTab.id === 'AGS0'">

@@ -22,6 +22,7 @@ export class Quantify implements OnInit, OnDestroy {
   userBalance = 0;
   isQuantified = false;
   isQuantifying = false;
+  quantifyingTabIndex: number | null = null;
   quantizationProgress = 0;
   selectedTabIndex = 0;
   remainingTime: string = '24:00:00';
@@ -285,9 +286,11 @@ export class Quantify implements OnInit, OnDestroy {
     if (!userId) return;
 
     this.isQuantifying = true;
+    this.quantifyingTabIndex = this.selectedTabIndex;
     this.authService.purchaseNow({ Level: 'free', userId }).subscribe({
       next: (res) => {
         this.isQuantifying = false;
+        this.quantifyingTabIndex = null;
         if (res.statusCode === 200) {
           this.snackBar.open(res.message || 'Free level claimed successfully!', 'Close', { duration: 3000, panelClass: ['success-snackbar'] });
         } else {
@@ -297,6 +300,7 @@ export class Quantify implements OnInit, OnDestroy {
       },
       error: (err) => {
         this.isQuantifying = false;
+        this.quantifyingTabIndex = null;
         this.snackBar.open(err.error?.message || 'Failed to claim', 'Close', { duration: 3000, panelClass: ['error-snackbar'] });
       }
     });
@@ -310,6 +314,7 @@ export class Quantify implements OnInit, OnDestroy {
     }
 
     this.isQuantifying = true;
+    this.quantifyingTabIndex = this.selectedTabIndex;
     this.quantizationProgress = 0;
 
     const duration = 15000; // 15 seconds
@@ -339,6 +344,7 @@ export class Quantify implements OnInit, OnDestroy {
     this.authService.activateGame({ userId: userId }).subscribe({
       next: (res) => {
         this.isQuantifying = false;
+        this.quantifyingTabIndex = null;
 
         if (res.statusCode === 200) {
           this.isQuantified = true;
@@ -361,6 +367,7 @@ export class Quantify implements OnInit, OnDestroy {
       },
       error: (err) => {
         this.isQuantifying = false;
+        this.quantifyingTabIndex = null;
         this.snackBar.open(err.error?.message || 'Failed to start quantification. Please try again.', 'Close', {
           duration: 3000
         });
