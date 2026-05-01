@@ -55,7 +55,7 @@ export class Quantify implements OnInit, OnDestroy {
       maxAmount: 1500,
       image: '/AGS1.svg',
       title: 'AGS 1',
-      details: ['Invest: 50 - 1500 USDT', 'Daily Income - 1% - 1.2% '],
+      details: ['Invest: 50 - 1500 USDT', 'Daily Income: 1% - 1.2% '],
       expiryTime: 'Active Until - 2 Days',
       isDefault: false,
       isButtonEnable: false,
