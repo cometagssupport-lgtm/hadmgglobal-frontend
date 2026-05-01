@@ -136,7 +136,7 @@ export class Home implements OnInit, OnDestroy {
   }
 
   opentelegramLinkOne() {
-    this.router.navigate(['/telegram']);
+    window.open(this.telegramLinkOne, '_blank');
   }
   opentelegramLinkTwo() {
     if (this.telegramLinkTwo) {

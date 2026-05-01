@@ -69,7 +69,7 @@ export class Profile implements OnInit {
   settings = [
     { label: 'Transaction History', icon: '/transh.svg' },
     { label: 'Set Transaction Password', icon: '/transpass.svg' },
-    { label: 'Help & support', icon: '/h&su.svg' },
+    { label: 'Telegram Channel', icon: '/h&su.svg' },
     { label: 'Change password', icon: '/change-password.svg' },
     { label: 'Terms and conditions', icon: '/termsandc.svg' },
   ];
@@ -200,13 +200,19 @@ export class Profile implements OnInit {
     }
   }
 
+  opentelegramLinkThree() {
+    if (this.telegramLinkThree) {
+      window.open(this.telegramLinkThree, '_blank');
+    }
+  }
+
 
   onSetting(label: string) {
     console.log('Clicked setting:', label);
     if (label == 'Terms and conditions') {
       this.router.navigate(['/t&c']);
-    } else if (label == 'Help & support') {
-      this.opentelegramLinkTwo();
+    } else if (label == 'Telegram Channel') {
+      this.opentelegramLinkThree();
     } else if (label == 'Change password') {
       localStorage.setItem("email", this.user.email)
       this.router.navigate(['/change-password']);
