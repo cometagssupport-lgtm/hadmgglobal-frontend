@@ -25,11 +25,11 @@ export class TransactionHistory implements OnInit {
   activeTab: 'withdraw' | 'deposit' | 'bonus' | 'income' = 'withdraw';
   private authService = inject(AuthService);
   private platformId = inject(PLATFORM_ID);
-  
+
   allTransactions: Transaction[] = [];
   filteredTransactions: Transaction[] = [];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
@@ -85,12 +85,12 @@ export class TransactionHistory implements OnInit {
   }
 
   getStatus(item: Transaction) {
-    if (item.type === 'withdraw') {
-      const status = item.status?.toLowerCase();
-      if (status === 'pending') return 'Auditing';
-      return item.status || 'Completed';
-    }
-    return 'Completed';
+    // if (item.type === 'withdraw') {
+    const status = item.status?.toLowerCase();
+    if (status === 'pending') return 'Auditing';
+    return item.status || 'Completed';
+    // }
+    // return 'Completed';
   }
 
   goBack() {

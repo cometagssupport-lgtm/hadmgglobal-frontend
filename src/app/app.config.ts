@@ -15,6 +15,8 @@ import { FlexLayoutModule } from '@ngbracket/ngx-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
@@ -24,6 +26,7 @@ export const appConfig: ApplicationConfig = {
       withInterceptors([LoaderInterceptor,ErrorLoggerInterceptor])
     ),
     provideClientHydration(withEventReplay()),
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { verticalPosition: 'top' } },
     // ✅ Import these modules properly using importProvidersFrom()
     importProvidersFrom(
       HttpClientModule,

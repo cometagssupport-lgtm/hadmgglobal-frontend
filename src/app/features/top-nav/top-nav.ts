@@ -1,4 +1,5 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -9,6 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
 
 import { Language } from '../../services/language';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-top-nav',
@@ -21,6 +23,7 @@ export class TopNav {
   @Input() isWhite = false;
 
   langService = inject(Language);
+  authService = inject(AuthService);
 
   get languages() {
     return this.langService.languages;
@@ -36,6 +39,26 @@ export class TopNav {
 
   onNativeLangChange(event: any) {
     this.langService.setLanguage(event.target.value);
+  }
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  openSupport() {
+    this.authService.getMasterData().subscribe({
+      next: (res) => {
+        if (res.statusCode === 200 && res.data && res.data.length > 0) {
+          const adminData = res.data[0];
+          if (adminData.telegramLinkTwo) {
+            if (isPlatformBrowser(this.platformId)) {
+              window.open(adminData.telegramLinkTwo, '_blank');
+            }
+          }
+        }
+      },
+      error: (err) => {
+        console.error('Error fetching admin data:', err);
+      }
+    });
   }
 
 }

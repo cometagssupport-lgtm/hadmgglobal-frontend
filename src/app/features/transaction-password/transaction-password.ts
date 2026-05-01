@@ -52,7 +52,7 @@ export class TransactionPassword implements OnInit {
 
     const userId = localStorage.getItem('userId');
     if (!userId) {
-      this.snackBar.open('User ID not found. Please log in again.', 'Close', { duration: 3000 });
+      this.snackBar.open('User ID not found. Please log in again.', 'Close', { duration: 3000, panelClass: ['error-snackbar'] });
       this.router.navigate(['/signin']);
       return;
     }
@@ -70,16 +70,16 @@ export class TransactionPassword implements OnInit {
       next: (res: any) => {
         this.isLoading = false;
         if (res.statusCode === 200) {
-          this.snackBar.open('Transaction passcode updated successfully!', 'Close', { duration: 3000 });
+          this.snackBar.open('Transaction passcode updated successfully!', 'Close', { duration: 3000, panelClass: ['success-snackbar'] });
           this.router.navigate(['/profile']);
         } else {
-          this.snackBar.open(res.message || 'Failed to update passcode', 'Close', { duration: 3000 });
+          this.snackBar.open(res.message || 'Failed to update passcode', 'Close', { duration: 3000, panelClass: ['error-snackbar'] });
         }
       },
       error: (err) => {
         this.isLoading = false;
         console.error('❌ Passcode Update Error:', err);
-        this.snackBar.open('An error occurred. Please try again.', 'Close', { duration: 3000 });
+        this.snackBar.open('An error occurred. Please try again.', 'Close', { duration: 3000, panelClass: ['error-snackbar'] });
       }
     });
   }

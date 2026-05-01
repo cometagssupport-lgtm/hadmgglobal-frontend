@@ -81,6 +81,7 @@ export class Users implements OnInit {
         u.name.toLowerCase().includes(term) ||
         u.email.toLowerCase().includes(term) ||
         u.referralId.toLowerCase().includes(term) ||
+        u.userId.toString().toLowerCase().includes(term) ||
         u.wallet.toString().includes(term) ||
         u.earnings.toString().includes(term)
     );

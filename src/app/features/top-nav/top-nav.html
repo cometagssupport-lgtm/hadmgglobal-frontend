@@ -3,7 +3,7 @@
         <img [src]="isWhite ? '/comlogowhite.svg' : '/comslogo.svg'" alt="Comet AGS" class="nav-logo" />
         <div class="nav-actions">
             <!-- Support Icon -->
-            <a class="action-icon" routerLink="/support">
+            <a class="action-icon" (click)="openSupport()" style="cursor: pointer;">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#009A44" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
                     <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>

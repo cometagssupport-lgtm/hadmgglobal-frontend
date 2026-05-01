@@ -86,7 +86,7 @@ export class Transfer implements OnInit {
         if(err?.error?.message == "Insufficient earnings to convert") errmsg = "Insufficient amount to transfer"
         this.snackBar.open(errmsg, 'Close', {
             duration: 3000,
-            panelClass: ['success-snackbar']
+            panelClass: ['error-snackbar']
           });
       }
     });

@@ -12,7 +12,7 @@
     </label>
   </div>
 
-  <div class="section">
+  <div class="section" *ngIf="false">
     <label class="label">Enable new game card</label>
 
     <label class="toggle-switch">
@@ -29,8 +29,14 @@
 
   <!-- Secondary Telegram URL -->
   <div class="section">
-    <label class="label">Home Telegram URL</label>
+    <label class="label">Customer Support Link</label>
     <input type="text" [(ngModel)]="formData.telegramUrlOne" class="input-box" (input)="checkIfChanged()" />
+  </div>
+
+  <!-- Secondary Telegram URL -->
+  <div class="section">
+    <label class="label">Profile Telegram URL</label>
+    <input type="text" [(ngModel)]="formData.telegramUrlTwo" class="input-box" (input)="checkIfChanged()" />
   </div>
 
   <!-- Hoem Text 1 -->
@@ -43,12 +49,6 @@
   <div class="section">
     <label class="label">Home Text 2</label>
     <input type="text" [(ngModel)]="formData.homeText2" class="input-box" (input)="checkIfChanged()" />
-  </div>
-
-  <!-- Secondary Telegram URL -->
-  <div class="section">
-    <label class="label">Support Telegram URL</label>
-    <input type="text" [(ngModel)]="formData.telegramUrlTwo" class="input-box" (input)="checkIfChanged()" />
   </div>
 
   <!-- UPDATE BUTTON -->
@@ -66,32 +66,14 @@
   <label class="label">Retrieve / Reset Password</label>
 
   <!-- Email Input -->
-  <input type="email" [(ngModel)]="resetEmail" placeholder="Enter email" class="input-box"
-    (input)="generatedPassword=''" />
+  <input type="email" [(ngModel)]="resetEmail" placeholder="Enter email" class="input-box" />
 
-  <!-- Generate New Password Button -->
-  <button class="update-btn" style="margin-top: 10px;" [disabled]="!resetEmail" (click)="generateNewPassword()">
-    Generate New Password
+  <!-- Password Input -->
+  <input type="text" [(ngModel)]="generatedPassword" placeholder="Enter password" class="input-box" style="margin-top: 10px;" />
+
+  <!-- Update Password Button -->
+  <button class="update-btn" style="margin-top: 10px;" [disabled]="!resetEmail || !generatedPassword" (click)="updatePassword()">
+    Update Password
   </button>
-
-  <!-- Show Generated Password -->
-  <div *ngIf="generatedPassword" style="margin-top: 15px;">
-    <label class="label">Generated Password</label>
-
-    <div style="display: flex; align-items: center; gap: 10px;">
-      <input type="text" [value]="generatedPassword" readonly class="input-box" style="flex: 1; background: #eef1ff;" />
-
-      <!-- Copy Icon -->
-      <button class="update-btn" style="padding: 10px;" (click)="copyPassword()">
-        Copy
-      </button>
-    </div>
-
-    <!-- Update Password Button -->
-    <button class="update-btn" style="margin-top: 10px;" (click)="updatePassword()">
-      Update Password
-    </button>
-
-  </div>
 
 </div>
