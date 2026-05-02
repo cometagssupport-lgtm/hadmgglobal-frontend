@@ -42,7 +42,7 @@
           <td>${{ w.total }}</td>
           <td class="wallet-cell">
             {{ w.wallet }}
-            <i class="fas fa-copy copy-icon" (click)="copyWallet(w.wallet)"></i>
+            <img src="/copy.svg" alt="copy" class="copy-icon" (click)="copyWallet(w.wallet)">
           </td>
           <td>{{ w.withdrawId }}</td>
           <td><span class="status-badge success">Success</span></td>

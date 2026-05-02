@@ -77,6 +77,10 @@
         object-fit: contain;
       }
 
+      &[class*="dashboard"] img {
+        filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(190deg) brightness(118%) contrast(119%);
+      }
+
       i {
         font-size: 18px;
         color: #E81A66;

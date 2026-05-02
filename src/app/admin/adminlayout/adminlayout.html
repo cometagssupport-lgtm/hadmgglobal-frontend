@@ -17,7 +17,7 @@
 
       <!-- Dashboard -->
       <li (click)="navigateTo('dashboard')" [class.active]="currentActive === 'dashboard'">
-        <img src="/home.svg" alt="dashboard">
+        <img src="/loadercoms.svg" alt="dashboard">
         <span>Dashboard</span>
       </li>
 
@@ -37,8 +37,8 @@
       <li class="has-submenu" [class.active]="activeSection === 'withdrawls'" (click)="toggleWithdrawMenu()">
         <img src="/withdrawal.svg" alt="withdrawls">
         <span>Withdrawls</span>
-        <img [src]="withdrawMenuOpen ? '/arrow-up.svg' : '/arrow-down.svg'" alt="chevron" 
-             style="margin-left:auto; width:12px; height:12px;">
+        <img [src]="withdrawMenuOpen ? '/arrow-up.svg' : '/arrow-down.svg'" alt="chevron"
+          style="margin-left:auto; width:12px; height:12px;">
       </li>
 
       <!-- Withdrawls Submenu -->

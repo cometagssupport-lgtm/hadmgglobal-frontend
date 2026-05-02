@@ -67,12 +67,15 @@
     gap: 6px;
 
     .copy-icon {
-      color: #E81A66;
+      width: 14px;
+      height: 14px;
+      object-fit: contain;
       cursor: pointer;
       transition: 0.2s;
+      vertical-align: middle;
 
       &:hover {
-        color: #1f3fcf;
+        transform: scale(1.1);
       }
     }
   }
