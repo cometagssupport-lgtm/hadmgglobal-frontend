@@ -55,8 +55,9 @@
           <td>{{ user.passcode }}</td>
           <td>
             <span>{{ user.referredBy }}</span>
-            <i *ngIf="user.referredBy" class="fa fa-copy" style="cursor: pointer; margin-left: 8px; color: #888;"
-              (click)="copyToClipboard(user.referredBy)" title="Copy email"></i>
+            <img *ngIf="user.referredBy" src="/copy.svg" alt="copy" class="copy-icon"
+              (click)="copyToClipboard(user.referredBy)" title="Copy email"
+              style="cursor: pointer; margin-left: 8px; width: 14px; height: 14px; vertical-align: middle;">
           </td>
 
           <!-- ⭐ TOGGLE switch instead of button -->
@@ -71,7 +72,7 @@
           <td>
             <!-- {{ user.email }} -->
             <button class="edit-btn" (click)="openUserDetail(user)" title="Edit user">
-              <i class="fa fa-edit"></i>
+              <img src="/pencil.svg" alt="edit" style="width: 16px; height: 16px;">
             </button>
           </td>
 
