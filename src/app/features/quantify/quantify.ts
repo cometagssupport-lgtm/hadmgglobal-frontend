@@ -143,6 +143,7 @@ export class Quantify implements OnInit, OnDestroy {
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.getUserBalance();
+      this.getTeamData(); // Fetch team members count
       this.startCountdown();
       this.getGameData();
 
@@ -204,6 +205,28 @@ export class Quantify implements OnInit, OnDestroy {
     });
   }
 
+  getTeamData() {
+    const userId = localStorage.getItem('userId');
+    if (!userId) return;
+
+    this.authService.avengers({ screen: 'teams', userId }).subscribe({
+      next: (res) => {
+        if (res.statusCode === 200 && res.data) {
+          const d = res.data;
+          const totalValid = (d.genOne?.valid || 0);
+
+          this.tabs.forEach(tab => {
+            if (tab.targetMembers !== undefined) {
+              tab.currentMembers = totalValid;
+            }
+          });
+          this.cdr.detectChanges();
+        }
+      },
+      error: (err) => console.error('Error fetching team data:', err)
+    });
+  }
+
   selectTab(index: number) {
     this.selectedTabIndex = index;
   }
@@ -216,6 +239,12 @@ export class Quantify implements OnInit, OnDestroy {
     if (this.currentTab.id === 'AGS0') {
       return this.currentTab.isButtonEnable;
     }
+
+    // Additional check for AGS 2, 3, 4 based on valid members
+    if (this.currentTab.targetMembers && this.currentTab.currentMembers < this.currentTab.targetMembers) {
+      return false;
+    }
+
     return this.currentTab.isButtonEnable && !this.isQuantified;
   }
 
