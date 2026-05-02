@@ -71,6 +71,12 @@
       transition: all 0.2s ease;
       border-left: 3px solid transparent;
 
+      img {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+      }
+
       i {
         font-size: 18px;
         color: #E81A66;
@@ -107,6 +113,12 @@
         align-items: center;
         gap: 10px;
         transition: 0.2s;
+
+        img {
+          width: 16px;
+          height: 16px;
+          object-fit: contain;
+        }
 
         i {
           font-size: 14px;

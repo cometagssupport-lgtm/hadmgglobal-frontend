@@ -3,9 +3,9 @@
   <!-- 🔹 Top Navigation -->
   <header class="admin-topnav">
     <div class="menu-icon" (click)="toggleSidebar()">
-      <i class="fa fa-bars"></i>
+      <h5>ADMIN</h5>
     </div>
-    <div class="topnav-title">COMET AGS ADMIN</div>
+    <!-- <div class="topnav-title">COMET AGS ADMIN</div> -->
     <div class="admin-profile"></div>
   </header>
 
@@ -17,47 +17,45 @@
 
       <!-- Dashboard -->
       <li (click)="navigateTo('dashboard')" [class.active]="currentActive === 'dashboard'">
-        <i class="fa fa-home"></i>
+        <img src="/home.svg" alt="dashboard">
         <span>Dashboard</span>
       </li>
 
       <!-- Users -->
       <li (click)="navigateTo('users')" [class.active]="currentActive === 'users'">
-        <i class="fa fa-users"></i>
+        <img src="/team.svg" alt="users">
         <span>Users</span>
       </li>
 
       <!-- Deposits -->
       <li (click)="navigateTo('deposits')" [class.active]="currentActive === 'deposits'">
-        <i class="fa fa-wallet"></i>
+        <img src="/deposit.svg" alt="deposits">
         <span>Deposits</span>
       </li>
 
       <!-- Withdrawls Parent -->
       <li class="has-submenu" [class.active]="activeSection === 'withdrawls'" (click)="toggleWithdrawMenu()">
-        <i class="fa fa-bank"></i>
+        <img src="/withdrawal.svg" alt="withdrawls">
         <span>Withdrawls</span>
-        <i class="fa" [ngClass]="{
-            'fa-chevron-down': !withdrawMenuOpen,
-            'fa-chevron-up': withdrawMenuOpen
-          }" style="margin-left:auto;font-size:12px"></i>
+        <img [src]="withdrawMenuOpen ? '/arrow-up.svg' : '/arrow-down.svg'" alt="chevron" 
+             style="margin-left:auto; width:12px; height:12px;">
       </li>
 
       <!-- Withdrawls Submenu -->
       <ul class="submenu" *ngIf="withdrawMenuOpen">
 
         <li (click)="navigateTo('withdrawl-requests', $event)" [class.active]="currentActive === 'withdrawl-requests'">
-          <i class="fa fa-list"></i>
+          <img src="/history.svg" alt="requests">
           <span>Withdrawl Requests</span>
         </li>
 
         <li (click)="navigateTo('withdrawl-accepts', $event)" [class.active]="currentActive === 'withdrawl-accepts'">
-          <i class="fa fa-check-circle"></i>
+          <img src="/all-trans.svg" alt="accepts">
           <span>Withdrawl Accepts</span>
         </li>
 
         <li (click)="navigateTo('withdrawl-rejects', $event)" [class.active]="currentActive === 'withdrawl-rejects'">
-          <i class="fa fa-times-circle"></i>
+          <img src="/close_round.svg" alt="rejects">
           <span>Withdrawl Rejects</span>
         </li>
 
@@ -65,7 +63,7 @@
 
       <!-- Master Data -->
       <li (click)="navigateTo('master-data')" [class.active]="currentActive === 'master-data'">
-        <i class="fa fa-database"></i>
+        <img src="/profile.svg" alt="master-data">
         <span>Master Data</span>
       </li>
 
