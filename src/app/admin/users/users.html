@@ -93,14 +93,14 @@
 </div>
 
 
-<app-update-amount [show]="showPopup" [actionType]="selectedAction" [rowData]="selectedRow"
+<app-update-amount [show]="showPopup" [actionType]="selectedAction" [screenName]="selectedScreen" [rowData]="selectedRow"
   [prefilledWallet]="prefilledWallet" (close)="closePopup()" (submitData)="handleSubmit($event)">
 </app-update-amount>
 
 
 <app-user-detail #userDetailRef *ngIf="showDetail" [user]="selectedRow" (close)="closeUserDetail()"
-  (add)="openPopup($event.action, $event.row, $event.wallet)" (toggleStatus)="toggleStatus($event)"
-  (sendEmail)="sendEmail($event)" (openAmount)="openPopup($event.action, $event.row, $event.wallet)">
+  (add)="openPopup($event.action, $event.row, $event.wallet, $event.screen)" (toggleStatus)="toggleStatus($event)"
+  (sendEmail)="sendEmail($event)" (openAmount)="openPopup($event.action, $event.row, $event.wallet, $event.screen)">
 </app-user-detail>
 
 <!-- Keep a template ref so you can open programmatically -->

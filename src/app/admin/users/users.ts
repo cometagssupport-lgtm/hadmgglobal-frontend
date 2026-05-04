@@ -31,6 +31,7 @@ export class Users implements OnInit {
 
 
   selectedAction = '';
+  selectedScreen = '';
   selectedRow: any = null;
   allEmails = [];
   constructor(
@@ -173,10 +174,11 @@ export class Users implements OnInit {
     this.showPopup = false;
   }
 
-  openPopup(action: string, row: any, wallet: number) {
+  openPopup(action: string, row: any, wallet: number, screen: string = 'Deposit') {
     this.selectedAction = action;
     this.selectedRow = row;
-    this.prefilledWallet = wallet;     // ⭐ STORE PREFILL VALUE
+    this.prefilledWallet = wallet;
+    this.selectedScreen = screen;
     this.showPopup = true;
   }
 
