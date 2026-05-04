@@ -34,19 +34,19 @@ export class UpdateAmount implements OnChanges {
     if (this.actionType && this.rowData) {
 
       // Set action dropdown (Credit / Debit)
-      this.formData.action = 'Credit';
-      this.formData.screen = 'Deposit';
+      this.formData.action = this.actionType;
+      this.formData.screen = this.actionType === 'Credit' ? 'Deposit' : 'Withdraw';
 
-      // Determine wallet type
-      const isDeposit = this.actionType === 'Debit';
+      // Determine if it's Working Wallet (Deposit) or Withdrawal Wallet
+      const isDeposit = this.actionType === 'Credit';
 
       // LABEL: Working Wallet / Withdrawal Wallet
       this.formData.wallet =
         isDeposit ? 'Working Wallet' : 'Withdrawal Wallet';
 
-      // AMOUNT: Pre-fill current amount
+      // AMOUNT: Pre-fill current amount (wallet is Working, earnings is Withdrawal)
       this.formData.amount =
-        isDeposit ? this.rowData.earnings : this.rowData.wallet;
+        isDeposit ? this.rowData.wallet : this.rowData.earnings;
     }
 
     console.log("Wallet coming from UserDetail:", this.actionType);
