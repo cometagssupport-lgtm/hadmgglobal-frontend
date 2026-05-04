@@ -20,6 +20,7 @@ export class Quantify implements OnInit, OnDestroy {
   constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   userBalance = 0;
+  totalValidMembers = 0;
   isQuantified = false;
   isQuantifying = false;
   quantifyingTabIndex: number | null = null;
@@ -143,9 +144,8 @@ export class Quantify implements OnInit, OnDestroy {
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.getUserBalance();
-      this.getTeamData(); // Fetch team members count
+      this.getTeamData(); // Fetch team members count (will call getGameData internally)
       this.startCountdown();
-      this.getGameData();
 
       const lastQuantified = localStorage.getItem('lastQuantifiedDate');
       const today = new Date().toDateString();
@@ -214,12 +214,14 @@ export class Quantify implements OnInit, OnDestroy {
         if (res.statusCode === 200 && res.data) {
           const d = res.data;
           const totalValid = (d.genOne?.valid || 0);
+          this.totalValidMembers = totalValid;
 
           this.tabs.forEach(tab => {
             if (tab.targetMembers !== undefined) {
               tab.currentMembers = totalValid;
             }
           });
+          this.getGameData(); // Fetch game data now that we have member count
           this.cdr.detectChanges();
         }
       },
@@ -257,6 +259,17 @@ export class Quantify implements OnInit, OnDestroy {
         if (res.statusCode === 200 && res.data) {
           const data = res.data;
 
+          // Determine the effective eligible level based on member requirements
+          const membersRequirement: any = { 'AGS2': 3, 'AGS3': 10, 'AGS4': 20 };
+          let effectiveEligibleLevel = data.elegibleLevel;
+
+          if (effectiveEligibleLevel && effectiveEligibleLevel !== 'Level1' && effectiveEligibleLevel !== 'Level0') {
+            const tabId = 'AGS' + effectiveEligibleLevel.replace('Level', '');
+            if (membersRequirement[tabId] && this.totalValidMembers < membersRequirement[tabId]) {
+              effectiveEligibleLevel = 'Level1';
+            }
+          }
+
           this.tabs.forEach(tab => {
             tab.hasActiveTimer = false;
 
@@ -279,13 +292,14 @@ export class Quantify implements OnInit, OnDestroy {
               tab.isButtonEnable = shouldEnable;
             } else {
               const tabLevel = 'Level' + tab.id.replace('AGS', '');
-              if (res.data.elegibleLevel === tabLevel) {
-                if (res.data.currectLevel === res.data.elegibleLevel) {
-                  if (!res.data.activationTime) {
+              if (effectiveEligibleLevel === tabLevel) {
+                // Use activationTime for cooldown check regardless of whether it's Level1 (fallback) or higher
+                if (data.currectLevel === data.elegibleLevel || effectiveEligibleLevel === 'Level1') {
+                  if (!data.activationTime) {
                     tab.isButtonEnable = true;
                   } else {
                     const now = Date.now();
-                    const activationTime = Number(res.data.activationTime);
+                    const activationTime = Number(data.activationTime);
                     const dayInMs = 24 * 60 * 60 * 1000;
                     if (now - activationTime >= dayInMs) {
                       tab.isButtonEnable = true;
