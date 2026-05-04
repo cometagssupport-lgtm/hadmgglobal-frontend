@@ -21,7 +21,7 @@ export class Telegram implements OnInit {
   isLocked: boolean = true;
   isLoading: boolean = false;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
@@ -38,8 +38,8 @@ export class Telegram implements OnInit {
       next: (res: any) => {
         if (res.statusCode === 200) {
           this.totalDeposits = Number(res.data.totalDeposits) || 0;
-          this.telegramLink = res.data.telegramLinkOne;
-          this.isLocked = this.totalDeposits < 30;
+          this.telegramLink = res.data.telegramLinkTwo;
+          this.isLocked = !(this.totalDeposits >= 50);
           this.cdr.detectChanges();
         }
         this.isLoading = false;
