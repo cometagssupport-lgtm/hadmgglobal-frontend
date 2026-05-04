@@ -444,3 +444,34 @@
     left: 60px;
   }
 }
+
+/* ⭐ Edit button styling */
+.edit-btn {
+  background: #E81A66;
+  border: none;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  img {
+    filter: brightness(0) invert(1); /* Make SVG white */
+  }
+
+  &:hover {
+    background: #B61049;
+    transform: scale(1.05);
+  }
+}
+
+/* ⭐ Copy icon styling */
+.copy-icon {
+  transition: transform 0.2s ease;
+  &:hover {
+    transform: scale(1.2);
+  }
+}
