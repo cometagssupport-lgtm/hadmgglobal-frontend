@@ -13,6 +13,7 @@ export class UpdateAmount implements OnChanges {
 
   @Input() show = false;
   @Input() actionType: string = '';
+  @Input() screenName: string = '';
   @Input() rowData: any;
   @Input() prefilledWallet: any = '';   // ⭐ NEW — wallet passed from UserDetail
 
@@ -35,7 +36,7 @@ export class UpdateAmount implements OnChanges {
 
       // Set action dropdown (Credit / Debit)
       this.formData.action = 'Credit';
-      this.formData.screen = this.actionType === 'Credit' ? 'Deposit' : 'Withdraw';
+      this.formData.screen = this.screenName;
 
       // Determine if it's Working Wallet (Deposit) or Withdrawal Wallet
       const isDeposit = this.actionType === 'Credit';
