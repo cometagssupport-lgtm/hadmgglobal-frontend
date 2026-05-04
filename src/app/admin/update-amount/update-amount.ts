@@ -34,7 +34,7 @@ export class UpdateAmount implements OnChanges {
     if (this.actionType && this.rowData) {
 
       // Set action dropdown (Credit / Debit)
-      this.formData.action = this.actionType;
+      this.formData.action = 'Credit';
       this.formData.screen = this.actionType === 'Credit' ? 'Deposit' : 'Withdraw';
 
       // Determine if it's Working Wallet (Deposit) or Withdrawal Wallet
