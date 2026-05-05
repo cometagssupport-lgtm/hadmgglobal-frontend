@@ -126,8 +126,8 @@ export class Rewards implements OnInit {
         if (res.statusCode === 200 && res.data) {
           const data = res.data;
           // Format tickets as '0/05' or similar based on count
-          const valid = data.valid || 0;
-          this.totalTickets = (valid < 10 ? '0' + valid : valid) + '/06';
+          const claimedCount = Number(data.claimedTasks) || 0;
+          this.totalTickets = (claimedCount < 10 ? '0' + claimedCount : claimedCount) + '/06';
           this.totalRewardsClaimedAmount = data.taskMoney || '0';
 
           this.updateRewardsList(data);
