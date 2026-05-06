@@ -23,6 +23,7 @@ interface Member {
   balance: number;
   UID: string; // Used as UID
   profilePic?: number;
+  commission: number;
 }
 
 @Component({
@@ -37,7 +38,7 @@ export class Members implements OnInit {
   level = 1;
 
   get totalCommission(): number {
-    return this.filteredMembers.reduce((sum, member) => sum + (Number(member.balance) || 0), 0);
+    return this.filteredMembers.reduce((sum, member) => sum + (Number(member.commission) || 0), 0);
   }
 
   private router = inject(Router);
