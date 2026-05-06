@@ -49,7 +49,7 @@ export class Team implements OnInit {
       totalDownlines: response?.data?.totalDownlines || 0,
       totalValidMembers: response?.data?.validMembers || 0,
       totalPromationComission: response?.data?.totalPromationComission || 0,
-      firstLevelBonus: response?.data?.genOne?.commission || 0,
+      firstLevelBonus: response?.data?.firstLevelBonus || 0,
       teamRecharge: response?.data?.teamRecharge || 0,
       teamWitdrawls: response?.data?.teamWitdrawls || 0,
 
@@ -64,7 +64,7 @@ export class Team implements OnInit {
       totalTeams: data.totalDownlines || 0,
       totalValidMembers: data.totalValidMembers || 0,
       totalPromationComission: data.totalPromationComission || 0,
-      firstLevelBonus: response?.data?.genOne?.commission || 0,
+      firstLevelBonus: data.firstLevelBonus || 0,
       teamRecharge: data.teamRecharge || 0,
       teamWitdrawls: data.teamWitdrawls || 0
     };
