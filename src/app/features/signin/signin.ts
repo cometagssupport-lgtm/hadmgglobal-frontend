@@ -53,8 +53,7 @@ export class Signin implements OnInit {
     private authService: AuthService
   ) {
 
-    localStorage.removeItem('userId');
-    localStorage.removeItem('email');
+    localStorage.clear();
 
     if ('caches' in window) {
       caches.keys().then(names => {
