@@ -1,0 +1,124 @@
+.tandc-layout {
+  min-height: 100vh;
+  background: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  width: 100%;
+  z-index: 10;
+  // Remove shadow for this specific page
+  ::ng-deep .header, ::ng-deep .transparent-header {
+    box-shadow: none !important;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+.scroll-content {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.banner {
+  padding: 30px 20px 40px;
+  background: url('/mainbg.svg') no-repeat center top;
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+
+  .back-btn {
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+    img {
+      width: 20px;
+      height: 20px;
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  .banner-title {
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0 0 12px;
+      letter-spacing: -0.5px;
+    }
+    p {
+      font-size: 14px;
+      opacity: 0.9;
+      margin: 0;
+      font-weight: 400;
+    }
+  }
+}
+
+.white-box {
+  background: white;
+  padding: 40px 20px;
+  min-height: calc(100vh - 350px);
+  // No borders, no rounded corners as requested
+  border: none;
+  box-shadow: none;
+
+  .terms-body {
+    h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #000;
+      margin: 0 0 10px;
+    }
+
+    .effective-date {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    section {
+      margin-bottom: 30px;
+
+      h3 {
+        font-size: 17px;
+        font-weight: 700;
+        color: #111;
+        margin: 0 0 12px;
+      }
+
+      p {
+        font-size: 15px;
+        color: #333;
+        line-height: 1.7;
+        margin-bottom: 12px;
+      }
+
+      ul {
+        padding-left: 20px;
+        margin-bottom: 15px;
+
+        li {
+          font-size: 15px;
+          color: #333;
+          line-height: 1.7;
+          margin-bottom: 10px;
+          list-style: disc;
+        }
+      }
+    }
+  }
+}
