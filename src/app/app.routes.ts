@@ -16,7 +16,7 @@ import { Commision } from './features/commision/commision'
 import { Members } from './features/members/members'
 import { Success } from './features/success/success'
 import { ChangePassword } from './features/change-password/change-password'
-import { TermsAndConditions } from './features/terms-and-conditions/terms-and-conditions'
+import { Tandc } from './features/tandc/tandc'
 import { DepositOxapay } from './features/deposit-oxapay/deposit-oxapay'
 import { Deposit } from './features/deposit/deposit'
 import { ForgetPassword } from './features/forget-password/forget-password'
@@ -71,7 +71,7 @@ export const routes: Routes = [
       { path: 'members', component: Members },
       { path: 'change-password', component: ChangePassword },
       { path: 'smart-filters', loadComponent: () => import('./features/smart-filters/smart-filters').then(m => m.SmartFilters) },
-      { path: 't&c', component: TermsAndConditions },
+      { path: 't&c', component: Tandc },
       { path: 'payment', component: DepositOxapay },
       { path: 'deposit', component: Deposit },
       { path: 'success', component: Success },
