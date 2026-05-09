@@ -15,7 +15,8 @@
         <div class="user-info">
           <h2>User Name: {{ user.name }}</h2>
           <p>Email: {{ user.email }}</p>
-          <p class="uid-row">UID: <span>{{ user.uid || '53794' }}</span> <img src="/copyimg.svg" class="copy-icon" (click)="copyUID(user.uid || '53794')" style="cursor: pointer;" />
+          <p class="uid-row">UID: <span>{{ user.uid || '53794' }}</span> <img src="/copyimg.svg" class="copy-icon"
+              (click)="copyUID(user.uid || '53794')" style="cursor: pointer;" />
           </p>
 
           <div class="level-badge">
@@ -29,7 +30,10 @@
     <div class="profile-cards-grid-layer">
       <div class="stats-grid">
         <div class="stat-card" *ngFor="let stat of walletSummary">
-          <h3 class="stat-value">$ {{ stat.value | number:'1.2-2' }}</h3>
+          <h3 class="stat-value">
+            {{ stat.label === 'The Team Count' ? '' : '$ ' }}{{ stat.value | number:(stat.label === 'The Team Count'
+            ? '1.0-0' : '1.2-2') }}
+          </h3>
           <p class="stat-label">{{ stat.label | translate }}</p>
         </div>
       </div>

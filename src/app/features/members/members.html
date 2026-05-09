@@ -33,7 +33,7 @@
 
     <!-- 🔹 Green Bar -->
     <div class="total-bar">
-      <span class="total-label">{{ 'Total Commission' | translate }}</span>
+      <span class="total-label">{{ "Today's Team Commission" | translate }}</span>
       <span class="total-value">{{ totalCommission | number: '1.0-2' }} USDT</span>
     </div>
 
@@ -45,8 +45,8 @@
           <img [src]="'/avatar' + (member.profilePic || ((i % 9) + 1)) + '.svg'" alt="avatar" class="member-avatar" />
           <div class="member-info">
             <div class="member-name">{{ member.userName || member.name || 'Arjun Sharma' }}</div>
-            <div class="member-uid">UID: {{ member.UID || '53794' }} <img src="/copy.svg" alt="copy"
-                class="copy-icon" (click)="copyUID(member.UID || '53794')" style="cursor: pointer;" /></div>
+            <div class="member-uid">UID: {{ member.UID || '53794' }} <img src="/copy.svg" alt="copy" class="copy-icon"
+                (click)="copyUID(member.UID || '53794')" style="cursor: pointer;" /></div>
           </div>
           <div class="member-amount">
             USD {{ member.balance | number: '1.0-2' }}
