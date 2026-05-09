@@ -56,7 +56,7 @@ export class Profile implements OnInit {
 
   walletSummary = [
     { label: "Recharge Amount", value: 0 },
-    { label: 'Earnings Balance', value: 0 },
+    { label: 'Withdraw Balance', value: 0 },
     { label: 'Total Earnings', value: 0 },
     { label: "Today's Task Earnings", value: 0 },
     { label: "Today's Team Income", value: 0 },
