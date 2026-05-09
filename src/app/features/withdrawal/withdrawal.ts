@@ -92,7 +92,12 @@ export class Withdrawal implements OnInit {
           }
 
           if (res.data.transactionAccounts) {
-            this.transactionAccounts = res.data.transactionAccounts;
+            this.transactionAccounts = res.data.transactionAccounts.map((acc: any) => {
+              let displayName = acc.name;
+              if (acc.id === 1) displayName = 'USDT (BEP20)';
+              if (acc.id === 2) displayName = 'USDC (BEP20)';
+              return { ...acc, displayName };
+            });
           }
 
           this.cdr.detectChanges();

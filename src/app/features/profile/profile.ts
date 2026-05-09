@@ -69,7 +69,7 @@ export class Profile implements OnInit {
   settings = [
     { label: 'Transaction History', icon: '/transh.svg' },
     { label: 'Set Transaction Password', icon: '/transpass.svg' },
-    { label: 'Telegram Channel', icon: '/h&su.svg' },
+    { label: 'Telegram Channel', icon: '/profileTelegram.svg' },
     { label: 'Change password', icon: '/change-password.svg' },
     { label: 'Terms and conditions', icon: '/termsandc.svg' },
   ];
