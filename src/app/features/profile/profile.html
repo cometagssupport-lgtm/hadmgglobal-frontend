@@ -31,7 +31,8 @@
       <div class="stats-grid">
         <div class="stat-card" *ngFor="let stat of walletSummary">
           <h3 class="stat-value">
-            $ {{ stat.value | number:'1.2-2' }}
+            {{ stat.label === 'The Team Count' ? '' : '$ ' }}{{ stat.value | number:(stat.label === 'The Team Count'
+            ? '1.0-0' : '1.2-2') }}
           </h3>
           <p class="stat-label">{{ stat.label | translate }}</p>
         </div>
