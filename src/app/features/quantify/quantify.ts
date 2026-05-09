@@ -17,6 +17,8 @@ export class Quantify implements OnInit, OnDestroy {
   private snackBar = inject(MatSnackBar);
   private cdr = inject(ChangeDetectorRef);
 
+  totalAGSDays = 140;
+
   constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   userBalance = 0;
@@ -258,6 +260,32 @@ export class Quantify implements OnInit, OnDestroy {
       next: (res) => {
         if (res.statusCode === 200 && res.data) {
           const data = res.data;
+
+          // 🔹 Expiry Time Calculation
+          const userLevelStr = data.currectLevel || 'Level0';
+          const userLevelNum = parseInt(userLevelStr.replace('Level', '')) || 0;
+          const activatedTime = data.GamelevelActivatedTime ? Number(data.GamelevelActivatedTime) : null;
+
+          this.tabs.forEach(tab => {
+            if (tab.id === 'AGS0') return; // Skip AGS0
+
+            const tabLevelNum = parseInt(tab.id.replace('AGS', '')) || 0;
+
+            if (!activatedTime) {
+              tab.expiryTime = `Active Until - ${this.totalAGSDays} Days`;
+            } else {
+              if (tabLevelNum === userLevelNum) {
+                const elapsedDays = Math.floor((Date.now() - activatedTime) / (1000 * 60 * 60 * 24));
+                // 🔹 Dynamic subtraction: decrease one day from total right away
+                const remainingDays = Math.max(0, this.totalAGSDays - elapsedDays - 1);
+                tab.expiryTime = `Active Until - ${remainingDays} Days`;
+              } else if (tabLevelNum > userLevelNum) {
+                tab.expiryTime = `Active Until - ${this.totalAGSDays} Days`;
+              } else {
+                tab.expiryTime = 'Active Until - 0 Days';
+              }
+            }
+          });
 
           // Determine the effective eligible level based on member requirements
           const membersRequirement: any = { 'AGS2': 3, 'AGS3': 10, 'AGS4': 20 };
