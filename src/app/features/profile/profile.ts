@@ -123,7 +123,7 @@ export class Profile implements OnInit {
           // Using dummy values of 3.66 for now as placeholders for the 9-item grid mapping as requested
           this.walletSummary = [
             { label: "Recharge Amount", value: data.Rechargeamount ?? 0 },
-            { label: "Earnings Balance", value: data.Earningbalance ?? 0 },
+            { label: "Withdraw Balance", value: data.Earningbalance ?? 0 },
             { label: "The Total Earnings", value: data.Totalearnings ?? 0 },
             { label: "Today's Task Earnings", value: data.usersTodaysCommission ?? 0 },
             { label: "The Team Income", value: data.teamDailyCommission ?? 0 },
