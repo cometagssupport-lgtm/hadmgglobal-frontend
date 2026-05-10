@@ -267,7 +267,16 @@ export class Quantify implements OnInit, OnDestroy {
           const activatedTime = data.GamelevelActivatedTime ? Number(data.GamelevelActivatedTime) : null;
 
           this.tabs.forEach(tab => {
-            if (tab.id === 'AGS0') return; // Skip AGS0
+            if (tab.id === 'AGS0') {
+              if (userLevelNum > 0) {
+                tab.expiryTime = 'Active Until - 0 Days';
+              } else {
+                const claimed = data.freeTrailCount ?? 0;
+                const remaining = Math.max(0, 2 - claimed);
+                tab.expiryTime = `Active Until - ${remaining} Days`;
+              }
+              return;
+            }
 
             const tabLevelNum = parseInt(tab.id.replace('AGS', '')) || 0;
 
