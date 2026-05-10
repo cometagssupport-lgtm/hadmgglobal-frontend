@@ -273,7 +273,7 @@ export class Quantify implements OnInit, OnDestroy {
               } else {
                 const claimed = data.freeTrailCount ?? 0;
                 const remaining = Math.max(0, 2 - claimed);
-                tab.expiryTime = `Active Until - ${remaining} Days`;
+                tab.expiryTime = `Active Until - ${remaining} ${remaining === 1 ? 'Day' : 'Days'}`;
               }
               return;
             }
@@ -287,7 +287,7 @@ export class Quantify implements OnInit, OnDestroy {
                 const elapsedDays = Math.floor((Date.now() - activatedTime) / (1000 * 60 * 60 * 24));
                 // 🔹 Dynamic subtraction: decrease one day from total right away
                 const remainingDays = Math.max(0, this.totalAGSDays - elapsedDays - 1);
-                tab.expiryTime = `Active Until - ${remainingDays} Days`;
+                tab.expiryTime = `Active Until - ${remainingDays} ${remainingDays === 1 ? 'Day' : 'Days'}`;
               } else if (tabLevelNum > userLevelNum) {
                 tab.expiryTime = `Active Until - ${this.totalAGSDays} Days`;
               } else {
