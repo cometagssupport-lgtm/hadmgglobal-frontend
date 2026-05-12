@@ -8,7 +8,7 @@ import { TranslatePipe } from '../../pipes/translate-pipe';
 @Component({
   selector: 'app-tandc',
   standalone: true,
-  imports: [CommonModule, MatIconModule, RouterModule, TopNav, TranslatePipe],
+  imports: [CommonModule, MatIconModule, RouterModule, TopNav],
   templateUrl: './tandc.html',
   styleUrl: './tandc.scss'
 })
