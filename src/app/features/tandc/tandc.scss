@@ -8,8 +8,10 @@
 header {
   width: 100%;
   z-index: 10;
+
   // Remove shadow for this specific page
-  ::ng-deep .header, ::ng-deep .transparent-header {
+  ::ng-deep .header,
+  ::ng-deep .transparent-header {
     box-shadow: none !important;
     border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
   }
@@ -19,6 +21,7 @@ header {
   flex: 1;
   overflow-y: auto;
   scrollbar-width: none;
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -29,7 +32,7 @@ header {
   background: url('/mainbg.svg') no-repeat center top;
   background-size: cover;
   color: white;
-  display: flex;
+  // display: flex;
   flex-direction: column;
 
   .back-btn {
@@ -43,7 +46,7 @@ header {
     justify-content: center;
     margin-bottom: 30px;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
     img {
       width: 20px;
@@ -55,15 +58,18 @@ header {
   .banner-title {
     h1 {
       font-size: 28px;
-      font-weight: 700;
-      margin: 0 0 12px;
-      letter-spacing: -0.5px;
+      font-weight: 600;
+      margin: 40 0 10px;
+      line-height: 145%;
+      letter-spacing: 0px;
     }
+
     p {
-      font-size: 14px;
-      opacity: 0.9;
-      margin: 0;
       font-weight: 400;
+      font-size: 14px;
+      line-height: 1.5;
+      opacity: .85;
+      margin: 0;
     }
   }
 }
@@ -78,33 +84,40 @@ header {
 
   .terms-body {
     h2 {
-      font-size: 22px;
-      font-weight: 800;
-      color: #000;
+      font-size: 16px;
+      font-weight: 600;
+      color: #000000;
       margin: 0 0 10px;
+      line-height: 140%;
+      letter-spacing: 0px;
     }
 
     .effective-date {
       font-size: 14px;
-      color: #666;
-      margin-bottom: 30px;
+      font-weight: 400;
+      color: #282828;
+      margin: 0 0 10px;
+      line-height: 140%;
     }
 
     section {
       margin-bottom: 30px;
 
       h3 {
-        font-size: 17px;
-        font-weight: 700;
-        color: #111;
-        margin: 0 0 12px;
+        font-size: 14px;
+        font-weight: 400;
+        color: #282828;
+        margin: 0 0 10px;
+        line-height: 140%;
+        letter-spacing: 1%;
       }
 
       p {
-        font-size: 15px;
-        color: #333;
-        line-height: 1.7;
-        margin-bottom: 12px;
+        font-size: 14px;
+        font-weight: 400;
+        color: #282828;
+        margin: 0 0 10px;
+        line-height: 140%;
       }
 
       ul {
