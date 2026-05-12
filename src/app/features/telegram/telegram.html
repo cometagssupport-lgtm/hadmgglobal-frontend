@@ -2,10 +2,11 @@
   <app-top-nav [isWhite]="true"></app-top-nav>
 
   <div class="content-body" *ngIf="!isLoading">
-    <div class="header-nav">
-      <button class="back-circle-btn" (click)="goBack()">
+    <div>
+      <!-- <button class="back-circle-btn" (click)="goBack()">
         <img src="/backwhite.svg" alt="back" />
-      </button>
+      </button> -->
+      <img src="/backwhite.svg" (click)="goBack()" alt="back">
     </div>
 
     <!-- LOCKED STATE -->
@@ -21,7 +22,8 @@
       <div class="status-content">
         <h3 class="status-title">Unlock with Investor Access</h3>
         <p class="status-desc">
-          This feature is available only to invested members. Complete your investment to unlock access and join the telegram working group.
+          This feature is available only to invested members. Complete your investment to unlock access and join the
+          telegram working group.
         </p>
       </div>
     </ng-container>

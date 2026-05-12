@@ -1,20 +1,21 @@
 <div class="page-container">
   <app-top-nav [isTransparent]="true"></app-top-nav>
 
-  <div class="top-gradient-banner">
-    <div class="header-nav">
-      <img src="/backicon.svg" alt="back" class="back-icon-img" (click)="goBack()" style="cursor: pointer;" />
-    </div>
+  <header class="header">
+    <div class="header-content">
+      <img src="backicon.svg" (click)="goBack()" alt="back" style="cursor: pointer;">
 
-    <div class="banner-content">
-      <div class="text-content">
-        <div class="title">{{ 'Create Recharge' | translate }}</div>
-        <p class="banner-desc">{{ 'Enter your amount, Choose token and network. Get your deposit wallet address or QR to
-          deposit' | translate }}</p>
+      <div class="text-and-image">
+        <div class="text-group">
+          <h1>{{ 'Create Recharge' | translate }}</h1>
+          <p>{{ 'Enter your amount, Choose token and network. Get your deposit wallet address or QR to deposit' | translate }}</p>
+        </div>
+        <div class="header-image">
+          <img src="/chest.png" class="chest-img" onerror="this.onerror=null; this.src='/recharge-icon.svg'" />
+        </div>
       </div>
-      <img src="/chest.png" class="chest-img" onerror="this.onerror=null; this.src='/recharge-icon.svg'" />
     </div>
-  </div>
+  </header>
 
   <div class="content-body">
     <div class="amount-card">
