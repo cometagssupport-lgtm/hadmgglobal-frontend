@@ -47,7 +47,7 @@
 
     <div class="amount-container">
       <p class="amount-label">{{ 'Amount Payable' | translate }}</p>
-      <h3 class="amount-value">{{ data?.amount }} USDT</h3>
+      <h3 class="amount-value">{{ data?.amount }} {{ data?.network?.name?.includes('USDC') ? 'USDC' : 'USDT' }}</h3>
       <p class="timer-text">{{ data?.network?.name }}</p>
     </div>
 
