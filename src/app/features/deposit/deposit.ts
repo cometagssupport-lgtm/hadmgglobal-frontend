@@ -98,6 +98,9 @@ export class Deposit implements OnInit {
       next: (res) => {
         if (res.statusCode === 200 && res.data) {
           let data = res.data;
+          if (data.qr_code) {
+            data.qr_code = data.qr_code.replace('tron:', '');
+          }
           data.amount = this.amount;
           localStorage.setItem("pay", JSON.stringify(data));
           this.router.navigate(['/payment']);
