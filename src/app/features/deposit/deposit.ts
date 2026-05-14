@@ -45,12 +45,7 @@ export class Deposit implements OnInit {
     this.authService.avengers(payload).subscribe({
       next: (res) => {
         if (res.statusCode === 200 && res.data?.transactionAccounts) {
-          this.transactionAccounts = res.data.transactionAccounts.map((acc: any) => {
-            const originalName = acc.name;
-            if (acc.id === 1) acc.name = 'USDT (BEP20)';
-            if (acc.id === 2) acc.name = 'USDC (BEP20)';
-            return { ...acc, originalName };
-          });
+          this.transactionAccounts = res.data.transactionAccounts;
           
           let savedToken = null;
           if (isPlatformBrowser(this.platformId)) {
@@ -97,12 +92,7 @@ export class Deposit implements OnInit {
     const userId = isPlatformBrowser(this.platformId) ? localStorage.getItem('userId') : null;
     if (!userId) return;
 
-    const accountToSend = { ...this.selectedToken };
-    if (accountToSend.originalName) {
-      accountToSend.name = accountToSend.originalName;
-      delete accountToSend.originalName;
-    }
-    const payload = { userId, amount: this.amount, transactionAccount: accountToSend };
+    const payload = { userId, amount: this.amount, transactionAccount: this.selectedToken };
 
     this.authService.doPayment(payload).subscribe({
       next: (res) => {
