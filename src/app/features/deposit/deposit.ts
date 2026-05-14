@@ -99,7 +99,7 @@ export class Deposit implements OnInit {
         if (res.statusCode === 200 && res.data) {
           let data = res.data;
           if (data.qr_code) {
-            data.qr_code = data.qr_code.replace('tron:', '');
+            data.qr_code = data.qr_code.replace('tron:', '').replace('ethereum:', '');
           }
           data.amount = this.amount;
           localStorage.setItem("pay", JSON.stringify(data));
