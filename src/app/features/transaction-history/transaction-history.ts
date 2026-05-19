@@ -12,6 +12,7 @@ interface Transaction {
   discription?: string;
   adminReward?: boolean;
   status?: string;
+  transactionAccount?: any;
 }
 
 @Component({
