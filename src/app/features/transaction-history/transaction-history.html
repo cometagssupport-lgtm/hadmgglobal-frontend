@@ -35,7 +35,7 @@
     <div class="transaction-card" *ngFor="let item of filteredTransactions">
       <div class="card-row top">
         <span class="title">{{ getTitle(item) }}</span>
-        <span class="amount">{{ item.amount }} USDT</span>
+        <span class="amount">{{ item.amount }} {{ activeTab === 'deposit' && item.transactionAccount?.name?.includes('USDC') ? 'USDC' : 'USDT' }}</span>
       </div>
       <div class="card-row bottom">
         <span class="timestamp">{{ formatDate(item.timestamp) }}</span>
