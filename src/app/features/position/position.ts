@@ -1,5 +1,5 @@
-import {
 import { TranslatePipe } from '../../pipes/translate-pipe';
+import {
   Component,
   OnInit,
   ViewChild,
