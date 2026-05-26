@@ -9,25 +9,25 @@ export class Language {
   private platformId = inject(PLATFORM_ID);
 
   private allLanguages = [
-    { label: "عربي", code: "sa" },
-    { label: "čeština", code: "cz" },
-    { label: "English", code: "gb" },
-    { label: "Français", code: "fr" },
-    { label: "Deutsch", code: "de" },
-    { label: "magyar", code: "hu" },
-    { label: "Indonesian", code: "id" },
-    { label: "Italiano", code: "it" },
-    { label: "فارسی", code: "ir" },
-    { label: "Polski", code: "pl" },
-    { label: "Português", code: "br" },
-    { label: "Русский", code: "ru" },
-    { label: "Slovák", code: "sk" },
-    { label: "Español", code: "es" },
-    { label: "Türkçe", code: "tr" },
-    { label: "o'zbek", code: "uz" },
-    { label: "Tiếng Việt", code: "vn" },
-    { label: "Slovenian", code: "sl" }
-  ];
+  { label: "čeština", code: "cz" },
+  { label: "Deutsch", code: "de" },
+  { label: "English", code: "gb" },
+  { label: "Español", code: "es" },
+  { label: "Français", code: "fr" },
+  { label: "Indonesian", code: "id" },
+  { label: "Italiano", code: "it" },
+  { label: "magyar", code: "hu" },
+  { label: "Polski", code: "pl" },
+  { label: "Português", code: "br" },
+  { label: "Slovák", code: "sk" },
+  { label: "Slovenian", code: "si" },
+  { label: "Tiếng Việt", code: "vn" },
+  { label: "Türkçe", code: "tr" },
+  { label: "o'zbek", code: "uz" },
+  { label: "Русский", code: "ru" },
+  { label: "عربي", code: "sa" },
+  { label: "فارسی", code: "ir" }
+];
 
   // private rtlLanguages = ['Arabic - عربي', 'Persian - فارسی'];
   private rtlLanguages = ['sa', 'ir'];
