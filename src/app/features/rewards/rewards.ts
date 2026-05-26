@@ -13,12 +13,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { FlexLayoutModule } from '@ngbracket/ngx-layout';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { AuthService } from '../../services/auth.service';
-// import { TranslatePipe } from '../../pipes/translate-pipe';
+import { TranslatePipe } from '../../pipes/translate-pipe';
 
 @Component({
   selector: 'app-rewards',
   standalone: true,
-  imports: [CommonModule, RouterModule, MatIconModule, FlexLayoutModule, MatSnackBarModule],
+  imports: [CommonModule, RouterModule, MatIconModule, FlexLayoutModule, MatSnackBarModule, TranslatePipe],
   templateUrl: './rewards.html',
   styleUrl: './rewards.scss'
 })

@@ -4,9 +4,9 @@
     <div class="header-overlay"></div>
     <div class="header-content" fxLayout="row" fxLayoutAlign="space-between start">
       <div class="header-text">
-        <h1 class="title">Daily Quantitative Task</h1>
-        <p class="subtitle">AI-Strategy grid trading automates strategies, executes trades in real time, and delivers
-          consistent daily returns.</p>
+        <h1 class="title">{{ 'Daily Quantitative Task' | translate }}</h1>
+        <p class="subtitle">{{ 'AI-Strategy grid trading automates strategies, executes trades in real time, and delivers' | translate }}
+          {{ 'consistent daily returns.' | translate }}</p>
       </div>
       <div class="header-image">
         <img src="quantifytop.svg" alt="Quantify Banner" />
@@ -44,15 +44,15 @@
   <!-- 🎫 Upgrade Requirement Strip (AGS 2, 3, 4 only) -->
   <div *ngIf="currentTab.targetMembers" class="upgrade-strip-container">
     <div class="upgrade-strip">
-      Need <b>{{ currentTab.currentMembers || 0 }}/{{ currentTab.targetMembers }} effective members</b> can upgrade
-      Access to {{ currentTab.label }}
+      {{ 'Need' | translate }} <b>{{ currentTab.currentMembers || 0 }}/{{ currentTab.targetMembers }} {{ 'effective members' | translate }}</b> {{ 'can upgrade' | translate }}
+      {{ 'Access to' | translate }} {{ currentTab.label }}
     </div>
   </div>
 
   <!-- 📘 Task Guide -->
   <div class="task-guide-container">
     <div class="task-guide-box">
-      <h3 class="guide-title">Task Guide:</h3>
+      <h3 class="guide-title">{{ 'Task Guide:' | translate }}</h3>
       <ul class="guide-list">
         <li *ngFor="let step of currentTab.taskGuide">- {{ step }}</li>
       </ul>
@@ -62,7 +62,7 @@
   <!-- 🔔 Status Message (After Quantified) -->
   <div *ngIf="currentTab.hasActiveTimer" class="status-msg-container">
     <div class="status-msg-box">
-      <p>Next contribution time is <b>24 hours</b>. Start your next AGS Quantitization trade after this period.</p>
+      <p>{{ 'Next contribution time is' | translate }} <b>{{ '24 hours' | translate }}</b>{{ '. Start your next AGS Quantitization trade after this period.' | translate }}</p>
     </div>
   </div>
 
@@ -73,7 +73,7 @@
       <div class="progress-bar-bg">
         <div class="progress-bar-fill" [style.width.%]="quantizationProgress"></div>
       </div>
-      <p class="progress-label">Quantifying... {{ quantizationProgress | number:'1.0-0' }}%</p>
+      <p class="progress-label">{{ 'Quantifying...' | translate }} {{ quantizationProgress | number:'1.0-0' }}%</p>
     </div>
 
     <button *ngIf="!(isQuantifying && quantifyingTabIndex === selectedTabIndex)" class="quantify-btn"

@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { TranslatePipe } from '../pipes/translate-pipe';
 
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
-  imports: [RouterModule, MatButtonModule, MatIconModule, FlexLayoutModule, TopNav, CommonModule],
+  imports: [RouterModule, MatButtonModule, MatIconModule, FlexLayoutModule, TopNav, CommonModule, TranslatePipe],
   templateUrl: './layout.html',
   styleUrl: './layout.scss'
 })

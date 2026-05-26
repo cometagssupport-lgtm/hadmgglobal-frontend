@@ -59,7 +59,7 @@
                 </div>
                 <div class="details">
                     <h4>{{ p.name }}</h4>
-                    <p>{{ p.points | number: '1.0-2' }} WD Bal</p>
+                    <p>{{ p.points | number: '1.0-2' }} {{ 'WD Bal' | translate }}</p>
                 </div>
             </div>
         </div>
@@ -72,8 +72,8 @@
             {{ getInitials(currentPosition.name) }}
         </div>
         <div class="details">
-            <h4>You</h4>
-            <p>{{ currentPosition.points | number: '1.0-2' }} WD Bal</p>
+            <h4>{{ 'You' | translate }}</h4>
+            <p>{{ currentPosition.points | number: '1.0-2' }} {{ 'WD Bal' | translate }}</p>
         </div>
         <img [src]="arrowDirection === 'up' ? '/arrow-down.svg' : '/arrow-up.svg'" alt="arrow" class="arrow" (click) ="this.scrollToCurrent()"/>
     </div>

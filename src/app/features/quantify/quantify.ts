@@ -2,13 +2,13 @@ import { Component, OnInit, OnDestroy, inject, PLATFORM_ID, Inject, ChangeDetect
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-// import { TranslatePipe } from '../../pipes/translate-pipe';
+import { TranslatePipe } from '../../pipes/translate-pipe';
 import { FlexLayoutModule } from '@ngbracket/ngx-layout';
 
 @Component({
   selector: 'app-quantify',
   standalone: true,
-  imports: [CommonModule, MatSnackBarModule, FlexLayoutModule],
+  imports: [CommonModule, MatSnackBarModule, FlexLayoutModule, TranslatePipe],
   templateUrl: './quantify.html',
   styleUrl: './quantify.scss'
 })

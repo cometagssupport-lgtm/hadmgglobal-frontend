@@ -36,7 +36,7 @@
             <div class="amount-row">
               <span class="symbol">{{ tx.type === 'withdraw' ? '-' : '+' }}</span>
               <span class="amount">{{ tx.amount | number: '1.0-0' }}</span>
-              <span class="currency">USD</span>
+              <span class="currency">{{ 'USD' | translate }}</span>
             </div>
             <div class="id-row">
               <span class="tx-id">{{ tx.transactionId }}</span>

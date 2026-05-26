@@ -1,4 +1,5 @@
 import { Component, OnInit, inject, PLATFORM_ID, Inject, ChangeDetectorRef } from '@angular/core';
+import { TranslatePipe } from '../../pipes/translate-pipe';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
@@ -7,7 +8,7 @@ import { TopNav } from '../top-nav/top-nav';
 @Component({
   selector: 'app-telegram',
   standalone: true,
-  imports: [CommonModule, RouterModule, TopNav],
+  imports: [CommonModule, RouterModule, TopNav, TranslatePipe],
   templateUrl: './telegram.html',
   styleUrl: './telegram.scss'
 })

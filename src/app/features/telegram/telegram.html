@@ -12,7 +12,7 @@
     <!-- LOCKED STATE -->
     <ng-container *ngIf="isLocked">
       <div class="page-title-box">
-        <h2 class="main-title">Sorry, Its Locked</h2>
+        <h2 class="main-title">{{ 'Sorry, Its Locked' | translate }}</h2>
       </div>
 
       <div class="hero-image">
@@ -20,10 +20,10 @@
       </div>
 
       <div class="status-content">
-        <h3 class="status-title">Unlock with Investor Access</h3>
+        <h3 class="status-title">{{ 'Unlock with Investor Access' | translate }}</h3>
         <p class="status-desc">
-          This feature is available only to invested members. Complete your investment to unlock access and join the
-          telegram working group.
+          {{ 'This feature is available only to invested members. Complete your investment to unlock access and join the' | translate }}
+          {{ 'telegram working group.' | translate }}
         </p>
       </div>
     </ng-container>
@@ -31,7 +31,7 @@
     <!-- UNLOCKED STATE -->
     <ng-container *ngIf="!isLocked">
       <div class="page-title-box">
-        <h2 class="main-title">Access Granted</h2>
+        <h2 class="main-title">{{ 'Access Granted' | translate }}</h2>
       </div>
 
       <div class="hero-image">
@@ -39,9 +39,9 @@
       </div>
 
       <div class="status-content">
-        <h3 class="status-title">Unlocked Investor Access</h3>
+        <h3 class="status-title">{{ 'Unlocked Investor Access' | translate }}</h3>
         <button class="join-btn" (click)="joinTelegram()">
-          Join Telegram Group
+          {{ 'Join Telegram Group' | translate }}
         </button>
       </div>
     </ng-container>

@@ -1,4 +1,5 @@
 import {
+import { TranslatePipe } from '../../pipes/translate-pipe';
   Component,
   OnInit,
   ViewChild,
@@ -12,7 +13,7 @@ import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-position',
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './position.html',
   styleUrl: './position.scss'
 })

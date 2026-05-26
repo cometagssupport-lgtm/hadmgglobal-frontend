@@ -12,14 +12,14 @@
 
       <div class="banner-content">
         <div class="glass-card">
-          <div class="card-title">Withdraw</div>
+          <div class="card-title">{{ 'Withdraw' | translate }}</div>
           <div class="card-amount">$ {{ totalRemainingBalance }}</div>
         </div>
         <img src="/wallethand.svg" class="hero-wallet-img" alt="Withdraw" />
       </div>
 
       <div class="fee-strip">
-        For each withdraw <strong>10% Fee</strong> will be deducted
+        {{ 'For each withdraw' | translate }} <strong>{{ '10% Fee' | translate }}</strong> {{ 'will be deducted' | translate }}
       </div>
     </div>
   </div>
@@ -28,7 +28,7 @@
     <form [formGroup]="withdrawalForm" class="form-section">
       <!-- Amount -->
       <div class="form-group">
-        <label>Enter amount:</label>
+        <label>{{ 'Enter amount:' | translate }}</label>
         <div class="input-box">
           <input type="number" formControlName="amount" placeholder="$ 00.00" />
         </div>
@@ -43,7 +43,7 @@
 
       <!-- Network -->
       <div class="form-group">
-        <label>Select wallet network</label>
+        <label>{{ 'Select wallet network' | translate }}</label>
         <div class="network-options">
           <button type="button" *ngFor="let net of transactionAccounts" class="network-btn"
             [class.active]="selectedNetwork?.id === net.id" (click)="setNetwork(net)">
@@ -54,17 +54,17 @@
 
       <!-- Address -->
       <div class="form-group">
-        <label>Wallet address</label>
+        <label>{{ 'Wallet address' | translate }}</label>
         <div class="address-input-box">
-          <input type="text" formControlName="walletAddress" placeholder="Enter your USDT - BEP20 Wallet address" />
+          <input type="text" formControlName="walletAddress" placeholder="{{ 'Enter your USDT - BEP20 Wallet address' | translate }}" />
         </div>
       </div>
 
       <!-- Password -->
       <div class="form-group">
-        <label>Enter Transaction Password</label>
+        <label>{{ 'Enter Transaction Password' | translate }}</label>
         <div class="password-input-box">
-          <input [type]="showPassword ? 'text' : 'password'" formControlName="pin" placeholder="Enter Your Transaction Password" />
+          <input [type]="showPassword ? 'text' : 'password'" formControlName="pin" placeholder="{{ 'Enter Your Transaction Password' | translate }}" />
           <img src="/password-eye.svg" class="toggle-eye" (click)="togglePasswordVisibility()" style="cursor: pointer;" />
         </div>
       </div>
@@ -72,15 +72,15 @@
 
     <div class="withdrawal-guide-container">
       <div class="guide-box">
-        <h4>Withdrawal Guide:</h4>
+        <h4>{{ 'Withdrawal Guide:' | translate }}</h4>
         <ul>
-          <li>-Minimum withdrawal is 10 USDT.</li>
-          <li>-Withdrawal requests are processed and sent to the specified wallet address within a maximum of 72 hours.
+          <li>{{ '-Minimum withdrawal is 10 USDT.' | translate }}</li>
+          <li>{{ '-Withdrawal requests are processed and sent to the specified wallet address within a maximum of 72 hours.' | translate }}
           </li>
-          <li>-Members can only submit one withdrawal application per day.</li>
-          <li>-All withdrawal requests submitted by members will be subject to an automatic 10% handling fee deduction.
+          <li>{{ '-Members can only submit one withdrawal application per day.' | translate }}</li>
+          <li>{{ '-All withdrawal requests submitted by members will be subject to an automatic 10% handling fee deduction.' | translate }}
           </li>
-          <li>-Withdrawals can only be made in multiples of 10 (for example: 10, 20, 30, 40, 50, 100 and so on).*</li>
+          <li>{{ '-Withdrawals can only be made in multiples of 10 (for example: 10, 20, 30, 40, 50, 100 and so on).*' | translate }}</li>
         </ul>
       </div>
     </div>
@@ -89,11 +89,11 @@
       <button type="button" class="main-withdraw-btn" 
         [disabled]="withdrawalForm.invalid || !selectedNetwork || isLoading" 
         (click)="onSubmit()">
-        <span *ngIf="!isLoading">Withdraw Amount</span>
-        <span *ngIf="isLoading">Processing...</span>
+        <span *ngIf="!isLoading">{{ 'Withdraw Amount' | translate }}</span>
+        <span *ngIf="isLoading">{{ 'Processing...' | translate }}</span>
       </button>
       <button type="button" class="main-cancel-btn" (click)="goBack()">
-        Cancel
+        {{ 'Cancel' | translate }}
       </button>
     </div>
   </div>
@@ -103,13 +103,13 @@
     <div class="popup-card">
       <div class="popup-drag-bar"></div>
       <div class="popup-content-inner">
-        <h2 class="popup-main-title">Set Transaction Password</h2>
+        <h2 class="popup-main-title">{{ 'Set Transaction Password' | translate }}</h2>
         <div class="popup-image-container">
           <img src="/passkeycheck.svg" alt="Security" class="passkey-img" />
         </div>
-        <h3 class="popup-sub-title">Add Transaction Password</h3>
+        <h3 class="popup-sub-title">{{ 'Add Transaction Password' | translate }}</h3>
         <button class="popup-action-btn" (click)="configureTransactionPassword()">
-          Set Transaction Password
+          {{ 'Set Transaction Password' | translate }}
         </button>
       </div>
     </div>
