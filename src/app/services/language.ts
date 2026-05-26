@@ -25,7 +25,8 @@ export class Language {
     { label: "Español", code: "es" },
     { label: "Türkçe", code: "tr" },
     { label: "o'zbek", code: "uz" },
-    { label: "Tiếng Việt", code: "vn" }
+    { label: "Tiếng Việt", code: "vn" },
+    {label: "Slovenian", code:"sl"}
   ];
 
   // private rtlLanguages = ['Arabic - عربي', 'Persian - فارسی'];
