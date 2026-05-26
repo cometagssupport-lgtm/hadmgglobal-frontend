@@ -9,7 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { TopNav } from '../top-nav/top-nav'
 import { AuthService } from '../../services/auth.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-// import { TranslatePipe } from '../../pipes/translate-pipe';
+import { TranslatePipe } from '../../pipes/translate-pipe';
 
 @Component({
   selector: 'app-withdrawal',
@@ -22,7 +22,8 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     MatIconModule,
     MatSnackBarModule,
     RouterModule,
-    TopNav
+    TopNav,
+    TranslatePipe
   ],
   templateUrl: './withdrawal.html',
   styleUrl: './withdrawal.scss'

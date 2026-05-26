@@ -12,8 +12,8 @@
 
       <div class="text-and-image">
         <div class="text-group">
-          <h1>Transaction History</h1>
-          <p>Monitor your withdrawals, deposits, bonuses, and income with real-time status and history.</p>
+          <h1>{{ 'Transaction History' | translate }}</h1>
+          <p>{{ 'Monitor your withdrawals, deposits, bonuses, and income with real-time status and history.' | translate }}</p>
         </div>
         <div class="header-image">
           <img src="transicon.svg" alt="Transaction Icon">
@@ -24,10 +24,10 @@
 
   <!-- Tabs Navigation -->
   <nav class="tabs-nav">
-    <div class="tab-item" [class.active]="activeTab === 'withdraw'" (click)="setActiveTab('withdraw')">Withdrawals</div>
-    <div class="tab-item" [class.active]="activeTab === 'deposit'" (click)="setActiveTab('deposit')">Recharge</div>
-    <div class="tab-item" [class.active]="activeTab === 'bonus'" (click)="setActiveTab('bonus')">Bonuses</div>
-    <div class="tab-item" [class.active]="activeTab === 'income'" (click)="setActiveTab('income')">Income</div>
+    <div class="tab-item" [class.active]="activeTab === 'withdraw'" (click)="setActiveTab('withdraw')">{{ 'Withdrawals' | translate }}</div>
+    <div class="tab-item" [class.active]="activeTab === 'deposit'" (click)="setActiveTab('deposit')">{{ 'Recharge' | translate }}</div>
+    <div class="tab-item" [class.active]="activeTab === 'bonus'" (click)="setActiveTab('bonus')">{{ 'Bonuses' | translate }}</div>
+    <div class="tab-item" [class.active]="activeTab === 'income'" (click)="setActiveTab('income')">{{ 'Income' | translate }}</div>
   </nav>
 
   <!-- Transactions List -->
@@ -45,7 +45,7 @@
 
     <!-- Empty State -->
     <div class="empty-state" *ngIf="filteredTransactions.length === 0">
-      No transactions found for {{ activeTab }}.
+      {{ 'No transactions found for' | translate }} {{ activeTab }}.
     </div>
   </div>
 </div>

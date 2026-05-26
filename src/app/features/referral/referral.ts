@@ -1,4 +1,5 @@
 import { Component, OnInit, inject, PLATFORM_ID, Inject, ChangeDetectorRef } from '@angular/core';
+import { TranslatePipe } from '../../pipes/translate-pipe';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
@@ -10,7 +11,7 @@ import { TopNav } from '../top-nav/top-nav';
 @Component({
   selector: 'app-referral',
   standalone: true,
-  imports: [CommonModule, RouterModule, MatSnackBarModule, TopNav],
+  imports: [CommonModule, RouterModule, MatSnackBarModule, TopNav, TranslatePipe],
   templateUrl: './referral.html',
   styleUrl: './referral.scss'
 })

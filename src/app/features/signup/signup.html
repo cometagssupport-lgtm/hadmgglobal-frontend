@@ -94,7 +94,7 @@
             </div>
             <div class="custom-input-wrapper">
               <input [type]="hidePassword ? 'password' : 'text'" class="custom-input-box"
-                formControlName="confirmPassword" placeholder="Re-enter your Password" />
+                formControlName="confirmPassword" placeholder="{{'Re-enter your Password' | translate}}" />
               <button class="eye-btn" type="button" (click)="togglePasswordVisibility()">
                 <img src="/password-eye.svg" alt="Toggle Password" />
               </button>
@@ -115,11 +115,11 @@
             </div>
             <div class="custom-input-wrapper">
               <input type="text" class="custom-input-box" formControlName="refferedCode"
-                placeholder="Enter Affiliate Key" />
+                placeholder="{{'Enter Affiliate Key' | translate}}" />
             </div>
             <div class="error-msg"
               *ngIf="signupForm.get('confirmPassword')?.hasError('mismatch') && signupForm.get('confirmPassword')?.touched">
-              Passwords do not match
+              {{ 'Passwords do not match' | translate }}
             </div>
           </div>
 

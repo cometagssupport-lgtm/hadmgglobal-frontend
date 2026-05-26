@@ -33,7 +33,7 @@
       </div>
 
       <div class="network-selection" *ngIf="transactionAccounts?.length">
-        <label class="network-label">Select wallet network</label>
+        <label class="network-label">{{ 'Select wallet network' | translate }}</label>
         <div class="network-buttons">
           <button *ngFor="let net of transactionAccounts" class="network-btn"
             [class.active]="selectedToken?.id === net.id" (click)="selectNetwork(net)">
@@ -49,12 +49,9 @@
           <li>{{ '-Please confirm platform deposit address before depositing.' | translate }}</li>
           <li>{{ '-Copy the address above or scan the QR code and select the corresponding network to deposit USDT.' |
             translate }}</li>
-          <li>{{ '-After the recharge to the above address, the entire network needs to confirm the transaction. The
-            account will be credited only after the network confirmation is completed.' | translate }}</li>
-          <li>{{ '-Please do not deposit other online assets. The funds will arrive in your account in about 10 minutes
-            after depositing.' | translate }}</li>
-          <li>{{ '-If the deposit delivery does not arrive for a long time, please refresh the page or contact customer
-            service.' | translate }}</li>
+          <li>{{ '-After the recharge to the above address, the entire network needs to confirm the transaction. The account will be credited only after the network confirmation is completed.' | translate }}</li>
+          <li>{{ '-Please do not deposit other online assets. The funds will arrive in your account in about 10 minutes after depositing.' | translate }}</li>
+          <li>{{ '-If the deposit delivery does not arrive for a long time, please refresh the page or contact customer service.' | translate }}</li>
         </ul>
       </div>
     </div>

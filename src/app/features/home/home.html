@@ -2,25 +2,25 @@
   <!-- Gradient Banner area -->
   <div class="top-gradient-banner">
     <div class="greeting-sec">
-      <div class="greeting-title">Hello, {{ userName }}</div>
-      <div class="greeting-subtitle">Welcome Back!</div>
+      <div class="greeting-title">{{ 'Hello,' | translate }} {{ userName }}</div>
+      <div class="greeting-subtitle">{{ 'Welcome Back!' | translate }}</div>
     </div>
 
     <!-- Wallet Card -->
     <div class="wallet-card">
       <div class="wallet-top">
-        <div class="wallet-label">PENDING RELEASE BALANCE</div>
-        <div class="wallet-balance"><span class="rupee">{{ workingWallet }}</span> USD</div>
+        <div class="wallet-label">{{ 'PENDING RELEASE BALANCE' | translate }}</div>
+        <div class="wallet-balance"><span class="rupee">{{ workingWallet }}</span> {{ 'USD' | translate }}</div>
       </div>
 
       <div class="wallet-bottom">
         <div class="wallet-col">
-          <div class="wallet-label">WITHDRAW BALANCE</div>
-          <div class="wallet-amount">{{ withdrawalWallet }} <span> USD</span></div>
+          <div class="wallet-label">{{ 'WITHDRAW BALANCE' | translate }}</div>
+          <div class="wallet-amount">{{ withdrawalWallet }} <span> {{ 'USD' | translate }}</span></div>
         </div>
         <div class="wallet-col">
-          <div class="wallet-label">RECHARGE WALLET</div>
-          <div class="wallet-amount">{{ rechargeWallet }} <span> USD</span></div>
+          <div class="wallet-label">{{ 'RECHARGE WALLET' | translate }}</div>
+          <div class="wallet-amount">{{ rechargeWallet }} <span> {{ 'USD' | translate }}</span></div>
         </div>
       </div>
     </div>
@@ -31,25 +31,25 @@
         <div class="action-icon-circle">
           <img src="/rechargeicon.svg" alt="Recharge" />
         </div>
-        <span>Recharge</span>
+        <span>{{ 'Recharge' | translate }}</span>
       </div>
       <div class="action-item" (click)="onWalletAction('Withdrawal')">
         <div class="action-icon-circle">
           <img src="/withdrawicon.svg" alt="Withdraw" />
         </div>
-        <span>Withdraw</span>
+        <span>{{ 'Withdraw' | translate }}</span>
       </div>
       <div class="action-item" (click)="copyReferralLink()">
         <div class="action-icon-circle">
           <img src="/shareicon.svg" alt="Share Link" />
         </div>
-        <span>Share Link</span>
+        <span>{{ 'Share Link' | translate }}</span>
       </div>
       <div class="action-item" (click)="opentelegramLinkOne()">
         <div class="action-icon-circle">
           <img src="/tggroupicon.svg" alt="TG Group" />
         </div>
-        <span>TG Group</span>
+        <span>{{ 'TG Group' | translate }}</span>
       </div>
     </div>
   </div> <!-- end gradient banner -->
@@ -76,21 +76,21 @@
 
     <!-- Company Profile Section -->
     <div class="company-profile">
-      <h3>Company profile</h3>
-      <p>Comet AGS is an innovative financial technology company dedicated to advancing intelligent quantitative trading
-        in digital asset markets.</p>
-      <p>The company focuses on developing advanced algorithmic trading systems that analyze market data, identify
-        opportunities, and execute strategies with precision and speed.</p>
-      <p>By combining expertise in artificial intelligence, blockchain technology, financial engineering, and
-        quantitative analysis, Comet AGS delivers efficient and data-driven trading solutions.</p>
-      <p>Our platform is designed to help investors access automated strategies that respond quickly to market changes
-        and optimize trading performance.</p>
-      <p>Through intelligent models and continuous market analysis, the system identifies patterns and executes trades
-        based on structured strategies.
-        Comet AGS emphasizes accuracy, transparency, and efficiency, allowing users to participate in modern financial
-        markets with confidence.</p>
-      <p>The company is committed to building a secure and reliable ecosystem that supports responsible and informed
-        trading</p>
+      <h3>{{ 'Company profile' | translate }}</h3>
+      <p>{{ 'Comet AGS is an innovative financial technology company dedicated to advancing intelligent quantitative trading' | translate }}
+        {{ 'in digital asset markets.' | translate }}</p>
+      <p>{{ 'The company focuses on developing advanced algorithmic trading systems that analyze market data, identify' | translate }}
+        {{ 'opportunities, and execute strategies with precision and speed.' | translate }}</p>
+      <p>{{ 'By combining expertise in artificial intelligence, blockchain technology, financial engineering, and' | translate }}
+        {{ 'quantitative analysis, Comet AGS delivers efficient and data-driven trading solutions.' | translate }}</p>
+      <p>{{ 'Our platform is designed to help investors access automated strategies that respond quickly to market changes' | translate }}
+        {{ 'and optimize trading performance.' | translate }}</p>
+      <p>{{ 'Through intelligent models and continuous market analysis, the system identifies patterns and executes trades' | translate }}
+        {{ 'based on structured strategies.' | translate }}
+        {{ 'Comet AGS emphasizes accuracy, transparency, and efficiency, allowing users to participate in modern financial' | translate }}
+        {{ 'markets with confidence.' | translate }}</p>
+      <p>{{ 'The company is committed to building a secure and reliable ecosystem that supports responsible and informed' | translate }}
+        {{ 'trading' | translate }}</p>
     </div>
   </div>
 

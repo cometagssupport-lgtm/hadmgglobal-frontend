@@ -1,3 +1,4 @@
+import { TranslatePipe } from '../../pipes/translate-pipe';
 import {
   Component,
   OnInit,
@@ -12,7 +13,7 @@ import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-position',
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './position.html',
   styleUrl: './position.scss'
 })

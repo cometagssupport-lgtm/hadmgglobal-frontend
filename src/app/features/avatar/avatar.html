@@ -6,7 +6,7 @@
       <img src="/leftarrow-black.svg" alt="Back" onerror="this.onerror=null; this.src='/leftarraow.svg'; this.style.filter='invert(1)'" />
     </button>
     
-    <h2 class="title">Choose your Avatar</h2>
+    <h2 class="title">{{ 'Choose your Avatar' | translate }}</h2>
 
     <div class="avatar-grid">
       <div class="avatar-item" 
@@ -19,6 +19,6 @@
   </div>
 
   <div class="bottom-actions">
-    <button class="apply-btn" (click)="applyAvatar()">Apply Avatar</button>
+    <button class="apply-btn" (click)="applyAvatar()">{{ 'Apply Avatar' | translate }}</button>
   </div>
 </div>
