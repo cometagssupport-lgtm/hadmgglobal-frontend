@@ -19,7 +19,7 @@
     <div class="tabs-list" fxLayout="row" fxLayoutAlign="space-between center">
       <div *ngFor="let tab of tabs; let i = index" class="tab-item" [class.active]="selectedTabIndex === i"
         (click)="selectTab(i)">
-        {{ tab.label }}
+        {{ tab.label | translate }}
       </div>
     </div>
   </div>
@@ -31,7 +31,7 @@
 
       <!-- 📝 Text Overlay -->
       <div class="card-text-overlay">
-        <h2 class="overlay-title">{{ currentTab.title }}</h2>
+        <h2 class="overlay-title">{{ currentTab.title | translate }}</h2>
 
         <div class="overlay-details">
           <p *ngFor="let detail of currentTab.details">{{ detail }}</p>
@@ -54,7 +54,7 @@
     <div class="task-guide-box">
       <h3 class="guide-title">{{ 'Task Guide:' | translate }}</h3>
       <ul class="guide-list">
-        <li *ngFor="let step of currentTab.taskGuide">- {{ step }}</li>
+        <li *ngFor="let step of currentTab.taskGuide">- {{ step | translate }}</li>
       </ul>
     </div>
   </div>
@@ -83,7 +83,7 @@
         {{ 'Start Quantization' }}
       </ng-container>
       <ng-container *ngIf="currentTab.id !== 'AGS0'">
-        {{ currentTab.hasActiveTimer ? 'Quantified' : 'Start Quantization' }}
+        {{ currentTab.hasActiveTimer ? 'Quantified' : 'Start Quantization' | translate }}
       </ng-container>
     </button>
   </div>

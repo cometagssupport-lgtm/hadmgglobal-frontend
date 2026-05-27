@@ -34,12 +34,12 @@
           </div>
           <div class="tx-info">
             <div class="amount-row">
-              <span class="symbol">{{ tx.type === 'withdraw' ? '-' : '+' }}</span>
+              <span class="symbol">{{ tx.type === 'withdraw' ? '-' : '+' | translate }}</span>
               <span class="amount">{{ tx.amount | number: '1.0-0' }}</span>
               <span class="currency">{{ 'USD' | translate }}</span>
             </div>
             <div class="id-row">
-              <span class="tx-id">{{ tx.transactionId }}</span>
+              <span class="tx-id">{{ tx.transactionId | translate }}</span>
               <button class="copy-btn" (click)="copyCode(tx.transactionId)">
                 <img src="/copy.svg" alt="copy" />
               </button>

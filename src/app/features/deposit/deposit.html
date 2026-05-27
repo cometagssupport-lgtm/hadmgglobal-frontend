@@ -37,7 +37,7 @@
         <div class="network-buttons">
           <button *ngFor="let net of transactionAccounts" class="network-btn"
             [class.active]="selectedToken?.id === net.id" (click)="selectNetwork(net)">
-            {{ net.name }}
+            {{ net.name | translate }}
           </button>
         </div>
       </div>

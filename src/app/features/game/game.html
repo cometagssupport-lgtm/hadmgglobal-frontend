@@ -32,12 +32,12 @@
         <div style="position: relative; top: 3px;">
           <img src="game-clock.svg" alt="clock" />
         </div>
-        <div style="margin-left: 4px;">{{ card.validity }}</div>
+        <div style="margin-left: 4px;">{{ card.validity | translate }}</div>
       </div>
 
       <div class="card-content">
-        <h3 class="title">{{ card.title }}</h3>
-        <p class="reward">{{ card.reward }}</p>
+        <h3 class="title">{{ card.title | translate }}</h3>
+        <p class="reward">{{ card.reward | translate }}</p>
 
         <div *ngIf="card.status || card.miningCycle" class="status-chips">
           <span class="chip small">{{ card.status }}</span>
@@ -45,7 +45,7 @@
         </div>
 
         <button class="action-btn" [disabled]="!card.enabled && card.disableType === 'button'" (click)="onAction(card)">
-          {{ card.buttonText }}
+          {{ card.buttonText | translate }}
         </button>
       </div>
 
