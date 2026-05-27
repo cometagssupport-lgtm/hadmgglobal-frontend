@@ -34,7 +34,7 @@
 
     <div class="page-title-box">
       <h2 class="main-title">{{ 'Recharge' | translate }}</h2>
-      <p class="sub-title">{{ data?.amount }} {{ data?.network?.name }}</p>
+      <p class="sub-title">{{ data?.amount | translate }} {{ data?.network?.name | translate }}</p>
     </div>
 
     <div class="timer-container">
@@ -47,14 +47,14 @@
 
     <div class="amount-container">
       <p class="amount-label">{{ 'Amount Payable' | translate }}</p>
-      <h3 class="amount-value">{{ data?.amount }} {{ data?.network?.name?.includes('USDC') ? 'USDC' : 'USDT' }}</h3>
-      <p class="timer-text">{{ data?.network?.name }}</p>
+      <h3 class="amount-value">{{ data?.amount | translate }} {{ data?.network?.name?.includes('USDC') ? 'USDC' : 'USDT' | translate }}</h3>
+      <p class="timer-text">{{ data?.network?.name | translate }}</p>
     </div>
 
     <div class="address-container">
       <p class="address-label">{{ 'Copy the Deposit address to transfer the amount' | translate }}</p>
       <div class="address-box">
-        <span class="address-text">{{ data?.address }}</span>
+        <span class="address-text">{{ data?.address | translate }}</span>
         <button class="copy-btn" (click)="copyToClipboard(data?.address)">
           <img src="/copy.svg" alt="copy" />
         </button>

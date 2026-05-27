@@ -13,8 +13,8 @@
           <img [src]="user.avatar" class="user-avatar" (error)="user.avatar = '/avatar1.svg'" />
         </div>
         <div class="user-info">
-          <h2>{{ 'User Name:' | translate }} {{ user.name }}</h2>
-          <p>{{ 'Email:' | translate }} {{ user.email }}</p>
+          <h2>{{ 'User Name:' | translate }} {{ user.name | translate }}</h2>
+          <p>{{ 'Email:' | translate }} {{ user.email | translate }}</p>
           <p class="uid-row">{{ 'UID:' | translate }} <span>{{ user.uid || '53794' }}</span> <img src="/copyimg.svg" class="copy-icon"
               (click)="copyUID(user.uid || '53794')" style="cursor: pointer;" />
           </p>
@@ -31,7 +31,7 @@
       <div class="stats-grid">
         <div class="stat-card" *ngFor="let stat of walletSummary">
           <h3 class="stat-value">
-            {{ stat.label === 'The Team Count' ? '' : '$ ' }}{{ stat.value | number:(stat.label === 'The Team Count'
+            {{ stat.label === 'The Team Count' ? '' : '$ ' | translate }}{{ stat.value | number:(stat.label === 'The Team Count'
             ? '1.0-0' : '1.2-2') }}
           </h3>
           <p class="stat-label">{{ stat.label | translate }}</p>

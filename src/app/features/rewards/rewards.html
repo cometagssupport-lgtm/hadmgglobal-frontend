@@ -31,23 +31,23 @@
           <img src="crown1.svg" alt="Reward Medal" />
         </div>
         <div class="reward-info" fxFlex>
-          <h2 class="reward-header">{{ reward.header }}</h2>
-          <p class="reward-paragraph" [innerHTML]="getFormattedParagraph(reward.paragraph)"></p>
+          <h2 class="reward-header">{{ reward.header | translate }}</h2>
+          <p class="reward-paragraph" [innerHTML]="getFormattedParagraph(reward.paragraph | translate)"></p>
 
           <div class="progress-container">
             <div class="progress-bar-bg">
               <div class="progress-bar-fill" [style.width]="getProgressWidth(reward)"></div>
             </div>
             <span class="progress-text">{{ (reward.currentInvites < 10 ? '0' + reward.currentInvites :
-                reward.currentInvites) }}/{{ (reward.requiredInvites < 10 ? '0' + reward.requiredInvites :
-                reward.requiredInvites) }}</span>
+                reward.currentInvites) | translate }}/{{ (reward.requiredInvites < 10 ? '0' + reward.requiredInvites :
+                reward.requiredInvites) | translate }}</span>
           </div>
         </div>
       </div>
 
       <button class="claim-button" [ngClass]="{ 'valid': reward.isValid, 'claimed': reward.isClaimed }"
         [disabled]="!reward.isValid || reward.isClaimed" (click)="claimReward(reward)">
-        {{ reward.buttonName }}
+        {{ reward.buttonName | translate }}
       </button>
     </div>
   </div>

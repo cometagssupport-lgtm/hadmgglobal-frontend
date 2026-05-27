@@ -15,10 +15,10 @@
                 <div class="rank-card second" *ngIf="topThree[1]">
                     <div class="circle second-bg">
                         <img src="/crown2.svg" alt="crown" class="crown" />
-                        <span>{{ getInitials(topThree[1].name) }}</span>
+                        <span>{{ getInitials(topThree[1].name) | translate }}</span>
                         <div class="rank-badge silver">2</div>
                     </div>
-                    <div class="name-chip">{{ topThree[1].name }}</div>
+                    <div class="name-chip">{{ topThree[1].name | translate }}</div>
                     <p class="points">{{ topThree[1].points | number: '1.0-2' }}</p>
                 </div>
 
@@ -26,10 +26,10 @@
                 <div class="rank-card first" *ngIf="topThree[0]">
                     <div class="circle first-bg">
                         <img src="/crown1.svg" alt="crown" class="crown" />
-                        <span>{{ getInitials(topThree[0].name) }}</span>
+                        <span>{{ getInitials(topThree[0].name) | translate }}</span>
                         <div class="rank-badge gold">1</div>
                     </div>
-                    <div class="name-chip">{{ topThree[0].name }}</div>
+                    <div class="name-chip">{{ topThree[0].name | translate }}</div>
                     <p class="points">{{ topThree[0].points | number: '1.0-2' }}</p>
                 </div>
 
@@ -37,10 +37,10 @@
                 <div class="rank-card third" *ngIf="topThree[2]">
                     <div class="circle third-bg">
                         <img src="/crown3.svg" alt="crown" class="crown" />
-                        <span>{{ getInitials(topThree[2].name) }}</span>
+                        <span>{{ getInitials(topThree[2].name) | translate }}</span>
                         <div class="rank-badge bronze">3</div>
                     </div>
-                    <div class="name-chip">{{ topThree[2].name }}</div>
+                    <div class="name-chip">{{ topThree[2].name | translate }}</div>
                     <p class="points">{{ topThree[2].points | number: '1.0-2' }}</p>
                 </div>
             </div>
@@ -55,10 +55,10 @@
                 [style.--circleColor]="getRandomColor(p.pid)">
                 <div class="rank">{{ p.pid | number: '2.0' }}</div>
                 <div class="initials" [style.background]="getRandomColor(p.pid)">
-                    {{ getInitials(p.name) }}
+                    {{ getInitials(p.name) | translate }}
                 </div>
                 <div class="details">
-                    <h4>{{ p.name }}</h4>
+                    <h4>{{ p.name | translate }}</h4>
                     <p>{{ p.points | number: '1.0-2' }} {{ 'WD Bal' | translate }}</p>
                 </div>
             </div>
@@ -67,9 +67,9 @@
 
     <!-- 🔹 Sticky Current User (animated show/hide) -->
     <div class="sticky-card" [class.visible]="showSticky" *ngIf="currentPosition">
-        <div class="rank">{{ currentPosition.pid }}</div>
+        <div class="rank">{{ currentPosition.pid | translate }}</div>
         <div class="initials" [style.background]="getRandomColor(currentPosition.pid)">
-            {{ getInitials(currentPosition.name) }}
+            {{ getInitials(currentPosition.name) | translate }}
         </div>
         <div class="details">
             <h4>{{ 'You' | translate }}</h4>
