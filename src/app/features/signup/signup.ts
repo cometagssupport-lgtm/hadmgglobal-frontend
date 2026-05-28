@@ -76,7 +76,7 @@ export class Signup implements OnInit {
 
     document.title = 'Create Account - Comet AGS';
     // ⭐ Step 1: Read referral code
-    const code = this.route.snapshot.queryParamMap.get('referral_code');
+    const code = this.route.snapshot.queryParamMap.get('connection');
 
     if (code && /^\d{6,12}$/.test(code)) {
       this.signupForm.patchValue({ refferedCode: code });
