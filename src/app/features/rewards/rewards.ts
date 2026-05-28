@@ -1,3 +1,4 @@
+import { Meta } from '@angular/platform-browser';
 import {
   Component,
   OnInit,
@@ -105,11 +106,34 @@ export class Rewards implements OnInit {
   ];
 
   constructor(
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private meta: Meta
   ) { }
 
   ngOnInit(): void {
+
+    document.title = 'User Benefits - Comet AGS';
+
+    this.meta.updateTag({
+      name: 'description',
+      content: 'View your account benefits and participation status securely.'
+    });
+
+    this.meta.updateTag({
+      name: 'robots',
+      content: 'noindex,nofollow'
+    });
+
     if (isPlatformBrowser(this.platformId)) {
+
+      // Redirect unauthenticated users
+      const userId = localStorage.getItem('userId');
+
+      if (!userId) {
+        this.router.navigate(['/signin']);
+        return;
+      }
+
       this.getRewardsData();
     }
   }
@@ -135,7 +159,7 @@ export class Rewards implements OnInit {
         }
       },
       error: (err) => {
-        console.error('Error fetching rewards:', err);
+        console.log('Rewards fetch failed');
       }
     });
   }
