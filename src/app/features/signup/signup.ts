@@ -14,6 +14,7 @@ import { RouterModule, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { TopNav } from '../top-nav/top-nav';
 import { TranslatePipe } from '../../pipes/translate-pipe';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-signup',
@@ -47,8 +48,13 @@ export class Signup implements OnInit {
     private router: Router,
     private snackBar: MatSnackBar,
     private authService: AuthService,
-    private route: ActivatedRoute   // ⭐ Added
+    private route: ActivatedRoute,
+    private meta: Meta,   // ⭐ Added
   ) {
+    this.meta.updateTag({
+      name: 'description',
+      content: 'Create your Comet AGS account securely.'
+    });
 
     this.signupForm = this.fb.group({
       name: ['', Validators.required],
@@ -63,19 +69,23 @@ export class Signup implements OnInit {
 
 
   ngOnInit(): void {
-    console.log("we are in Signup page");
+    this.meta.updateTag({
+      name: 'robots',
+      content: 'noindex,nofollow'
+    });
 
+    document.title = 'Create Account - Comet AGS';
     // ⭐ Step 1: Read referral code
     const code = this.route.snapshot.queryParamMap.get('referral_code');
-    if (code) {
+
+    if (code && /^\d{6,12}$/.test(code)) {
       this.signupForm.patchValue({ refferedCode: code });
-      console.log("Referral code applied:", code);
 
       // ⭐ Step 2: Remove ?code= from URL (Google Safe Browsing fix)
-      this.router.navigate([], {
-        queryParams: {},
-        replaceUrl: true
-      });
+      // this.router.navigate([], {
+      //   queryParams: {},
+      //   replaceUrl: true
+      // });
     }
   }
 
@@ -105,7 +115,6 @@ export class Signup implements OnInit {
 
   onSubmit() {
     this.signupForm.markAllAsTouched();
-    console.log(this.signupForm.value);
     if (this.signupForm.valid) {
       const payload = {
         userName: this.signupForm.value.name,
@@ -114,7 +123,6 @@ export class Signup implements OnInit {
         refferedCode: this.signupForm.value.refferedCode || ''
       };
 
-      console.log('Signup payload:', payload);
       localStorage.setItem('signup', JSON.stringify(payload));
       this.authService.signup(payload).subscribe({
         next: (res) => {
@@ -128,7 +136,6 @@ export class Signup implements OnInit {
           }
         },
         error: (err) => {
-          console.error('Signup error:', err);
           this.snackBar.open(
             err.error?.message || 'Something went wrong!',
             'Close',

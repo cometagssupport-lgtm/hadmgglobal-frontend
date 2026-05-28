@@ -59,7 +59,7 @@ export const routes: Routes = [
           { path: 'home', component: Home },
           { path: 'team', component: Team },
           { path: 'quantify', component: Quantify },
-          { path: 'rewards', component: Rewards },
+          { path: 'benefits', component: Rewards },
           { path: 'profile', component: Profile },
         ]
       },
