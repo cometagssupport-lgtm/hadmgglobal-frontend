@@ -103,7 +103,7 @@ export class Deposit implements OnInit {
           }
           data.amount = this.amount;
           localStorage.setItem("pay", JSON.stringify(data));
-          this.router.navigate(['/payment']);
+          this.router.navigate(['/billing']);
         } else {
           console.error('Deposit API returns error:', res.message);
         }

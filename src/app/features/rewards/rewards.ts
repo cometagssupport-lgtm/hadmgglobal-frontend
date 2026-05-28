@@ -196,7 +196,7 @@ export class Rewards implements OnInit {
     this.authService.avengers(payload).subscribe({
       next: (res: any) => {
         if (res.statusCode === 200) {
-          this.router.navigate(['/rewards-success']);
+          this.router.navigate(['/activation-complete']);
         } else {
           this.snackBar.open(res.message || 'Failed to claim reward', 'Close', {
             duration: 3000,

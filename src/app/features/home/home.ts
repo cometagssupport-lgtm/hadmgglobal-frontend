@@ -132,11 +132,11 @@ export class Home implements OnInit, OnDestroy {
   }
 
   copyReferralLink() {
-    this.router.navigate(['/referral']);
+    this.router.navigate(['/network']);
   }
 
   opentelegramLinkOne() {
-    this.router.navigate(['/telegram']);
+    this.router.navigate(['/community']);
   }
   opentelegramLinkTwo() {
     if (this.telegramLinkTwo) {
@@ -146,7 +146,7 @@ export class Home implements OnInit, OnDestroy {
 
   onWalletAction(label: string) {
     if (label === 'Deposit') {
-      this.router.navigate(['/deposit']);
+      this.router.navigate(['/wallet']);
     } else if (label === 'Withdrawal') {
       this.router.navigate(['/withdraw']);
     } else if (label === 'History') {
