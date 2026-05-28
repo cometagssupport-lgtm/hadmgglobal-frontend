@@ -13,14 +13,14 @@ export const authGuard: CanActivateFn = (route, state) => {
 
   // 🔹 First, make sure user is logged in (email required)
   if (!userEmail || userEmail.trim() === "") {
-    router.navigate(['/login']);
+    router.navigate(['/access']);
     return false;
   }
 
   // 🔹 For NON-ADMIN ROUTES → userId REQUIRED
   if (!isAdminRoute) {
     if (!userId || userId.trim() === "") {
-      router.navigate(['/login']);
+      router.navigate(['/access']);
       return false;
     }
     return true; // normal pages ok

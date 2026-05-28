@@ -130,7 +130,7 @@ export class Rewards implements OnInit {
       const userId = localStorage.getItem('userId');
 
       if (!userId) {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/access']);
         return;
       }
 
