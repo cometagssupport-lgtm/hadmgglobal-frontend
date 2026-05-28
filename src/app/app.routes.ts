@@ -39,8 +39,8 @@ import { Referral } from './features/referral/referral';
 import { Telegram } from './features/telegram/telegram';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'signin', pathMatch: 'full' },
-  { path: 'signin', component: Signin },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: Signin },
   { path: 'create-account', component: Signup },
   { path: 'forget', component: ForgetPassword },
   { path: 'verify-email', component: VerifyEmail },

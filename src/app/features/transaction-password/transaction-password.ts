@@ -53,7 +53,7 @@ export class TransactionPassword implements OnInit {
     const userId = localStorage.getItem('userId');
     if (!userId) {
       this.snackBar.open('User ID not found. Please log in again.', 'Close', { duration: 3000, panelClass: ['error-snackbar'] });
-      this.router.navigate(['/signin']);
+      this.router.navigate(['/login']);
       return;
     }
 
