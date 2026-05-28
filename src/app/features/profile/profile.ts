@@ -181,7 +181,7 @@ export class Profile implements OnInit {
 
   onWalletAction(label: string) {
     if (label === 'Deposit') {
-      this.router.navigate(['/deposit']);
+      this.router.navigate(['/wallet']);
     } else if (label === 'Withdrawal') {
       this.router.navigate(['/withdraw']);
     } else if (label === 'History') {
