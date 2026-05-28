@@ -20,7 +20,7 @@ export const ErrorLoggerInterceptor: HttpInterceptorFn = (req, next) => {
       if (error?.error?.message == "User inactive, please contact support") {
         console.log("GO TO LOGIN SCREEN")
         localStorage.clear();
-        router.navigate(['/signin']);
+        router.navigate(['/login']);
       } else if (error?.error?.message == "Under Maintainance") {
         router.navigate(['/under-maintainance']);
       }

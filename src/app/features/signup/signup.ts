@@ -132,7 +132,7 @@ export class Signup implements OnInit {
               panelClass: ['success-snackbar']
             });
             localStorage.setItem('userId', res.data.userId);
-            setTimeout(() => this.router.navigate(['/signin']), 1000);
+            setTimeout(() => this.router.navigate(['/login']), 1000);
           }
         },
         error: (err) => {
