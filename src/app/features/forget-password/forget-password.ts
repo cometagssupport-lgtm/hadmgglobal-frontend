@@ -41,7 +41,7 @@ export class ForgetPassword implements OnInit {
 
 
   goBack() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/access']);
   }
 
   resend() {

@@ -226,7 +226,7 @@ export class Profile implements OnInit {
   logout() {
     console.log('Logged out');
     localStorage.clear();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/access']);
   }
 
 
