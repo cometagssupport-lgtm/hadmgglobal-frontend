@@ -1,0 +1,40 @@
+{
+  "redirects": [
+    {
+      "source": "/register",
+      "destination": "/join",
+      "permanent": true
+    },
+    {
+      "source": "/signin",
+      "destination": "/access",
+      "permanent": true
+    },
+    {
+      "source": "/login",
+      "destination": "/access",
+      "permanent": true
+    },
+    {
+      "source": "/create-account",
+      "destination": "/join",
+      "permanent": true
+    },
+    {
+      "source": "/rewards",
+      "destination": "/home",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "cmt-glzx.com"
+        }
+      ],
+      "destination": "https://www.cmt-glzx.com/$1",
+      "permanent": true
+    }
+  ]
+}
