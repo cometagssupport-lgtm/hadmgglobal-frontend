@@ -37,12 +37,20 @@ import { authGuard } from './guards/auth-guard';
 import { TransactionHistory } from './features/transaction-history/transaction-history';
 import { Referral } from './features/referral/referral';
 import { Telegram } from './features/telegram/telegram';
+import { PrivacyPolicy } from './features/privacy-policy/privacy-policy';
+import { TermsConditions } from './features/terms-conditions/terms-conditions';
+import { ContactUs } from './features/contact-us/contact-us';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'access', pathMatch: 'full' },
   { path: 'access', component: Signin },
   { path: 'c', component: Signup },
-{ path: 'c/:connection', component: Signup },
+  { path: 'c/:connection', component: Signup },
+
+  { path: 'privacy', component: PrivacyPolicy },
+  { path: 'terms', component: TermsConditions },
+  { path: 'contact', component: ContactUs },
+  
   { path: 'forget', component: ForgetPassword },
   { path: 'verify-email', component: VerifyEmail },
   { path: 'email-confirm', component: EmailConfirmation },
