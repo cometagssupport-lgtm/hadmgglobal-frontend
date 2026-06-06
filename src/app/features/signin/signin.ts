@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
@@ -52,6 +53,7 @@ export class Signin implements OnInit {
     private router: Router,
     private snackBar: MatSnackBar,
     private meta: Meta,
+    private title: Title,
     private authService: AuthService
   ) {
 
@@ -73,6 +75,8 @@ export class Signin implements OnInit {
   }
   ngOnInit(): void {
     console.log("we are in signin page");
+    this.title.setTitle('Access - Comet AGS');
+
     this.meta.updateTag({
       name: 'robots',
       content: 'noindex,nofollow'
