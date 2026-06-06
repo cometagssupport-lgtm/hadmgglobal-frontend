@@ -76,16 +76,30 @@ export class Signup implements OnInit {
 
     document.title = 'Create Account - Comet AGS';
     // ⭐ Step 1: Read referral code
-    const code = this.route.snapshot.queryParamMap.get('connection');
+    const code = this.route.snapshot.paramMap.get('connection');
 
     if (code && /^\d{6,12}$/.test(code)) {
-      this.signupForm.patchValue({ refferedCode: code });
 
-      // ⭐ Step 2: Remove ?code= from URL (Google Safe Browsing fix)
-      // this.router.navigate([], {
-      //   queryParams: {},
-      //   replaceUrl: true
-      // });
+      this.signupForm.patchValue({
+        refferedCode: code
+      });
+
+      // URL clean cheyyi
+      sessionStorage.setItem('referralCode', code);
+
+      this.router.navigate(['/c'], {
+        replaceUrl: true
+      });
+
+      return;
+    }
+
+    const storedCode = sessionStorage.getItem('referralCode');
+
+    if (storedCode) {
+      this.signupForm.patchValue({
+        refferedCode: storedCode
+      });
     }
   }
 
@@ -127,6 +141,7 @@ export class Signup implements OnInit {
       this.authService.signup(payload).subscribe({
         next: (res) => {
           if (res.statusCode === 201) {
+              sessionStorage.removeItem('referralCode');
             this.snackBar.open('Account created successfully', 'Close', {
               duration: 3000,
               panelClass: ['success-snackbar']
@@ -150,5 +165,9 @@ export class Signup implements OnInit {
         panelClass: ['error-snackbar']
       });
     }
+
+
+
+
   }
 }

@@ -41,7 +41,8 @@ import { Telegram } from './features/telegram/telegram';
 export const routes: Routes = [
   { path: '', redirectTo: 'access', pathMatch: 'full' },
   { path: 'access', component: Signin },
-  { path: 'join', component: Signup },
+  { path: 'c', component: Signup },
+{ path: 'c/:connection', component: Signup },
   { path: 'forget', component: ForgetPassword },
   { path: 'verify-email', component: VerifyEmail },
   { path: 'email-confirm', component: EmailConfirmation },
