@@ -17,7 +17,7 @@ export class AuthService {
     password: string;
     refferedCode?: string;
   }): Observable<any> {
-    return this.http.post(`${this.baseUrl}/join`, payload);
+    return this.http.post(`${this.baseUrl}/c`, payload);
   }
 
   login(payload: { user: string; password: string }): Observable<any> {

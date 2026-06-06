@@ -2,7 +2,7 @@
   "redirects": [
     {
       "source": "/register",
-      "destination": "/join",
+      "destination": "/c",
       "permanent": true
     },
     {
@@ -17,7 +17,7 @@
     },
     {
       "source": "/create-account",
-      "destination": "/join",
+      "destination": "/c",
       "permanent": true
     },
     {
