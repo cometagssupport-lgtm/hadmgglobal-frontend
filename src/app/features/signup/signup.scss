@@ -300,3 +300,27 @@ header {
   line-height: 140%;
   font-weight: 500;
 }
+
+
+.company-info-box {
+  margin-top: 20px;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  font-family: 'Clash Display', sans-serif;
+}
+
+.company-info-box h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.company-info-box p {
+  margin: 0 0 8px 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #4B5563;
+}

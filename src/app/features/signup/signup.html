@@ -110,7 +110,7 @@
             <div class="section-labels">
               <span
                 [class.error-label]="signupForm.get('refferedCode')?.invalid && (signupForm.get('refferedCode')?.touched || signupForm.get('refferedCode')?.dirty)">
-                {{ 'Affiliate Key' | translate }}
+                {{ 'Affiliate Key ( optional )' | translate }}
               </span>
             </div>
             <div class="custom-input-wrapper">
@@ -127,14 +127,36 @@
           <div class="form-options">
             <mat-checkbox class="remember-checkbox" formControlName="terms"></mat-checkbox>
             <span class="terms-text">
-              {{ 'By continuing, you acknowledge and agree to the' |translate }}
-              <span [routerLink]="['/t&c']" class="green-link">{{'Terms of Service and Privacy Policy.' |
-                translate}}</span>
+              By continuing, you acknowledge and agree to the
+              <a routerLink="/terms" class="green-link">Terms of Service</a>
+              and
+              <a routerLink="/privacy" class="green-link">Privacy Policy</a>.
             </span>
           </div>
         </form>
       </div>
     </div>
+  </div>
+
+  <!-- Company Information -->
+  <div class="company-info-box">
+    <h3>About Comet AGS</h3>
+
+    <p>
+      Comet AGS is a platform that provides account management and user services.
+    </p>
+
+    <p>
+      Registration does not guarantee earnings, profits, rewards, or investment returns.
+    </p>
+
+    <p>
+      Users are responsible for their own decisions and activities on the platform.
+    </p>
+
+    <p>
+      Contact: support@cquantadv.com
+    </p>
   </div>
 
   <footer class="footer">
@@ -145,6 +167,10 @@
     <div class="signup-link-box" [routerLink]="['/access']">
       <span>{{ "Already have an account?" | translate }} </span>
       <span class="green-link" style="margin-left: 4px;"> {{'Log in' | translate}}</span>
+    </div>
+
+    <div style="text-align:center; margin-top:12px;">
+      <a routerLink="/contact" class="green-link">Contact Us</a>
     </div>
   </footer>
 </div>
