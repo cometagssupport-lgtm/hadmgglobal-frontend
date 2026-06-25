@@ -74,9 +74,7 @@ export class Signin implements OnInit {
     });
   }
   ngOnInit(): void {
-    console.log("we are in signin page");
-    this.title.setTitle('Access - Comet AGS');
-
+    this.title.setTitle('Sign in | Comet AGS');
     this.meta.updateTag({
       name: 'robots',
       content: 'noindex,nofollow'
@@ -130,11 +128,9 @@ export class Signin implements OnInit {
         password: password
       };
 
-      console.log('Sending payload:', payload);
 
       this.authService.login(payload).subscribe({
         next: (res) => {
-          console.log('Response:', res);
 
           if (res.statusCode === 200 && res.data?.isActiveUser) {
             this.snackBar.open('Login Successful! Welcome back!', 'Close', {
@@ -165,7 +161,6 @@ export class Signin implements OnInit {
         }
       });
     } else {
-      console.log('Form is invalid');
       this.snackBar.open('Please fill in all required fields correctly', 'Close', {
         duration: 3000,
         panelClass: ['error-snackbar']

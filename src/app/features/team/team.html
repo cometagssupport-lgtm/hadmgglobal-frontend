@@ -1,94 +1,107 @@
 <div class="layout-container" fxLayout="column" fxFlexFill>
     <div class="team-container">
-        <!-- 🔹 Background Banner wrapping Text and Grid -->
+
+        <!-- 🔹 Background Banner -->
         <div class="team-banner">
             <div class="banner-text">
-                <h2>{{ 'Teams' | translate }}</h2>
-                <p>{{ 'Monitor your team growth.' | translate }}</p>
+                <h2>{{ 'Network' | translate }}</h2>
+                <p>{{ 'View your network overview.' | translate }}</p>
             </div>
 
-            <!-- 🔹 6-item Grid for Summary -->
+            <!-- 🔹 Summary Grid -->
             <div class="summary-grid">
                 <div class="summary-card">
                     <img src="/registeramember.svg" alt="icon" class="icon" />
                     <div class="info">
-                        <span class="label">{{ 'Register A Member' | translate }}</span>
+                        <span class="label">{{ 'Total Members' | translate }}</span>
                         <span class="value">{{ data.totalTeams | translate }}</span>
                     </div>
                 </div>
+
                 <div class="summary-card">
                     <img src="/totalvalidmembers.svg" alt="icon" class="icon" />
                     <div class="info">
-                        <span class="label">{{ 'Total Valid Members' | translate }}</span>
+                        <span class="label">{{ 'Active Members' | translate }}</span>
                         <span class="value">{{ data.totalValidMembers | translate }}</span>
                     </div>
                 </div>
+
                 <div class="summary-card">
                     <img src="/totalteamcommission.svg" alt="icon" class="icon" />
                     <div class="info">
-                        <span class="label">{{ 'Total Team Commission' | translate }}</span>
-                        <span class="value">{{ data.totalPromationComission | number: '1.2-2' }}</span>
+                        <span class="label">{{ 'Team Performance' | translate }}</span>
+                        <span class="value">{{ data.totalPromationComission | number:'1.2-2' }}</span>
                     </div>
                 </div>
+
                 <div class="summary-card">
                     <img src="/firstlevelbonus.svg" alt="icon" class="icon" />
                     <div class="info">
-                        <span class="label">{{ 'First Level Bonus' | translate }}</span>
-                        <span class="value">{{ data.firstLevelBonus | number: '1.2-2' }}</span>
+                        <span class="label">{{ 'Level 1 Summary' | translate }}</span>
+                        <span class="value">{{ data.firstLevelBonus | number:'1.2-2' }}</span>
                     </div>
                 </div>
+
                 <div class="summary-card">
                     <img src="/totalteamdeposit.svg" alt="icon" class="icon" />
                     <div class="info">
-                        <span class="label">{{ 'Total Team Deposit' | translate }}</span>
-                        <span class="value">{{ data.teamRecharge | number: '1.2-2' }}</span>
+                        <span class="label">{{ 'Team Activity' | translate }}</span>
+                        <span class="value">{{ data.teamRecharge | number:'1.2-2' }}</span>
                     </div>
                 </div>
+
                 <div class="summary-card">
                     <img src="/totalteamwithdrawal.svg" alt="icon" class="icon" />
                     <div class="info">
-                        <span class="label">{{ 'Total Team Withdrawal' | translate }}</span>
-                        <span class="value">{{ data.teamWitdrawls | number: '1.2-2' }}</span>
+                        <span class="label">{{ 'Team Transactions' | translate }}</span>
+                        <span class="value">{{ data.teamWitdrawls | number:'1.2-2' }}</span>
                     </div>
                 </div>
             </div>
         </div>
 
-
-        <!-- 🔹 Layer / Generation Section -->
+        <!-- 🔹 Network Summary -->
         <div class="layer-section">
             <div class="section-header">
-                <h3>{{ "Valid Summary Details" | translate }}</h3>
-                <a href="javascript:void(0)" (click)="openMembers(1)" class="details-link">{{ "View team count" |
-                    translate }}</a>
+                <h3>{{ 'Network Summary' | translate }}</h3>
+                <a href="javascript:void(0)" (click)="openMembers(1)" class="details-link">
+                    {{ 'View Details' | translate }}
+                </a>
             </div>
 
             <div class="layer-list">
                 <div class="layer-card" *ngFor="let level of levels" (click)="openMembers(level.id)">
+
                     <div class="layer-title">
                         <span>{{ level.title | translate }}</span>
                     </div>
 
                     <div class="layer-stats">
+
                         <div class="stat-item">
-                            <span class="stat-label">{{ 'Team Commission' | translate }}</span>
-                            <span class="stat-value">{{ level.commission | number: '1.2-2' }}</span>
+                            <span class="stat-label">{{ 'Performance' | translate }}</span>
+                            <span class="stat-value">{{ level.commission | number:'1.2-2' }}</span>
                         </div>
+
                         <div class="stat-item">
-                            <span class="stat-label">{{ 'Register Member' | translate }}</span>
+                            <span class="stat-label">{{ 'Members' | translate }}</span>
                             <span class="stat-value">{{ level.register | translate }}</span>
                         </div>
+
                         <div class="stat-item">
-                            <span class="stat-label">{{ 'Valid Member' | translate }}</span>
+                            <span class="stat-label">{{ 'Active Members' | translate }}</span>
                             <span class="stat-value">{{ level.valid | translate }}</span>
                         </div>
+
                         <div class="stat-item">
-                            <span class="stat-label">{{ 'Team Revenue' | translate }}</span>
-                            <span class="stat-value">{{ level.revenue | number: '1.2-2' }}</span>
+                            <span class="stat-label">{{ 'Team Volume' | translate }}</span>
+                            <span class="stat-value">{{ level.revenue | number:'1.2-2' }}</span>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
