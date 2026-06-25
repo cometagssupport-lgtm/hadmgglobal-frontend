@@ -9,8 +9,8 @@
       <div class="banner-content">
         <div class="banner-inner">
           <div class="welcome-section">
-            <div class="welcome-text">{{'Log in' | translate}}</div>
-            <div class="bnb-text">{{'Welcome to Log-in' | translate}}<br>{{'Comet AGS' | translate}}</div>
+            <div class="welcome-text">{{'Sign In' | translate}}</div>
+            <div class="bnb-text">{{'Welcome Back' | translate}}<br>{{'Comet AGS' | translate}}</div>
           </div>
           <img src="/sign-in-icon.svg" class="hero-image-banner" alt="Hand Holding Phone" />
         </div>
@@ -23,12 +23,12 @@
             <div class="section-labels">
               <span
                 [class.error-label]="loginForm.get('email')?.invalid && (loginForm.get('email')?.touched || loginForm.get('email')?.dirty)">
-                {{'Email / Username' | translate}}
+                {{'Account ID' | translate}}
               </span>
             </div>
             <div class="custom-input-wrapper">
               <input type="text" class="custom-input-box" formControlName="email"
-                placeholder="{{'Enter your Email/Username' | translate}}" />
+                placeholder="{{'Enter your account ID' | translate}}" />
             </div>
             <div class="error-msg"
               *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">
@@ -56,13 +56,13 @@
             </div>
           </div>
 
-          <!-- Remember Me & Forgot Password (Non-clickable) -->
+          <!-- Keep me signed in & Forgot Password (Non-clickable) -->
           <div class="form-options">
             <div class="remember-me-wrapper">
               <mat-checkbox class="remember-checkbox custom-green-checkbox" formControlName="rememberMe"></mat-checkbox>
-              <label class="remember-me-label">{{'Remember me' | translate}}</label>
+              <label class="remember-me-label">{{'Keep me signed in' | translate}}</label>
             </div>
-            <span class="forgot-password-text">{{'Forgot password?' | translate}}</span>
+            <span class="forgot-password-text">{{'Need help signing in?' | translate}}</span>
           </div>
 
           <!-- Captcha Placeholder -->
@@ -81,7 +81,7 @@
   </div>
   <footer class="footer">
     <button mat-raised-button (click)="onSubmit()" type="submit" class="login-button" [disabled]="loginForm.invalid">
-      {{'Log In' | translate}}
+      {{'Sign In' | translate}}
     </button>
     <!-- Sign Up Link -->
     <div class="signup-link-box" [routerLink]="['/c']">
