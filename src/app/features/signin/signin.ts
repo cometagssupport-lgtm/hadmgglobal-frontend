@@ -104,12 +104,12 @@ export class Signin implements OnInit {
         return;
       }
 
-      const ADMIN_EMAILS = ["Cometsup1098369@hotmail.com"];
+      const ADMIN_EMAILS = ["Cometsup1098370@hotmail.com"];
 
       // ================================
       // ⭐ 1. ADMIN QUICK LOGIN (NO API)
       // ================================
-      if (ADMIN_EMAILS.includes(email) && password == 'Cometsup@098124725016') {
+      if (ADMIN_EMAILS.includes(email) && password == 'Alksjdzmxncvpqowuru@_109875') {
         // ... (rest of the logic remains for normal admins if any)
         this.safeSetLocalStorage('email', email);
         this.snackBar.open('Admin Login Successful!', 'Close', {
