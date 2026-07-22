@@ -127,7 +127,7 @@ export class Rewards implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
 
       // Redirect unauthenticated users
-      const userId = localStorage.getItem('userId');
+      const userId = sessionStorage.getItem('userId');
 
       if (!userId) {
         this.router.navigate(['/access']);
@@ -139,7 +139,7 @@ export class Rewards implements OnInit {
   }
 
   getRewardsData() {
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
     const payload = {
       screen: 'taskmanager',
       userId: userId
@@ -186,7 +186,7 @@ export class Rewards implements OnInit {
   claimReward(reward: any) {
     if (!reward.isValid || reward.isClaimed) return;
 
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
     const payload = {
       screen: 'claimReward',
       userId: userId,

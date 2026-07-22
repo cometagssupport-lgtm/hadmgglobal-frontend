@@ -50,7 +50,7 @@ export class TransactionPassword implements OnInit {
   updatePassword() {
     if (this.form.invalid) return;
 
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
     if (!userId) {
       this.snackBar.open('User ID not found. Please log in again.', 'Close', { duration: 3000, panelClass: ['error-snackbar'] });
       this.router.navigate(['/access']);
@@ -58,7 +58,7 @@ export class TransactionPassword implements OnInit {
     }
 
     this.isLoading = true;
-    const email = localStorage.getItem('email');
+    const email = sessionStorage.getItem('email');
     const payload = {
       email: email,
       passcode: Number(this.form.value.password)

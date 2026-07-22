@@ -75,13 +75,13 @@ export class Profile implements OnInit {
   ];
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      const userId = localStorage.getItem('userId');
+      const userId = sessionStorage.getItem('userId');
       if (userId) {
         this.user.uid = userId;
         this.getProfileData(userId);
         this.getGameData(userId);
       } else {
-        console.error('❌ No userId found in localStorage');
+        console.error('❌ No userId found in sessionStorage');
       }
     }
   }
@@ -113,7 +113,7 @@ export class Profile implements OnInit {
           this.user.email = data.email || 'Email';
           this.user.workingWallet = Number(data.totalDeposits ?? 0);
           this.user.withdrawalWallet = Number(data.totalEarnings ?? 0);
-          this.user.avatar = data.avatar || localStorage.getItem('avatarUrl') || '/avatar1.svg';
+          this.user.avatar = data.avatar || sessionStorage.getItem('avatarUrl') || '/avatar1.svg';
           if (Number(this.user.avatar)) {
             this.user.avatar = '/avatar' + this.user.avatar + '.svg';
           }
@@ -214,7 +214,7 @@ export class Profile implements OnInit {
     } else if (label == 'Telegram Channel') {
       this.opentelegramLinkThree();
     } else if (label == 'Change password') {
-      localStorage.setItem("email", this.user.email)
+      sessionStorage.setItem("email", this.user.email)
       this.router.navigate(['/change-password']);
     } else if (label == 'Set Transaction Password') {
       this.router.navigate(['/set-transaction-password']);
@@ -225,7 +225,7 @@ export class Profile implements OnInit {
 
   logout() {
     console.log('Logged out');
-    localStorage.clear();
+    sessionStorage.clear();
     this.router.navigate(['/access']);
   }
 
@@ -233,11 +233,11 @@ export class Profile implements OnInit {
 
   onTransferClosed() {
     if (isPlatformBrowser(this.platformId)) {
-      const userId = localStorage.getItem('userId');
+      const userId = sessionStorage.getItem('userId');
       if (userId) {
         this.getProfileData(userId);
       } else {
-        console.error('❌ No userId found in localStorage');
+        console.error('❌ No userId found in sessionStorage');
       }
     }
   }

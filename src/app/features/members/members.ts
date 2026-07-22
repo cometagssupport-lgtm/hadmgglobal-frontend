@@ -66,11 +66,11 @@ export class Members implements OnInit {
 
   loadData() {
     if (isPlatformBrowser(this.platformId)) {
-      const userId = localStorage.getItem('userId');
+      const userId = sessionStorage.getItem('userId');
       if (userId) {
         this.fetchMembers(userId, this.level);
       } else {
-        console.error('❌ No userId found in localStorage');
+        console.error('❌ No userId found in sessionStorage');
         this.members = [];
         this.filteredMembers = [];
       }

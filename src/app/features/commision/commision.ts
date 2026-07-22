@@ -29,11 +29,11 @@ export class Commision {
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      const userId = localStorage.getItem('userId');
+      const userId = sessionStorage.getItem('userId');
       if (userId) {
         this.fetchCommissionDetails(userId);
       } else {
-        console.error('❌ No userId found in localStorage');
+        console.error('❌ No userId found in sessionStorage');
       }
     }
   }

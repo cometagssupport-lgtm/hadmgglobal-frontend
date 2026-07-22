@@ -4,11 +4,11 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { LoaderInterceptor } from './interceptors/loader-interceptor';
+import { ErrorLoggerInterceptor } from './interceptors/error-logger-interceptor';
+import { AuthInterceptor } from './interceptors/auth-interceptor';
+import { EncryptionInterceptor } from './interceptors/encryption-interceptor';
 
 import { routes } from './app.routes';
-
-import { ErrorLoggerInterceptor } from './interceptors/error-logger-interceptor';
-
 
 import { HttpClientModule } from '@angular/common/http'; // ✅ Add this
 import { FlexLayoutModule } from '@ngbracket/ngx-layout';
@@ -23,7 +23,7 @@ export const appConfig: ApplicationConfig = {
     provideZonelessChangeDetection(),
     provideRouter(routes),
     provideHttpClient(
-      withInterceptors([LoaderInterceptor,ErrorLoggerInterceptor])
+      withInterceptors([LoaderInterceptor, ErrorLoggerInterceptor, AuthInterceptor, EncryptionInterceptor])
     ),
     provideClientHydration(withEventReplay()),
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { verticalPosition: 'top' } },

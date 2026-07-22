@@ -96,7 +96,7 @@ export class Home implements OnInit, OnDestroy {
   loadHomeData() {
     const userId = this.safeGetLocalStorage('userId');
     if (!userId) {
-      console.error('No userId found in localStorage');
+      console.error('No userId found in sessionStorage');
       return;
     }
 
@@ -119,11 +119,11 @@ export class Home implements OnInit, OnDestroy {
           this.refferalCode = res.data.refferalCode;
           this.userName = res.data.UserName || 'Buddy';
           if (res.data.email) {
-            localStorage.setItem('email', res.data.email);
+            sessionStorage.setItem('email', res.data.email);
           }
           this.cdr.detectChanges();
         });
-        localStorage.setItem('earnings', this.withdrawalWallet);
+        sessionStorage.setItem('earnings', this.withdrawalWallet);
       },
       error: (err) => {
         console.error('Error fetching home data:', err);
@@ -276,7 +276,7 @@ export class Home implements OnInit, OnDestroy {
   private safeGetLocalStorage(key: string): string | null {
     if (isPlatformBrowser(this.platformId)) {
       try {
-        return localStorage.getItem(key);
+        return sessionStorage.getItem(key);
       } catch {
         return null;
       }

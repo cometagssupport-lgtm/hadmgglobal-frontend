@@ -16,10 +16,12 @@ export const ErrorLoggerInterceptor: HttpInterceptorFn = (req, next) => {
   return next(req).pipe(
     tap(() => { }),
     catchError((error: HttpErrorResponse) => {
-      console.log("📝 Message:", error.error.message);
-      if (error?.error?.message == "User inactive, please contact support") {
-        console.log("GO TO LOGIN SCREEN")
-        localStorage.clear();
+      console.log("📝 Message:", error?.error?.message || error.message);
+      
+      // Token expired, missing, or explicitly inactive
+      if (error.status === 401 || error?.error?.message === "User inactive, please contact support") {
+        console.log("UNAUTHORIZED OR INACTIVE - GO TO LOGIN SCREEN");
+        sessionStorage.clear();
         router.navigate(['/access']);
       } else if (error?.error?.message == "Under Maintainance") {
         router.navigate(['/under-maintainance']);

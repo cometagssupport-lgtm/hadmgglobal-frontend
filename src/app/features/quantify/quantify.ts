@@ -149,7 +149,7 @@ export class Quantify implements OnInit, OnDestroy {
       this.getTeamData(); // Fetch team members count (will call getGameData internally)
       this.startCountdown();
 
-      const lastQuantified = localStorage.getItem('lastQuantifiedDate');
+      const lastQuantified = sessionStorage.getItem('lastQuantifiedDate');
       const today = new Date().toDateString();
       if (lastQuantified === today) {
         this.isQuantified = true;
@@ -193,7 +193,7 @@ export class Quantify implements OnInit, OnDestroy {
   }
 
   getUserBalance() {
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
     if (!userId) return;
 
     this.authService.avengers({ screen: 'profile', userId }).subscribe({
@@ -208,7 +208,7 @@ export class Quantify implements OnInit, OnDestroy {
   }
 
   getTeamData() {
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
     if (!userId) return;
 
     this.authService.avengers({ screen: 'teams', userId }).subscribe({
@@ -253,7 +253,7 @@ export class Quantify implements OnInit, OnDestroy {
   }
 
   getGameData() {
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
     if (!userId) return;
 
     this.authService.avengers({ screen: 'game', userId }).subscribe({
@@ -362,7 +362,7 @@ export class Quantify implements OnInit, OnDestroy {
   }
 
   claimFreeTrial() {
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
     if (!userId) return;
 
     this.isQuantifying = true;
@@ -423,7 +423,7 @@ export class Quantify implements OnInit, OnDestroy {
   }
 
   completeQuantization() {
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
     if (!userId) return;
 
     this.authService.activateGame({ userId: userId }).subscribe({
@@ -434,7 +434,7 @@ export class Quantify implements OnInit, OnDestroy {
         if (res.statusCode === 200) {
           this.isQuantified = true;
           this.currentTab.isButtonEnable = false;
-          localStorage.setItem('lastQuantifiedDate', new Date().toDateString());
+          sessionStorage.setItem('lastQuantifiedDate', new Date().toDateString());
 
           this.snackBar.open('AGS Received Successfully', 'Close', {
             duration: 3000,

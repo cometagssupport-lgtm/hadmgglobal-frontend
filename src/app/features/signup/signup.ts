@@ -137,7 +137,7 @@ export class Signup implements OnInit {
         refferedCode: this.signupForm.value.refferedCode || ''
       };
 
-      localStorage.setItem('signup', JSON.stringify(payload));
+      sessionStorage.setItem('signup', JSON.stringify(payload));
       this.authService.signup(payload).subscribe({
         next: (res) => {
           if (res.statusCode === 201) {
@@ -146,7 +146,7 @@ export class Signup implements OnInit {
               duration: 3000,
               panelClass: ['success-snackbar']
             });
-            localStorage.setItem('userId', res.data.userId);
+            sessionStorage.setItem('userId', res.data.userId);
             setTimeout(() => this.router.navigate(['/access']), 1000);
           }
         },

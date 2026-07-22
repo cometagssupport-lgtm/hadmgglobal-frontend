@@ -32,7 +32,7 @@ export class Avatar {
 
   ngOnInit() {
     // Optionally pre-select the currently active avatar from local storage or service
-    const currentAvatar = localStorage.getItem('avatarUrl');
+    const currentAvatar = sessionStorage.getItem('avatarUrl');
     if (currentAvatar && this.avatars.includes(currentAvatar)) {
       this.selectedAvatar = currentAvatar;
     }
@@ -47,7 +47,7 @@ export class Avatar {
   }
 
   applyAvatar() {
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
     if (!userId) {
       this.router.navigate(['/access']);
       return;
@@ -65,12 +65,12 @@ export class Avatar {
     // Call API integration to save avatar
     this.authService.avengers(payload).subscribe({
       next: () => {
-        localStorage.setItem('avatarUrl', this.selectedAvatar);
+        sessionStorage.setItem('avatarUrl', this.selectedAvatar);
         this.goBack();
       },
       error: () => {
         // Fallback save and exit
-        localStorage.setItem('avatarUrl', this.selectedAvatar);
+        sessionStorage.setItem('avatarUrl', this.selectedAvatar);
         this.goBack();
       }
     });

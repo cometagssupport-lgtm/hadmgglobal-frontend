@@ -49,9 +49,9 @@ export class EmailConfirmation implements OnInit {
       next: (res) => {
         if (res.success === 200) {
 
-          // Save userId in localStorage (browser only)
+          // Save userId in sessionStorage (browser only)
           if (isPlatformBrowser(this.platformId)) {
-            localStorage.setItem("userId", res.data.userId);
+            sessionStorage.setItem("userId", res.data.userId);
           }
         }
       },

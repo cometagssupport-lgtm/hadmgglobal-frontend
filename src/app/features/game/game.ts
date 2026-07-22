@@ -108,13 +108,13 @@ export class Game implements OnInit {
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      const userId = localStorage.getItem('userId');
+      const userId = sessionStorage.getItem('userId');
       if (userId) {
         this.getGameData(userId);
         this.loadHomeData();
         console.log("this.isGameEnabled", this.isGameEnabled);
       } else {
-        //console.error('❌ No userId found in localStorage');
+        //console.error('❌ No userId found in sessionStorage');
       }
     }
   }
@@ -139,7 +139,7 @@ export class Game implements OnInit {
         const { isFreeTrailSubcraibed, currectLevel, elegibleLevel, activationTime } = res.data;
         this.isGameEnabled = res.data.isGameEnabled;
 
-        localStorage.setItem('activationTime', activationTime ?? null);
+        sessionStorage.setItem('activationTime', activationTime ?? null);
 
         if (this.isGameEnabled == true) {
           this.cards.map((x) => {
@@ -237,8 +237,8 @@ export class Game implements OnInit {
     }
     if (card.buttonText === 'Active Now') {
       setTimeout(() => {
-        const userId = localStorage.getItem('userId');
-        let activationTime: any = localStorage.getItem('activationTime');
+        const userId = sessionStorage.getItem('userId');
+        let activationTime: any = sessionStorage.getItem('activationTime');
 
         if (activationTime && activationTime != null) {
           let currentTime = Date.now();
@@ -268,7 +268,7 @@ export class Game implements OnInit {
   }
 
   purchaseNow(card: GameCard) {
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
     let payload = {
       Level: card.level,
       userId: userId,
@@ -341,9 +341,9 @@ export class Game implements OnInit {
   }
 
   loadHomeData() {
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
     if (!userId) {
-      console.error('No userId found in localStorage');
+      console.error('No userId found in sessionStorage');
       return;
     }
 
@@ -358,7 +358,7 @@ export class Game implements OnInit {
           withdrawalWallet = res.data.totalEarnings;
           this.cdr.detectChanges();
         });
-        localStorage.setItem('earnings', withdrawalWallet);
+        sessionStorage.setItem('earnings', withdrawalWallet);
       },
       error: (err) => {
         console.error('Error fetching home data:', err);

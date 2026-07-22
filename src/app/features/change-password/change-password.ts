@@ -56,7 +56,7 @@ export class ChangePassword implements OnInit {
   }
 
   updatePassword() {
-    let emailToSend = this.urlEmail ?? localStorage.getItem('email');
+    let emailToSend = this.urlEmail ?? sessionStorage.getItem('email');
 
     let payload: any = {
       email: emailToSend,
@@ -112,9 +112,9 @@ export class ChangePassword implements OnInit {
   private safeSetLocalStorage(key: string, value: string): void {
     if (isPlatformBrowser(this.platformId)) {
       try {
-        localStorage.setItem(key, value);
+        sessionStorage.setItem(key, value);
       } catch {
-        console.warn('Unable to access localStorage');
+        console.warn('Unable to access sessionStorage');
       }
     }
   }
