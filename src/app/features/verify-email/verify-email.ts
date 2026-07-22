@@ -27,7 +27,7 @@ export class VerifyEmail implements OnInit {
   }
   onSubmit(){
     console.log("calling")
-    const data = JSON.parse(localStorage.getItem('signup') || '{}');
+    const data = JSON.parse(sessionStorage.getItem('signup') || '{}');
     console.log(data)
     this.authService.signup(data).subscribe({
         next: (res) => {
@@ -36,7 +36,7 @@ export class VerifyEmail implements OnInit {
               duration: 3000,
               panelClass: ['success-snackbar']
             });
-            localStorage.setItem('userId', res.data.userId);
+            sessionStorage.setItem('userId', res.data.userId);
           }
         },
         error: (err) => {

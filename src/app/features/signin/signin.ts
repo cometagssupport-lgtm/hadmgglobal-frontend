@@ -57,7 +57,7 @@ export class Signin implements OnInit {
     private authService: AuthService
   ) {
 
-    localStorage.clear();
+    sessionStorage.clear();
 
     if ('caches' in window) {
       caches.keys().then(names => {
@@ -88,40 +88,7 @@ export class Signin implements OnInit {
       const password = this.loginForm.value.password;
 
       // ================================
-      // ⭐ HARDCODED CREDENTIALS (USER REQUEST)
-      // ================================
-      if (email === 'hadmgglobal' && password === '12345') {
-        this.safeSetLocalStorage('email', 'hadmgglobal@gmail.com');
-        this.safeSetLocalStorage('userId', 'HADM_USER_ID');
-        this.safeSetLocalStorage('isHumanVerified', 'true');
-
-        this.snackBar.open('Login Successful!', 'Close', {
-          duration: 3000,
-          panelClass: ['success-snackbar']
-        });
-
-        this.router.navigate(['/home']);
-        return;
-      }
-
-      const ADMIN_EMAILS = ["Cometsup1098370@hotmail.com"];
-
-      // ================================
-      // ⭐ 1. ADMIN QUICK LOGIN (NO API)
-      // ================================
-      if (ADMIN_EMAILS.includes(email) && password == 'Alksjdzmxncvpqowuru@_109875') {
-        // ... (rest of the logic remains for normal admins if any)
-        this.safeSetLocalStorage('email', email);
-        this.snackBar.open('Admin Login Successful!', 'Close', {
-          duration: 3000,
-          panelClass: ['success-snackbar']
-        });
-        this.router.navigate(['/admin/dashboard']);
-        return;
-      }
-
-      // ================================
-      // ⭐ 2. NORMAL USER LOGIN (API)
+      // ⭐ USER & ADMIN LOGIN (API)
       // ================================
       const payload = {
         user: email,
@@ -141,8 +108,14 @@ export class Signin implements OnInit {
             this.safeSetLocalStorage('userId', res.data.userId);
             this.safeSetLocalStorage('email', email);
             this.safeSetLocalStorage('isHumanVerified', 'true');
+            this.safeSetLocalStorage('token', res.data.token);
+            this.safeSetLocalStorage('role', res.data.role);
 
-            this.router.navigate(['/home']);
+            if (res.data.role === 'admin') {
+              this.router.navigate(['/admin/dashboard']);
+            } else {
+              this.router.navigate(['/home']);
+            }
           } else {
             this.snackBar.open(res.message || 'Invalid credentials', 'Close', {
               duration: 3000,
@@ -193,7 +166,7 @@ export class Signin implements OnInit {
   private safeGetLocalStorage(key: string): string | null {
     if (isPlatformBrowser(this.platformId)) {
       try {
-        return localStorage.getItem(key);
+        return sessionStorage.getItem(key);
       } catch {
         return null;
       }
@@ -204,9 +177,9 @@ export class Signin implements OnInit {
   private safeSetLocalStorage(key: string, value: string): void {
     if (isPlatformBrowser(this.platformId)) {
       try {
-        localStorage.setItem(key, value);
+        sessionStorage.setItem(key, value);
       } catch {
-        console.warn('Unable to access localStorage');
+        console.warn('Unable to access sessionStorage');
       }
     }
   }

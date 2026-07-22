@@ -35,7 +35,7 @@ export class Deposit implements OnInit {
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
-      const userId = localStorage.getItem('userId');
+      const userId = sessionStorage.getItem('userId');
       if (userId) this.loadAvengerAccounts(userId);
     }
   }
@@ -50,7 +50,7 @@ export class Deposit implements OnInit {
           let savedToken = null;
           if (isPlatformBrowser(this.platformId)) {
             try {
-              const tokenStr = localStorage.getItem('selectedToken');
+              const tokenStr = sessionStorage.getItem('selectedToken');
               if (tokenStr) savedToken = JSON.parse(tokenStr);
             } catch (e) {}
           }
@@ -74,7 +74,7 @@ export class Deposit implements OnInit {
   selectNetwork(network: any) {
     this.selectedToken = network;
     if (isPlatformBrowser(this.platformId)) {
-      localStorage.setItem('selectedToken', JSON.stringify(network));
+      sessionStorage.setItem('selectedToken', JSON.stringify(network));
     }
   }
 
@@ -89,7 +89,7 @@ export class Deposit implements OnInit {
   confirmDeposit() {
     if (!this.amount || this.amount < this.minDeposit || !this.selectedToken) return;
 
-    const userId = isPlatformBrowser(this.platformId) ? localStorage.getItem('userId') : null;
+    const userId = isPlatformBrowser(this.platformId) ? sessionStorage.getItem('userId') : null;
     if (!userId) return;
 
     const payload = { userId, amount: this.amount, transactionAccount: this.selectedToken };
@@ -102,7 +102,7 @@ export class Deposit implements OnInit {
             data.qr_code = data.qr_code.replace('tron:', '').replace('ethereum:', '');
           }
           data.amount = this.amount;
-          localStorage.setItem("pay", JSON.stringify(data));
+          sessionStorage.setItem("pay", JSON.stringify(data));
           this.router.navigate(['/billing']);
         } else {
           console.error('Deposit API returns error:', res.message);

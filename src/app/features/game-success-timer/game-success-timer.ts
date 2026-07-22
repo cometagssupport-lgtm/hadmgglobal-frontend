@@ -49,7 +49,7 @@ export class GameSuccessTimer implements OnDestroy, OnInit {
   }
 
   async updateEarningsMessage() {
-    let finalEarnings = await localStorage.getItem('earnings') || 0;
+    let finalEarnings = await sessionStorage.getItem('earnings') || 0;
     this.msg = `Your Core Circulation Strategy Computing Trading activity is now in progress.
               You’ve earned <b>${finalEarnings}</b> points so far.`;
     this.cdr.detectChanges();

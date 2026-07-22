@@ -34,7 +34,7 @@ export class Referral implements OnInit {
   }
 
   loadReferralData() {
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
     if (!userId) return;
 
     this.isLoading = true;

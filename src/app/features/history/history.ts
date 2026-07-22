@@ -51,7 +51,7 @@ export class History implements OnInit {
 
   loadData() {
     if (isPlatformBrowser(this.platformId)) {
-      const userId = localStorage.getItem('userId');
+      const userId = sessionStorage.getItem('userId');
       if (userId) {
         this.fetchTransactionHistory(userId);
       } else {

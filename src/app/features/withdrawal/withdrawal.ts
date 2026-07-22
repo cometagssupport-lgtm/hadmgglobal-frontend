@@ -68,11 +68,11 @@ export class Withdrawal implements OnInit {
     }
     if (isPlatformBrowser(this.platformId)) {
       console.log('🔹 Loading withdrawal data for user');
-      const userId = localStorage.getItem('userId');
+      const userId = sessionStorage.getItem('userId');
       if (userId) {
         this.loadWithdrawalData(userId);
       } else {
-        console.error('No userId found in localStorage');
+        console.error('No userId found in sessionStorage');
       }
     }
   }
@@ -127,7 +127,7 @@ export class Withdrawal implements OnInit {
     }
 
     const userId = isPlatformBrowser(this.platformId)
-      ? localStorage.getItem('userId')
+      ? sessionStorage.getItem('userId')
       : null;
 
     if (!userId) {

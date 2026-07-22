@@ -40,7 +40,7 @@ export class TransactionHistory implements OnInit {
   }
 
   fetchHistory() {
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
     if (!userId) return;
 
     this.authService.avengers({ screen: 'history', userId }).subscribe({

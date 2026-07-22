@@ -31,7 +31,7 @@ export class Position implements OnInit, AfterViewInit {
   isLoading = true;
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
-      const userId = localStorage.getItem('userId');
+      const userId = sessionStorage.getItem('userId');
       if (userId) this.getPositions(userId);
     }
   }

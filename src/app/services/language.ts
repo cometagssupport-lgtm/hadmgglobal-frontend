@@ -10189,7 +10189,7 @@ export class Language {
   private safeGetLocalStorage(key: string): string | null {
     if (isPlatformBrowser(this.platformId)) {
       try {
-        return localStorage.getItem(key);
+        return sessionStorage.getItem(key);
       } catch {
         return null;
       }
@@ -10200,9 +10200,9 @@ export class Language {
   private safeSetLocalStorage(key: string, value: string): void {
     if (isPlatformBrowser(this.platformId)) {
       try {
-        localStorage.setItem(key, value);
+        sessionStorage.setItem(key, value);
       } catch {
-        console.warn('Unable to access localStorage');
+        console.warn('Unable to access sessionStorage');
       }
     }
   }

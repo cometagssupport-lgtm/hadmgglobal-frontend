@@ -56,7 +56,7 @@ export class Transfer implements OnInit {
       console.log("Insufficient funds");
     }
 
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
     if (!userId) return;
     let payload = {
       "userId": userId,

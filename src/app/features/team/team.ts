@@ -37,7 +37,7 @@ export class Team implements OnInit {
 
     // Attempt to fetch real API Response
     if (isPlatformBrowser(this.platformId)) {
-      const userId = localStorage.getItem('userId');
+      const userId = sessionStorage.getItem('userId');
       if (userId) this.fetchTeamData(userId);
     }
   }
